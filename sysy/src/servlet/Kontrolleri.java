@@ -20,7 +20,7 @@ import javax.servlet.http.HttpServletResponse;
 /*Heeeeeiiii
 */
 
-//LISÄÄ KOMMENTTIA SAATANA gitbot test
+//LISÄÄ KOMMENTTIA SAATANA gitbot test2
 
 //KOMMENTTIATESTI
 /*Olen apina isossa maailmassa, vai mitä luulet Oskari?
