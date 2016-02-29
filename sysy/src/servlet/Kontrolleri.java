@@ -8,7 +8,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 //KOMMENTTIATESTI
-/**
+/*Olen apina isossa maailmassa, vai mit‰ luulet Oskari?
+		Onko t‰‰ll‰ el‰m‰‰?
+				Mua pelottaa.
+*//**
  * Servlet implementation class Kontrolleri
  */
 @WebServlet("/Kontrolleri")
