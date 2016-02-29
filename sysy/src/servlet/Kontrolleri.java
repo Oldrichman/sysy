@@ -14,15 +14,7 @@ import javax.servlet.http.HttpServletResponse;
  * Tää gittikommenti höpöhöpö paska alkaa käymään pitkästyttäväks
  */
 
-//Haistakoot oskari paskaa <3
-//LISÄÄ KOMMENTTIA SAATANA 123
-
-/*Heeeeeiiii
-*/
-
-//LISÄÄ KOMMENTTIA SAATANA gitbot test2
-
-//KOMMENTTIATESTI
+// KORJAUS
 /*Olen apina isossa maailmassa, vai mitä luulet Oskari?
 		Onko täällä elämää?
 				Mua pelottaa.
