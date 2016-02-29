@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
  * T‰ss‰ taas lis‰‰ paskaa kirjoitettuna ;D
  */
 
-
+//Haistakoot oskari paskaa <3
 //LISƒƒ KOMMENTTIA SAATANA 123
 
 /*Heeeeeiiii
