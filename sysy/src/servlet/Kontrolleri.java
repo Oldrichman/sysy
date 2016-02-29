@@ -10,6 +10,10 @@ import javax.servlet.http.HttpServletResponse;
  * Tässä taas lisää paskaa kirjoitettuna ;D
  */
 
+/*
+ * Tää gittikommenti höpöhöpö paska alkaa käymään pitkästyttäväks
+ */
+
 //Haistakoot oskari paskaa <3
 //LISÄÄ KOMMENTTIA SAATANA 123
 
