@@ -1,4 +1,4 @@
-package servlet;
+package admin.servlet;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -10,13 +10,9 @@ import javax.servlet.http.HttpServletResponse;
  * T‰ss‰ taas lis‰‰ paskaa kirjoitettuna ;D
  */
 
-//Aleksi testi
+//Branchtest
 
-// KORJAUS
-/*Olen apina isossa maailmassa, vai mit‰ luulet Oskari?
-		Onko t‰‰ll‰ el‰m‰‰?
-				Mua pelottaa.
-*//**
+/**
  * Servlet implementation class Kontrolleri
  */
 //Olen uusi kommentti
