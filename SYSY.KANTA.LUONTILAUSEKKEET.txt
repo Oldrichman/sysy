@@ -1,0 +1,69 @@
+CREATE TABLE Asiakas(
+kayttajatunnus VARCHAR(30) NOT NULL,
+etunimi VARCHAR(20) NOT NULL,
+sukunimi VARCHAR(30) NOT NULL,
+email VARCHAR(30) NOT NULL,
+osoite VARCHAR(30) NOT NULL,
+postinro VARCHAR(5) NOT NULL,
+salasana VARCHAR(30) NOT NULL,
+PRIMARY KEY (kayttajatunnus)
+)ENGINE=InnoDB;
+
+CREATE TABLE Admin(
+kayttajatunnus VARCHAR(30) NOT NULL,
+salasana VARCHAR(30) NOT NULL,
+asiakastunnus VARCHAR(30) NOT NULL,
+PRIMARY KEY (kayttajatunnus), 
+FOREIGN KEY (asiakasTunnus) REFERENCES Asiakas (kayttajatunnus)
+)ENGINE=InnoDB;
+
+CREATE TABLE Tavarantoimittaja(
+nimi VARCHAR(30) NOT NULL,
+email VARCHAR(30) NOT NULL,
+PRIMARY KEY (nimi)
+)ENGINE=InnoDB;
+
+CREATE TABLE Raaka-aine(
+nimi VARCHAR(30) NOT NULL,
+PRIMARY KEY (nimi)
+)ENGINE=InnoDB;
+
+CREATE TABLE Tuote(
+id INT NOT NULL,
+nimi VARCHAR(30) NOT NULL,
+hinta DECIMAL (5,2) NOT NULL,
+taytteet VARCHAR(30) NOT NULL,
+PRIMARY KEY (id), 
+FOREIGN KEY (taytteet) REFERENCES Raaka-aine (nimi)
+)ENGINE=InnoDB;
+
+CREATE TABLE Tilaus(
+tilausnumero VARCHAR(30) NOT NULL,
+asiakastunnus VARCHAR(30) NOT NULL,
+maara INT NOT NULL,
+kokonaissumma DECIMAL(5,2) NOT NULL,
+toimitusaika TIMESTAMP {GMT +2} NOT NULL,
+tuoteID INT NOT NULL,
+toimitustapa VARCHAR(30) NOT NULL,
+PRIMARY KEY (tilausnumero), 
+FOREIGN KEY (tuoteID) REFERENCES Tuote (id)
+)ENGINE=InnoDB;
+
+CREATE TABLE Tuotteentilaus(
+asiakastunnus VARCHAR(30) NOT NULL,
+tilausnumero VARCHAR(30) NOT NULL,
+PRIMARY KEY (asiakastunnus, tilausnumero) 
+FOREIGN KEY (asiakastunnus) REFERENCES Asiakas (kayttajatunnus),
+FOREIGN KEY (tilausnumero) REFERENCES Tilaus (tilausnumero)
+)ENGINE=InnoDB;
+
+CREATE TABLE Tilaushistoria(
+tilausnumero VARCHAR(30) NOT NULL,
+toimitusaika TIMESTAMP {GMT +2} NOT NULL,
+kayttajatunnus VARCHAR(30) NOT NULL,
+PRIMARY KEY (tilausnumero, adminTunnus) 
+FOREIGN KEY (tilausnumero) REFERENCES Tilaus (tilausnumero),
+FOREIGN KEY (adminTunnus) REFERENCES Admin (kayttajatunnus)
+)ENGINE=InnoDB;
+
+
