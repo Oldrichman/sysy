@@ -10,9 +10,7 @@ import javax.servlet.http.HttpServletResponse;
  * Tässä taas lisää paskaa kirjoitettuna ;D
  */
 
-/*
- * Tää gittikommenti höpöhöpö paska alkaa käymään pitkästyttäväks
- */
+//Aleksi testi
 
 // KORJAUS
 /*Olen apina isossa maailmassa, vai mitä luulet Oskari?
