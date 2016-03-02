@@ -6,21 +6,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-/*
- * Tässä taas lisää paskaa kirjoitettuna ;D
- */
 
-//Aleksi testi
+//KORJAUSTESTI
 
-// KORJAUS
-/*Olen apina isossa maailmassa, vai mitä luulet Oskari?
-		Onko täällä elämää?
-				Mua pelottaa.
-*//**
- * Servlet implementation class Kontrolleri
- */
-//Olen uusi kommentti
-//TULEEKO TÄMÄ ESIIN TESTISSÄ!!!!! BRAMNCHA BRANCH BRANCH!!!
 @WebServlet("/Kontrolleri")
 public class Kontrolleri extends HttpServlet {
 	private static final long serialVersionUID = 1L;
