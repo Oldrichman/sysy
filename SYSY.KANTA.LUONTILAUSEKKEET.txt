@@ -23,7 +23,7 @@ email VARCHAR(30) NOT NULL,
 PRIMARY KEY (nimi)
 )ENGINE=InnoDB;
 
-CREATE TABLE Raaka-aine(
+CREATE TABLE Raaka_aine(
 nimi VARCHAR(30) NOT NULL,
 PRIMARY KEY (nimi)
 )ENGINE=InnoDB;
@@ -34,7 +34,7 @@ nimi VARCHAR(30) NOT NULL,
 hinta DECIMAL (5,2) NOT NULL,
 taytteet VARCHAR(30) NOT NULL,
 PRIMARY KEY (id), 
-FOREIGN KEY (taytteet) REFERENCES Raaka-aine (nimi)
+FOREIGN KEY (taytteet) REFERENCES Raaka_aine (nimi)
 )ENGINE=InnoDB;
 
 CREATE TABLE Tilaus(
@@ -42,7 +42,7 @@ tilausnumero VARCHAR(30) NOT NULL,
 asiakastunnus VARCHAR(30) NOT NULL,
 maara INT NOT NULL,
 kokonaissumma DECIMAL(5,2) NOT NULL,
-toimitusaika TIMESTAMP {GMT +2} NOT NULL,
+toimitusaika DATETIME NOT NULL,
 tuoteID INT NOT NULL,
 toimitustapa VARCHAR(30) NOT NULL,
 PRIMARY KEY (tilausnumero), 
@@ -52,16 +52,17 @@ FOREIGN KEY (tuoteID) REFERENCES Tuote (id)
 CREATE TABLE Tuotteentilaus(
 asiakastunnus VARCHAR(30) NOT NULL,
 tilausnumero VARCHAR(30) NOT NULL,
-PRIMARY KEY (asiakastunnus, tilausnumero) 
+PRIMARY KEY (asiakastunnus, tilausnumero), 
 FOREIGN KEY (asiakastunnus) REFERENCES Asiakas (kayttajatunnus),
 FOREIGN KEY (tilausnumero) REFERENCES Tilaus (tilausnumero)
 )ENGINE=InnoDB;
 
 CREATE TABLE Tilaushistoria(
 tilausnumero VARCHAR(30) NOT NULL,
-toimitusaika TIMESTAMP {GMT +2} NOT NULL,
+toimitusaika DATETIME NOT NULL,
 kayttajatunnus VARCHAR(30) NOT NULL,
-PRIMARY KEY (tilausnumero, adminTunnus) 
+adminTunnus VARCHAR(30) NOT NULL,
+PRIMARY KEY (tilausnumero, adminTunnus), 
 FOREIGN KEY (tilausnumero) REFERENCES Tilaus (tilausnumero),
 FOREIGN KEY (adminTunnus) REFERENCES Admin (kayttajatunnus)
 )ENGINE=InnoDB;
