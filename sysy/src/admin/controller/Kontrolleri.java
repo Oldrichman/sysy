@@ -1,4 +1,4 @@
-package admin.kontrolleri;
+package admin.controller;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -7,9 +7,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-//KORJAUSTESTI
 
-@WebServlet("/Kontrolleri")
+@WebServlet("/controller")
 public class Kontrolleri extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
