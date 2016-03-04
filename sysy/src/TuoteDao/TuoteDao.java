@@ -42,7 +42,6 @@ public class TuoteDao {
 		try {
 			yhteys.close();
 		} catch (SQLException e) {
-			
 			e.printStackTrace();
 		}
 	}
