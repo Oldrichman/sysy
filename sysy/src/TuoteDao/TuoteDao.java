@@ -67,7 +67,7 @@ public class TuoteDao {
 
 				/*
 				 * //lis‰t‰‰n tuote listaan Tuote t = new Tuote(id, nimi,
-				 * hinta); pizza.add(p); }
+				 * hinta); tuote.add(t); }
 				 */
 
 			}
