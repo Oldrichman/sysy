@@ -48,10 +48,10 @@ public class Kontrolleri extends HttpServlet {
 		
 			
 			//jsp hoitaa muotoilun
-			request.getRequestDispatcher("").forward(request, response);
+			request.getRequestDispatcher("kotisivu.jsp").forward(request, response);
 			
 			request.setAttribute("", lista);
-			request.getRequestDispatcher("").forward(request, response);
+			request.getRequestDispatcher("kotisivu.jsp").forward(request, response);
 			wout.close();
 			
 	}
