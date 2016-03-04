@@ -14,7 +14,7 @@ public class TuoteDao {
 
 	private Connection yhteys = null;
 	
-	public void AvaaYhteys() {
+	public void avaaYhteys() {
 		// TIETOKANTAHAKU
 	
 		String username = "";
