@@ -21,7 +21,7 @@
 <meta name="author" content="">
 <link rel="icon" href="/favicon.ico">
 
-<title>Starter Template for Bootstrap</title>
+<title>Pizzeria Fiore</title>
 
 <!-- Bootstrap core CSS -->
 <style type="text/css">
@@ -30,7 +30,7 @@
 
 <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 <link href="bootstrap/docs/assets/css/ie10-viewport-bug-workaround.css"
-	rel="stylesheet">
+	rel="stylesheet" type="text/css">
 
 <!-- Custom styles for this template -->
 <link href="starter-template.css" rel="stylesheet" type="text/css">
@@ -55,9 +55,10 @@
 			</div>
 			<div id="navbar" class="collapse navbar-collapse">
 				<ul class="nav navbar-nav">
-					<li class="active"><a href="#">Etusivu</a></li>
-					<li><a href="#about">Tietoa meistä</a></li>
-					<li><a href="#contact">Contact</a></li>
+					<li class="active"><a href="kotisivu.jsp">Etusivu</a></li>
+					<li><a href="">Tuote</a></li>
+					<li><a href="admin.jsp">Kirjaudu</a></li>
+					<li><a href="">Pizzat</a></li>
 				</ul>
 			</div>
 			<!--/.nav-collapse -->
@@ -86,6 +87,10 @@
 	</script>
 	<script src="../../dist/js/bootstrap.min.js"></script>
 	<script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<!-- Latest compiled JavaScript -->
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
 </body>
 <!-- END OF BODY -->
