@@ -14,7 +14,7 @@ import TuoteDao.TuoteDao;
 import admin.bean.Tuote;
 
 
-@WebServlet("/etusivu")
+@WebServlet("/kontrolleri")
 public class Kontrolleri extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

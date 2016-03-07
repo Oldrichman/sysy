@@ -32,7 +32,7 @@ public class KirjauduAdmin {
 			System.out.println("V‰‰r‰ k‰ytt‰j‰tunnus");
 		}
 	}
-}
+
 
 protected void doPost(HttpServletRequest request,
 		HttpServletResponse response) throws ServletException, IOException {
