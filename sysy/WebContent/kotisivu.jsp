@@ -56,7 +56,7 @@
 			<div id="navbar" class="collapse navbar-collapse">
 				<ul class="nav navbar-nav">
 					<li class="active"><a href="kotisivu.jsp">Etusivu</a></li>
-					<li><a href="">Tuote</a></li>
+					<li><a href="tuote.jsp">Tuote</a></li>
 					<li><a href="adminkirjautuminen.jsp">Kirjaudu</a></li>
 					<li><a href="#">Pizzat</a></li>
 				</ul>
@@ -80,8 +80,7 @@
 	</div>
 	<!-- /.container -->
 
-	<script
-		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	
 	<script>window.jQuery|| document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')
 	</script>
 	<script src="../../dist/js/bootstrap.min.js"></script>

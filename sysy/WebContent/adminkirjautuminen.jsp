@@ -36,12 +36,13 @@
 </head>
 <body>
 
-	<div class="container">
+	<div class="container" style="width:300px; margin-top:100px ">
 
 		<form class="form-signin">
-			<h2 class="form-signin-heading">Kirjaudu sisään</h2>
+		
+			<h3 class="form-signin-heading" style="text-align:center">Admin</h3>
 			<label for="inputEmail" class="sr-only">Tunnus</label> <input
-				type="email" id="inputEmail" class="form-control"
+				type="text" id="username" class="form-control"
 				placeholder="Tunnus" required autofocus> <label
 				for="inputPassword" class="sr-only">Salasana</label> <input
 				type="password" id="inputPassword" class="form-control"
