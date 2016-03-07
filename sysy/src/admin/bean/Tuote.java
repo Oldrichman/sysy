@@ -3,19 +3,21 @@ package admin.bean;
 public class Tuote {
 	
 	private int id;
-	private String nimi;
+	private String nimi, taytteet;
 	private double hinta;
 	
 	public Tuote() {
 		id = 0;
 		nimi = null;
 		hinta = 0;
+		taytteet = null;
 	}
 	
-	public Tuote(int id, String nimi, double hinta) {
+	public Tuote(int id, String nimi, double hinta, String taytteet) {
 		this.id = id;
 		this.nimi = nimi;
 		this.hinta = hinta;
+		this.taytteet = taytteet;
 	}
 
 	public int getId() {
@@ -40,6 +42,14 @@ public class Tuote {
 
 	public void setHinta(double hinta) {
 		this.hinta = hinta;
+	}
+
+	public String getTaytteet() {
+		return taytteet;
+	}
+
+	public void setTaytteet(String taytteet) {
+		this.taytteet = taytteet;
 	}
 	
 }
