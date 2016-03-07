@@ -75,6 +75,31 @@
 			<p class="lead">
 				Testibootstrap.
 			</p>
+			<table border=1 frame=void rules=rows>
+
+			<c:forEach items="${tuotteet}" var="p">
+				<tr>
+					<form action="kontrolleri" method="post">
+						<td><c:out value="${p.id}" /> <input type="hidden"
+							value="${p.id}" name="id"> <a
+							href="kontrolleri?toiminto=tuotteet&nimi=<c:out value="${p.nimi}" />"><c:out
+									value="${p.nimi} " /> </a></td>
+						<td><c:out value="Täytteet: " /> <c:out
+								value="${p.taytteet} " /></td>
+
+
+						<td><c:out value=" Hinta: " /> <fmt:formatNumber
+								type="currency" currencySymbol="e" value="${p.hinta}" /></td>
+
+						
+
+					</form>
+				</tr>
+			</c:forEach>
+
+
+
+		</table>
 		</div>
 
 	</div>
