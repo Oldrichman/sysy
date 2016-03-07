@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import TuoteDao.TuoteDao;
-import RaakaaineDao.RaakaAineDAO;
+import RaakaAineDAO.RaakaAineDAO;
 import admin.bean.RaakaAineet;
 import admin.bean.Tuote;
 
