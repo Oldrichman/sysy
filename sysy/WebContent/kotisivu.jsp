@@ -57,8 +57,8 @@
 				<ul class="nav navbar-nav">
 					<li class="active"><a href="kotisivu.jsp">Etusivu</a></li>
 					<li><a href="">Tuote</a></li>
-					<li><a href="admin.jsp">Kirjaudu</a></li>
-					<li><a href="">Pizzat</a></li>
+					<li><a href="adminkirjautuminen.jsp">Kirjaudu</a></li>
+					<li><a href="#">Pizzat</a></li>
 				</ul>
 			</div>
 			<!--/.nav-collapse -->
@@ -73,8 +73,7 @@
 			<br>
 			<h1>Pizzeria Fiore</h1>
 			<p class="lead">
-				Use this document as a way to quickly start any new project.<br>
-				All you get is this text and a mostly barebones HTML document.
+				Testibootstrap.
 			</p>
 		</div>
 
