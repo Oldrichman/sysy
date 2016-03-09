@@ -61,7 +61,7 @@ public class Kontrolleri extends HttpServlet {
 		request.setAttribute("tuotteet", lista);
 		request.setAttribute("RaakaAineet", lista1);
 		// jsp hoitaa muotoilun
-		request.getRequestDispatcher("tuote.jsp").forward(request, response);
+		request.getRequestDispatcher("admin.jsp").forward(request, response);
 		
 
 	}

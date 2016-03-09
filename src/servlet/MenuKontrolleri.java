@@ -18,14 +18,14 @@ import admin.Tuote;
 /**
  * Servlet implementation class EtusivuKontrolleri
  */
-@WebServlet("/EtusivuKontrolleri")
-public class EtusivuKontrolleri extends HttpServlet {
+@WebServlet("/MenuKontrolleri")
+public class MenuKontrolleri extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public EtusivuKontrolleri() {
+    public MenuKontrolleri() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -118,7 +118,7 @@ public class EtusivuKontrolleri extends HttpServlet {
 				throw new ServletException(e);
 				
 			}
-			response.sendRedirect("etusivukontrolleri");
+			response.sendRedirect("menukontrolleri");
 		}
 
 		else {
