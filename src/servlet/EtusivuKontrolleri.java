@@ -15,18 +15,25 @@ import DAO.TuoteDao;
 import admin.RaakaAineet;
 import admin.Tuote;
 
-@WebServlet("/kontrolleri")
-public class Kontrolleri extends HttpServlet {
+/**
+ * Servlet implementation class EtusivuKontrolleri
+ */
+@WebServlet("/EtusivuKontrolleri")
+public class EtusivuKontrolleri extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public EtusivuKontrolleri() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
 
 	/**
-	 * @see HttpServlet#HttpServlet()
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	public Kontrolleri() {
-		
-	}
-	
-	protected void doGet(HttpServletRequest request,
+    protected void doGet(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html");
 		java.io.PrintWriter wout = response.getWriter();
@@ -61,12 +68,16 @@ public class Kontrolleri extends HttpServlet {
 		request.setAttribute("tuotteet", lista);
 		request.setAttribute("RaakaAineet", lista1);
 		// jsp hoitaa muotoilun
-		request.getRequestDispatcher("tuote.jsp").forward(request, response);
+		request.getRequestDispatcher("kotisivu.jsp").forward(request, response);
 		
 
 	}
+	
 
-	protected void doPost(HttpServletRequest request,
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+    protected void doPost(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html");
 
@@ -107,7 +118,7 @@ public class Kontrolleri extends HttpServlet {
 				throw new ServletException(e);
 				
 			}
-			response.sendRedirect("kontrolleri");
+			response.sendRedirect("etusivukontrolleri");
 		}
 
 		else {
@@ -124,30 +135,6 @@ public class Kontrolleri extends HttpServlet {
 				throw new ServletException(e);
 			}
 			
-			
-//			RaakaAineet RA = new RaakaAineet(Nimi);
-			/* System.out.println("<b>" + RA.getNimi() + "</b>"); */
-			/*
-			 * RaakaAineet r1 = new RaakaAineet(Nimi); RaakaAineDAO RADao = new
-			 * RaakaAineDAO();
-			 */
-			// RADao.avaaYhteys();
-			// RADao.lisaaRaakaAine(r1);
-			// RADao.suljeYhteys();
-			
-			
-			
-			// RaakaAineDAO RADao = new RaakaAineDAO();
-			// String poistettavaNimi = (request.getParameter("nimi"));
-
-			// RADao.avaaYhteys();
-			// RADao.poistaRaakaAine(poistettavaNimi);
-			// RADao.suljeYhteys();
-			// } catch (Exception e) {
-			// throw new ServletException(e);
-			//
-			// }
-
-		}
 	}
+    }
 }
