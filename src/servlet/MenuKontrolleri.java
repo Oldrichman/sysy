@@ -16,7 +16,7 @@ import admin.RaakaAineet;
 import admin.Tuote;
 
 /**
- * Servlet implementation class EtusivuKontrolleri
+ * Servlet implementation class MenuKontrolleri
  */
 @WebServlet("/MenuKontrolleri")
 public class MenuKontrolleri extends HttpServlet {
@@ -68,7 +68,7 @@ public class MenuKontrolleri extends HttpServlet {
 		request.setAttribute("tuotteet", lista);
 		request.setAttribute("RaakaAineet", lista1);
 		// jsp hoitaa muotoilun
-		request.getRequestDispatcher("kotisivu.jsp").forward(request, response);
+		request.getRequestDispatcher("menu.jsp").forward(request, response);
 		
 
 	}
