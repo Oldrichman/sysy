@@ -1,4 +1,4 @@
-package admin.password;
+/*package password;
 
 import java.io.IOException;
 import java.util.Scanner;
@@ -89,4 +89,4 @@ protected void doPost(HttpServletRequest request,
 
 	}
 }
-}
+}*/

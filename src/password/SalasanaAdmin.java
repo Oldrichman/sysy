@@ -1,4 +1,6 @@
-package admin.password;
+package password;
+
+
 
 import java.util.Scanner;
 

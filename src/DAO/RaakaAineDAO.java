@@ -1,4 +1,4 @@
-package TuoteDao;
+package DAO;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -8,9 +8,9 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
-import admin.bean.Tuote;
+import admin.RaakaAineet;
 
-public class TuoteDao {
+public class RaakaAineDAO {
 
 	private Connection yhteys = null;
 
@@ -48,26 +48,24 @@ public class TuoteDao {
 		}
 	}
 
-	public ArrayList<Tuote> haeTuotteet() {
+	public ArrayList<RaakaAineet> haeRaakaAineet() {
 
-		ArrayList<Tuote> tuotteet = new ArrayList<Tuote>();
+		ArrayList<RaakaAineet> raakaAineet = new ArrayList<>();
 
 		try {
 
 			// suoritetaan haku
-			String sql = "select * from Tuote";
+			String sql = "select * from Raaka_aine";
 			Statement haku = yhteys.createStatement();
 			ResultSet resultset = haku.executeQuery(sql);
 
 			// käydään hakutulokset läpi
 			while (resultset.next()) {
-				Tuote tuote = new Tuote();
-				tuote.setId(resultset.getInt("id"));
-				tuote.setNimi(resultset.getString("nimi"));
-				tuote.setHinta(resultset.getDouble("hinta"));
-				tuote.setTaytteet(resultset.getString("taytteet"));
+				RaakaAineet raakaAine = new RaakaAineet();
 
-				tuotteet.add(tuote);
+				raakaAine.setNimi(resultset.getString("nimi"));
+
+				raakaAineet.add(raakaAine);
 			}
 
 		} catch (Exception e) {
@@ -77,13 +75,13 @@ public class TuoteDao {
 
 		}
 
-		System.out.println("HAETTIIN TIETOKANNASTA TUOTTEET: "
-				+ tuotteet.toString());
+		System.out.println("HAETTIIN TIETOKANNASTA PIZZAT: "
+				+ raakaAineet.toString());
 
-		return tuotteet;
+		return raakaAineet;
 	}
 
-	public void lisaaTuote(Tuote t) {
+	public void lisaaRaakaAine(RaakaAineet RA) {
 
 		try {
 
@@ -91,39 +89,39 @@ public class TuoteDao {
 
 			// alustetaan sql-lause
 
-			String sql = "insert into Tuote(id, nimi, hinta, taytteet) values(?,?,?,?)";
+			String sql = "insert into Raaka_aine(nimi) values(?)";
 
 			PreparedStatement resultset = yhteys.prepareStatement(sql);
 
 			// täytetään puuttuvat tiedot
-			resultset.setInt(1, t.getId());
-			resultset.setString(2, t.getNimi());
-			resultset.setDouble(3, t.getHinta());
-			resultset.setString(4, t.getTaytteet());
-		
+
+			resultset.setString(2, RA.getNimi());
 
 			// suoritetaan lause
 			resultset.executeUpdate();
-			System.out.println("LISÄTTIIN TUOTE TIETOKANTAAN: " + t);
+			System.out.println("LISÄTTIIN RAAKA-AINE TIETOKANTAAN: " + RA);
 		} catch (Exception e) {
 			// JOTAIN VIRHETTÄ TAPAHTUI
-			System.out.println("Tuotteen lisäämisyritys aiheutti virheen");
+			System.out.println("Raaka-aineen lisäämisyritys aiheutti virheen");
 			System.out.println(e);
 		} finally {
 		}
 
 	}
 
-	public void poistaTuote(int id) {
+	public void poistaRaakaAine(String nimi) {
 		try {
 
-			String sql = "DELETE FROM Tuote WHERE id = ?";
+			String sql = "DELETE FROM Raaka_aine WHERE nimi = ?";
 			PreparedStatement st = yhteys.prepareStatement(sql);
 
-			st.setInt(1, id);
+			st.setString( 0, nimi);
 			st.executeUpdate();
 
 		} catch (Exception e) {
 			System.out.println(e);
 		}
-	}}
+	}
+
+}
+

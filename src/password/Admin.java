@@ -1,4 +1,4 @@
-package admin.password;
+package password;
 
 public class Admin {
 	

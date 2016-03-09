@@ -1,4 +1,4 @@
-package admin.bean;
+package admin;
 
 public class Tuote {
 	
