@@ -95,7 +95,7 @@ public class RaakaAineDAO {
 
 			// t‰ytet‰‰n puuttuvat tiedot
 
-			resultset.setString(2, RA.getNimi());
+			resultset.setString(1, RA.getNimi());
 
 			// suoritetaan lause
 			resultset.executeUpdate();

@@ -112,7 +112,12 @@ public class Kontrolleri extends HttpServlet {
 
 		else {
 			TuoteDao tDao = new TuoteDao();
-			int poistettavaid = Integer.parseInt(request.getParameter("id"));
+			int poistettavaid = 0;
+			try {
+			poistettavaid = Integer.parseInt(request.getParameter("id"));
+			} catch (Exception ex) {
+				System.out.println(ex);
+			}
 
 			System.out.println("ID: " + poistettavaid);
 
@@ -125,29 +130,47 @@ public class Kontrolleri extends HttpServlet {
 			}
 			
 			
-//			RaakaAineet RA = new RaakaAineet(Nimi);
-			/* System.out.println("<b>" + RA.getNimi() + "</b>"); */
-			/*
-			 * RaakaAineet r1 = new RaakaAineet(Nimi); RaakaAineDAO RADao = new
-			 * RaakaAineDAO();
-			 */
-			// RADao.avaaYhteys();
-			// RADao.lisaaRaakaAine(r1);
-			// RADao.suljeYhteys();
 			
-			
-			
-			// RaakaAineDAO RADao = new RaakaAineDAO();
-			// String poistettavaNimi = (request.getParameter("nimi"));
+			if (request.getParameter("nimi") != null
+					) {
+				String Nimi = request.getParameter("nimi");
+				RaakaAineet RA = new RaakaAineet(Nimi);
+				
 
-			// RADao.avaaYhteys();
-			// RADao.poistaRaakaAine(poistettavaNimi);
-			// RADao.suljeYhteys();
-			// } catch (Exception e) {
-			// throw new ServletException(e);
-			//
-			// }
+				System.out.println("<p>");
+				System.out.println("<b>" + RA.getNimi() + "</b>");
+				
+				System.out.println("<br/>");
+			
+			
+			 RaakaAineet r1 = new RaakaAineet(Nimi);
+			 RaakaAineDAO RADao = new RaakaAineDAO();
+			 
+			 try {
+			 RADao.avaaYhteys();
+			 RADao.lisaaRaakaAine(r1);
+			 RADao.suljeYhteys();
+			 } catch (Exception e) {
+					throw new ServletException(e);
+					
+				}
+			 response.sendRedirect("kontrolleri");
+			}
+			
+			 else {
+			 RaakaAineDAO RADao = new RaakaAineDAO();
+			 String poistettavaNimi = (request.getParameter("nimi"));
 
-		}
+			 System.out.println("NIMI: " + poistettavaNimi);
+			 
+			 try {
+			 RADao.avaaYhteys();
+			 RADao.poistaRaakaAine(poistettavaNimi);
+			 RADao.suljeYhteys();
+			 } catch (Exception e) {
+			 throw new ServletException(e);
+			
+			 }
+
 	}
-}
+}}}
