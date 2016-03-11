@@ -36,9 +36,10 @@
 </head>
 <body>
 
-	<div class="container" style="width:300px; margin-top:100px ">
+	<div class="container" style="width:300px; margin-top:100px; text-align:center; ">
 
-		<form class="form-signin">
+<!-- Tähän syötetään parametrit kirjautumista varten, jotka otetaan kirjautumisservletistä -->
+		<form class="form-signin" method="post" action="SYÖTÄSERVLETINNIMITÄHÄN">
 		
 			<h3 class="form-signin-heading" style="text-align:center">Admin</h3>
 			<label for="inputEmail" class="sr-only">Tunnus</label> <input
