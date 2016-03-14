@@ -73,14 +73,14 @@ public class Kontrolleri extends HttpServlet {
 
 		if (request.getParameter("nimi") != null
 				&& request.getParameter("hinta") != null) {
-			String id = request.getParameter("id");
-			int id1 = Integer.parseInt(id);
+			
+			
 			String Nimi = request.getParameter("nimi");
 			String Hinta = request.getParameter("hinta");
 			String taytteet = request.getParameter("taytteet");
 			String poisto = request.getParameter("poisto");
 			double Hinta1 = Double.parseDouble(Hinta);
-			Tuote tuote = new Tuote(id1, Nimi, Hinta1, taytteet ,poisto);
+			Tuote tuote = new Tuote(0, Nimi, Hinta1, taytteet ,poisto);
 			DecimalFormat formaatteri = new DecimalFormat("0.00");
 
 			System.out.println("<p>");
@@ -93,7 +93,7 @@ public class Kontrolleri extends HttpServlet {
 
 			System.out.println("</p>");
 
-			Tuote t = new Tuote(id1, Nimi, Hinta1, taytteet, poisto);
+			Tuote t = new Tuote(0, Nimi, Hinta1, taytteet, poisto);
 			TuoteDao tDao = new TuoteDao();
 
 			try {
@@ -124,8 +124,29 @@ public class Kontrolleri extends HttpServlet {
 				throw new ServletException(e);
 
 			}
+			
 			response.sendRedirect("kontrolleri");
-			return;
+			return;}
+			
+			else if (request.getParameter("nimi") != null
+					&& request.getParameter("action").equals("Tuo täyte")) {
+
+				RaakaAineDAO RADao = new RaakaAineDAO();
+				String TuoNimi = (request.getParameter("nimi"));
+
+				System.out.println("NIMI: " + TuoNimi);
+
+				try {
+					RADao.avaaYhteys();
+					RADao.TuoRaakaAine(TuoNimi);
+					RADao.suljeYhteys();
+				} catch (Exception e) {
+					throw new ServletException(e);
+
+				}
+				
+				response.sendRedirect("kontrolleri");
+				return;
 			
 		} else if (request.getParameter("pois") != null
 				&& request.getParameter("action").equals("Poista")) {
@@ -148,7 +169,8 @@ public class Kontrolleri extends HttpServlet {
 
 		} else if (request.getParameter("lisaa") != null) {
 			String Nimi = request.getParameter("lisaa");
-			RaakaAineet RA = new RaakaAineet(Nimi);
+			String Poisto = request.getParameter("poisto");
+			RaakaAineet RA = new RaakaAineet(Nimi, Poisto);
 	
 			
 			System.out.println("Täytteen nimi: " + Nimi);
@@ -184,6 +206,32 @@ public class Kontrolleri extends HttpServlet {
 			try {
 				TDao.avaaYhteys();
 				TDao.piilotaTuote(PiilotaTuote);
+				TDao.suljeYhteys();
+			} catch (Exception e) {
+				throw new ServletException(e);
+
+			}
+			response.sendRedirect("kontrolleri");
+			return;
+			}
+		
+		else if (request.getParameter("id") != null
+				&& request.getParameter("action").equals("Tuo menuun")) {
+
+			TuoteDao TDao = new TuoteDao();
+			int TuoTuote = 0;
+
+	
+			try {
+				TuoTuote = Integer.parseInt(request.getParameter("id"));
+			} catch (Exception ex) {
+				System.out.println(ex);
+			}
+
+			System.out.println("ID: " + TuoTuote);
+			try {
+				TDao.avaaYhteys();
+				TDao.TuoTuote(TuoTuote);
 				TDao.suljeYhteys();
 			} catch (Exception e) {
 				throw new ServletException(e);

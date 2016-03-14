@@ -174,5 +174,17 @@ public class TuoteDao {
 
 			} catch (Exception e) {
 				System.out.println(e);
-			}
+			}}
+			public void TuoTuote(int id) {
+				try {
+
+					String sql = "UPDATE Tuote SET poisto = null WHERE id = ?";
+					PreparedStatement st = yhteys.prepareStatement(sql);
+
+					st.setInt(1, id);
+					st.executeUpdate();
+
+				} catch (Exception e) {
+					System.out.println(e);
+				}
 	}}

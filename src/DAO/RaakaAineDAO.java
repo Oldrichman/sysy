@@ -64,7 +64,7 @@ public class RaakaAineDAO {
 				RaakaAineet raakaAine = new RaakaAineet();
 
 				raakaAine.setNimi(resultset.getString("nimi"));
-
+				raakaAine.setPoisto(resultset.getString("poisto"));
 				raakaAineet.add(raakaAine);
 			}
 
@@ -132,9 +132,23 @@ public class RaakaAineDAO {
 				st.executeUpdate();
 
 			} catch (Exception e) {
-				System.out.println(e);
+				System.out.println(e);}
 			}
-	}
+			public void TuoRaakaAine(String nimi) {
+				try {
+
+					String sql = "UPDATE Raaka_aine SET poisto = null WHERE nimi = ?";
+					PreparedStatement st = yhteys.prepareStatement(sql);
+
+					st.setString(1, nimi);
+					st.executeUpdate();
+
+				} catch (Exception e) {
+					System.out.println(e);
+				}
+		
+		}
+		
 
 }
 

@@ -85,6 +85,7 @@ public class MenuKontrolleri extends HttpServlet {
 
 		if (request.getParameter("nimi") != null
 				&& request.getParameter("hinta") != null) {
+		
 			String id = request.getParameter("id");
 			int id1 = Integer.parseInt(id);
 			String Nimi = request.getParameter("nimi");

@@ -73,7 +73,7 @@
 					<c:forEach items="${tuotteet}" var="p">
 						<tr>
 <form action="kontrolleri" method="post">
-<td><c:out value="${p.id}" /> <input type="hidden"
+<td> <input type="hidden"
 value="${p.id}" name="id"> <a
 href="kontrolleri?toiminto=tuotteet&nimi=<c:out value="${p.nimi}" />"><c:out
 value="${p.nimi} " /> </a></td>
@@ -86,10 +86,14 @@ value="${p.poisto} " /></td>
 <td>
 								<td>
 									<%
-out.println("<INPUT type=\"submit\" name=\"action\" value=\"Muokkaa\">");
+out.println("<INPUT type=\"submit\" name=\"action\" value=\"Poista\">");
 								%> <%
  out.println("<INPUT type=\"submit\" name=\"action\" value=\"Piilota menusta\">");
  %>
+ <%
+ out.println("<INPUT type=\"submit\" name=\"action\" value=\"Tuo menuun\">");
+ %>
+ 
 								</td>
 
 							</form>
@@ -115,14 +119,20 @@ out.println("<INPUT type=\"submit\" name=\"action\" value=\"Muokkaa\">");
 									value="${r.nimi}" name="pois"> <a
 									href="kontrolleri?toiminto=RA&nimi=<c:out value="${r.nimi}" />">
 								</a>
+								<td> 
+								<td><c:out value="Piilotettu: " /> <c:out
+											value="${r.poisto} " /></td>
 								<td>
 									 <%
 								out.println("<INPUT type=\"submit\" name=\"action\"  value=\"Poista\">");
 							%>  <%
 									out.println("<INPUT type=\"submit\" name=\"action\" value=\"Piilota\">");
 								%>
+								<%
+									out.println("<INPUT type=\"submit\" name=\"action\" value=\"Tuo täyte\">");
+								%>
 								</td>
-
+							
 							</form>
 						</tr>
 					</c:forEach>
@@ -133,13 +143,21 @@ out.println("<INPUT type=\"submit\" name=\"action\" value=\"Muokkaa\">");
 				<br> <br> <br>
 
 				<form action="kontrolleri" method="post">
+				
 					<fieldset>
 						<legend>Lisää pizza:</legend>
-						Id: <br> <input type="text" name="id"><br> Nimi:<br>
+						 Nimi:<br>
 						<input type="text" name="nimi"><br> Hinta:<br> <input
-							type="text" name="hinta"><br> Täytteet (erottele
-						pilkulla):<br> <input type="text" name="taytteet"><br>
-						<br> <input type="submit" value="Lisää"><br> <br>
+							type="text" name="hinta"><br>
+							 Täytteet:
+							 <c:forEach items="${RaakaAineet}" var="r"><br>
+							  <input type="checkbox" name="taytteet" value="${r.nimi}">
+						 <c:out value="${r.nimi}" />
+						 
+						</c:forEach>
+						<br><br>
+					
+						<input type="submit" value="Lisää"><br>
 						<c:if test="${not empty param.added}">Uuden pizzan lisääminen onnistui!</c:if>
 					</fieldset>
 

@@ -1,9 +1,12 @@
 package admin;
 
+import java.util.List;
+
 public class Tuote {
 	
 	private int id;
-	private String nimi, taytteet;
+	private String nimi;
+	String taytteet;
 	private double hinta;
 	private String poisto;
 	
@@ -60,8 +63,10 @@ public class Tuote {
 		return taytteet;
 	}
 
-	public void setTaytteet(String taytteet) {
-		this.taytteet = taytteet;
+	public void setTaytteet(String string) {
+		this.taytteet = string;
 	}
+
+	
 	
 }
