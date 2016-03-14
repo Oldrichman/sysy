@@ -55,7 +55,7 @@ public class TuoteDao {
 		try {
 
 			// suoritetaan haku
-			String sql = "select * from Tuote ";
+			String sql = "select * from Tuote ORDER BY nimi ";
 			Statement haku = yhteys.createStatement();
 			ResultSet resultset = haku.executeQuery(sql);
 
@@ -66,6 +66,7 @@ public class TuoteDao {
 				tuote.setNimi(resultset.getString("nimi"));
 				tuote.setHinta(resultset.getDouble("hinta"));
 				tuote.setTaytteet(resultset.getString("taytteet"));
+				tuote.setPoisto(resultset.getString("poisto"));
 
 				tuotteet.add(tuote);
 			}

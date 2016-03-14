@@ -55,7 +55,7 @@ public class RaakaAineDAO {
 		try {
 
 			// suoritetaan haku
-			String sql = "select * from Raaka_aine";
+			String sql = "select * from Raaka_aine ORDER BY nimi";
 			Statement haku = yhteys.createStatement();
 			ResultSet resultset = haku.executeQuery(sql);
 

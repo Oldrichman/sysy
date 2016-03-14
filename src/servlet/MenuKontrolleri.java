@@ -90,13 +90,15 @@ public class MenuKontrolleri extends HttpServlet {
 			String Nimi = request.getParameter("nimi");
 			String Hinta = request.getParameter("hinta");
 			String taytteet = request.getParameter("taytteet");
+			String poisto = request.getParameter("poisto");
 			double Hinta1 = Double.parseDouble(Hinta);
-			Tuote tuote = new Tuote(id1, Nimi, Hinta1, taytteet);
+			Tuote tuote = new Tuote(id1, Nimi, Hinta1, taytteet, poisto);
 			DecimalFormat formaatteri = new DecimalFormat("0.00");
 
 			System.out.println("<p>");
 			System.out.println("<b>" + tuote.getNimi() + "</b>");
 			System.out.println("<b> Täytteet: " + tuote.getTaytteet() + "</b>");
+			System.out.println("<b> Piilotettu: " + tuote.getPoisto() + "</b>");
 			System.out.println("<br/>");
 			System.out.println("Hinta: " + formaatteri.format(tuote.getHinta())
 					+ " EUR");
@@ -105,7 +107,7 @@ public class MenuKontrolleri extends HttpServlet {
 
 			System.out.println("</p>");
 
-			Tuote t = new Tuote(id1, Nimi, Hinta1, taytteet);
+			Tuote t = new Tuote(id1, Nimi, Hinta1, taytteet, poisto);
 			TuoteDao tDao = new TuoteDao();
 			
 			try {

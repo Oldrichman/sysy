@@ -79,12 +79,11 @@ href="kontrolleri?toiminto=tuotteet&nimi=<c:out value="${p.nimi}" />"><c:out
 value="${p.nimi} " /> </a></td>
 <td><c:out value="Täytteet: " /> <c:out
 value="${p.taytteet} " /></td>
-
-
-
 <td><c:out value=" Hinta: " /> <fmt:formatNumber
 type="currency" currencySymbol="e" value="${p.hinta}" /></td>
-
+<td><c:out value="Piilotettu: " /> <c:out
+value="${p.poisto} " /></td>
+<td>
 								<td>
 									<%
 out.println("<INPUT type=\"submit\" name=\"action\" value=\"Muokkaa\">");
