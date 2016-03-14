@@ -72,23 +72,24 @@
 
 					<c:forEach items="${tuotteet}" var="p">
 						<tr>
-							<form action="kontrolleri" method="post">
-								<td><c:out value="${p.id}" /> <input type="hidden"
-									value="${p.id}" name="id"> <a
-									href="kontrolleri?toiminto=tuotteet&nimi=<c:out value="${p.nimi}" />"><c:out
-											value="${p.nimi} " /> </a></td>
-								<td><c:out value="Täytteet: " /> <c:out
-										value="${p.taytteet} " /></td>
+<form action="kontrolleri" method="post">
+<td><c:out value="${p.id}" /> <input type="hidden"
+value="${p.id}" name="id"> <a
+href="kontrolleri?toiminto=tuotteet&nimi=<c:out value="${p.nimi}" />"><c:out
+value="${p.nimi} " /> </a></td>
+<td><c:out value="Täytteet: " /> <c:out
+value="${p.taytteet} " /></td>
 
 
-								<td><c:out value=" Hinta: " /> <fmt:formatNumber
-										type="currency" currencySymbol="e" value="${p.hinta}" /></td>
+
+<td><c:out value=" Hinta: " /> <fmt:formatNumber
+type="currency" currencySymbol="e" value="${p.hinta}" /></td>
 
 								<td>
 									<%
-									out.println("<INPUT type=\"submit\" value=\"Muokkaa\">");
+out.println("<INPUT type=\"submit\" name=\"action\" value=\"Muokkaa\">");
 								%> <%
- 	out.println("<INPUT type=\"submit\" value=\"Poista\">");
+ out.println("<INPUT type=\"submit\" name=\"action\" value=\"Piilota menusta\">");
  %>
 								</td>
 
@@ -111,12 +112,15 @@
 								<td><c:out value="${r.nimi}" /> <input type="hidden"
 									value="${r.nimi}" name="nimi"> <a
 									href="kontrolleri?toiminto=RA&nimi=<c:out value="${r.nimi}" />">
+									<input type="hidden"
+									value="${r.nimi}" name="pois"> <a
+									href="kontrolleri?toiminto=RA&nimi=<c:out value="${r.nimi}" />">
 								</a>
 								<td>
-									<%-- <%
-								out.println("<INPUT type=\"submit\" value=\"Muokkaa\">");
-							%> --%> <%
-									out.println("<INPUT type=\"submit\" value=\"Poista\">");
+									 <%
+								out.println("<INPUT type=\"submit\" name=\"action\"  value=\"Poista\">");
+							%>  <%
+									out.println("<INPUT type=\"submit\" name=\"action\" value=\"Piilota\">");
 								%>
 								</td>
 
@@ -145,7 +149,7 @@
 				<form action="kontrolleri" method="post">
 					<fieldset>
 						<legend>Lisää raaka-aine:</legend>
-						Nimi:<br> <input type="text" name="nimi"> <br> <input
+						Nimi:<br> <input type="text" name="lisaa"> <br> <input
 							type="submit" value="Lisää"><br> <br>
 						<c:if test="${not empty param.added}">Uuden raaka-aineen lisääminen onnistui!</c:if>
 					</fieldset>

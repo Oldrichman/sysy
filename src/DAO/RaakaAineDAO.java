@@ -109,18 +109,31 @@ public class RaakaAineDAO {
 
 	}
 
-	public void poistaRaakaAine(String nimi) {
+	public void piilotaRaakaAine(String nimi) {
 		try {
 
-			String sql = "DELETE FROM Raaka_aine WHERE nimi = ?";
+			String sql = "UPDATE Raaka_aine SET poisto = 'X' where nimi = ?";
 			PreparedStatement st = yhteys.prepareStatement(sql);
 
-			st.setString( 0, nimi);
+			st.setString(1, nimi);
 			st.executeUpdate();
 
 		} catch (Exception e) {
 			System.out.println(e);
 		}
+	}
+		public void poistaRaakaAine(String nimi) {
+			try {
+
+				String sql = "DELETE FROM Raaka_aine where nimi = ?";
+				PreparedStatement st = yhteys.prepareStatement(sql);
+
+				st.setString(1, nimi);
+				st.executeUpdate();
+
+			} catch (Exception e) {
+				System.out.println(e);
+			}
 	}
 
 }

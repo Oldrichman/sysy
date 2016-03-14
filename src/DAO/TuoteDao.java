@@ -55,7 +55,7 @@ public class TuoteDao {
 		try {
 
 			// suoritetaan haku
-			String sql = "select * from Tuote";
+			String sql = "select * from Tuote ";
 			Statement haku = yhteys.createStatement();
 			ResultSet resultset = haku.executeQuery(sql);
 
@@ -83,6 +83,41 @@ public class TuoteDao {
 		return tuotteet;
 	}
 
+	public ArrayList<Tuote> haeMenunTuotteet() {
+
+		ArrayList<Tuote> tuotteet = new ArrayList<Tuote>();
+
+		try {
+
+			// suoritetaan haku
+			String sql = "select * from Tuote where poisto is null ";
+			Statement haku = yhteys.createStatement();
+			ResultSet resultset = haku.executeQuery(sql);
+
+			// käydään hakutulokset läpi
+			while (resultset.next()) {
+				Tuote tuote = new Tuote();
+				tuote.setId(resultset.getInt("id"));
+				tuote.setNimi(resultset.getString("nimi"));
+				tuote.setHinta(resultset.getDouble("hinta"));
+				tuote.setTaytteet(resultset.getString("taytteet"));
+
+				tuotteet.add(tuote);
+			}
+
+		} catch (Exception e) {
+			// JOTAIN VIRHETTÄ TAPAHTUI
+			System.out.println("Tietokantahaku aiheutti virheen");
+		} finally {
+
+		}
+
+		System.out.println("HAETTIIN TIETOKANNASTA TUOTTEET: "
+				+ tuotteet.toString());
+
+		return tuotteet;
+	}
+	
 	public void lisaaTuote(Tuote t) {
 
 		try {
@@ -125,5 +160,18 @@ public class TuoteDao {
 
 		} catch (Exception e) {
 			System.out.println(e);
-		}
+		}}
+		
+		public void piilotaTuote(int id) {
+			try {
+
+				String sql = "UPDATE Tuote SET poisto = 'X' WHERE id = ?";
+				PreparedStatement st = yhteys.prepareStatement(sql);
+
+				st.setInt(1, id);
+				st.executeUpdate();
+
+			} catch (Exception e) {
+				System.out.println(e);
+			}
 	}}

@@ -3,11 +3,17 @@ package admin;
 public class RaakaAineet {
 
 	String nimi;
+	
+	
 
 	public RaakaAineet(String nimi) {
 		this.nimi = nimi;
+		
 
 	}
+
+	
+	
 
 	public String getNimi() {
 		return nimi;

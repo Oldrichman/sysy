@@ -44,7 +44,7 @@ public class MenuKontrolleri extends HttpServlet {
 		tDao.avaaYhteys();
 
 		List<Tuote> lista = null;
-		lista = tDao.haeTuotteet();
+		lista = tDao.haeMenunTuotteet();
 		for (int i = 0; i < lista.size(); i++) {
 			wout.print(lista.get(i));
 		}
