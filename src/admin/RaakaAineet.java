@@ -10,25 +10,15 @@ public class RaakaAineet {
 	public RaakaAineet(String nimi, String poisto) {
 		this.nimi = nimi;
 		this.poisto = poisto;
-
 	}
-
 	
-	
-
 	public String getPoisto() {
 		return poisto;
 	}
 
-
-
-
 	public void setPoisto(String poisto) {
 		this.poisto = poisto;
 	}
-
-
-
 
 	public String getNimi() {
 		return nimi;

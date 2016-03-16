@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import DAO.AdminKirjausDAO;
 import DAO.RaakaAineDAO;
 import DAO.TuoteDao;
 import admin.RaakaAineet;
@@ -31,6 +32,11 @@ public class Kontrolleri extends HttpServlet {
 		response.setContentType("text/html");
 		java.io.PrintWriter wout = response.getWriter();
 
+		// Haetaan käyttäjän tiedot
+		//AdminKirjausDAO akDao = new AdminKirjausDAO();
+		//akDao.avaaYhteys();
+		//if (((String)request.getAttribute("username")).equals("admin") && (request.getAttribute("userid")!=null)) {
+			//akDao.suljeYhteys();
 		// TuoteDao haku
 		TuoteDao tDao = new TuoteDao();
 
@@ -62,8 +68,8 @@ public class Kontrolleri extends HttpServlet {
 		request.setAttribute("RaakaAineet", lista1);
 		// jsp hoitaa muotoilun
 		request.getRequestDispatcher("admin.jsp").forward(request, response);
-
-	}
+		}
+	//}
 
 	protected void doPost(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {

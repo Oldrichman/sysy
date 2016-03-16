@@ -4,6 +4,7 @@ public class Admin {
 	
 	private String kayttajatunnus;
 	private String salasana;
+	public boolean valid;
 	
 	public Admin() {
 		this.kayttajatunnus = "admin";
@@ -24,6 +25,15 @@ public class Admin {
 
 	public void setSalasana(String salasana) {
 		this.salasana = salasana;
+	}
+	
+	// Tarkistetaan onko tiedot oikein
+	public boolean isValid() {
+		return valid;
+	}
+	
+	public void setValid(boolean newValid) {
+		this.valid = newValid;
 	}
 
 }

@@ -1,3 +1,13 @@
+package password;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import DAO.AdminKirjausDAO;
+import servlet.Kontrolleri;
+
 /*package password;
 
 import java.io.IOException;
@@ -39,6 +49,8 @@ protected void doPost(HttpServletRequest request,
 	response.setContentType("text/html");
 
 	response.getWriter();
+	
+	
 
 	// Luetaan HTML-Lomakkeelle täytetyt tiedot
 
@@ -90,3 +102,34 @@ protected void doPost(HttpServletRequest request,
 	}
 }
 }*/
+
+ /** 
+  * Servlet implementation class LoginServlet 
+  */
+public class KirjauduAdmin extends Kontrolleri {  
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	public void doGet(HttpServletRequest request, HttpServletResponse response) 
+	throws ServletException, java.io.IOException {
+		try { 
+			 Admin admin = new Admin();
+			 admin.setKayttajatunnus(request.getParameter("kayttajatunnus"));
+			 admin.setSalasana(request.getParameter("salasana"));
+			 
+			 admin = AdminKirjausDAO.login(admin);
+			 
+			 if (admin.isValid()) {
+				 HttpSession session = request.getSession(true); 
+				 session.setAttribute("Login",admin); 
+				 response.sendRedirect("kontrolleri"); //logged-in page
+			 }else 
+				 response.sendRedirect("adminkirjautuminen.jsp"); //error page 
+		}
+		catch (Throwable theException){ 
+			System.out.println(theException); 
+			}
+		}
+	}

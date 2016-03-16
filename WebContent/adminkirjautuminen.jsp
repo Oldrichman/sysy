@@ -39,21 +39,18 @@
 	<div class="container" style="width:300px; margin-top:100px; text-align:center; ">
 
 <!-- Tähän syötetään parametrit kirjautumista varten, jotka otetaan kirjautumisservletistä -->
-		<form class="form-signin" method="post" action="SYÖTÄSERVLETINNIMITÄHÄN">
-		
+		<!-- <form class="form-signin" method="post" action="kontrolleri"> MH -->
+		<form action="KirjauduAdmin" method="post">
 			<h3 class="form-signin-heading" style="text-align:center">Admin</h3>
 			<label for="inputEmail" class="sr-only">Tunnus</label> <input
-				type="text" id="username" class="form-control"
+				type="text" id="kayttajatunnus" class="form-control"
 				placeholder="Tunnus" required autofocus> <label
 				for="inputPassword" class="sr-only">Salasana</label> <input
-				type="password" id="inputPassword" class="form-control"
+				type="text" id="salasana" class="form-control"
 				placeholder="Salasana" required>
 			<div class="checkbox">
-				<label> <input type="checkbox" value="remember-me">
-					Muista minut
-				</label>
 			</div>
-			<button class="btn btn-lg btn-primary btn-block" style="background-color:black" type="submit">Kirjaudu sisään</button>
+			<button class="btn btn-lg btn-primary btn-block" style="background-color:black" type="submit" value="Login" >Kirjaudu sisään</button>
 		</form>
 
 	</div>
