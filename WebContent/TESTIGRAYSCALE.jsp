@@ -32,11 +32,14 @@
 </style>
 <!-- MUOTOILU CTRL+SHIFT+F RIKKOO NÄMÄ TAGIT, ÄLÄ TEE!! -->
 
-    <!-- Custom Fonts -->
+    <!-- Custom Fontit ja alkuperäiset kommenteissa -->
     <link href="bootstrap/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href="http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+   <!--  <link href="http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
-
+ -->
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Josefin+Slab:100,300,400,600,700,100italic,300italic,400italic,600italic,700italic" rel="stylesheet" type="text/css">
+ 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -56,8 +59,8 @@
 					<i class="fa fa-bars"></i>
 				</button>
 				<a class="navbar-brand page-scroll" href="#page-top"> <i
-					class="fa fa-play-circle"></i> <span class="light">Castello</span>
-					é Fiori
+					class="fa fa-play-circle"></i> <span class="light"><small>Castello é Fiori</small></span>
+					
 				</a>
 			</div>
 
@@ -83,10 +86,10 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-md-8 col-md-offset-2">
-						<h1 class="brand-heading">Tervetuloa!</h1>
-						<p class="intro-text">
-							A free, responsive, one page Bootstrap theme.<br>Created by
-							Start Bootstrap.
+						<h1 class="brand-heading" style="text-transform: none; text-shadow:2px 2px 3px black;">Castello é Fiori</h1>
+						<p class="intro-text" style="text-shadow:2px 2px 3px black;">
+							Tervetuloa Castello é Fiorin kotisivuille!<br>
+							Meiltä voi tilata Pizzaa. Ehkä.
 						</p>
 						<a href="#about" class="btn btn-circle page-scroll"> <i
 							class="fa fa-angle-double-down animated"></i>
