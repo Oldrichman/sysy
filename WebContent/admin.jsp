@@ -44,7 +44,7 @@
 				<ul class="nav navbar-nav">
 					<li class="active"><a href="kotisivu.jsp">Etusivu</a></li>
 					<li><a href="adminkirjautuminen.jsp">Kirjaudu</a></li>
-					<li><a href="menu.jsp">Pizzat</a></li>
+					<li><a href="MenuKontrolleri">Pizzat</a></li>
 				</ul>
 			</div>
 			<!--/.nav-collapse -->
