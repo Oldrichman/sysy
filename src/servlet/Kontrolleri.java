@@ -77,9 +77,16 @@ public class Kontrolleri extends HttpServlet {
 			
 			String Nimi = request.getParameter("nimi");
 			String Hinta = request.getParameter("hinta");
-			String taytteet = request.getParameter("taytteet");
+			String[] taytteetarray = request.getParameterValues("taytteet");
 			String poisto = request.getParameter("poisto");
 			double Hinta1 = Double.parseDouble(Hinta);
+			
+			String taytteet = taytteetarray[0];
+			
+			for (int i = 1; i < taytteetarray.length; i++) {
+				taytteet += ", " + taytteetarray[i];
+			}
+			
 			Tuote tuote = new Tuote(0, Nimi, Hinta1, taytteet ,poisto);
 			DecimalFormat formaatteri = new DecimalFormat("0.00");
 
