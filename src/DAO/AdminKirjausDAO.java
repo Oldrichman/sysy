@@ -19,8 +19,8 @@ public class AdminKirjausDAO {
 		Statement stmt = null;
 		String kayttajatunnus = admin.getKayttajatunnus();
 		String salasana = admin.getSalasana();
-		String haku = "select * from users where kayttajatunnus='" + kayttajatunnus
-				+ "' AND salasana='" + salasana + "'";
+		String haku = "select * from users where kayttajatunnus=? " + kayttajatunnus
+				+ "' AND salasana=?" + salasana + "'";
 		System.out.println("Your user name is " + kayttajatunnus);
 		System.out.println("Your salasana is " + salasana);
 		System.out.println("Query: " + haku);
