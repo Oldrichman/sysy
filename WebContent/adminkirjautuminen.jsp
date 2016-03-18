@@ -43,10 +43,10 @@
 		<form action="KirjauduAdmin" method="post">
 			<h3 class="form-signin-heading" style="text-align:center">Admin</h3>
 			<label for="inputEmail" class="sr-only">Tunnus</label> <input
-				type="text" id="kayttajatunnus" class="form-control"
+				type="text" name="kayttajatunnus" class="form-control"
 				placeholder="Tunnus" required autofocus> <label
 				for="inputPassword" class="sr-only">Salasana</label> <input
-				type="text" id="salasana" class="form-control"
+				type="text" name="salasana" class="form-control"
 				placeholder="Salasana" required>
 			<div class="checkbox">
 			</div>
