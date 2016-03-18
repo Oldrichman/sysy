@@ -1,0 +1,89 @@
+CREATE TABLE Asiakas(
+Id INT NOT NULL AUTO_INCREMENT,
+kayttajatunnus VARCHAR(30) NOT NULL,
+etunimi VARCHAR(20) NOT NULL,
+sukunimi VARCHAR(30) NOT NULL,
+email VARCHAR(30) NOT NULL,
+osoite VARCHAR(30) NOT NULL,
+postinro VARCHAR(5) NOT NULL,
+salasana VARCHAR(30) NOT NULL,
+PRIMARY KEY (Id)
+)ENGINE=InnoDB;
+
+CREATE TABLE Admin(
+Id INT NOT NULL AUTO_INCREMENT,
+kayttajatunnus VARCHAR(30) NOT NULL,
+salasana VARCHAR(30) NOT NULL,
+PRIMARY KEY (Id) 
+)ENGINE=InnoDB;
+
+CREATE TABLE Tavarantoimittaja(
+nimi VARCHAR(30) NOT NULL,
+email VARCHAR(30) NOT NULL,
+PRIMARY KEY (nimi)
+)ENGINE=InnoDB;
+
+CREATE TABLE Tuote(
+id INT NOT NULL AUTO_INCREMENT,
+nimi VARCHAR(30) NOT NULL,
+hinta DECIMAL (5,2) NOT NULL,
+taytteet VARCHAR(100) NOT NULL,
+poisto CHAR(1),
+PRIMARY KEY (id)
+)ENGINE=InnoDB;
+
+CREATE TABLE Raaka_aine(
+id INT NOT NULL AUTO_INCREMENT,
+nimi VARCHAR(100) NOT NULL,
+tuote_id INT,
+poisto CHAR (1),
+PRIMARY KEY (id),
+FOREIGN KEY (tuote_id) REFERENCES Tuote(id)
+)ENGINE=InnoDB;
+
+CREATE TABLE PizzanTaytteet(
+tuoteID INT NOT NULL,
+RaakaAineID INT NOT NULL,
+PRIMARY KEY (tuoteID, RaakaAineID), 
+FOREIGN KEY (tuoteID) REFERENCES Tuote(id),
+FOREIGN KEY (RaakaAineID) REFERENCES Raaka_aine(id)
+)ENGINE=InnoDB;
+
+CREATE TABLE Tilaus(
+tilausnumero VARCHAR(30) NOT NULL,
+asiakastunnus VARCHAR(30) NOT NULL,
+maara INT NOT NULL,
+kokonaissumma DECIMAL(5,2) NOT NULL,
+toimitusaika DATETIME NOT NULL,
+tuoteID INT NOT NULL,
+toimitustapa VARCHAR(30) NOT NULL,
+PRIMARY KEY (tilausnumero), 
+FOREIGN KEY (tuoteID) REFERENCES Tuote (id)
+)ENGINE=InnoDB;
+
+CREATE TABLE Tuotteentilaus(
+asiakasID INT NOT NULL,
+tilausnumero VARCHAR(30) NOT NULL,
+PRIMARY KEY (asiakasID, tilausnumero), 
+FOREIGN KEY (asiakasID) REFERENCES Asiakas (ID),
+FOREIGN KEY (tilausnumero) REFERENCES Tilaus (tilausnumero)
+)ENGINE=InnoDB;
+
+CREATE TABLE Tilaushistoria(
+tilausnumero VARCHAR(30) NOT NULL,
+toimitusaika DATETIME NOT NULL,
+kayttajatunnus VARCHAR(30) NOT NULL,
+PRIMARY KEY (tilausnumero),
+FOREIGN KEY (tilausnumero) REFERENCES Tilaus (tilausnumero)
+)ENGINE=InnoDB;
+
+
+DROP TABLE Tilaushistoria;
+DROP TABLE Tuotteentilaus;
+DROP TABLE Tilaus;
+DROP TABLE PizzanTaytteet;
+DROP TABLE Raaka_aine;
+DROP TABLE Tuote;
+DROP TABLE Tavarantoimittaja;
+DROP TABLE Admin;
+DROP TABLE Asiakas;
