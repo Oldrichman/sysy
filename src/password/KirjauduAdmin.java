@@ -118,7 +118,8 @@ public class KirjauduAdmin extends HttpServlet {
 	public void doPost(HttpServletRequest request, HttpServletResponse response) 
 	throws ServletException, java.io.IOException {
 		try { 
-			 Admin admin = new Admin();
+			 
+			Admin admin = new Admin();
 			 admin.setKayttajatunnus(request.getParameter("kayttajatunnus"));
 			 admin.setSalasana(request.getParameter("salasana"));
 			 

@@ -1,15 +1,22 @@
 package password;
 
 public class Admin {
-	
+	private String suola;
 	private String kayttajatunnus;
 	private String salasana;
 	public boolean valid;
 	
-	public Admin() {
-		this.kayttajatunnus = "admin";
-		this.salasana = "admin";
+	public Admin(String suola, String kayttajatunnus, String salasana) {
+		this.suola = suola;
+		this.kayttajatunnus = kayttajatunnus;
+		this.salasana = salasana;
 	}
+
+
+	public Admin() {
+		// TODO Auto-generated constructor stub
+	}
+
 
 	public String getKayttajatunnus() {
 		return kayttajatunnus;
@@ -34,6 +41,16 @@ public class Admin {
 	
 	public void setValid(boolean newValid) {
 		this.valid = newValid;
+	}
+
+
+	public String getSuola() {
+		return suola;
+	}
+
+
+	public void setSuola(String suola) {
+		this.suola = suola;
 	}
 
 }

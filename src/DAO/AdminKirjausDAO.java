@@ -7,65 +7,55 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+
+
+
+
+
 import admin.Konnektori;
 import password.Admin;
 
+
+
 public class AdminKirjausDAO {
 	// Otettu muualta ohje ja tehty sen perusteella MH
-	static Connection currentCon = null;
+	static Konnektori currentCon = null;
 	static ResultSet rs = null;
+	
+	
 
 	public static Admin login(Admin admin) { // preparing some objects for connection
-		Statement stmt = null;
-		String kayttajatunnus = admin.getKayttajatunnus();
-		String salasana = admin.getSalasana();
-		String haku = "select kayttajatunnus, salasana from Admin";
-		System.out.println("Your user name is " + kayttajatunnus);
-		System.out.println("Your salasana is " + salasana);
-		System.out.println("Query: " + haku);
+		Admin kayttajatunnus;
+		
+		
 		try { // connect to DB
-			currentCon = Konnektori.getConnection();
-			stmt = currentCon.createStatement();
-			rs = stmt.executeQuery(haku);
-			boolean more = rs.next(); // if user does not exist set the isValid variable to false
-			if (!more) {
-				System.out.println("Sorry, you are not a registered user! Please sign up first");
-				admin.setValid(false);
-			} // if user exists set the isValid variable to true else
-			if (more) {
-				System.out.println("Welcome " + kayttajatunnus);
-				admin.setValid(true);
+			Connection currentCon = Konnektori.getConnection();
+			PreparedStatement usernamehaku = currentCon.prepareStatement("SELECT suola, kayttajatunnus, salasana password_hash from Admin where kayttajatunnus = ?");
+			usernamehaku.setString(1, admin.getKayttajatunnus());
+			rs = usernamehaku.executeQuery();
+			if (rs.next()) {
+				kayttajatunnus = new Admin (rs.getString("kayttajatunnus"), rs.getString("suola"),
+						rs.getString("password_hash"));
 			}
-		} catch (Exception ex) {
-			System.out.println("Log In failed: An Exception has occurred! " + ex);
-		} // some exception handling
-		finally {
-			if (rs != null) {
-				try {
-					rs.close();
-				} catch (Exception e) {
-
-				}
-				rs = null;
+						
+				else {
+					// EI LÖYTYNYT
+					// generoidaan kuitenkin tyhjä user, jotta 
+					// login tarkistus kestää aina yhtä kauan
+					return null;
 			}
-			if (stmt != null) {
-				try {
-					stmt.close();
-				} catch (Exception e) {
-
-				}
-				stmt = null;
+		} catch (SQLException e) {
+			// JOTAIN VIRHETTÄ TAPAHTUI
+			try {
+				throw new Exception("Tietokantahaku aiheutti virheen", e);
+			} catch (Exception e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
 			}
-			if (currentCon != null) {
-				try {
-					currentCon.close();
-				} catch (Exception e) {
-
-				}
-				currentCon = null;
-			}
+		} finally {
+			// LOPULTA AINA SULJETAAN YHTEYS
+			currentCon.suljeYhteys();
 		}
-		return admin;
+	return admin;
 	}
-
 }
