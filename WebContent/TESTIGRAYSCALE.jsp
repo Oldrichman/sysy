@@ -39,6 +39,7 @@
  -->
     <link href="http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Josefin+Slab:100,300,400,600,700,100italic,300italic,400italic,600italic,700italic" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Stalemate' rel='stylesheet' type='text/css'>
  
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -58,9 +59,10 @@
 					data-target=".navbar-main-collapse">
 					<i class="fa fa-bars"></i>
 				</button>
-				<a class="navbar-brand page-scroll" href="#page-top"> <i
-					class="fa fa-play-circle"></i> <span class="light"><small>Castello é Fiori</small></span>
-					
+				<a class="navbar-brand page-scroll" href="#page-top"
+					style="font-family: 'Stalemate', cursive;">
+					<span class="light" style="font-size:35px;"><small>Castello é Fiori&ensp;</small></span><i class="fa fa-cutlery"></i>
+
 				</a>
 			</div>
 
@@ -70,9 +72,10 @@
 				<ul class="nav navbar-nav">
 					<!-- Hidden li included to remove active class from about link when scrolled up past about section -->
 					<li class="hidden"><a href="#page-top"></a></li>
-					<li><a class="page-scroll" href="#about">About</a></li>
-					<li><a class="page-scroll" href="#download">Download</a></li>
-					<li><a class="page-scroll" href="#contact">Contact</a></li>
+					<li><a class="page-scroll" href="#about">TIETOA MEISTÄ</a></li>
+					<li><a class="page-scroll" href="#contact">YHTEYSTIEDOT</a></li>
+					<li><a class="page-scroll" href="#">PIZZAT</a></li>
+					
 				</ul>
 			</div>
 			<!-- /.navbar-collapse -->
@@ -86,10 +89,12 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-md-8 col-md-offset-2">
-						<h1 class="brand-heading" style="text-transform: none; text-shadow:2px 2px 3px black;">Castello é Fiori</h1>
-						<p class="intro-text" style="text-shadow:2px 2px 3px black;">
-							Tervetuloa Castello é Fiorin kotisivuille!<br>
-							Meiltä voi tilata Pizzaa. Ehkä.
+					<br><br><br>
+						<h1 class="brand-heading" style="text-transform: none; text-shadow:2px 2px 2px black; letter-spacing:-8px; font-size:130px;">Castello é Fiori</h1>
+						<br><br><br><br>
+						<p class="intro-text" style="text-shadow:1px 1px 1px black;">
+							Tervetuloa Castello é Fiorin kotisivuille!
+							Meiltä voi tilata Pizzaa.
 						</p>
 						<a href="#about" class="btn btn-circle page-scroll"> <i
 							class="fa fa-angle-double-down animated"></i>
@@ -104,13 +109,13 @@
 	<section id="about" class="container content-section text-center">
 		<div class="row">
 			<div class="col-lg-8 col-lg-offset-2">
-				<h2>About Grayscale</h2>
+				<h2>Tietoa meistä</h2>
 				<p>
-					Grayscale is a free Bootstrap 3 theme created by Start Bootstrap.
-					It can be yours right now, simply download the template on <a
-						href="http://startbootstrap.com/template-overviews/grayscale/">the
-						preview page</a>. The theme is open source, and you can use it for any
-					purpose, personal or commercial.
+					Olemme laadukas vanhoja italialaisia perinteitä noudattava
+					Pizzeria. <a
+						href="http://startbootstrap.com/template-overviews/grayscale/">Saamme
+						perinteemme alkuperäismaasta</a>. The theme is open source, and you
+					can use it for any purpose, personal or commercial.
 				</p>
 				<p>
 					This theme features stock photos by <a
@@ -124,45 +129,35 @@
 		</div>
 	</section>
 
-	<!-- Download Section -->
-	<section id="download" class="content-section text-center">
-		<div class="download-section">
-			<div class="container">
-				<div class="col-lg-8 col-lg-offset-2">
-					<h2>Download Grayscale</h2>
-					<p>You can download Grayscale for free on the preview page at
-						Start Bootstrap.</p>
-					<a href="http://startbootstrap.com/template-overviews/grayscale/"
-						class="btn btn-default btn-lg">Visit Download Page</a>
-				</div>
-			</div>
-		</div>
-	</section>
+	
 
 	<!-- Contact Section -->
 	<section id="contact" class="container content-section text-center">
 		<div class="row">
+			
 			<div class="col-lg-8 col-lg-offset-2">
-				<h2>Contact Start Bootstrap</h2>
-				<p>Feel free to email us to provide some feedback on our
-					templates, give us suggestions for new templates and themes, or to
-					just say hello!</p>
-				<p>
-					<a href="mailto:feedback@startbootstrap.com">feedback@startbootstrap.com</a>
-				</p>
+				
+				<h2>Löydät meidät myös täältä</h2>
+
+				<!-- <p>
+					<a href="mailto:feedback@startbootstrap.com">palaute@pizzeriafiori.com</a>
+				</p> -->
 				<ul class="list-inline banner-social-buttons">
-					<li><a href="https://twitter.com/SBootstrap"
-						class="btn btn-default btn-lg"><i class="fa fa-twitter fa-fw"></i>
-							<span class="network-name">Twitter</span></a></li>
-					<li><a
-						href="https://github.com/IronSummitMedia/startbootstrap"
-						class="btn btn-default btn-lg"><i class="fa fa-github fa-fw"></i>
-							<span class="network-name">Github</span></a></li>
-					<li><a href="https://plus.google.com/+Startbootstrap/posts"
-						class="btn btn-default btn-lg"><i
-							class="fa fa-google-plus fa-fw"></i> <span class="network-name">Google+</span></a>
-					</li>
+
+					<li><a href="https://www.facebook.com"><i
+							class="fa fa-facebook-square fa-5x"></i></a></li>
+
+					<li><a href="https://www.instagram.com"><i
+							class="fa fa-instagram fa-5x"></i> </a></li>
+
+					<li><a href="http://www.twitter.com"><i
+							class="fa fa-twitter-square fa-5x"></i> </a></li>
+							<br>
+							
+							<a href="mailto:feedback@startbootstrap.com">palaute@pizzeriafiori.fi</a>
+
 				</ul>
+			
 			</div>
 		</div>
 	</section>

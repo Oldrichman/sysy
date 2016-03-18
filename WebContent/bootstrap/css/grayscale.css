@@ -149,7 +149,7 @@ a:focus {
     padding: 1000px 0;
     text-align: center;
     color: #fff;
-    background: url(bootstrap/img/pitsauuni4.png) no-repeat bottom center scroll;
+    background: url(bootstrap/img/pitsauuni8.png) no-repeat bottom center scroll;
     background-color: #000;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -162,12 +162,13 @@ a:focus {
     vertical-align: middle;
 }
 
+/* Castello e Fiori PÄÄTEKSTI */
 .intro .intro-body .brand-heading {
-    font-size: 40px;
+    font-size: 50px;
 }
 
 .intro .intro-body .intro-text {
-    font-size: 18px;
+    font-size: 13px;
     text-transform: none;
 }
 
@@ -186,6 +187,7 @@ a:focus {
     }
 }
 
+/* PYÖREÄ NAPPI BUTTON HOVER VÄRI */
 .btn-circle {
     width: 70px;
     height: 70px;
@@ -204,8 +206,8 @@ a:focus {
 .btn-circle:hover,
 .btn-circle:focus {
     outline: 0;
-    color: #D70000;
-    border: 2px solid #D70000;
+    color: #FF6600;
+    border: 2px solid #FF6600;
     background: rgba(255,255,255,.1);
 }
 
@@ -314,6 +316,7 @@ a:focus {
     background-color: transparent;
 }
 
+/* NAPPI BUTTON HOVER VÄRI */
 .btn-default:hover,
 .btn-default:focus {
     border: 1px solid #FF6600;
