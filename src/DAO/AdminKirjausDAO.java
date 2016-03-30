@@ -36,12 +36,14 @@ public class AdminKirjausDAO {
 			if (rs.next()) {
 				kayttajatunnus = new Admin (rs.getString("kayttajatunnus"), rs.getString("suola"),
 						rs.getString("password_hash"));
+				admin.setValid(true);
 			}
 						
 				else {
 					// EI L÷YTYNYT
 					// generoidaan kuitenkin tyhj‰ user, jotta 
 					// login tarkistus kest‰‰ aina yht‰ kauan
+					admin.setValid(false);
 					return null;
 			}
 		} catch (SQLException e) {
@@ -54,8 +56,16 @@ public class AdminKirjausDAO {
 			}
 		} finally {
 			// LOPULTA AINA SULJETAAN YHTEYS
-			currentCon.suljeYhteys();
-		}
+			 if (currentCon != null) {
+		         try {
+		            currentCon.suljeYhteys();
+		         } catch (Exception e) {
+		         }
+
+		         currentCon = null;
+		      }
+		   }
+		
 	return admin;
 	}
 }
