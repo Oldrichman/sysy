@@ -74,7 +74,9 @@
 					<li class="hidden"><a href="#page-top"></a></li>
 					<li><a class="page-scroll" href="#about">TIETOA MEISTÄ</a></li>
 					<li><a class="page-scroll" href="#contact">YHTEYSTIEDOT</a></li>
-					<li><a class="page-scroll" href="#">PIZZAT</a></li>
+					<li><a href="MenuKontrolleri">MENU</a></li>
+					<li><a href="">REKISTERÖIDY</a></li>
+					<li><a href="">KIRJAUDU</a></li>
 					
 				</ul>
 			</div>
@@ -117,14 +119,7 @@
 						perinteemme alkuperäismaasta</a>. The theme is open source, and you
 					can use it for any purpose, personal or commercial.
 				</p>
-				<p>
-					This theme features stock photos by <a
-						href="http://gratisography.com/">Gratisography</a> along with a
-					custom Google Maps skin courtesy of <a
-						href="http://snazzymaps.com/">Snazzy Maps</a>.
-				</p>
-				<p>Grayscale includes full HTML, CSS, and custom JavaScript
-					files along with LESS files for easy customization.</p>
+			
 			</div>
 		</div>
 	</section>
@@ -168,7 +163,7 @@
 	<!-- Footer -->
 	<footer>
 		<div class="container text-center">
-			<p style="font-size:10px"><a href="adminkirjautuminen.jsp">Copyright &copy; Your Website 2014</a></p>
+			<p style="font-size:10px"><a href="adminkirjautuminen.jsp">Copyright &copy; Team SexYSexy 2016</a></p>
 		</div>
 	</footer>
 
@@ -183,8 +178,8 @@
 
 	<!-- Google Maps API Key - Use your own API key to enable the map feature. More information on the Google Maps API can be found at https://developers.google.com/maps/ -->
 	<script type="text/javascript"
-		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCRngKslUGJTlibkQ3FkfTxj3Xss1UlZDA&sensor=false"></script>
-
+		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjPfpeUdqwdbiejLneoaGAb9epjnJeVig&sensor=false"></script>
+      
 	<!-- Custom Theme JavaScript -->
 	<script src="bootstrap/js/grayscale.js"></script>
 
