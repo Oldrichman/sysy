@@ -32,11 +32,6 @@ public class Kontrolleri extends HttpServlet {
 		response.setContentType("text/html");
 		java.io.PrintWriter wout = response.getWriter();
 
-		// Haetaan käyttäjän tiedot
-		//AdminKirjausDAO akDao = new AdminKirjausDAO();
-		//akDao.avaaYhteys();
-		//if (((String)request.getAttribute("username")).equals("admin") && (request.getAttribute("userid")!=null)) {
-			//akDao.suljeYhteys();
 		// TuoteDao haku
 		TuoteDao tDao = new TuoteDao();
 

@@ -4,6 +4,6 @@
 <title>Lataussivu</title>
 </head>
 <body>
-<c:redirect url="kontrolleri"/>
+<c:redirect url="kotisivu.jsp"/>
 </body>
 </html>
