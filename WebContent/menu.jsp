@@ -81,7 +81,7 @@
 					<form action="menukontrolleri" method="post">
 						<td><input type="hidden"
 							value="${p.id}" name="id"> <a
-							href="kontrolleri?toiminto=tuotteet&nimi=<c:out value="${p.nimi}" />"><c:out
+							<c:out value="${p.nimi}" />"><c:out
 									value="${p.nimi} " /> </a></td>
 						<td><c:out value="Täytteet: " /> <c:out
 								value="${p.taytteet} " /></td>
