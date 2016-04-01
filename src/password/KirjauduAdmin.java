@@ -1,7 +1,12 @@
 package password;
 
+import java.io.PrintWriter;
+import static java.nio.charset.StandardCharsets.*;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -44,12 +49,24 @@ public class KirjauduAdmin extends HttpServlet {
 			 
 			 admin = AdminKirjausDAO.login(admin);
 			 
+			 //String adminTunnus = admin.getKayttajatunnus();
+			 
 			 if (admin.isValid()) {
 				 HttpSession session = request.getSession(); 
-				 session.setAttribute("Login",admin); 
+				 session.setAttribute("Login",admin);
+				 //Alustaa session p‰‰ttym‰‰n 15min j‰lkeen MH
+				 session.setMaxInactiveInterval(15*60);
+				 //Cookie adminNimi = new Cookie("kayttajatunnus", adminTunnus);
+				 //adminNimi.setMaxAge(15*30);
+				 //response.addCookie(adminNimi);
 				 response.sendRedirect("AdminMenu"); //logged-in page
-			 }else 
-				 response.sendRedirect("adminkirjautuminen.jsp"); //error page 
+			 }else {
+				 response.setContentType("text/html;charset=UTF-8");
+				 RequestDispatcher rd = getServletContext().getRequestDispatcher("/adminkirjautuminen.jsp");
+				 PrintWriter out = response.getWriter();
+				 out.println("<font color=red>K‰ytt‰j‰tunnuksesi tai salasanasi on p‰in pylly‰!</font>");
+				 rd.include(request, response); //error page
+			 }
 		}
 		catch (Throwable theException){ 
 			System.out.println(theException); 
