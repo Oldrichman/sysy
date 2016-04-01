@@ -19,7 +19,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 <link rel="icon" href="/favicon.ico">
-<title>Pizzeria Castello é Fiori</title>
+<title>Menu</title>
 <!-- Bootstrap core CSS -->
 
 <!-- MUOTOILU CTRL+SHIFT+F RIKKOO NÄMÄ TAGIT, ÄLÄ TEE!! -->
@@ -59,7 +59,7 @@
 					data-target=".navbar-main-collapse">
 					<i class="fa fa-bars"></i>
 				</button>
-				<a class="navbar-brand page-scroll" href="#page-top"
+				<a class="navbar-brand page-scroll" href="kotisivu.jsp"
 					style="font-family: 'Stalemate', cursive;">
 					<span class="light" style="font-size:35px;"><small>Castello é Fiori&ensp;</small></span><i class="fa fa-cutlery"></i>
 
@@ -70,14 +70,12 @@
 			<div
 				class="collapse navbar-collapse navbar-right navbar-main-collapse">
 				<ul class="nav navbar-nav">
-
 					<!-- Hidden li included to remove active class from about link when scrolled up past about section -->
 					<li class="hidden"><a href="#page-top"></a></li>
 					<li><a class="page-scroll" href="#yhteystiedot">YHTEYSTIEDOT</a></li>
 					<li><a href="MenuKontrolleri">MENU</a></li>
 					<li><a href="">REKISTERÖIDY</a></li>
 					<li><a href="">KIRJAUDU</a></li>
-
 					
 				</ul>
 			</div>
@@ -93,11 +91,10 @@
 				<div class="row">
 					<div class="col-md-8 col-md-offset-2">
 					<br><br><br>
-						<h1 class="brand-heading" style="text-transform: none; text-shadow:2px 2px 2px black; letter-spacing:-8px; font-size:130px;">Castello é Fiori</h1>
+						<h1 class="brand-heading" style="text-transform: none; text-shadow:2px 2px 2px black; letter-spacing:-8px; font-size:130px;">Menu</h1>
 						<br><br><br><br>
 						<p class="intro-text" style="text-shadow:1px 1px 1px black;">
-							Tervetuloa Castello é Fiorin kotisivuille!
-							Meiltä voi tilata Pizzaa.
+						
 						</p>
 						<a href="#about" class="btn btn-circle page-scroll"> <i
 							class="fa fa-angle-double-down animated"></i>
@@ -108,56 +105,59 @@
 		</div>
 	</header>
 
-	<!-- About Section -->
+	<!-- PIZZAT ALUE -->
 	<section id="about" class="container content-section text-center">
-		<div class="row">
-			<div class="col-lg-8 col-lg-offset-2">
-				<h2>Tietoa meistä</h2>
-				<p>
-					Olemme laadukas vanhoja italialaisia perinteitä noudattava
-					Pizzeria. <a
-						href="http://startbootstrap.com/template-overviews/grayscale/">Saamme
-						perinteemme alkuperäismaasta</a>.
-				</p>
+
+				<h2>Pizzamme</h2>
+					
+					<div class="container">
+		<div class="starter-template">
+			<br>
+			<br>
+			<br>
 			
-			</div>
+  <!-- NÄMÄ VIELÄ KESKEN KORJAA -->
+			<table class="table table-bordered" frame=void>
+			<thead class="thead-inverse" >
+			
+    <tr class="big">
+      <th style="text-align:center">PIZZA</th>
+      <th style="text-align:center">TÄYTTEET</th>
+      <th style="text-align:center">HINTA</th>
+    </tr>
+    
+    </thead>
+<thead class="thead-inverse">
+			<c:forEach items="${tuotteet}" var="p">
+				<tr>
+					<form action="menukontrolleri" method="post">
+										<td><input type="hidden" value="${p.id}" name="id">
+											<a
+											<c:out value="${p.nimi}" />"><c:out
+													value="${p.nimi} " /> </a></td>
+								<td><c:out value="" /> <c:out
+								value="${p.taytteet} " /></td>
+						<td><c:out value="" /> <fmt:formatNumber
+								value="${p.hinta}" type="currency" currencySymbol=""  /> &euro;</td>
+
+					
+					</form>
+					
+				</tr>
+			</c:forEach>
+</thead>
+
+
+		</table>
 		</div>
-	</section>
 
 	
-
-	<!-- Contact Section -->
-	<section id="contact" class="container content-section text-center">
-		<div class="row">
-			
-			<div class="col-lg-8 col-lg-offset-2">
-				
-				<h2>Löydät meidät myös täältä</h2>
-
-				<!-- <p>
-					<a href="mailto:palaute@pizzeriafiori.fi">palaute@pizzeriafiori.com</a>
-				</p> -->
-				<ul class="list-inline banner-social-buttons">
-
-					<li><a href="https://www.facebook.com"><i
-							class="fa fa-facebook-square fa-5x"></i></a></li>
-
-					<li><a href="https://www.instagram.com"><i
-							class="fa fa-instagram fa-5x"></i> </a></li>
-
-					<li><a href="http://www.twitter.com"><i
-							class="fa fa-twitter-square fa-5x"></i> </a></li>
-							<br>
-							
-							<a href="mailto:palaute@pizzeriafiori.fi">palaute@pizzeriafiori.fi</a>
-
-				</ul>
+	<!-- /.container -->
 			
 			</div>
-		</div>
 	</section>
 
-	<!-- Map Section -->
+	<!-- KARTTA JA YHTEYSTIEDOT -->
 	<section id="yhteystiedot">
 	<div id="map"></div>
 	</section>
