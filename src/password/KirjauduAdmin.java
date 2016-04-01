@@ -49,16 +49,16 @@ public class KirjauduAdmin extends HttpServlet {
 			 
 			 admin = AdminKirjausDAO.login(admin);
 			 
-			 //String adminTunnus = admin.getKayttajatunnus();
+			 String adminTunnus = admin.getKayttajatunnus();
 			 
 			 if (admin.isValid()) {
 				 HttpSession session = request.getSession(); 
 				 session.setAttribute("Login",admin);
 				 //Alustaa session p‰‰ttym‰‰n 15min j‰lkeen MH
 				 session.setMaxInactiveInterval(15*60);
-				 //Cookie adminNimi = new Cookie("kayttajatunnus", adminTunnus);
-				 //adminNimi.setMaxAge(15*30);
-				 //response.addCookie(adminNimi);
+				 Cookie adminNimi = new Cookie("kayttajatunnus", adminTunnus);
+				 adminNimi.setMaxAge(15*30);
+				 response.addCookie(adminNimi);
 				 response.sendRedirect("AdminMenu"); //logged-in page
 			 }else {
 				 response.setContentType("text/html;charset=UTF-8");

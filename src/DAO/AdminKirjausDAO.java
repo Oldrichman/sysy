@@ -53,7 +53,7 @@ public class AdminKirjausDAO {
 				// generoidaan kuitenkin tyhjä user, jotta
 				// login tarkistus kestää aina yhtä kauan
 				admin.setValid(false);
-				return null;
+				return admin;
 			}
 		} catch (SQLException e) {
 			// JOTAIN VIRHETTÄ TAPAHTUI
