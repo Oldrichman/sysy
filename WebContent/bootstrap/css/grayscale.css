@@ -16,13 +16,23 @@ html {
 	height: 100%;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3, h4, h5, h6, tr {
 	margin: 0 0 35px;
 	text-transform: uppercase;
 	font-family: "Josefin Slab", "Helvetica Neue", Helvetica, Arial,
 		sans-serif;
 	font-weight: 700;
 	letter-spacing: 1px;
+}
+
+.big {
+	margin: 0 0 35px;
+	text-transform: uppercase;
+	font-family: "Josefin Slab", "Helvetica Neue", Helvetica, Arial,
+		sans-serif;
+	font-weight: 1000;
+	letter-spacing: 2px;
+	font-size:16px;
 }
 
 p {
@@ -228,40 +238,60 @@ a:hover, a:focus {
 50%
 {
 -webkit-transform
+
+
 :
+
  
+
 scale
+
+
 (1
 .2
-);
 
-        
+
+);
 transform
+
+
 :
+
  
+
 scale
+
+
 (1
 .2
-);
 
-    
+
+);
 }
 100%
 {
 -webkit-transform
-:
- 
-scale
-(1);
 
-        
+
+:
+
+ 
+
+scale
+
+
+(1);
 transform
-:
- 
-scale
-(1);
 
-    
+
+:
+
+ 
+
+scale
+
+
+(1);
 }
 }
 @
@@ -273,40 +303,60 @@ scale
 50%
 {
 -moz-transform
+
+
 :
+
  
+
 scale
+
+
 (1
 .2
-);
 
-        
+
+);
 transform
+
+
 :
+
  
+
 scale
+
+
 (1
 .2
-);
 
-    
+
+);
 }
 100%
 {
 -moz-transform
-:
- 
-scale
-(1);
 
-        
+
+:
+
+ 
+
+scale
+
+
+(1);
 transform
-:
- 
-scale
-(1);
 
-    
+
+:
+
+ 
+
+scale
+
+
+(1);
 }
 }
 .content-section {

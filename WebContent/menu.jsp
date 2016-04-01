@@ -119,11 +119,13 @@
   <!-- NÄMÄ VIELÄ KESKEN KORJAA -->
 			<table class="table table-bordered" frame=void>
 			<thead class="thead-inverse" >
-    <tr>
+			
+    <tr class="big">
       <th style="text-align:center">PIZZA</th>
       <th style="text-align:center">TÄYTTEET</th>
       <th style="text-align:center">HINTA</th>
     </tr>
+    
     </thead>
 <thead class="thead-inverse">
 			<c:forEach items="${tuotteet}" var="p">

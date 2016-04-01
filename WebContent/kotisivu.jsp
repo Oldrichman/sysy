@@ -117,8 +117,7 @@
 					Olemme laadukas vanhoja italialaisia perinteitä noudattava
 					Pizzeria. <a
 						href="http://startbootstrap.com/template-overviews/grayscale/">Saamme
-						perinteemme alkuperäismaasta</a>. The theme is open source, and you
-					can use it for any purpose, personal or commercial.
+						perinteemme alkuperäismaasta</a>.
 				</p>
 			
 			</div>
