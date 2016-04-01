@@ -55,10 +55,9 @@
 			</div>
 			<div id="navbar" class="collapse navbar-collapse">
 				<ul class="nav navbar-nav">
-					<li class="active"><a href="kotisivu.jsp">Etusivu</a></li>
-					<li><a href="adminkirjautuminen.jsp">Kirjaudu</a></li>
-					<li><a href="MenuKontrolleri">Pizzat</a></li>
+					<li><a href="kontrolleri">Tuotehallinta</a></li>
 					
+					<li><a href="AdminMenu">Pizzat</a></li>
 				</ul>
 			</div>
 			<!--/.nav-collapse -->
@@ -73,9 +72,33 @@
 			<br>
 			<h1>Pizzeria Fiore</h1>
 			<p class="lead">
-				Testibootstrap.
+				
 			</p>
+			<table border=1 frame=void rules=rows>
 
+			<c:forEach items="${tuotteet}" var="p">
+				<tr>
+					<form action="adminmenu" method="post">
+						<td><input type="hidden"
+							value="${p.id}" name="id"> <a
+							href="kontrolleri?toiminto=tuotteet&nimi=<c:out value="${p.nimi}" />"><c:out
+									value="${p.nimi} " /> </a></td>
+						<td><c:out value="Täytteet: " /> <c:out
+								value="${p.taytteet} " /></td>
+
+
+						<td><c:out value=" Hinta: " /> <fmt:formatNumber
+								type="currency" currencySymbol="e" value="${p.hinta}" /></td>
+
+						
+
+					</form>
+				</tr>
+			</c:forEach>
+
+
+
+		</table>
 		</div>
 
 	</div>

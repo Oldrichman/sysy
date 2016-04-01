@@ -42,9 +42,10 @@
 			</div>
 			<div id="navbar" class="collapse navbar-collapse">
 				<ul class="nav navbar-nav">
-					<li class="active"><a href="kotisivu.jsp">Etusivu</a></li>
-					<li><a href="adminkirjautuminen.jsp">Kirjaudu</a></li>
-					<li><a href="MenuKontrolleri">Pizzat</a></li>
+					<li><a href="kontrolleri">Tuotehallinta</a></li>
+					
+					<li><a href="AdminMenu">Pizzat</a></li>
+					
 				</ul>
 			</div>
 			<!--/.nav-collapse -->

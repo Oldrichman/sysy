@@ -122,13 +122,14 @@ public class KirjauduAdmin extends HttpServlet {
 			Admin admin = new Admin();
 			 admin.setKayttajatunnus(request.getParameter("kayttajatunnus"));
 			 admin.setSalasana(request.getParameter("salasana"));
+			 admin.setSuola(request.getParameter("suola"));
 			 
 			 admin = AdminKirjausDAO.login(admin);
 			 
 			 if (admin.isValid()) {
-				 HttpSession session = request.getSession(true); 
+				 HttpSession session = request.getSession(); 
 				 session.setAttribute("Login",admin); 
-				 response.sendRedirect("kontrolleri"); //logged-in page
+				 response.sendRedirect("AdminMenu"); //logged-in page
 			 }else 
 				 response.sendRedirect("adminkirjautuminen.jsp"); //error page 
 		}
