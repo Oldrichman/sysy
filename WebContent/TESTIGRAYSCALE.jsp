@@ -72,8 +72,7 @@
 				<ul class="nav navbar-nav">
 					<!-- Hidden li included to remove active class from about link when scrolled up past about section -->
 					<li class="hidden"><a href="#page-top"></a></li>
-					<li><a class="page-scroll" href="#about">TIETOA MEISTÄ</a></li>
-					<li><a class="page-scroll" href="#contact">YHTEYSTIEDOT</a></li>
+					<li><a class="page-scroll" href="#yhteystiedot">YHTEYSTIEDOT</a></li>
 					<li><a href="MenuKontrolleri">MENU</a></li>
 					<li><a href="">REKISTERÖIDY</a></li>
 					<li><a href="">KIRJAUDU</a></li>
@@ -158,7 +157,9 @@
 	</section>
 
 	<!-- Map Section -->
+	<section id="yhteystiedot">
 	<div id="map"></div>
+	</section>
 
 	<!-- Footer -->
 	<footer>
