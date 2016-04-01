@@ -59,7 +59,7 @@
 					data-target=".navbar-main-collapse">
 					<i class="fa fa-bars"></i>
 				</button>
-				<a class="navbar-brand page-scroll" href="#page-top"
+				<a class="navbar-brand page-scroll" href="kotisivu.jsp"
 					style="font-family: 'Stalemate', cursive;">
 					<span class="light" style="font-size:35px;"><small>Castello é Fiori&ensp;</small></span><i class="fa fa-cutlery"></i>
 
@@ -115,26 +115,35 @@
 			<br>
 			<br>
 			<br>
+			
+  <!-- NÄMÄ VIELÄ KESKEN KORJAA -->
 			<table class="table table-bordered" frame=void>
-
+			<thead class="thead-inverse" >
+    <tr>
+      <th style="text-align:center">PIZZA</th>
+      <th style="text-align:center">TÄYTTEET</th>
+      <th style="text-align:center">HINTA</th>
+    </tr>
+    </thead>
+<thead class="thead-inverse">
 			<c:forEach items="${tuotteet}" var="p">
 				<tr>
 					<form action="menukontrolleri" method="post">
 										<td><input type="hidden" value="${p.id}" name="id">
 											<a
-											href="kontrolleri?toiminto=tuotteet&nimi=<c:out value="${p.nimi}" />"><c:out
+											<c:out value="${p.nimi}" />"><c:out
 													value="${p.nimi} " /> </a></td>
-								<td><c:out value="Täytteet: " /> <c:out
+								<td><c:out value="" /> <c:out
 								value="${p.taytteet} " /></td>
-						<td><c:out value=" Hinta: " /> <fmt:formatNumber
-								value="${p.hinta}" type="currency" currencySymbol="&euro; "  /></td>
+						<td><c:out value="" /> <fmt:formatNumber
+								value="${p.hinta}" type="currency" currencySymbol=""  /> &euro;</td>
 
-						
+					
 					</form>
 					
 				</tr>
 			</c:forEach>
-
+</thead>
 
 
 		</table>
