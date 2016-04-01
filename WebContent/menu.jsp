@@ -8,10 +8,9 @@
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.util.List"%>
 
+
 <!DOCTYPE html>
 <html>
-
-<!-- START OF HEADER -->
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -20,79 +19,119 @@
 <meta name="description" content="">
 <meta name="author" content="">
 <link rel="icon" href="/favicon.ico">
-
-<title>Pizzeria Fiore</title>
-
+<title>Menu</title>
 <!-- Bootstrap core CSS -->
+
+<!-- MUOTOILU CTRL+SHIFT+F RIKKOO NÄMÄ TAGIT, ÄLÄ TEE!! -->
 <style type="text/css">
 <%@include file="/bootstrap/css/bootstrap.min.css"%>
 </style>
+    <!-- Custom CSS -->
+<style type="text/css">
+<%@include file="/bootstrap/css/grayscale.css"%>
+</style>
+<!-- MUOTOILU CTRL+SHIFT+F RIKKOO NÄMÄ TAGIT, ÄLÄ TEE!! -->
 
-<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-<link href="bootstrap/docs/assets/css/ie10-viewport-bug-workaround.css"
-	rel="stylesheet" type="text/css">
-
-<!-- Custom styles for this template -->
-<link href="starter-template.css" rel="stylesheet" type="text/css">
-
+    <!-- Custom Fontit ja alkuperäiset kommenteissa -->
+    <link href="bootstrap/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+   <!--  <link href="http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+ -->
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Josefin+Slab:100,300,400,600,700,100italic,300italic,400italic,600italic,700italic" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Stalemate' rel='stylesheet' type='text/css'>
+ 
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
 </head>
-<!-- END OF HEADER -->
 
-<!-- START OF BODY -->
-<body>
+<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
 
-	<nav class="navbar navbar-inverse navbar-fixed-top">
+	<!-- Navigation -->
+	<nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
 		<div class="container">
 			<div class="navbar-header">
-				<button type="button" class="navbar-toggle collapsed"
-					data-toggle="collapse" data-target="#navbar" aria-expanded="false"
-					aria-controls="navbar">
-					<span class="sr-only">Toggle navigation</span> <span
-						class="icon-bar"></span> <span class="icon-bar"></span> <span
-						class="icon-bar"></span>
+				<button type="button" class="navbar-toggle" data-toggle="collapse"
+					data-target=".navbar-main-collapse">
+					<i class="fa fa-bars"></i>
 				</button>
-				<a class="navbar-brand" href="#">Pizzeria</a>
+				<a class="navbar-brand page-scroll" href="#page-top"
+					style="font-family: 'Stalemate', cursive;">
+					<span class="light" style="font-size:35px;"><small>Castello é Fiori&ensp;</small></span><i class="fa fa-cutlery"></i>
+
+				</a>
 			</div>
-			<div id="navbar" class="collapse navbar-collapse">
+
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div
+				class="collapse navbar-collapse navbar-right navbar-main-collapse">
 				<ul class="nav navbar-nav">
-					<li><a href="kotisivu.jsp">Etusivu</a></li>
-					<li><a href="adminkirjautuminen.jsp">Kirjaudu</a></li>
-					<li class="active"><a href="MenuKontrolleri">Pizzat</a></li>
+					<!-- Hidden li included to remove active class from about link when scrolled up past about section -->
+					<li class="hidden"><a href="#page-top"></a></li>
+					<li><a class="page-scroll" href="#yhteystiedot">YHTEYSTIEDOT</a></li>
+					<li><a href="MenuKontrolleri">MENU</a></li>
+					<li><a href="">REKISTERÖIDY</a></li>
+					<li><a href="">KIRJAUDU</a></li>
+					
 				</ul>
 			</div>
-			<!--/.nav-collapse -->
+			<!-- /.navbar-collapse -->
 		</div>
+		<!-- /.container -->
 	</nav>
 
-	<div class="container">
+	<!-- Intro Header -->
+	<header class="intro">
+		<div class="intro-body">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-8 col-md-offset-2">
+					<br><br><br>
+						<h1 class="brand-heading" style="text-transform: none; text-shadow:2px 2px 2px black; letter-spacing:-8px; font-size:130px;">Menu</h1>
+						<br><br><br><br>
+						<p class="intro-text" style="text-shadow:1px 1px 1px black;">
+						
+						</p>
+						<a href="#about" class="btn btn-circle page-scroll"> <i
+							class="fa fa-angle-double-down animated"></i>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
 
+	<!-- PIZZAT ALUE -->
+	<section id="about" class="container content-section text-center">
+
+				<h2>Pizzamme</h2>
+					
+					<div class="container">
 		<div class="starter-template">
 			<br>
 			<br>
 			<br>
-			<h1>Pizzeria Fiore</h1>
-			<p class="lead">
-				
-			</p>
-			<table border=1 frame=void rules=rows>
+			<table class="table table-bordered" frame=void>
 
 			<c:forEach items="${tuotteet}" var="p">
 				<tr>
 					<form action="menukontrolleri" method="post">
-						<td><input type="hidden"
-							value="${p.id}" name="id"> <a
-							href="kontrolleri?toiminto=tuotteet&nimi=<c:out value="${p.nimi}" />"><c:out
-									value="${p.nimi} " /> </a></td>
-						<td><c:out value="Täytteet: " /> <c:out
+										<td><input type="hidden" value="${p.id}" name="id">
+											<a
+											href="kontrolleri?toiminto=tuotteet&nimi=<c:out value="${p.nimi}" />"><c:out
+													value="${p.nimi} " /> </a></td>
+								<td><c:out value="Täytteet: " /> <c:out
 								value="${p.taytteet} " /></td>
-
-
 						<td><c:out value=" Hinta: " /> <fmt:formatNumber
-								type="currency" currencySymbol="e" value="${p.hinta}" /></td>
+								value="${p.hinta}" type="currency" currencySymbol="&euro; "  /></td>
 
 						
-
 					</form>
+					
 				</tr>
 			</c:forEach>
 
@@ -101,19 +140,39 @@
 		</table>
 		</div>
 
-	</div>
-	<!-- /.container -->
-
 	
-	<script>window.jQuery|| document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')
-	</script>
-	<script src="../../dist/js/bootstrap.min.js"></script>
-	<script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
-<!-- jQuery library -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-<!-- Latest compiled JavaScript -->
-<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	<!-- /.container -->
+			
+			</div>
+	</section>
+
+	<!-- KARTTA JA YHTEYSTIEDOT -->
+	<section id="yhteystiedot">
+	<div id="map"></div>
+	</section>
+
+	<!-- Footer -->
+	<footer>
+		<div class="container text-center">
+			<p style="font-size:10px"><a href="adminkirjautuminen.jsp">Copyright &copy; Team SexYSexy 2016</a></p>
+		</div>
+	</footer>
+
+	<!-- jQuery -->
+	<script src="bootstrap/js/jquery.js"></script>
+
+	<!-- Bootstrap Core JavaScript -->
+	<script src="bootstrap/js/bootstrap.min.js"></script>
+
+	<!-- Plugin JavaScript -->
+	<script src="bootstrap/js/jquery.easing.min.js"></script>
+
+	<!-- Google Maps API Key - Use your own API key to enable the map feature. More information on the Google Maps API can be found at https://developers.google.com/maps/ -->
+	<script type="text/javascript"
+		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjPfpeUdqwdbiejLneoaGAb9epjnJeVig&sensor=false"></script>
+      
+	<!-- Custom Theme JavaScript -->
+	<script src="bootstrap/js/grayscale.js"></script>
 
 </body>
-<!-- END OF BODY -->
 </html>
