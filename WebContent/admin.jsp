@@ -45,7 +45,7 @@
 					<li><a href="kontrolleri">Tuotehallinta</a></li>
 					
 					<li><a href="AdminMenu">Pizzat</a></li>
-					
+					<li><a href="kotisivu.jsp">Kotisivu</a></li>
 				</ul>
 			</div>
 			<!--/.nav-collapse -->
