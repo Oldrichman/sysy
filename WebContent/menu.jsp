@@ -75,7 +75,29 @@
 					<li><a class="page-scroll" href="#yhteystiedot">YHTEYSTIEDOT</a></li>
 					<li><a href="MenuKontrolleri">MENU</a></li>
 					<li><a href="">REKISTERÖIDY</a></li>
-					<li><a href="">KIRJAUDU</a></li>
+					<li class="dropdown"><a class="dropdown-toggle"
+						data-toggle="dropdown" href="">KIRJAUDU</a>
+						<div class="dropdown-menu" style="padding: 3px; background-color:transparent;">
+							
+							<!-- Tähän syötetään parametrit kirjautumista varten, jotka otetaan kirjautumisservletistä
+							Samat kuin adminsivuilla, pitää vain käyttää omaa servlettiä?
+							<form class="form-signin" method="post" action="kontrolleri"> MH -->
+							
+							<form action="KirjauduKayttaja" method="post">
+							<br>
+								<label for="inputEmail" class="sr-only" >Tunnus</label> <input style="margin-top: 8px"
+									type="text" name="kayttajatunnus" class="form-control"
+									placeholder="Tunnus" required autofocus> 
+									
+									<label
+									for="inputPassword" class="sr-only">Salasana</label> <input  style="margin-top: 8px"
+									type="text" name="salasana" class="form-control"
+									placeholder="Salasana" required>
+								<button class="btn btn-md"
+									style="background-color:transparent; margin-top: 4px; font-size: 12px;"  type="submit" value="Login">Kirjaudu
+									sisään</button>
+							</form>
+						</div> </li>
 					
 				</ul>
 			</div>
@@ -116,8 +138,8 @@
 			<br>
 			<br>
 			
-  <!-- NÄMÄ VIELÄ KESKEN KORJAA -->
-			<table class="table table-bordered" frame=void>
+  <!-- MUOKKAA MUOTOILUA PAREMMAKSI, KÄYTÄ BOKSEJA TMS. -->
+			<table class="table table-bordered">
 			<thead class="thead-inverse" >
 			
     <tr class="big">
