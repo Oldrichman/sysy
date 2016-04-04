@@ -1,11 +1,13 @@
 package password;
 
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
 
 import DAO.AdminKirjausDAO;
 import servlet.Kontrolleri;
@@ -33,6 +35,7 @@ public class KirjauduAdmin extends HttpServlet {
 	 */
 	private static final long serialVersionUID = 1L;
 
+
 	public void doPost(HttpServletRequest request, HttpServletResponse response) 
 	throws ServletException, java.io.IOException {
 		try { 
@@ -49,7 +52,12 @@ public class KirjauduAdmin extends HttpServlet {
 				 session.setAttribute("Login",admin); 
 				 response.sendRedirect("AdminMenu"); //logged-in page
 			 }else 
-				 response.sendRedirect("adminkirjautuminen.jsp"); //error page 
+			 {
+				 request.setAttribute("Virhe", "virhe");
+				 response.sendRedirect("adminkirjautuminen.jsp"); //error page  
+			 }
+			 
+				 
 		}
 		catch (Throwable theException){ 
 			System.out.println(theException); 

@@ -40,6 +40,11 @@
 
 <!-- Tähän syötetään parametrit kirjautumista varten, jotka otetaan kirjautumisservletistä -->
 		<!-- <form class="form-signin" method="post" action="kontrolleri"> MH -->
+		
+		<% if (request.getAttribute("Virhe") != null) {
+			out.println("Tunnus/salasana väärin");
+		}  %>
+		
 		<form action="KirjauduAdmin" method="post">
 			<h3 class="form-signin-heading" style="text-align:center">Admin</h3>
 			<label for="inputEmail" class="sr-only">Tunnus</label> <input

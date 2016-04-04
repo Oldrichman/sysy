@@ -1,5 +1,6 @@
 package DAO;
 
+import java.awt.Component;
 import java.io.UnsupportedEncodingException;
 import java.security.NoSuchAlgorithmException;
 import java.sql.Connection;
@@ -8,6 +9,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+
+import javax.swing.JOptionPane;
 
 import admin.Konnektori;
 import password.Admin;
@@ -49,9 +52,7 @@ public class AdminKirjausDAO {
 			}
 
 			else {
-				// EI L÷YTYNYT
-				// generoidaan kuitenkin tyhj‰ user, jotta
-				// login tarkistus kest‰‰ aina yht‰ kauan
+				
 				admin.setValid(false);
 				return null;
 			}
