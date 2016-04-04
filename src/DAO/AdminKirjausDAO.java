@@ -54,7 +54,7 @@ public class AdminKirjausDAO {
 			else {
 				
 				admin.setValid(false);
-				return null;
+				return admin;
 			}
 		} catch (SQLException e) {
 			// JOTAIN VIRHETTÄ TAPAHTUI
