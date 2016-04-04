@@ -5,7 +5,8 @@ sukunimi VARCHAR(30),
 email VARCHAR(30) NOT NULL,
 osoite VARCHAR(30),
 postinro VARCHAR(5),
-salasana VARCHAR(30) NOT NULL,
+salasana VARCHAR(300) NOT NULL,
+suola VARCHAR(300) NOT NULL,
 PRIMARY KEY (Id)
 )ENGINE=InnoDB;
 
@@ -87,3 +88,5 @@ DROP TABLE Tuote;
 DROP TABLE Tavarantoimittaja;
 DROP TABLE Admin;
 DROP TABLE Asiakas;
+
+

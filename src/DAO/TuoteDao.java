@@ -55,7 +55,7 @@ public class TuoteDao {
 		try {
 
 			// suoritetaan haku
-			String sql = "select * from Tuote ORDER BY nimi ";
+			String sql = "select * from Tuote ORDER BY nimi";
 			Statement haku = yhteys.createStatement();
 			ResultSet resultset = haku.executeQuery(sql);
 
@@ -91,7 +91,7 @@ public class TuoteDao {
 		try {
 
 			// suoritetaan haku
-			String sql = "select * from Tuote where poisto is null ";
+			String sql = "select * from Tuote where poisto is null ORDER BY nimi";
 			Statement haku = yhteys.createStatement();
 			ResultSet resultset = haku.executeQuery(sql);
 
@@ -171,7 +171,8 @@ public class TuoteDao {
 
 				st.setInt(1, id);
 				st.executeUpdate();
-
+				
+				
 			} catch (Exception e) {
 				System.out.println(e);
 			}}
