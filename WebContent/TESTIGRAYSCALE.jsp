@@ -75,9 +75,50 @@
 					<li><a class="page-scroll" href="#yhteystiedot">YHTEYSTIEDOT</a></li>
 					<li><a href="MenuKontrolleri">MENU</a></li>
 					<li><a href="">REKISTERÖIDY</a></li>
-					<li><a href="">KIRJAUDU</a></li>
-					
+
+					<li class="dropdown"><a class="dropdown-toggle"
+						data-toggle="dropdown" href="">KIRJAUDU</a>
+						<div class="dropdown-menu" style="padding: 3px; background-color:transparent;">
+							
+							<!-- Tähän syötetään parametrit kirjautumista varten, jotka otetaan kirjautumisservletistä
+							Samat kuin adminsivuilla, pitää vain käyttää omaa servlettiä?
+							<form class="form-signin" method="post" action="kontrolleri"> MH -->
+							
+							<form action="KirjauduKayttaja" method="post">
+							<br>
+								<label for="inputEmail" class="sr-only" >Tunnus</label> <input style="margin-top: 8px"
+									type="text" name="kayttajatunnus" class="form-control"
+									placeholder="Tunnus" required autofocus> 
+									
+									<label
+									for="inputPassword" class="sr-only">Salasana</label> <input  style="margin-top: 8px"
+									type="text" name="salasana" class="form-control"
+									placeholder="Salasana" required>
+								<button class="btn btn-md"
+									style="background-color:transparent; margin-top: 4px; font-size: 12px;"  type="submit" value="Login">Kirjaudu
+									sisään</button>
+							</form>
+						</div> 
+						
+						<!-- 	<form style="margin: 0px;" accept-charset="UTF-8"
+								action="/sessions" method="post">
+								<div style="margin: 0; padding: 0; display: inline">
+									<input name="utf8" type="hidden" value="&#x2713;" /><input
+										name="authenticity_token" type="hidden"
+										value="4L/A2ZMYkhTD3IiNDMTuB/fhPRvyCNGEsaZocUUpw40=" />
+								</div>
+								<fieldset class='textbox' style="font-color:black;">
+									<input style="margin-top: 8px;" type="text"
+										placeholder="käyttäjätunnus" /> <input type="password" placeholder="salasana" style="margin-top: 8px"
+										 /> <input
+										class="btn-primary" name="commit" type="submit"
+										value="Kirjaudu sisään" />
+								</fieldset>
+							</form>
+							
+						</div></li> --></li>
 				</ul>
+
 			</div>
 			<!-- /.navbar-collapse -->
 		</div>
