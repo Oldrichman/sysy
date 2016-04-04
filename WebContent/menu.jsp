@@ -1,3 +1,4 @@
+<%@page import="javafx.scene.layout.Background"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -139,7 +140,6 @@
 								value="${p.taytteet} " /></td>
 						<td><c:out value="" /> <fmt:formatNumber
 								value="${p.hinta}" type="currency" currencySymbol=""  /> &euro;</td>
-
 					
 					</form>
 					

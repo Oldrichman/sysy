@@ -1,11 +1,10 @@
 CREATE TABLE Asiakas(
 Id INT NOT NULL AUTO_INCREMENT,
-kayttajatunnus VARCHAR(30) NOT NULL,
-etunimi VARCHAR(20) NOT NULL,
-sukunimi VARCHAR(30) NOT NULL,
+etunimi VARCHAR(20),
+sukunimi VARCHAR(30),
 email VARCHAR(30) NOT NULL,
-osoite VARCHAR(30) NOT NULL,
-postinro VARCHAR(5) NOT NULL,
+osoite VARCHAR(30),
+postinro VARCHAR(5),
 salasana VARCHAR(30) NOT NULL,
 PRIMARY KEY (Id)
 )ENGINE=InnoDB;
