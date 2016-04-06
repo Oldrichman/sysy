@@ -94,13 +94,13 @@
 									for="inputPassword" class="sr-only">Salasana</label> <input  style="margin-top: 8px"
 									type="text" name="salasana" class="form-control"
 									placeholder="Salasana" required>
-								<button class="btn btn-md"
-									style="background-color:transparent; margin-top: 4px; font-size: 12px;"  type="submit" value="Login">Kirjaudu
+								<button  class="btn btn-md"
+									style="background-color:transparent; margin-top: 4px; font-size: 12px;"  type="submit" value="Login" >Kirjaudu
 									sisään</button>
 									
 							</form>
 							<a href="rekisteroidy.jsp" class="btn btn-md"
-									style="background-color:transparent; margin-top: 4px; font-size: 12px;">Rekisteröidy
+									style="background-color:transparent; margin-top: 4px; font-size: 12px;" data-toggle="tooltip" title="Saat tunnukset rekisteröitymällä">Rekisteröidy
 									</a>
 						</div> </li>
 	

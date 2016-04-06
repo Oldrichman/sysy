@@ -87,7 +87,7 @@
 							<form action="KirjauduKayttaja" method="post">
 							<br>
 								<label for="inputEmail" class="sr-only" >Tunnus</label> <input style="margin-top: 8px"
-									type="text" name="kayttajatunnus" class="form-control"
+									type="text" name="email" class="form-control"
 									placeholder="Tunnus" required autofocus> 
 									
 									<label
@@ -99,7 +99,7 @@
 									sisään</button>
 							</form>
 							<a href="rekisteroidy.jsp" class="btn btn-md"
-									style="background-color:transparent; margin-top: 4px; font-size: 12px;">Rekisteröidy
+									style="background-color:transparent; margin-top: 4px; font-size: 12px;" data-toggle="tooltip" title="Saat tunnukset rekisteröitymällä">Rekisteröidy
 									</a>
 						</div> </li>
 					

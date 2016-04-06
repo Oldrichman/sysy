@@ -105,7 +105,7 @@
 							<form action="KirjauduKayttaja" method="post">
 							<br>
 								<label for="inputEmail" class="sr-only" >Tunnus</label> <input style="margin-top: 8px"
-									type="text" name="kayttajatunnus" class="form-control"
+									type="text" name="email" class="form-control"
 									placeholder="Tunnus" required autofocus> 
 									
 									<label
@@ -115,9 +115,10 @@
 								<button class="btn btn-md"
 									style="background-color:transparent; margin-top: 4px; font-size: 12px;"  type="submit" value="Login">Kirjaudu
 									sisään</button>
+									
 							</form>
 							<a href="rekisteroidy.jsp" class="btn btn-md"
-									style="background-color:transparent; margin-top: 4px; font-size: 12px;">Rekisteröidy
+									style="background-color:transparent; margin-top: 4px; font-size: 12px;" data-toggle="tooltip" title="Saat tunnukset rekisteröitymällä">Rekisteröidy
 									</a>
 						</div> </li>
 
@@ -142,9 +143,7 @@
 							Rekisteröidy kanta-asiakkaaksemme! <br>
 							Saat etuja.
 						</p>
-						<a href="#about" class="btn btn-circle page-scroll"> <i
-							class="fa fa-angle-double-down animated"></i>
-						</a>
+
 					</div>
 				</div>
 			</div>
@@ -164,12 +163,6 @@
                     <div class="row">
                         <div class="col-sm-8 col-sm-offset-2 text">
                             <h1><strong>Rekisteröidy</strong> Nyt</h1>
-                            <div class="description">
-                            	<p>
-	                            	This is a free responsive registration form made with Bootstrap. 
-	                            	Download it on <a href="http://azmind.com"><strong>AZMIND</strong></a>, customize and use it as you like!
-                            	</p>
-                            </div>
                         </div>
                     </div>
                     <div class="row">
@@ -202,7 +195,7 @@
 			                        	<label class="sr-only" for="form-email">Sähköposti</label>
 			                        	<input type="text" name="form-email" placeholder="Sähköposti..." class="form-email form-control" id="form-email">
 			                        </div>
-			                        <button type="submit" class="btn">Rekisteröidy</button>
+			                        <button type="submit" class="btnform">Rekisteröidy</button>
 			                    </form>
 		                    </div>
                         </div>
@@ -261,10 +254,9 @@
 	<script src="bootstrap/js/grayscale.js"></script>
 	
 	<!-- Javascript for reg form -->
-        <script src="bootstrap/js/jquery-1.11.1.min.js"></script>
+        <!-- <script src="bootstrap/js/jquery-1.11.1.min.js"></script>
         <script src="bootstrap/js/jquery.backstretch.min.js"></script>
-        <script src="bootstrap/js/retina-1.1.0.min.js"></script>
-        <script src="bootstrap/js/scripts.js"></script>
+        <script src="bootstrap/js/scripts.js"></script> -->
         
         <!--[if lt IE 10]>
             <script src="bootstrap/js/placeholder.js"></script>
