@@ -87,7 +87,7 @@
 							<form action="KirjauduKayttaja" method="post">
 							<br>
 								<label for="inputEmail" class="sr-only" >Tunnus</label> <input style="margin-top: 8px"
-									type="text" name="kayttajatunnus" class="form-control"
+									type="text" name="email" class="form-control"
 									placeholder="Tunnus" required autofocus> 
 									
 									<label

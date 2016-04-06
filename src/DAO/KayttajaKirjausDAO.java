@@ -1,6 +1,5 @@
 package DAO;
 
-import java.awt.Component;
 import java.io.UnsupportedEncodingException;
 import java.security.NoSuchAlgorithmException;
 import java.sql.Connection;
@@ -10,26 +9,24 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-import javax.swing.JOptionPane;
-
 import admin.Konnektori;
-import password.Admin;
+import password.Kayttaja;
 import security.Salaaja;
 
-public class AdminKirjausDAO {
-	// Otettu muualta ohje ja tehty sen perusteella MH
+public class KayttajaKirjausDAO {
+	// Otettu Mikolta ohje ja tehty sen perusteella OH
 	static Konnektori currentCon = null;
 	static ResultSet rs = null;
 
-	public static Admin login(Admin admin) { // preparing some objects for
+	public static Kayttaja login(Kayttaja kayttaja) { // preparing some objects for
 												// connection
-		Admin kayttajatunnus;
+		Kayttaja email;
 
 		try { // connect to DB
 			Connection currentCon = Konnektori.getConnection();
 			PreparedStatement usernamehaku = currentCon
-					.prepareStatement("SELECT suola, kayttajatunnus, salasana from Admin where kayttajatunnus = ?");
-			usernamehaku.setString(1, admin.getKayttajatunnus());
+					.prepareStatement("SELECT suola, email, salasana from Asiakas where email = ?");
+			usernamehaku.setString(1, kayttaja.getEmail());
 			rs = usernamehaku.executeQuery();
 			if (rs.next()) {
 				String suola = rs.getString("suola");
@@ -38,7 +35,7 @@ public class AdminKirjausDAO {
 				String salattuTeksti = null; 
 				
 				try {
-					 salattuTeksti = salaaja.salaa(admin.getSalasana(), suola, "SHA-512", 100);
+					 salattuTeksti = salaaja.salaa(kayttaja.getSalasana(), suola, "SHA-512", 100);
 				} catch (Exception e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
@@ -46,15 +43,17 @@ public class AdminKirjausDAO {
 				
 			
 				if (salattuTeksti.equals(rs.getString("salasana"))) {
-					admin.setValid(true);
+					kayttaja.setValid(true);
 				}
 
 			}
 
 			else {
-				
-				admin.setValid(false);
-				return admin;
+				// EI LÖYTYNYT
+				// generoidaan kuitenkin tyhjä user, jotta
+				// login tarkistus kestää aina yhtä kauan
+				kayttaja.setValid(false);
+				return kayttaja;
 			}
 		} catch (SQLException e) {
 			// JOTAIN VIRHETTÄ TAPAHTUI
@@ -76,6 +75,6 @@ public class AdminKirjausDAO {
 			}
 		}
 
-		return admin;
+		return kayttaja;
 	}
 }
