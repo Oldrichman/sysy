@@ -74,9 +74,9 @@
 					<!-- Hidden li included to remove active class from about link when scrolled up past about section -->
 					<li class="hidden"><a href="#page-top"></a></li>
 					<li><a class="page-scroll" href="#yhteystiedot">YHTEYSTIEDOT</a></li>
-					<li><a href="MenuKontrolleri">MENU</a></li>
+					<li><a href="KayttajaMenu">MENU</a></li>
 					
-					<li><a href="kayttaja.jsp">OMAT TIEDOT</a></li>
+					<li><a href="KayttajaServlet">OMAT TIEDOT</a></li>
 								
 							</form>
 						</div> </li>
@@ -98,11 +98,15 @@
 					<br><br><br>
 						<h1 class="brand-heading" style="text-transform: none; text-shadow:2px 2px 2px black; letter-spacing:-8px; font-size:130px;">Castello é Fiori</h1>
 						<br><br><br><br>
+						<c:forEach items="${tiedot}" var="p">
+				<tr>
+					<form action="KayttajaServlet" method="post">
 						<p class="intro-text" style="text-shadow:1px 1px 1px black;">
-							Tervetuloa!  <br>
+							Tervetuloa <c:out value="${p.etunimi}"></c:out> 
+							<c:out value="${p.sukunimi} "></c:out>  <br>
 							Alta pääset katsomaan ja muokkaamaan omia tietojasi.
 						</p>
-															
+								</form> </tr> </c:forEach>						
 						<a href="#about" class="btn btn-circle page-scroll"> <i
 							class="fa fa-angle-double-down animated"></i>
 						</a>
@@ -127,17 +131,18 @@
       <th style="text-align:center">Etunimi</th>
       <th style="text-align:center">Sukunimi</th>
       <th style="text-align:center">email</th>
+      <th style="text-align:center">osoite</th>
+      <th style="text-align:center">postinumero</th>
     </tr>
     
     </thead>
 <thead class="thead-inverse">
-			<c:forEach items="${tietoja}" var="p">
+			<c:forEach items="${tiedot}" var="p">
 				<tr>
 					<form action="KayttajaServlet" method="post">
-										<td><input type="hidden" value="${p.etunimi}" name="etunimi">
-											<a
-											<c:out value="${p.sukunimi}" />><c:out
-													value="${p.sukunimi} " /> </a></td>
+										<td> <c:out value="${p.etunimi}" />
+											<td><c:out
+													value="${p.sukunimi} " /> </td>
 								<td><c:out value="" /> <c:out
 								value="${p.email} " /></td>
 						<td><c:out value="${p.osoite}" /> 
@@ -152,8 +157,7 @@
 
 		</table>
 					 <a
-						href="http://startbootstrap.com/template-overviews/grayscale/">Saamme
-						perinteemme alkuperäismaasta</a>.
+						href="http://startbootstrap.com/template-overviews/grayscale/">Muokkaa tietoja.</a>
 				</p>
 			
 			</div>

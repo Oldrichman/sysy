@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import password.Kayttaja;
-import admin.Tuote;
+
 
 public class KayttajaDao {
 
@@ -50,41 +50,42 @@ public class KayttajaDao {
 		}
 	}
 
-	public ArrayList<Kayttaja> haeTiedot(Kayttaja t) {
+	public ArrayList<Kayttaja> haeTiedot() {
 
-		ArrayList<Kayttaja> tietoja = new ArrayList<Kayttaja>();
+		ArrayList<Kayttaja> tiedot = new ArrayList<Kayttaja>();
 
 		try {
 
 			// suoritetaan haku
-			String sql = "select * from Asiakas where email = testi@sysy.fi";
+			String sql = "select * from Asiakas where Id = 1 ";
 			Statement haku = yhteys.createStatement();
 			ResultSet resultset = haku.executeQuery(sql);
 
 			// käydään hakutulokset läpi
 			while (resultset.next()) {
-				Kayttaja tiedot = new Kayttaja();
+				Kayttaja kayttaja = new Kayttaja();
 				
-				tiedot.setEtunimi(resultset.getString("etunimi"));
-				tiedot.setSukunimi(resultset.getString("sukunimi"));
-				tiedot.setEmail(resultset.getString("email"));
-				tiedot.setOsoite(resultset.getString("osoite"));
-				tiedot.setPostinro(resultset.getString("postinumero"));
-				tiedot.setSalasana(resultset.getString("salasana"));
-				tiedot.add(tietoja);
+				kayttaja.setEtunimi(resultset.getString("etunimi"));
+				kayttaja.setSukunimi(resultset.getString("sukunimi"));
+				kayttaja.setEmail(resultset.getString("email"));
+				kayttaja.setOsoite(resultset.getString("osoite"));
+				kayttaja.setPostinro(resultset.getString("postinro"));
+				kayttaja.setSalasana(resultset.getString("salasana"));
+				tiedot.add(kayttaja);
 			}
 
 		} catch (Exception e) {
 			// JOTAIN VIRHETTÄ TAPAHTUI
 			System.out.println("Tietokantahaku aiheutti virheen");
+			System.out.println(e);
 		} finally {
 
 		}
 
-		System.out.println("HAETTIIN TIETOKANNASTA TUOTTEET: "
-				+ tietoja.toString());
+		System.out.println("HAETTIIN TIETOKANNASTA TIEDOT: "
+				+ tiedot.toString());
 
-		return tietoja;
+		return tiedot;
 	}
 
 	}

@@ -1,15 +1,16 @@
 package servlet;
 
 
-	import java.io.IOException;
+import java.io.IOException;
 
 import java.util.List;
 
-	import javax.servlet.ServletException;
+import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
 
 import password.Kayttaja;
 import DAO.KayttajaDao;
@@ -44,7 +45,7 @@ import DAO.KayttajaDao;
 			kDao.avaaYhteys();
 
 			List<Kayttaja> lista = null;
-			lista = kDao.haeTiedot(null);
+			lista = kDao.haeTiedot();
 			for (int i = 0; i < lista.size(); i++) {
 				wout.print(lista.get(i));
 			}
@@ -70,17 +71,31 @@ import DAO.KayttajaDao;
 				HttpServletResponse response) throws ServletException, IOException {
 			response.setContentType("text/html");
 
+			if (request.getParameter("email") != null){
 			
+			String etunimi = request.getParameter("etunimi");
+			String sukunimi = request.getParameter("sukunimi");
+			String email = request.getParameter("email");
+			String osoite = request.getParameter("osoite");
+			String postinro = request.getParameter("postinro");
 
+			Kayttaja kayttaja = new Kayttaja(etunimi, sukunimi, email, osoite, postinro);
 		
-
-				Kayttaja t = new Kayttaja();
+			System.out.println("<p>");
+			System.out.println("<b>" + kayttaja.getEtunimi() + "</b>");
+			System.out.println("<b> Sukunimi: " + kayttaja.getSukunimi() + "</b>");
+			System.out.println("<b> Email: " + kayttaja.getEmail() + "</b>");
+			System.out.println("<br/>");
+			System.out.println(": " + kayttaja.getOsoite());
+			System.out.println(": " + kayttaja.getPostinro());
+			
+				Kayttaja t = new Kayttaja(etunimi, sukunimi, email, osoite, postinro);
 				KayttajaDao kDao = new KayttajaDao();
 				
 				try {
 					
 					kDao.avaaYhteys();
-					kDao.haeTiedot(t);				
+					kDao.haeTiedot();				
 					kDao.suljeYhteys();
 					
 				} catch (Exception e) {
@@ -91,7 +106,7 @@ import DAO.KayttajaDao;
 			}
 
 			
-	    }
+	    }}
 	
 
 
