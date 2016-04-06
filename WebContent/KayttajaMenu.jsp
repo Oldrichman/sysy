@@ -71,39 +71,21 @@
 			<div
 				class="collapse navbar-collapse navbar-right navbar-main-collapse">
 				<ul class="nav navbar-nav">
+					<!-- Collect the nav links, forms, and other content for toggling -->
+			<div
+				class="collapse navbar-collapse navbar-right navbar-main-collapse">
+				<ul class="nav navbar-nav">
+
 					<!-- Hidden li included to remove active class from about link when scrolled up past about section -->
 					<li class="hidden"><a href="#page-top"></a></li>
 					<li><a class="page-scroll" href="#yhteystiedot">YHTEYSTIEDOT</a></li>
-					<li><a class="page-scroll" href="#page-top"">MENU</a></li>
-					<li><a href="rekisteroidy.jsp">REKISTERÖIDY</a></li>
-					<li class="dropdown"><a class="dropdown-toggle"
-						data-toggle="dropdown" href="">KIRJAUDU</a>
-						<div class="dropdown-menu" style="padding: 3px; background-color:transparent;">
-							
-							<!-- Tähän syötetään parametrit kirjautumista varten, jotka otetaan kirjautumisservletistä
-							Samat kuin adminsivuilla, pitää vain käyttää omaa servlettiä?
-							<form class="form-signin" method="post" action="kontrolleri"> MH -->
-							
-							<form action="KirjauduKayttaja" method="post">
-							<br>
-								<label for="inputEmail" class="sr-only" >Tunnus</label> <input style="margin-top: 8px"
-									type="text" name="kayttajatunnus" class="form-control"
-									placeholder="Tunnus" required autofocus> 
-									
-									<label
-									for="inputPassword" class="sr-only">Salasana</label> <input  style="margin-top: 8px"
-									type="text" name="salasana" class="form-control"
-									placeholder="Salasana" required>
-								<button class="btn btn-md"
-									style="background-color:transparent; margin-top: 4px; font-size: 12px;"  type="submit" value="Login">Kirjaudu
-									sisään</button>
-							</form>
-							<a href="rekisteroidy.jsp" class="btn btn-md"
-									style="background-color:transparent; margin-top: 4px; font-size: 12px;">Rekisteröidy
-									</a>
-						</div> </li>
+					<li><a href="KayttajaMenu">MENU</a></li>
 					
-				</ul>
+					<li><a href="KayttajaServlet">OMAT TIEDOT</a></li>
+								
+							</form>
+						</div> </li>
+			
 			</div>
 			<!-- /.navbar-collapse -->
 		</div>
@@ -117,7 +99,14 @@
 				<div class="row">
 					<div class="col-md-8 col-md-offset-2">
 					<br><br><br>
-						<h1 class="brand-heading" style="text-transform: none; text-shadow:2px 2px 2px black; letter-spacing:-8px; font-size:130px;">Menu</h1>	
+						<h1 class="brand-heading" style="text-transform: none; text-shadow:2px 2px 2px black; letter-spacing:-8px; font-size:130px;">Menu</h1>
+						<br><br><br><br>
+						<p class="intro-text" style="text-shadow:1px 1px 1px black;">
+						
+						</p>
+						<a href="#about" class="btn btn-circle page-scroll"> <i
+							class="fa fa-angle-double-down animated"></i>
+						</a>
 					</div>
 				</div>
 			</div>
@@ -126,10 +115,14 @@
 
 	<!-- PIZZAT ALUE -->
 	<section id="about" class="container content-section text-center">
-				<h2>Pizzamme</h2>	
+
+				<h2>Pizzamme</h2>
+					
 					<div class="container">
 		<div class="starter-template">
-			
+			<br>
+			<br>
+			<br>
 			
   <!-- MUOKKAA MUOTOILUA PAREMMAKSI, KÄYTÄ BOKSEJA TMS. -->
 			<table class="table table-bordered">
@@ -145,7 +138,7 @@
 <thead class="thead-inverse">
 			<c:forEach items="${tuotteet}" var="p">
 				<tr>
-					<form action="menukontrolleri" method="post">
+					<form action="KayttajaMenu" method="post">
 										<td><input type="hidden" value="${p.id}" name="id">
 											<a
 											<c:out value="${p.nimi}" />"><c:out
@@ -174,15 +167,6 @@
 	<!-- KARTTA JA YHTEYSTIEDOT -->
 	<section id="yhteystiedot">
 	<div id="map"></div>
-	<div class="container text-center">
-
-			<p style="font-size: 13px">
-				<a
-					href="https://www.google.fi/maps/place/Sibeliuksenkatu+7,+13100+H%C3%A4meenlinna/@60.9961755,24.4617791,17z/data=!3m1!4b1!4m2!3m1!1s0x468e5d970c10edb3:0xa654c8617544564e">Sibeliuksenkatu
-					7 <br> 13100 Hämeenlinna
-				</a>
-			</p>
-		</div>
 	</section>
 
 	<!-- Footer -->
@@ -208,18 +192,5 @@
 	<!-- Custom Theme JavaScript -->
 	<script src="bootstrap/js/grayscale.js"></script>
 
-	<!-- Jos tulee jotain virhettä valittaessa kenttiä käyttäjäkirjautumisessa, niin nämä käyttöön! -->
-	<!-- <script language="javascript">
-		$('.dropdown-toggle').dropdown();
-		$('.dropdown-menu').find('form').click(function(e) {
-			e.stopPropagation();
-		});
-
-		$(
-				'a.dropdown-toggle, .dropdown-menu a, .dropdown-menu input, .dropdown-menu button')
-				.on('touchstart', function(e) {
-					e.stopPropagation();
-				});
-	</script> -->
 </body>
 </html>

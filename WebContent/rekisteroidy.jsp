@@ -1,4 +1,3 @@
-<%@page import="javafx.scene.layout.Background"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -20,7 +19,11 @@
 <meta name="description" content="">
 <meta name="author" content="">
 <link rel="icon" href="/favicon.ico">
-<title>Menu</title>
+<title>Rekisteröidy</title>
+<link
+	href='http://fonts.googleapis.com/css?family=Titillium+Web:400,300,600'
+	rel='stylesheet' type='text/css'>
+
 <!-- Bootstrap core CSS -->
 
 <!-- MUOTOILU CTRL+SHIFT+F RIKKOO NÄMÄ TAGIT, ÄLÄ TEE!! -->
@@ -31,6 +34,17 @@
 <style type="text/css">
 <%@include file="/bootstrap/css/grayscale.css"%>
 </style>
+
+<style type="text/css">
+<%@include file="bootstrap/css/form-elements.css"%>
+</style>
+
+<style>
+<%@include file="bootstrap/css/style.css"%>
+</style>
+ <!-- CSS -->
+        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500" rel='stylesheet' type='text/css'>
+        
 <!-- MUOTOILU CTRL+SHIFT+F RIKKOO NÄMÄ TAGIT, ÄLÄ TEE!! -->
 
     <!-- Custom Fontit ja alkuperäiset kommenteissa -->
@@ -48,6 +62,9 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+    
+        <!-- Favicon and touch icons -->
+       
 </head>
 
 <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
@@ -71,11 +88,12 @@
 			<div
 				class="collapse navbar-collapse navbar-right navbar-main-collapse">
 				<ul class="nav navbar-nav">
+
 					<!-- Hidden li included to remove active class from about link when scrolled up past about section -->
 					<li class="hidden"><a href="#page-top"></a></li>
 					<li><a class="page-scroll" href="#yhteystiedot">YHTEYSTIEDOT</a></li>
-					<li><a class="page-scroll" href="#page-top"">MENU</a></li>
-					<li><a href="rekisteroidy.jsp">REKISTERÖIDY</a></li>
+					<li><a href="MenuKontrolleri">MENU</a></li>
+					<li><a class="page-scroll" href="#page-top">REKISTERÖIDY</a></li>
 					<li class="dropdown"><a class="dropdown-toggle"
 						data-toggle="dropdown" href="">KIRJAUDU</a>
 						<div class="dropdown-menu" style="padding: 3px; background-color:transparent;">
@@ -102,6 +120,7 @@
 									style="background-color:transparent; margin-top: 4px; font-size: 12px;">Rekisteröidy
 									</a>
 						</div> </li>
+
 					
 				</ul>
 			</div>
@@ -117,65 +136,97 @@
 				<div class="row">
 					<div class="col-md-8 col-md-offset-2">
 					<br><br><br>
-						<h1 class="brand-heading" style="text-transform: none; text-shadow:2px 2px 2px black; letter-spacing:-8px; font-size:130px;">Menu</h1>	
+						<h1 class="brand-heading" style="text-transform: none; text-shadow:2px 2px 2px black; letter-spacing:-8px; font-size:130px;">Rekisteröidy</h1>
+						<br><br><br><br>
+						<p class="intro-text" style="text-shadow:1px 1px 1px black;">
+							Rekisteröidy kanta-asiakkaaksemme! <br>
+							Saat etuja.
+						</p>
+						<a href="#about" class="btn btn-circle page-scroll"> <i
+							class="fa fa-angle-double-down animated"></i>
+						</a>
 					</div>
 				</div>
 			</div>
 		</div>
 	</header>
 
-	<!-- PIZZAT ALUE -->
-	<section id="about" class="container content-section text-center">
-				<h2>Pizzamme</h2>	
-					<div class="container">
-		<div class="starter-template">
-			
-			
-  <!-- MUOKKAA MUOTOILUA PAREMMAKSI, KÄYTÄ BOKSEJA TMS. -->
-			<table class="table table-bordered">
-			<thead class="thead-inverse" >
-			
-    <tr class="big">
-      <th style="text-align:center">PIZZA</th>
-      <th style="text-align:center">TÄYTTEET</th>
-      <th style="text-align:center">HINTA</th>
-    </tr>
-    
-    </thead>
-<thead class="thead-inverse">
-			<c:forEach items="${tuotteet}" var="p">
-				<tr>
-					<form action="menukontrolleri" method="post">
-										<td><input type="hidden" value="${p.id}" name="id">
-											<a
-											<c:out value="${p.nimi}" />"><c:out
-													value="${p.nimi} " /> </a></td>
-								<td><c:out value="" /> <c:out
-								value="${p.taytteet} " /></td>
-						<td><c:out value="" /> <fmt:formatNumber
-								value="${p.hinta}" type="currency" currencySymbol=""  /> &euro;</td>
-					
-					</form>
-					
-				</tr>
-			</c:forEach>
-</thead>
-
-
-		</table>
-		</div>
-
+	<!-- About Section//REKISTERÖIDY LOMAKE -->
+	<!-- About Section//REKISTERÖIDY LOMAKE -->
 	
-	<!-- /.container -->
+<section id="about" class="container content-section text-center">
+				<!-- Top content -->
+      
+      
+      <div class="top-content">
+            <div class="inner-bg">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-8 col-sm-offset-2 text">
+                            <h1><strong>Rekisteröidy</strong> Nyt</h1>
+                            <div class="description">
+                            	<p>
+	                            	This is a free responsive registration form made with Bootstrap. 
+	                            	Download it on <a href="http://azmind.com"><strong>AZMIND</strong></a>, customize and use it as you like!
+                            	</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                    	<div class="col-sm-6 book">
+                    		<img src="bootstrap/img/ebook.png" alt="">
+                    	</div>
+                        <div class="col-sm-5 form-box">
+                        	<div class="form-top">
+                        		<div class="form-top-left">
+                        			<h3>Lomake</h3>
+                            		<h4>Täytä nyt ja pääse heti kiinni etuihin!</h4>
+                        		</div>
+                        		<div class="form-top-right">
+                        			<i class="fa fa-pencil"></i>
+                        		</div>
+                            </div>
+                            
+                           <!--  Post methodit tänne, että käyttäjä saa salasanan jne. -->
+                            <div class="form-bottom">
+			                    <form role="form" action="" method="post" class="registration-form">
+			                    	<div class="form-group">
+			                    		<label class="sr-only" for="form-first-name">Etunimi</label>
+			                        	<input type="text" name="form-first-name" placeholder="Etunimi..." class="form-first-name form-control" id="form-first-name">
+			                        </div>
+			                        <div class="form-group">
+			                        	<label class="sr-only" for="form-last-name">Sukunimi</label>
+			                        	<input type="text" name="form-last-name" placeholder="Sukunimi..." class="form-last-name form-control" id="form-last-name">
+			                        </div>
+			                        <div class="form-group">
+			                        	<label class="sr-only" for="form-email">Sähköposti</label>
+			                        	<input type="text" name="form-email" placeholder="Sähköposti..." class="form-email form-control" id="form-email">
+			                        </div>
+			                        <button type="submit" class="btn">Rekisteröidy</button>
+			                    </form>
+		                    </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+				
 			
-			</div>
+		
+   
+     
 	</section>
+<!-- END OF About Section//REKISTERÖIDY LOMAKE -->
+<!-- END OF About Section//REKISTERÖIDY LOMAKE -->
+	
 
-	<!-- KARTTA JA YHTEYSTIEDOT -->
+
+
+	<!-- Map Section -->
 	<section id="yhteystiedot">
 	<div id="map"></div>
-	<div class="container text-center">
-
+		<div class="container text-center">
 			<p style="font-size: 13px">
 				<a
 					href="https://www.google.fi/maps/place/Sibeliuksenkatu+7,+13100+H%C3%A4meenlinna/@60.9961755,24.4617791,17z/data=!3m1!4b1!4m2!3m1!1s0x468e5d970c10edb3:0xa654c8617544564e">Sibeliuksenkatu
@@ -191,6 +242,7 @@
 			<p style="font-size:10px"><a href="adminkirjautuminen.jsp">Copyright &copy; Team SexYSexy 2016</a></p>
 		</div>
 	</footer>
+	
 
 	<!-- jQuery -->
 	<script src="bootstrap/js/jquery.js"></script>
@@ -207,6 +259,19 @@
       
 	<!-- Custom Theme JavaScript -->
 	<script src="bootstrap/js/grayscale.js"></script>
+	
+	<!-- Javascript for reg form -->
+        <script src="bootstrap/js/jquery-1.11.1.min.js"></script>
+        <script src="bootstrap/js/jquery.backstretch.min.js"></script>
+        <script src="bootstrap/js/retina-1.1.0.min.js"></script>
+        <script src="bootstrap/js/scripts.js"></script>
+        
+        <!--[if lt IE 10]>
+            <script src="bootstrap/js/placeholder.js"></script>
+        <![endif]-->
+	
+	
+	
 
 	<!-- Jos tulee jotain virhettä valittaessa kenttiä käyttäjäkirjautumisessa, niin nämä käyttöön! -->
 	<!-- <script language="javascript">

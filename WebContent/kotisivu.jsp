@@ -75,7 +75,7 @@
 					<li class="hidden"><a href="#page-top"></a></li>
 					<li><a class="page-scroll" href="#yhteystiedot">YHTEYSTIEDOT</a></li>
 					<li><a href="MenuKontrolleri">MENU</a></li>
-					<li><a href="">REKISTERÖIDY</a></li>
+					<li><a href="rekisteroidy.jsp">REKISTERÖIDY</a></li>
 					<li class="dropdown"><a class="dropdown-toggle"
 						data-toggle="dropdown" href="">KIRJAUDU</a>
 						<div class="dropdown-menu" style="padding: 3px; background-color:transparent;">
@@ -97,8 +97,13 @@
 								<button class="btn btn-md"
 									style="background-color:transparent; margin-top: 4px; font-size: 12px;"  type="submit" value="Login">Kirjaudu
 									sisään</button>
+									
 							</form>
+							<a href="rekisteroidy.jsp" class="btn btn-md"
+									style="background-color:transparent; margin-top: 4px; font-size: 12px;">Rekisteröidy
+									</a>
 						</div> </li>
+	
 
 					
 				</ul>
@@ -138,7 +143,7 @@
 				<p>
 					Olemme laadukas vanhoja italialaisia perinteitä noudattava
 					Pizzeria. <a
-						href="http://startbootstrap.com/template-overviews/grayscale/">Saamme
+						href="https://en.wikipedia.org/wiki/History_of_pizza">Saamme
 						perinteemme alkuperäismaasta</a>.
 				</p>
 			
@@ -182,12 +187,24 @@
 	<!-- Map Section -->
 	<section id="yhteystiedot">
 	<div id="map"></div>
+		<div class="container text-center">
+
+			<p style="font-size: 13px">
+				<a
+					href="https://www.google.fi/maps/place/Sibeliuksenkatu+7,+13100+H%C3%A4meenlinna/@60.9961755,24.4617791,17z/data=!3m1!4b1!4m2!3m1!1s0x468e5d970c10edb3:0xa654c8617544564e">Sibeliuksenkatu
+					7 <br> 13100 Hämeenlinna
+				</a>
+			</p>
+		</div>
 	</section>
 
 	<!-- Footer -->
 	<footer>
 		<div class="container text-center">
-			<p style="font-size:10px"><a href="adminkirjautuminen.jsp">Copyright &copy; Team SexYSexy 2016</a></p>
+			<p style="font-size: 10px">
+				<a href="adminkirjautuminen.jsp">Copyright &copy; Team SexYSexy
+					2016</a>
+			</p>
 		</div>
 	</footer>
 
@@ -206,6 +223,20 @@
       
 	<!-- Custom Theme JavaScript -->
 	<script src="bootstrap/js/grayscale.js"></script>
+
+	<!-- Jos tulee jotain virhettä valittaessa kenttiä käyttäjäkirjautumisessa, niin nämä käyttöön! -->
+	<!-- <script language="javascript">
+		$('.dropdown-toggle').dropdown();
+		$('.dropdown-menu').find('form').click(function(e) {
+			e.stopPropagation();
+		});
+
+		$(
+				'a.dropdown-toggle, .dropdown-menu a, .dropdown-menu input, .dropdown-menu button')
+				.on('touchstart', function(e) {
+					e.stopPropagation();
+				});
+	</script> -->
 
 </body>
 </html>
