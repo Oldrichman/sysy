@@ -60,12 +60,12 @@ public class KirjauduKayttaja extends HttpServlet {
 				 Cookie kayttajaNimi = new Cookie("email", kayttajaTunnus);
 				 kayttajaNimi.setMaxAge(15*30);
 				 response.addCookie(kayttajaNimi);
-				 response.sendRedirect("kotisivu.jsp"); //logged-in page
+				 response.sendRedirect("KayttajaServlet"); //logged-in page
 			 }else {
 				 response.setContentType("text/html;charset=UTF-8");
 				 PrintWriter out = response.getWriter();
 				 out.println("<font color=red>Sähköpostisi tai salasanasi on päin pyllyä!</font>");
-				 RequestDispatcher rd = getServletContext().getRequestDispatcher("sysy/kotisivu.jsp");
+				 RequestDispatcher rd = getServletContext().getRequestDispatcher("/kotisivu.jsp");
 				 rd.include(request, response); //error page
 			 }
 		}
