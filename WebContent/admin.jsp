@@ -95,6 +95,8 @@
       <th style="text-align:center">PIZZA</th>
       <th style="text-align:center">TÄYTTEET</th>
       <th style="text-align:center">HINTA</th>
+      <th style="text-align:center">PIILOTETTU</th>
+      <th style="text-align:center">MUOKKAUS</th>
     </tr>
     
     
@@ -111,10 +113,10 @@ value="${p.nimi} " /> </a></td>
 value="${p.taytteet} " /></td>
 <td><c:out value="" /> <fmt:formatNumber
 type="currency" currencySymbol="e" value="${p.hinta}" /></td>
-<td><c:out value="Piilotettu: " /> <c:out
+<td><c:out value="" /> <c:out
 value="${p.poisto} " /></td>
 <td>
-								<td>
+
 								
 <%out.println("<INPUT type=\"submit\" name=\"action\" value=\"Poista\">");%>
 <%out.println("<INPUT type=\"submit\" name=\"action\" value=\"Piilota menusta\">");%>
@@ -167,11 +169,17 @@ value="${p.poisto} " /></td>
 
 				</table>
 				<br> <br> <br>
+				
+					</nav>
+		</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
 
 				<form action="kontrolleri" method="post">
-				
 					<fieldset>
-						<legend><font color="white">Lisää pizza:</font></legend>
+						<h4><font color="white">Lisää pizza:</font></h4>
 						 Nimi:<br>
 						<input type="text" name="nimi"><br> Hinta:<br> <input
 							type="text" name="hinta"><br>
@@ -189,17 +197,21 @@ value="${p.poisto} " /></td>
 
 				</form>
 
+</div>
+
+ <div class="col-md-4">
+ 
 				<form action="kontrolleri" method="post">
 					<fieldset>
-						<legend><font color="white">Lisää raaka-aine:</font></legend>
+						<h4><font color="white">Lisää raaka-aine:</font></h4>
 						Nimi:<br> <input type="text" name="lisaa"> <br> <input
 							type="submit" value="Lisää"><br> <br>
 						<c:if test="${not empty param.added}">Uuden raaka-aineen lisääminen onnistui!</c:if>
 					</fieldset>
-
-				</form>
-			</nav>
-		</div>
+					</form>
+			</div>
+			
+		
 
 	</div>
 	</div>
