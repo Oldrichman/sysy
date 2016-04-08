@@ -75,7 +75,7 @@
 					<li class="hidden"><a href="#page-top"></a></li>
 					<li><a class="page-scroll" href="#yhteystiedot">YHTEYSTIEDOT</a></li>
 					<li><a class="page-scroll" href="#page-top"">MENU</a></li>
-					<li><a href="rekisteroidy.jsp">REKISTERÖIDY</a></li>
+					<!-- <li><a href="rekisteroidy.jsp">REKISTERÖIDY</a></li> -->
 					<li class="dropdown"><a class="dropdown-toggle"
 						data-toggle="dropdown" href="">KIRJAUDU</a>
 						<div class="dropdown-menu" style="padding: 3px; background-color:transparent;">
@@ -117,12 +117,17 @@
 				<div class="row">
 					<div class="col-md-8 col-md-offset-2">
 					<br><br><br>
-						<h1 class="brand-heading" style="text-transform: none; text-shadow:2px 2px 2px black; letter-spacing:-8px; font-size:130px;">Menu</h1>	
+						<h1 class="brand-heading" style="text-transform: none; text-shadow:2px 2px 2px black; letter-spacing:-8px; font-size:130px;">Menu</h1>
+						<a href="#about" class="btn btn-circle page-scroll"> <i
+							class="fa fa-angle-double-down animated"></i>
+						</a>	
 					</div>
 				</div>
 			</div>
 		</div>
+		
 	</header>
+	
 
 	<!-- PIZZAT ALUE -->
 	<section id="about" class="container content-section text-center">
@@ -170,9 +175,44 @@
 			
 			</div>
 	</section>
+	
+	<!-- Download Section -->
+	<!-- Tässä ei mitään tällä hetkellä, muotoilua varten -->
+    <section id="download" class="content-section text-center">
+        <div class="download-section">
+            <div class="container">
+                  
+                </div>
+            </div>
+        
+    </section>
 
 	<!-- KARTTA JA YHTEYSTIEDOT -->
 	<section id="yhteystiedot">
+	<div class="col-lg-8 col-lg-offset-2 container text-center">
+				
+				<h2>Löydät meidät myös täältä</h2>
+
+				<!-- <p>
+					<a href="mailto:palaute@pizzeriafiori.fi">palaute@pizzeriafiori.com</a>
+				</p> -->
+				<ul class="list-inline banner-social-buttons">
+
+					<li><a href="https://www.facebook.com"><i
+							class="fa fa-facebook-square fa-5x"></i></a></li>
+
+					<li><a href="https://www.instagram.com"><i
+							class="fa fa-instagram fa-5x"></i> </a></li>
+
+					<li><a href="http://www.twitter.com"><i
+							class="fa fa-twitter-square fa-5x"></i> </a></li>
+							<br>
+							
+							<a href="mailto:palaute@pizzeriafiori.fi">palaute@pizzeriafiori.fi</a>
+
+				</ul>
+			
+			</div>
 	<div id="map"></div>
 	<div class="container text-center">
 
@@ -180,7 +220,11 @@
 				<a
 					href="https://www.google.fi/maps/place/Sibeliuksenkatu+7,+13100+H%C3%A4meenlinna/@60.9961755,24.4617791,17z/data=!3m1!4b1!4m2!3m1!1s0x468e5d970c10edb3:0xa654c8617544564e">Sibeliuksenkatu
 					7 <br> 13100 Hämeenlinna
+					<br> Puh +358 40 666 6666
 				</a>
+				<br>
+					<br> Aukioloajat MA-SU
+					<br> Klo 9.00-23.00
 			</p>
 		</div>
 	</section>

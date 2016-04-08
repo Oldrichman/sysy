@@ -75,7 +75,7 @@
 					<li class="hidden"><a href="#page-top"></a></li>
 					<li><a class="page-scroll" href="#yhteystiedot">YHTEYSTIEDOT</a></li>
 					<li><a href="MenuKontrolleri">MENU</a></li>
-					<li><a href="rekisteroidy.jsp">REKISTERÖIDY</a></li>
+					<!-- <li><a href="rekisteroidy.jsp">REKISTERÖIDY</a></li> -->
 					<li class="dropdown"><a class="dropdown-toggle"
 						data-toggle="dropdown" href="">KIRJAUDU</a>
 						<div class="dropdown-menu" style="padding: 3px; background-color:transparent;">
@@ -141,23 +141,49 @@
 			<div class="col-lg-8 col-lg-offset-2">
 				<h2>Tietoa meistä</h2>
 				<p>
-					Olemme laadukas vanhoja italialaisia perinteitä noudattava
-					Pizzeria. <a
-						href="https://en.wikipedia.org/wiki/History_of_pizza">Saamme
-						perinteemme alkuperäismaasta</a>.
+					Olemme laadukas vanhoja italialaisia perinteitä noudattava Pizzeria
+					suoraan Hämeenlinnan sykkeessä. Saamme perinteemme <a
+						href="https://en.wikipedia.org/wiki/History_of_pizza">vahvasti
+						historiasta</a> ja tarjoilumme ei jätä takuulla ketään kylmäksi.
+						<br>
+					Ei edes <a
+						href="http://www.pezzolo.tv/wp-content/uploads/2012/12/RAI.jpg">Kimi
+						Räikköstä</a>. <br><br>Astu sisään ravintolaamme tai tilaa
+					suoraan verkosta ja nauti.<br> Benvenuti nella nostra
+					famiglia!
 				</p>
-			
+
 			</div>
 		</div>
 	</section>
+	
+	<!-- Download Section -->
+	<!-- Tässä ei mitään tällä hetkellä, muotoilua varten -->
+    <section id="download" class="content-section text-center">
+        <div class="download-section">
+            <div class="container">
+                  
+                </div>
+            </div>
+        
+    </section>
 
 	
 
 	<!-- Contact Section -->
 	<section id="contact" class="container content-section text-center">
-		<div class="row">
+		
 			
-			<div class="col-lg-8 col-lg-offset-2">
+		
+
+			
+		
+	</section>
+
+	<!-- Map Section -->
+	<section id="yhteystiedot">
+	
+			<div class="col-lg-8 col-lg-offset-2 container text-center">
 				
 				<h2>Löydät meidät myös täältä</h2>
 
@@ -181,11 +207,6 @@
 				</ul>
 			
 			</div>
-		</div>
-	</section>
-
-	<!-- Map Section -->
-	<section id="yhteystiedot">
 	<div id="map"></div>
 		<div class="container text-center">
 
@@ -193,7 +214,11 @@
 				<a
 					href="https://www.google.fi/maps/place/Sibeliuksenkatu+7,+13100+H%C3%A4meenlinna/@60.9961755,24.4617791,17z/data=!3m1!4b1!4m2!3m1!1s0x468e5d970c10edb3:0xa654c8617544564e">Sibeliuksenkatu
 					7 <br> 13100 Hämeenlinna
+					<br> Puh +358 40 666 6666
 				</a>
+				<br>
+					<br> Aukioloajat MA-SU
+					<br> Klo 9.00-23.00
 			</p>
 		</div>
 	</section>

@@ -55,6 +55,7 @@ img { max-width: 100%; }
 }
 
 .form-top {
+	margin-top:-25px;
 	overflow: hidden;
 	padding: 0 25px 15px 25px;
 	background: #444;

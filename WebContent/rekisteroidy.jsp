@@ -93,7 +93,7 @@
 					<li class="hidden"><a href="#page-top"></a></li>
 					<li><a class="page-scroll" href="#yhteystiedot">YHTEYSTIEDOT</a></li>
 					<li><a href="MenuKontrolleri">MENU</a></li>
-					<li><a class="page-scroll" href="#page-top">REKISTERÖIDY</a></li>
+					<!-- <li><a class="page-scroll" href="#page-top">REKISTERÖIDY</a></li> -->
 					<li class="dropdown"><a class="dropdown-toggle"
 						data-toggle="dropdown" href="">KIRJAUDU</a>
 						<div class="dropdown-menu" style="padding: 3px; background-color:transparent;">
@@ -143,6 +143,9 @@
 							Rekisteröidy kanta-asiakkaaksemme! <br>
 							Saat etuja.
 						</p>
+						<a href="#about" class="btn btn-circle page-scroll"> <i
+							class="fa fa-angle-double-down animated"></i>
+						</a>
 
 					</div>
 				</div>
@@ -153,10 +156,10 @@
 	<!-- About Section//REKISTERÖIDY LOMAKE -->
 	<!-- About Section//REKISTERÖIDY LOMAKE -->
 	
-<section id="about" class="container content-section text-center">
+
 				<!-- Top content -->
       
-      
+      <section id="about" class="container content-section text-center">
       <div class="top-content">
             <div class="inner-bg">
                 <div class="container">
@@ -185,19 +188,23 @@
 			                    <form role="form" action="" method="post" class="registration-form">
 			                    	<div class="form-group">
 			                    		<label class="sr-only" for="form-first-name">Etunimi</label>
-			                        	<input type="text" name="form-first-name" placeholder="Etunimi..." class="form-first-name form-control" id="form-first-name">
+			                        	<input type="text" name="form-first-name" placeholder="Etunimi" class="form-first-name form-control" id="form-first-name">
 			                        </div>
 			                        <div class="form-group">
 			                        	<label class="sr-only" for="form-last-name">Sukunimi</label>
-			                        	<input type="text" name="form-last-name" placeholder="Sukunimi..." class="form-last-name form-control" id="form-last-name">
+			                        	<input type="text" name="form-last-name" placeholder="Sukunimi" class="form-last-name form-control" id="form-last-name">
 			                        </div>
 			                        <div class="form-group">
 			                        	<label class="sr-only" for="inputEmail">Sähköposti</label>
-			                        	<input type="text" name="form-email" placeholder="Sähköposti..." class="form-email form-control" id="form-email">
+			                        	<input type="text" name="form-email" placeholder="Sähköposti" class="form-email form-control" id="form-email">
 			                        </div>
 			                        <div class="form-group">
-			                        	<label class="sr-only" for="inputPassword">Salasana</label>
-			                        	<input type="text" name="name" placeholder="Aseta salasana..." class="form-email form-control" id="form-email">
+			                        	<label class="sr-only" for="input">Salasana</label>
+			                        	<input type="text" name="name" placeholder="Aseta salasana" class="form-email form-control" id="form-email">
+			                        </div>
+			                         <div class="form-group">
+			                        	<label class="sr-only" for="input">Salasana uudestaan</label>
+			                        	<input type="text" name="name" placeholder="Anna salasana uudestaan" class="form-email form-control" id="form-email">
 			                        </div>
 			                        <button type="submit" class="btnform">Rekisteröidy</button>
 			                    </form>
@@ -217,18 +224,55 @@
 <!-- END OF About Section//REKISTERÖIDY LOMAKE -->
 <!-- END OF About Section//REKISTERÖIDY LOMAKE -->
 	
-
+<!-- Download Section -->
+	<!-- Tässä ei mitään tällä hetkellä, muotoilua varten -->
+    <section id="download" class="content-section text-center">
+        <div class="download-section">
+            <div class="container">
+                  
+                </div>
+            </div>
+        
+    </section>
 
 
 	<!-- Map Section -->
 	<section id="yhteystiedot">
+	<div class="col-lg-8 col-lg-offset-2 container text-center">
+				
+				<h2>Löydät meidät myös täältä</h2>
+
+				<!-- <p>
+					<a href="mailto:palaute@pizzeriafiori.fi">palaute@pizzeriafiori.com</a>
+				</p> -->
+				<ul class="list-inline banner-social-buttons">
+
+					<li><a href="https://www.facebook.com"><i
+							class="fa fa-facebook-square fa-5x"></i></a></li>
+
+					<li><a href="https://www.instagram.com"><i
+							class="fa fa-instagram fa-5x"></i> </a></li>
+
+					<li><a href="http://www.twitter.com"><i
+							class="fa fa-twitter-square fa-5x"></i> </a></li>
+							<br>
+							
+							<a href="mailto:palaute@pizzeriafiori.fi">palaute@pizzeriafiori.fi</a>
+
+				</ul>
+			
+			</div>
 	<div id="map"></div>
 		<div class="container text-center">
 			<p style="font-size: 13px">
 				<a
 					href="https://www.google.fi/maps/place/Sibeliuksenkatu+7,+13100+H%C3%A4meenlinna/@60.9961755,24.4617791,17z/data=!3m1!4b1!4m2!3m1!1s0x468e5d970c10edb3:0xa654c8617544564e">Sibeliuksenkatu
 					7 <br> 13100 Hämeenlinna
+					<br> Puh +358 40 666 6666
 				</a>
+				<br>
+					<br> Aukioloajat MA-SU
+					<br> Klo 9.00-23.00
 			</p>
 		</div>
 	</section>
