@@ -192,8 +192,12 @@
 			                        	<input type="text" name="form-last-name" placeholder="Sukunimi..." class="form-last-name form-control" id="form-last-name">
 			                        </div>
 			                        <div class="form-group">
-			                        	<label class="sr-only" for="form-email">Sähköposti</label>
+			                        	<label class="sr-only" for="inputEmail">Sähköposti</label>
 			                        	<input type="text" name="form-email" placeholder="Sähköposti..." class="form-email form-control" id="form-email">
+			                        </div>
+			                        <div class="form-group">
+			                        	<label class="sr-only" for="inputPassword">Salasana</label>
+			                        	<input type="text" name="name" placeholder="Aseta salasana..." class="form-email form-control" id="form-email">
 			                        </div>
 			                        <button type="submit" class="btnform">Rekisteröidy</button>
 			                    </form>
