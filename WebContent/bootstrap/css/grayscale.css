@@ -4,6 +4,10 @@
  * For details, see http://www.apache.org/licenses/LICENSE-2.0.
  */
 
+<<<<<<< HEAD
+=======
+ 
+>>>>>>> 443c10d52a3fab92e42b5eeb461c1fad27080bff
 body {
 	width: 100%;
 	height: 100%;
@@ -62,6 +66,7 @@ a:hover, a:focus {
 	color: #FF6600;
 }
 
+
 .light {
 	font-weight: 400;
 }
@@ -106,8 +111,11 @@ a:hover, a:focus {
 
 .navbar-custom .nav li a:hover {
 	outline: 0;
-	color: rgba(255, 255, 255, .8);
+	color:#FF6600;
 	background-color: transparent;
+	-webkit-transition: all .2s ease-in-out;
+	-moz-transition: all .2s ease-in-out;
+	transition: all .2s ease-in-out;
 }
 
 .navbar-custom .nav li a:focus, .navbar-custom .nav li a:active {
@@ -430,6 +438,10 @@ scale
 	-webkit-transition: all .3s ease-in-out;
 	-moz-transition: all .3s ease-in-out;
 	transition: all .3s ease-in-out;
+}
+
+.btn:hover, .btn:focus {
+	color:#FF6600;
 }
 
 .btn-default {

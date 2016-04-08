@@ -1,3 +1,4 @@
+<%@page import="javafx.scene.layout.Background"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -19,7 +20,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 <link rel="icon" href="/favicon.ico">
-<title>Pizzeria Castello é Fiori</title>
+<title>Menu</title>
 <!-- Bootstrap core CSS -->
 
 <!-- MUOTOILU CTRL+SHIFT+F RIKKOO NÄMÄ TAGIT, ÄLÄ TEE!! -->
@@ -59,7 +60,7 @@
 					data-target=".navbar-main-collapse">
 					<i class="fa fa-bars"></i>
 				</button>
-				<a class="navbar-brand page-scroll" href="#page-top"
+				<a class="navbar-brand page-scroll" href="kotisivu.jsp"
 					style="font-family: 'Stalemate', cursive;">
 					<span class="light" style="font-size:35px;"><small>Castello é Fiori&ensp;</small></span><i class="fa fa-cutlery"></i>
 
@@ -67,6 +68,10 @@
 			</div>
 
 			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div
+				class="collapse navbar-collapse navbar-right navbar-main-collapse">
+				<ul class="nav navbar-nav">
+					<!-- Collect the nav links, forms, and other content for toggling -->
 			<div
 				class="collapse navbar-collapse navbar-right navbar-main-collapse">
 				<ul class="nav navbar-nav">
@@ -80,9 +85,7 @@
 								
 							</form>
 						</div> </li>
-
-					
-				</ul>
+			
 			</div>
 			<!-- /.navbar-collapse -->
 		</div>
@@ -96,17 +99,11 @@
 				<div class="row">
 					<div class="col-md-8 col-md-offset-2">
 					<br><br><br>
-						<h1 class="brand-heading" style="text-transform: none; text-shadow:2px 2px 2px black; letter-spacing:-8px; font-size:130px;">Castello é Fiori</h1>
+						<h1 class="brand-heading" style="text-transform: none; text-shadow:2px 2px 2px black; letter-spacing:-8px; font-size:130px;">Menu</h1>
 						<br><br><br><br>
-						<c:forEach items="${tiedot}" var="p">
-				<tr>
-					<form action="KayttajaServlet" method="post">
 						<p class="intro-text" style="text-shadow:1px 1px 1px black;">
-							Tervetuloa <c:out value="${p.etunimi}"></c:out> 
-							<c:out value="${p.sukunimi} "></c:out>  <br>
-							Alta pääset katsomaan ja muokkaamaan omia tietojasi.
+						
 						</p>
-								</form> </tr> </c:forEach>						
 						<a href="#about" class="btn btn-circle page-scroll"> <i
 							class="fa fa-angle-double-down animated"></i>
 						</a>
@@ -116,37 +113,40 @@
 		</div>
 	</header>
 
-	<!-- Käyttäjän tiedot -->
+	<!-- PIZZAT ALUE -->
 	<section id="about" class="container content-section text-center">
-		<div class="row">
-			<div class="col-lg-8 col-lg-offset-2">
-				<h2>Omat tiedot</h2>
-				<p>
+
+				<h2>Pizzamme</h2>
 					
-					 <!-- MUOKKAA MUOTOILUA PAREMMAKSI, KÄYTÄ BOKSEJA TMS. -->
+					<div class="container">
+		<div class="starter-template">
+			<br>
+			<br>
+			<br>
+			
+  <!-- MUOKKAA MUOTOILUA PAREMMAKSI, KÄYTÄ BOKSEJA TMS. -->
 			<table class="table table-bordered">
 			<thead class="thead-inverse" >
 			
     <tr class="big">
-      <th style="text-align:center">Etunimi</th>
-      <th style="text-align:center">Sukunimi</th>
-      <th style="text-align:center">email</th>
-      <th style="text-align:center">osoite</th>
-      <th style="text-align:center">postinumero</th>
+      <th style="text-align:center">PIZZA</th>
+      <th style="text-align:center">TÄYTTEET</th>
+      <th style="text-align:center">HINTA</th>
     </tr>
     
     </thead>
 <thead class="thead-inverse">
-			<c:forEach items="${tiedot}" var="p">
+			<c:forEach items="${tuotteet}" var="p">
 				<tr>
-					<form action="KayttajaServlet" method="post">
-										<td> <c:out value="${p.etunimi}" />
-											<td><c:out
-													value="${p.sukunimi} " /> </td>
+					<form action="KayttajaMenu" method="post">
+										<td><input type="hidden" value="${p.id}" name="id">
+											<a
+											<c:out value="${p.nimi}" />"><c:out
+													value="${p.nimi} " /> </a></td>
 								<td><c:out value="" /> <c:out
-								value="${p.email} " /></td>
-						<td><c:out value="${p.osoite}" /> 
-								<td><c:out value="${p.postinro}" /> 
+								value="${p.taytteet} " /></td>
+						<td><c:out value="" /> <fmt:formatNumber
+								value="${p.hinta}" type="currency" currencySymbol=""  /> &euro;</td>
 					
 					</form>
 					
@@ -156,48 +156,15 @@
 
 
 		</table>
-					 <a
-						href="http://startbootstrap.com/template-overviews/grayscale/">Muokkaa tietoja.</a>
-				</p>
-			
-			</div>
 		</div>
-	</section>
 
 	
-
-	<!-- Contact Section -->
-	<section id="contact" class="container content-section text-center">
-		<div class="row">
-			
-			<div class="col-lg-8 col-lg-offset-2">
-				
-				<h2>Löydät meidät myös täältä</h2>
-
-				<!-- <p>
-					<a href="mailto:palaute@pizzeriafiori.fi">palaute@pizzeriafiori.com</a>
-				</p> -->
-				<ul class="list-inline banner-social-buttons">
-
-					<li><a href="https://www.facebook.com"><i
-							class="fa fa-facebook-square fa-5x"></i></a></li>
-
-					<li><a href="https://www.instagram.com"><i
-							class="fa fa-instagram fa-5x"></i> </a></li>
-
-					<li><a href="http://www.twitter.com"><i
-							class="fa fa-twitter-square fa-5x"></i> </a></li>
-							<br>
-							
-							<a href="mailto:palaute@pizzeriafiori.fi">palaute@pizzeriafiori.fi</a>
-
-				</ul>
+	<!-- /.container -->
 			
 			</div>
-		</div>
 	</section>
 
-	<!-- Map Section -->
+	<!-- KARTTA JA YHTEYSTIEDOT -->
 	<section id="yhteystiedot">
 	<div id="map"></div>
 	</section>
