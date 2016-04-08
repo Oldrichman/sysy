@@ -91,7 +91,7 @@
 				<table class="table table-bordered" frame=void>
 				<thead class="thead-inverse" >
 				
-    <tr class="big">
+    <tr class="">
       <th style="text-align:center">PIZZA</th>
       <th style="text-align:center">TÄYTTEET</th>
       <th style="text-align:center">HINTA</th>
@@ -112,8 +112,8 @@ value="${p.nimi} " /> </a></td>
 <td><c:out value="" /> <c:out
 value="${p.taytteet} " /></td>
 <td><c:out value="" /> <fmt:formatNumber
-type="currency" currencySymbol="e" value="${p.hinta}" /></td>
-<td><c:out value="" /> <c:out
+value="${p.hinta}" type="currency" currencySymbol=""  /> &euro;</td>
+<td style="text-align:center"><c:out value="" /> <c:out
 value="${p.poisto} " /></td>
 <td>
 
@@ -131,39 +131,49 @@ value="${p.poisto} " /></td>
 </thead>
 
 				</table>
+</div>
 
-				<br> <br> <b>Täytteet</b> <br> <br> <br>
+<div class="container">
+  <div class="row">
+<div class="col-md-6">
 
-
-				<table border=1 frame=void rules=rows>
-
+				<br><h4>Täytteet</h4> 
+				<table class="table table-condensed" style="width:auto">
+				<thead>
+				<th style="text-align:center">Raaka-aineet</th>
+				<th style="text-align:center">Piilotettu</th>
+				<th style="text-align:center">Muokkaus</th>
+				</thead>
+				<tbody>
 					<c:forEach items="${RaakaAineet}" var="r">
 						<tr>
 							<form action="kontrolleri" method="post">
-								<td><c:out value="${r.nimi}" /> <input type="hidden"
-									value="${r.nimi}" name="nimi"> <a
+								<td style="text-align:center"><c:out value="${r.nimi}" /> <input type="hidden"
+									value="${r.nimi}" name="nimi "> <a
 									href="kontrolleri?toiminto=RA&nimi=<c:out value="${r.nimi}" />">
 									<input type="hidden"
 									value="${r.nimi}" name="pois"> <a
 									href="kontrolleri?toiminto=RA&nimi=<c:out value="${r.nimi}" />">
-								</a>
-								<td> 
-								<td><c:out value="Piilotettu: " /> <c:out
-											value="${r.poisto} " /></td>
-								<td>
-									 <%
-								out.println("<INPUT type=\"submit\" name=\"action\"  value=\"Poista\">");
-							%>  <%
+										</a>
+								</td>
+								 
+								<td style="text-align:center"><c:out value="" /> <c:out
+											value="${r.poisto} " />
+								</td>
+								
+								<td style="text-align:center">
+								 <%out.println("<INPUT type=\"submit\" name=\"action\"  value=\"Poista\">");
+								%>  <%
 									out.println("<INPUT type=\"submit\" name=\"action\" value=\"Piilota\">");
 								%>
 								<%
 									out.println("<INPUT type=\"submit\" name=\"action\" value=\"Tuo täyte\">");
 								%>
 								</td>
-							
 							</form>
 						</tr>
 					</c:forEach>
+					</tbody>
 
 
 
@@ -173,13 +183,12 @@ value="${p.poisto} " /></td>
 					</nav>
 		</div>
 
-<div class="container">
-  <div class="row">
+
     <div class="col-md-4">
 
 				<form action="kontrolleri" method="post">
 					<fieldset>
-						<h4><font color="white">Lisää pizza:</font></h4>
+						<br><h4>Lisää pizza:</h4>
 						 Nimi:<br>
 						<input type="text" name="nimi"><br> Hinta:<br> <input
 							type="text" name="hinta"><br>
@@ -199,11 +208,11 @@ value="${p.poisto} " /></td>
 
 </div>
 
- <div class="col-md-4">
+ <div class="col-md-2">
  
 				<form action="kontrolleri" method="post">
 					<fieldset>
-						<h4><font color="white">Lisää raaka-aine:</font></h4>
+						<br><h4>Lisää raaka-aine:</h4>
 						Nimi:<br> <input type="text" name="lisaa"> <br> <input
 							type="submit" value="Lisää"><br> <br>
 						<c:if test="${not empty param.added}">Uuden raaka-aineen lisääminen onnistui!</c:if>
