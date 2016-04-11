@@ -7,23 +7,48 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
+
 <!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 <meta name="description" content="">
 <meta name="author" content="">
 <link rel="icon" href="/favicon.ico">
 <title>Tuotehallinta</title>
 <!-- Bootstrap core CSS -->
-<style type="text/css"><%@include file="/bootstrap/css/bootstrap.min.css"%></style>
-<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-<link href="bootstrap/docs/assets/css/ie10-viewport-bug-workaround.css"
-	rel="stylesheet" type="text/css">
 
-<!-- Custom styles for this template -->
-<link href="starter-template.css" rel="stylesheet" type="text/css">
+
+<!-- MUOTOILU CTRL+SHIFT+F RIKKOO NÄMÄ TAGIT, ÄLÄ TEE!! -->
+<style type="text/css">
+<%@include file="/bootstrap/css/bootstrap.min.css"%>
+</style>
+    <!-- Custom CSS -->
+<style type="text/css">
+<%@include file="/bootstrap/css/grayscale.css"%>
+</style>
+
+<!-- MUOTOILU CTRL+SHIFT+F RIKKOO NÄMÄ TAGIT, ÄLÄ TEE!! -->
+
+    <!-- Custom Fontit ja alkuperäiset kommenteissa -->
+    <link href="bootstrap/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+   <!--  <link href="http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+ -->
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Josefin+Slab:100,300,400,600,700,100italic,300italic,400italic,600italic,700italic" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Stalemate' rel='stylesheet' type='text/css'>
+ 
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
 
 </head>
 <body>
@@ -52,15 +77,9 @@
 		</div>
 	</nav>
 
-	<div class="container" style="width:300px; margin-top:50px">
+	<div class="container" style="width:auto; margin-top:70px">
 
-		<div class="starter-template">
 		
-		
-
-
-
-
 
 
 			<fmt:formatDate pattern="H:mm" value="${kello}" />
@@ -69,7 +88,19 @@
 			 <h1>Admin</h1>
 
 			<nav>
-				<table border=1 frame=void rules=rows>
+				<table class="table table-bordered" frame=void>
+				<thead class="thead-inverse" >
+				
+    <tr class="">
+      <th style="text-align:center">PIZZA</th>
+      <th style="text-align:center">TÄYTTEET</th>
+      <th style="text-align:center">HINTA</th>
+      <th style="text-align:center">PIILOTETTU</th>
+      <th style="text-align:center">MUOKKAUS</th>
+    </tr>
+    
+    
+<thead class="thead-inverse">
 
 					<c:forEach items="${tuotteet}" var="p">
 						<tr>
@@ -78,22 +109,18 @@
 value="${p.id}" name="id"> <a
 href="kontrolleri?toiminto=tuotteet&nimi=<c:out value="${p.nimi}" />"><c:out
 value="${p.nimi} " /> </a></td>
-<td><c:out value="Täytteet: " /> <c:out
+<td><c:out value="" /> <c:out
 value="${p.taytteet} " /></td>
-<td><c:out value=" Hinta: " /> <fmt:formatNumber
-type="currency" currencySymbol="e" value="${p.hinta}" /></td>
-<td><c:out value="Piilotettu: " /> <c:out
+<td><c:out value="" /> <fmt:formatNumber
+value="${p.hinta}" type="currency" currencySymbol=""  /> &euro;</td>
+<td style="text-align:center"><c:out value="" /> <c:out
 value="${p.poisto} " /></td>
 <td>
-								<td>
-									<%
-out.println("<INPUT type=\"submit\" name=\"action\" value=\"Poista\">");
-								%> <%
- out.println("<INPUT type=\"submit\" name=\"action\" value=\"Piilota menusta\">");
- %>
- <%
- out.println("<INPUT type=\"submit\" name=\"action\" value=\"Tuo menuun\">");
- %>
+
+								
+<%out.println("<INPUT type=\"submit\" name=\"action\" value=\"Poista\">");%>
+<%out.println("<INPUT type=\"submit\" name=\"action\" value=\"Piilota menusta\">");%>
+<%out.println("<INPUT type=\"submit\" name=\"action\" value=\"Tuo menuun\">");%>
  
 								</td>
 
@@ -101,52 +128,67 @@ out.println("<INPUT type=\"submit\" name=\"action\" value=\"Poista\">");
 						</tr>
 					</c:forEach>
 
-
+</thead>
 
 				</table>
+</div>
 
-				<br> <br> <b>Täytteet</b> <br> <br> <br>
+<div class="container">
+  <div class="row">
+<div class="col-md-6">
 
-
-				<table border=1 frame=void rules=rows>
-
+				<br><h4>Täytteet</h4> 
+				<table class="table table-condensed" style="width:auto">
+				<thead>
+				<th style="text-align:center">Raaka-aineet</th>
+				<th style="text-align:center">Piilotettu</th>
+				<th style="text-align:center">Muokkaus</th>
+				</thead>
+				<tbody>
 					<c:forEach items="${RaakaAineet}" var="r">
 						<tr>
 							<form action="kontrolleri" method="post">
-								<td><c:out value="${r.nimi}" /> <input type="hidden"
-									value="${r.nimi}" name="nimi"> <a
+								<td style="text-align:center"><c:out value="${r.nimi}" /> <input type="hidden"
+									value="${r.nimi}" name="nimi "> <a
 									href="kontrolleri?toiminto=RA&nimi=<c:out value="${r.nimi}" />">
 									<input type="hidden"
 									value="${r.nimi}" name="pois"> <a
 									href="kontrolleri?toiminto=RA&nimi=<c:out value="${r.nimi}" />">
-								</a>
-								<td> 
-								<td><c:out value="Piilotettu: " /> <c:out
-											value="${r.poisto} " /></td>
-								<td>
-									 <%
-								out.println("<INPUT type=\"submit\" name=\"action\"  value=\"Poista\">");
-							%>  <%
+										</a>
+								</td>
+								 
+								<td style="text-align:center"><c:out value="" /> <c:out
+											value="${r.poisto} " />
+								</td>
+								
+								<td style="text-align:center">
+								 <%out.println("<INPUT type=\"submit\" name=\"action\"  value=\"Poista\">");
+								%>  <%
 									out.println("<INPUT type=\"submit\" name=\"action\" value=\"Piilota\">");
 								%>
 								<%
 									out.println("<INPUT type=\"submit\" name=\"action\" value=\"Tuo täyte\">");
 								%>
 								</td>
-							
 							</form>
 						</tr>
 					</c:forEach>
+					</tbody>
 
 
 
 				</table>
 				<br> <br> <br>
+				
+					</nav>
+		</div>
+
+
+    <div class="col-md-4">
 
 				<form action="kontrolleri" method="post">
-				
 					<fieldset>
-						<legend>Lisää pizza:</legend>
+						<br><h4>Lisää pizza:</h4>
 						 Nimi:<br>
 						<input type="text" name="nimi"><br> Hinta:<br> <input
 							type="text" name="hinta"><br>
@@ -158,37 +200,55 @@ out.println("<INPUT type=\"submit\" name=\"action\" value=\"Poista\">");
 						</c:forEach>
 						<br><br>
 					
-						<input type="submit" value="Lisää"><br>
+						<input  type="submit" value="Lisää"><br>
 						<c:if test="${not empty param.added}">Uuden pizzan lisääminen onnistui!</c:if>
 					</fieldset>
 
 				</form>
 
+</div>
+
+ <div class="col-md-2">
+ 
 				<form action="kontrolleri" method="post">
 					<fieldset>
-						<legend>Lisää raaka-aine:</legend>
+						<br><h4>Lisää raaka-aine:</h4>
 						Nimi:<br> <input type="text" name="lisaa"> <br> <input
 							type="submit" value="Lisää"><br> <br>
 						<c:if test="${not empty param.added}">Uuden raaka-aineen lisääminen onnistui!</c:if>
 					</fieldset>
+					</form>
+			</div>
+			
+		
 
-				</form>
-			</nav>
-		</div>
-
+	</div>
 	</div>
 	</div>
 	<!-- /.container -->
 
+		<!-- Footer -->
+	<footer>
+		<div class="container text-center">
+			<p style="font-size:10px"><a href="adminkirjautuminen.jsp">Copyright &copy; Team SexYSexy 2016</a></p>
+		</div>
+	</footer>
 	
-	<script>window.jQuery|| document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')
-	</script>
-	<script src="../../dist/js/bootstrap.min.js"></script>
-	<script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
-<!-- jQuery library -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-<!-- Latest compiled JavaScript -->
-<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<!-- jQuery -->
+	<script src="bootstrap/js/jquery.js"></script>
+
+	<!-- Bootstrap Core JavaScript -->
+	<script src="bootstrap/js/bootstrap.min.js"></script>
+
+	<!-- Plugin JavaScript -->
+	<script src="bootstrap/js/jquery.easing.min.js"></script>
+
+	<!-- Google Maps API Key - Use your own API key to enable the map feature. More information on the Google Maps API can be found at https://developers.google.com/maps/ -->
+	<script type="text/javascript"
+		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjPfpeUdqwdbiejLneoaGAb9epjnJeVig&sensor=false"></script>
+      
+	<!-- Custom Theme JavaScript -->
+	<script src="bootstrap/js/grayscale.js"></script>
 
 </body>
 </html>
