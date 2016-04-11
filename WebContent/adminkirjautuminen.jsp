@@ -46,7 +46,7 @@
 				type="text" name="kayttajatunnus" class="form-control"
 				placeholder="Tunnus" required autofocus> <label
 				for="inputPassword" class="sr-only">Salasana</label> <input
-				type="text" name="salasana" class="form-control"
+				type="password" name="salasana" class="form-control"
 				placeholder="Salasana" required>
 			<div class="checkbox">
 			</div>

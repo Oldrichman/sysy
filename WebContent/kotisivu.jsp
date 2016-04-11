@@ -92,7 +92,7 @@
 									
 									<label
 									for="inputPassword" class="sr-only">Salasana</label> <input  style="margin-top: 8px"
-									type="text" name="salasana" class="form-control"
+									type="password" name="salasana" class="form-control"
 									placeholder="Salasana" required>
 								<button  class="btn btn-md"
 									style="background-color:transparent; margin-top: 4px; font-size: 12px;"  type="submit" value="Login" >Kirjaudu
