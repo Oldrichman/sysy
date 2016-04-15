@@ -15,17 +15,6 @@ import javax.servlet.http.HttpSession;
 import DAO.AdminKirjausDAO;
 import servlet.Kontrolleri;
 
-/*package password;
-
- import java.io.IOException;
- import java.util.Scanner;
-
- import javax.servlet.ServletException;
- import javax.servlet.http.HttpServletRequest;
- import javax.servlet.http.HttpServletResponse;
-
- public class KirjauduAdmin {
-
  //Poistettu turhaa tekstiä MH
 
  /** 
