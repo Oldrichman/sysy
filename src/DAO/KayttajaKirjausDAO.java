@@ -77,4 +77,58 @@ public class KayttajaKirjausDAO {
 
 		return kayttaja;
 	}
+	
+public void lisaaKayttaja(Kayttaja k) {
+		
+		try { // connect to DB
+			Connection currentCon = Konnektori.getConnection();
+			
+			PreparedStatement kLisays = currentCon
+					.prepareStatement("insert into Asiakas(id, etunimi, sukunimi, email, osoite, postinro, salasana, suola, suosikkiPitsa) values(?,?,?,?,?,?,?,?,?)");
+			kLisays.setInt(1, k.getId());
+			kLisays.setString(2, k.getEtunimi());
+			kLisays.setString(3, k.getSukunimi());
+			kLisays.setString(4, k.getEmail());
+			kLisays.setString(5, k.getOsoite());
+			kLisays.setString(6, k.getPostinro());
+			kLisays.setString(7, k.getSalasana());
+			Salaaja salaaja = new Salaaja();
+			String salattuTeksti = null;
+			try {
+				String suola = Salaaja.generoiSuola();
+				String suolaus = k.getSalasana();
+				salattuTeksti = Salaaja.salaa(suolaus, suola, "SHA-512", 100);
+			} catch (NoSuchAlgorithmException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (UnsupportedEncodingException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			kLisays.setString(8, salattuTeksti);
+			kLisays.setString(9, k.getSuosikkiPitsa());
+			kLisays.executeUpdate();
+			
+			System.out.println("Käyttäjän lisäys onnistui!");
+		} catch (SQLException e) {
+			// JOTAIN VIRHETTÄ TAPAHTUI
+			try {
+				throw new Exception("Tietokantahaku aiheutti virheen", e);
+			} catch (Exception e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+		} finally {
+			// LOPULTA AINA SULJETAAN YHTEYS
+			if (currentCon != null) {
+				try {
+					currentCon.suljeYhteys();
+				} catch (Exception e) {
+				}
+
+				currentCon = null;
+			}
+		}
 }
+}
+

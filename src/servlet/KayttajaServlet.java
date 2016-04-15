@@ -2,7 +2,6 @@ package servlet;
 
 
 import java.io.IOException;
-
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -12,8 +11,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 
+
 import password.Kayttaja;
 import DAO.KayttajaDao;
+import DAO.KayttajaKirjausDAO;
 
 
 	/**
@@ -72,41 +73,42 @@ import DAO.KayttajaDao;
 			response.setContentType("text/html");
 
 			if (request.getParameter("email") != null){
-			
-			String etunimi = request.getParameter("etunimi");
-			String sukunimi = request.getParameter("sukunimi");
-			String email = request.getParameter("email");
-			String osoite = request.getParameter("osoite");
-			String postinro = request.getParameter("postinro");
-
-			Kayttaja kayttaja = new Kayttaja(etunimi, sukunimi, email, osoite, postinro);
-		
-			System.out.println("<p>");
-			System.out.println("<b>" + kayttaja.getEtunimi() + "</b>");
-			System.out.println("<b> Sukunimi: " + kayttaja.getSukunimi() + "</b>");
-			System.out.println("<b> Email: " + kayttaja.getEmail() + "</b>");
-			System.out.println("<br/>");
-			System.out.println(": " + kayttaja.getOsoite());
-			System.out.println(": " + kayttaja.getPostinro());
-			
-				Kayttaja t = new Kayttaja(etunimi, sukunimi, email, osoite, postinro);
-				KayttajaDao kDao = new KayttajaDao();
 				
-				try {
-					
-					kDao.avaaYhteys();
-					kDao.haeTiedot();				
-					kDao.suljeYhteys();
-					
-				} catch (Exception e) {
-					throw new ServletException(e);
-					
-				}
-				response.sendRedirect("KayttajaServlet");
-			}
+				String etunimi = request.getParameter("etunimi");
+				String sukunimi = request.getParameter("sukunimi");
+				String email = request.getParameter("email");
+				String osoite = request.getParameter("osoite");
+				String postinro = request.getParameter("postinro");
+				String salasana = request.getParameter("salasana");
+				String suola = request.getParameter("suola");
+				String suosikkiPitsa = request.getParameter("suosikkiPitsa");
 
+				Kayttaja kayttaja = new Kayttaja(0, etunimi, sukunimi, email, osoite, postinro, salasana, suola, suosikkiPitsa);
 			
-	    }}
+				System.out.println("<p>");
+				System.out.println("<b>" + kayttaja.getEtunimi() + "</b>");
+				System.out.println("<b> Sukunimi: " + kayttaja.getSukunimi() + "</b>");
+				System.out.println("<b> Email: " + kayttaja.getEmail() + "</b>");
+				System.out.println("<br/>");
+				System.out.println(": " + kayttaja.getOsoite());
+				System.out.println(": " + kayttaja.getPostinro());
+				
+					Kayttaja k = new Kayttaja(0, etunimi, sukunimi, email, osoite, postinro, salasana, suola, suosikkiPitsa);
+					KayttajaKirjausDAO krDao = new KayttajaKirjausDAO();
+					
+					try {
+						
+						krDao.lisaaKayttaja(k);
+						
+					} catch (Exception e) {
+						throw new ServletException(e);
+						
+					}
+					response.sendRedirect("KayttajaServlet");
+				}
+
+				
+		    }}
 	
 
 

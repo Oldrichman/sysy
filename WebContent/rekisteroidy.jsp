@@ -185,26 +185,26 @@
                             
                            <!--  Post methodit tänne, että käyttäjä saa salasanan jne. -->
                             <div class="form-bottom">
-			                    <form role="form" action="" method="post" class="registration-form">
+			                    <form role="form" action="KayttajaServlet" method="post" class="registration-form">
 			                    	<div class="form-group">
 			                    		<label class="sr-only" for="form-first-name">Etunimi</label>
-			                        	<input type="text" name="form-first-name" placeholder="Etunimi" class="form-first-name form-control" id="form-first-name">
+			                        	<input type="text" name="etunimi" placeholder="Etunimi" class="form-first-name form-control" id="form-first-name">
 			                        </div>
 			                        <div class="form-group">
 			                        	<label class="sr-only" for="form-last-name">Sukunimi</label>
-			                        	<input type="text" name="form-last-name" placeholder="Sukunimi" class="form-last-name form-control" id="form-last-name">
+			                        	<input type="text" name="sukunimi" placeholder="Sukunimi" class="form-last-name form-control" id="form-last-name">
 			                        </div>
 			                        <div class="form-group">
 			                        	<label class="sr-only" for="inputEmail">Sähköposti</label>
-			                        	<input type="text" name="form-email" placeholder="Sähköposti" class="form-email form-control" id="form-email">
+			                        	<input type="text" name="email" placeholder="Sähköposti" class="form-email form-control" id="form-email">
 			                        </div>
 			                        <div class="form-group">
 			                        	<label class="sr-only" for="input">Salasana</label>
-			                        	<input type="text" name="name" placeholder="Aseta salasana" class="form-email form-control" id="form-email">
+			                        	<input type="text" name="salasana" placeholder="Aseta salasana" class="form-email form-control" id="form-email">
 			                        </div>
 			                         <div class="form-group">
 			                        	<label class="sr-only" for="input">Salasana uudestaan</label>
-			                        	<input type="text" name="name" placeholder="Anna salasana uudestaan" class="form-email form-control" id="form-email">
+			                        	<input type="text" name="salasana" placeholder="Anna salasana uudestaan" class="form-email form-control" id="form-email">
 			                        </div>
 			                        <button type="submit" class="btnform">Rekisteröidy</button>
 			                    </form>

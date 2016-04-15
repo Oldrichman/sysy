@@ -4,26 +4,51 @@ import java.util.ArrayList;
 
 public class Kayttaja {
 
+	private int id;
 	private String suola;
 	private String email;
-	private String salasana, etunimi, sukunimi, osoite, postinro;
+	private String salasana, etunimi, sukunimi, osoite, postinro, suosikkiPitsa;
 	public boolean valid;
 
 	public Kayttaja() {
+		id = 0;
 		etunimi = null;
 		sukunimi = null;
 		email = null;
 		osoite = null;
 		postinro = null;
+		salasana = null;
+		suola = null;
+		suosikkiPitsa = null;
 	}
 
-	public Kayttaja(String etunimi, String sukunimi, String email,
-			String osoite, String postinro) {
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public Kayttaja(int id, String etunimi, String sukunimi, String email,
+			String osoite, String postinro, String salasana, String suola, String suosikkiPitsa) {
+		this.id = id;
 		this.etunimi = etunimi;
 		this.sukunimi = sukunimi;
 		this.email = email;
 		this.osoite = osoite;
 		this.postinro = postinro;
+		this.salasana = salasana;
+		this.suola = suola;
+		this.suosikkiPitsa = suosikkiPitsa;
+	}
+
+	public String getSuosikkiPitsa() {
+		return suosikkiPitsa;
+	}
+
+	public void setSuosikkiPitsa(String suosikkiPitsa) {
+		this.suosikkiPitsa = suosikkiPitsa;
 	}
 
 	public String getEmail() {
