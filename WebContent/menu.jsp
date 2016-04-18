@@ -168,6 +168,34 @@
 
 
 		</table>
+		
+		<table class="table table-bordered">
+			<thead class="thead-inverse" >
+			
+    <tr class="big">
+      <th style="text-align:center">JUOMA</th>
+      <th style="text-align:center">HINTA</th>
+      
+      </tr>
+    
+    </thead>
+<thead class="thead-inverse">
+			<c:forEach items="${juomat}" var="j">
+				<tr>
+					<form action="menukontrolleri" method="post">
+										<td><c:out  value="${j.juoma}"/>
+											</td>
+						<td><c:out value="" /> <fmt:formatNumber
+								value="${j.hinta}" type="currency" currencySymbol=""  /> &euro;</td>
+					
+					</form>
+					
+				</tr>
+			</c:forEach>
+</thead>
+
+
+		</table>
 		</div>
 
 	

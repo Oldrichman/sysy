@@ -131,6 +131,25 @@ value="${p.poisto} " /></td>
 </thead>
 
 				</table>
+				
+				<table class="table table-bordered" frame=void>
+				<thead class="thead-inverse" >
+				<th style="text-align:center">JUOMA</th>
+      <th style="text-align:center">HINTA</th>
+				<c:forEach items="${juomat}" var="j" >
+				<tr>
+					<form action="adminmenu" method="post">
+										<td style="text-align:center"><c:out  value="${j.juoma}" />
+											</td>
+						<td style="text-align:center"><c:out value="" /> <fmt:formatNumber
+								value="${j.hinta}" type="currency" currencySymbol=""  /> &euro;</td>
+					
+					</form>
+					
+				</tr>
+			</c:forEach>
+			</thead>
+				</table>
 </div>
 
 <div class="container">
@@ -213,11 +232,26 @@ value="${p.poisto} " /></td>
 				<form action="kontrolleri" method="post">
 					<fieldset>
 						<br><h4>Lisää raaka-aine:</h4>
-						Nimi:<br> <input type="text" name="lisaa"> <br> <input
+						Nimi:<br> <input type="text" name="lisaaRA"> <br> <input
 							type="submit" value="Lisää"><br> <br>
 						<c:if test="${not empty param.added}">Uuden raaka-aineen lisääminen onnistui!</c:if>
 					</fieldset>
 					</form>
+					
+					
+					
+					<form action="kontrolleri" method="post">
+					<fieldset>
+						<br><h4>Lisää juoma:</h4>
+						Nimi:<br> <input type="text" name="LJU"> <br> 
+							Hinta:<br> <input
+							type="text" name="HJU"><br> <br>
+							<input
+							type="submit" value="Lisää"><br>
+						<c:if test="${not empty param.added}">Uuden juoman lisääminen onnistui!</c:if>
+					</fieldset>
+					</form>
+					
 			</div>
 			
 		

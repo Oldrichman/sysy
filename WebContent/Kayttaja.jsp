@@ -77,7 +77,7 @@
 					<li><a href="KayttajaMenu">MENU</a></li>
 					
 					<li><a href="KayttajaServlet">OMAT TIEDOT</a></li>
-								
+						<li><a href="kotisivu.jsp">KIRJAUDU ULOS</a></li>		
 							</form>
 						</div> </li>
 
@@ -133,6 +133,7 @@
       <th style="text-align:center">email</th>
       <th style="text-align:center">osoite</th>
       <th style="text-align:center">postinumero</th>
+      <th style="text-align:center">suosikki pizza</th>
     </tr>
     
     </thead>
@@ -147,12 +148,16 @@
 								value="${p.email} " /></td>
 						<td><c:out value="${p.osoite}" /> 
 								<td><c:out value="${p.postinro}" /> 
+								<td> <c:out value="${p.suosikkiPitsa}" />
 					
 					</form>
 					
 				</tr>
 			</c:forEach>
+			
+
 </thead>
+
 
 
 		</table>

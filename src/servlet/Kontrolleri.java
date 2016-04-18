@@ -11,8 +11,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import DAO.AdminKirjausDAO;
+import DAO.JuomaDAO;
 import DAO.RaakaAineDAO;
 import DAO.TuoteDao;
+import admin.Juoma;
 import admin.RaakaAineet;
 import admin.Tuote;
 
@@ -58,7 +60,24 @@ public class Kontrolleri extends HttpServlet {
 
 		RADao.suljeYhteys();
 
-		// requestiin talteen
+		 // JuomaDAO haku
+	    JuomaDAO jDao = new JuomaDAO();
+
+	 		jDao.avaaYhteys();
+
+	 		List<Juoma> lista2 = null;
+	 		lista2 = jDao.haeJuomat();
+	 		for (int i = 0; i < lista.size(); i++) {
+	 			wout.print(lista.get(i));
+	 		}
+
+	 		jDao.suljeYhteys();
+
+	 		
+
+	 		// requestiin talteen
+	 		request.setAttribute("juomat", lista2);
+
 		request.setAttribute("tuotteet", lista);
 		request.setAttribute("RaakaAineet", lista1);
 		// jsp hoitaa muotoilun
@@ -115,8 +134,35 @@ public class Kontrolleri extends HttpServlet {
 
 			}
 			response.sendRedirect("kontrolleri");
+	
+		} 
 
-		} else if (request.getParameter("nimi") != null
+		else if (request.getParameter("LJU") != null 
+				&& request.getParameter("HJU") != null) {
+			String Juoma = request.getParameter("juoma");
+			String HintaJU = request.getParameter("hinta");
+			double HintaJUO = Double.parseDouble(HintaJU);
+			
+	
+			
+			System.out.println("Juoman nimi: " + Juoma);
+			System.out.println("Hinta: " + HintaJUO);
+			Juoma j = new Juoma( Juoma, HintaJUO);
+			JuomaDAO JUDao = new JuomaDAO();
+
+			try {
+				JUDao.avaaYhteys();
+				JUDao.lisaaJuoma(j);
+				JUDao.suljeYhteys();
+			} catch (Exception e) {
+				throw new ServletException(e);
+
+			}
+			response.sendRedirect("kontrolleri");
+			return;
+		}
+		
+		else if (request.getParameter("nimi") != null
 				&& request.getParameter("action").equals("Piilota")) {
 
 			RaakaAineDAO RADao = new RaakaAineDAO();
@@ -175,8 +221,8 @@ public class Kontrolleri extends HttpServlet {
 			response.sendRedirect("kontrolleri");
 			return;
 
-		} else if (request.getParameter("lisaa") != null) {
-			String Nimi = request.getParameter("lisaa");
+		} else if (request.getParameter("lisaaRA") != null) {
+			String Nimi = request.getParameter("lisaaRA");
 			String Poisto = request.getParameter("poisto");
 			RaakaAineet RA = new RaakaAineet(Nimi, Poisto);
 	
@@ -249,6 +295,7 @@ public class Kontrolleri extends HttpServlet {
 			return;
 			}
 		
+		
 		else {
 			TuoteDao tDao = new TuoteDao();
 			int poistettavaid = 0;
@@ -270,5 +317,6 @@ public class Kontrolleri extends HttpServlet {
 			response.sendRedirect("kontrolleri");
 			return;
 		}
+		
 	}
 }

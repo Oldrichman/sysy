@@ -9,12 +9,15 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import admin.Konnektori;
 import password.Kayttaja;
-
 
 public class KayttajaDao {
 
 	private Connection yhteys = null;
+	// Otettu Mikolta ohje ja tehty sen perusteella OH
+	static Konnektori currentCon = null;
+	static ResultSet rs = null;
 
 	public void avaaYhteys() {
 		// TIETOKANTAHAKU
@@ -50,35 +53,44 @@ public class KayttajaDao {
 		}
 	}
 
-	public ArrayList<Kayttaja> haeTiedot() {
+	public ArrayList<Kayttaja> haeTiedot(String email) {
 
 		ArrayList<Kayttaja> tiedot = new ArrayList<Kayttaja>();
 
 		try {
 
 			// suoritetaan haku
-			String sql = "select * from Asiakas where Id = 1 ";
-			Statement haku = yhteys.createStatement();
-			ResultSet resultset = haku.executeQuery(sql);
+					
+			Kayttaja kayttaja = new Kayttaja();
+			kayttaja.setEmail(email);
+			// connect to DB
+				Connection currentCon = Konnektori.getConnection();
+				PreparedStatement usernamehaku = currentCon
+						.prepareStatement("SELECT * from Asiakas where email = ?");
+				System.out.println(usernamehaku.toString());
+				System.out.println(kayttaja.getEmail());
+				usernamehaku.setString(1, kayttaja.getEmail());
+				rs = usernamehaku.executeQuery();
 
-			// käydään hakutulokset läpi
-			while (resultset.next()) {
-				Kayttaja kayttaja = new Kayttaja();
-				
-				kayttaja.setEtunimi(resultset.getString("etunimi"));
-				kayttaja.setSukunimi(resultset.getString("sukunimi"));
-				kayttaja.setEmail(resultset.getString("email"));
-				kayttaja.setOsoite(resultset.getString("osoite"));
-				kayttaja.setPostinro(resultset.getString("postinro"));
-				kayttaja.setSalasana(resultset.getString("salasana"));
-				tiedot.add(kayttaja);
+				// käydään hakutulokset läpi
+				while (rs.next()) {
+
+					kayttaja.setEtunimi(rs.getString("etunimi"));
+					kayttaja.setSukunimi(rs.getString("sukunimi"));
+					kayttaja.setEmail(rs.getString("email"));
+					kayttaja.setOsoite(rs.getString("osoite"));
+					kayttaja.setPostinro(rs.getString("postinro"));
+					kayttaja.setSalasana(rs.getString("salasana"));
+					kayttaja.setSuosikkiPitsa(rs.getString("suosikkiPitsa"));
+					tiedot.add(kayttaja);
+				}
+
+			} catch (Exception e) {
+				// JOTAIN VIRHETTÄ TAPAHTUI
+				System.out.println("Tietokantahaku aiheutti virheen");
+				System.out.println(e);
 			}
-
-		} catch (Exception e) {
-			// JOTAIN VIRHETTÄ TAPAHTUI
-			System.out.println("Tietokantahaku aiheutti virheen");
-			System.out.println(e);
-		} finally {
+		 finally {
 
 		}
 
@@ -86,9 +98,6 @@ public class KayttajaDao {
 				+ tiedot.toString());
 
 		return tiedot;
-	}
 
 	}
-	
-
-	
+}

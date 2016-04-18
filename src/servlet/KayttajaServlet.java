@@ -41,28 +41,28 @@ import DAO.KayttajaKirjausDAO;
 			java.io.PrintWriter wout = response.getWriter();
 
 			// KayttajaDao haku
-			KayttajaDao kDao = new KayttajaDao();
+						KayttajaDao kDao = new KayttajaDao();
 
-			kDao.avaaYhteys();
+						kDao.avaaYhteys();
 
-			List<Kayttaja> lista = null;
-			lista = kDao.haeTiedot();
-			for (int i = 0; i < lista.size(); i++) {
-				wout.print(lista.get(i));
-			}
+						List<Kayttaja> lista = null;
+						lista = kDao.haeTiedot("testi@sysy.fi");
+						for (int i = 0; i < lista.size(); i++) {
+							wout.print(lista.get(i));
+						}
 
-			kDao.suljeYhteys();
+						kDao.suljeYhteys();
 
-			
+						
 
-			// requestiin talteen
-			request.setAttribute("tiedot", lista);
-			
-			// jsp hoitaa muotoilun
-			request.getRequestDispatcher("Kayttaja.jsp").forward(request, response);
-			
+						// requestiin talteen
+						request.setAttribute("tiedot", lista);
+						
+						// jsp hoitaa muotoilun
+						request.getRequestDispatcher("Kayttaja.jsp").forward(request, response);
+						
 
-		}
+					}
 		
 
 		/**

@@ -10,8 +10,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import DAO.JuomaDAO;
 import DAO.RaakaAineDAO;
 import DAO.TuoteDao;
+import admin.Juoma;
 import admin.RaakaAineet;
 import admin.Tuote;
 
@@ -64,7 +66,23 @@ public class AdminMenu extends HttpServlet {
 
 		RADao.suljeYhteys();
 
-		// requestiin talteen
+		 // JuomaDAO haku
+	    JuomaDAO jDao = new JuomaDAO();
+
+	 		jDao.avaaYhteys();
+
+	 		List<Juoma> lista2 = null;
+	 		lista2 = jDao.haeJuomat();
+	 		for (int i = 0; i < lista.size(); i++) {
+	 			wout.print(lista.get(i));
+	 		}
+
+	 		jDao.suljeYhteys();
+
+	 		
+
+	 		// requestiin talteen
+	 		request.setAttribute("juomat", lista2);
 		request.setAttribute("tuotteet", lista);
 		request.setAttribute("RaakaAineet", lista1);
 		// jsp hoitaa muotoilun
