@@ -113,10 +113,10 @@ public class JuomaDAO {
 
 	}
 
-	public void poistaJuoma(String juoma) {
+	public void piilotaJuoma(String juoma) {
 		try {
 
-			String sql = "DELETE FROM Juoma WHERE juoma = ?";
+			String sql = "UPDATE Juomat SET poisto = 'X' WHERE juoma = ?";
 			PreparedStatement st = yhteys.prepareStatement(sql);
 
 			st.setString(1, juoma);

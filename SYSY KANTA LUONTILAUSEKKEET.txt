@@ -8,7 +8,7 @@ postinro VARCHAR(5),
 salasana VARCHAR(300) NOT NULL,
 suola VARCHAR(300) NOT NULL,
 PRIMARY KEY (Id)
-)ENGINE=InnoDB;
+)ENGINE=InnoDB DEFAULT CHARACTER SET utf8 DEFAULT COLLATE utf8_swedish_ci;
 
 CREATE TABLE Admin(
 Id INT NOT NULL AUTO_INCREMENT,
@@ -16,13 +16,13 @@ suola VARCHAR(30) NOT NULL,
 kayttajatunnus VARCHAR(30) NOT NULL,
 salasana VARCHAR(300) NOT NULL,
 PRIMARY KEY (Id) 
-)ENGINE=InnoDB;
+)ENGINE=InnoDB DEFAULT CHARACTER SET utf8 DEFAULT COLLATE utf8_swedish_ci;
 
 CREATE TABLE Tavarantoimittaja(
 nimi VARCHAR(30) NOT NULL,
 email VARCHAR(30) NOT NULL,
 PRIMARY KEY (nimi)
-)ENGINE=InnoDB;
+)ENGINE=InnoDB DEFAULT CHARACTER SET utf8 DEFAULT COLLATE utf8_swedish_ci;
 
 CREATE TABLE Tuote(
 id INT NOT NULL AUTO_INCREMENT,
@@ -31,7 +31,7 @@ hinta DECIMAL (5,2) NOT NULL,
 taytteet VARCHAR(100) NOT NULL,
 poisto CHAR(1),
 PRIMARY KEY (id)
-)ENGINE=InnoDB;
+)ENGINE=InnoDB DEFAULT CHARACTER SET utf8 DEFAULT COLLATE utf8_swedish_ci;
 
 CREATE TABLE Raaka_aine(
 id INT NOT NULL AUTO_INCREMENT,
@@ -40,7 +40,7 @@ tuote_id INT,
 poisto CHAR (1),
 PRIMARY KEY (id),
 FOREIGN KEY (tuote_id) REFERENCES Tuote(id)
-)ENGINE=InnoDB;
+)ENGINE=InnoDB DEFAULT CHARACTER SET utf8 DEFAULT COLLATE utf8_swedish_ci;
 
 CREATE TABLE PizzanTaytteet(
 tuoteID INT NOT NULL,
@@ -48,7 +48,7 @@ RaakaAineID INT NOT NULL,
 PRIMARY KEY (tuoteID, RaakaAineID), 
 FOREIGN KEY (tuoteID) REFERENCES Tuote(id),
 FOREIGN KEY (RaakaAineID) REFERENCES Raaka_aine(id)
-)ENGINE=InnoDB;
+)ENGINE=InnoDB DEFAULT CHARACTER SET utf8 DEFAULT COLLATE utf8_swedish_ci;
 
 CREATE TABLE Tilaus(
 tilausnumero VARCHAR(30) NOT NULL,
@@ -60,7 +60,7 @@ tuoteID INT NOT NULL,
 toimitustapa VARCHAR(30) NOT NULL,
 PRIMARY KEY (tilausnumero), 
 FOREIGN KEY (tuoteID) REFERENCES Tuote (id)
-)ENGINE=InnoDB;
+)ENGINE=InnoDB DEFAULT CHARACTER SET utf8 DEFAULT COLLATE utf8_swedish_ci;
 
 CREATE TABLE Tuotteentilaus(
 asiakasID INT NOT NULL,
@@ -68,7 +68,7 @@ tilausnumero VARCHAR(30) NOT NULL,
 PRIMARY KEY (asiakasID, tilausnumero), 
 FOREIGN KEY (asiakasID) REFERENCES Asiakas (ID),
 FOREIGN KEY (tilausnumero) REFERENCES Tilaus (tilausnumero)
-)ENGINE=InnoDB;
+)ENGINE=InnoDB DEFAULT CHARACTER SET utf8 DEFAULT COLLATE utf8_swedish_ci;
 
 CREATE TABLE Tilaushistoria(
 tilausnumero VARCHAR(30) NOT NULL,
@@ -76,9 +76,17 @@ toimitusaika DATETIME NOT NULL,
 kayttajatunnus VARCHAR(30) NOT NULL,
 PRIMARY KEY (tilausnumero),
 FOREIGN KEY (tilausnumero) REFERENCES Tilaus (tilausnumero)
-)ENGINE=InnoDB;
+)ENGINE=InnoDB DEFAULT CHARACTER SET utf8 DEFAULT COLLATE utf8_swedish_ci;
 
+CREATE TABLE Juomat(
+id INT NOT NULL AUTO_INCREMENT,
+juoma VARCHAR(30) NOT NULL,
+hinta DECIMAL (5,2) NOT NULL,
+poisto CHAR(1),
+PRIMARY KEY (id)
+)ENGINE=InnoDB DEFAULT CHARACTER SET utf8 DEFAULT COLLATE utf8_swedish_ci;
 
+DROP TABLE Juomat;
 DROP TABLE Tilaushistoria;
 DROP TABLE Tuotteentilaus;
 DROP TABLE Tilaus;

@@ -268,6 +268,32 @@ public class Kontrolleri extends HttpServlet {
 			response.sendRedirect("kontrolleri");
 			return;
 			}
+		  
+		else if (request.getParameter("juoma") != null
+				&& request.getParameter("action").equals("Piilota juoma")) {
+
+			JuomaDAO JDao = new JuomaDAO();
+			String PiilotaJuoma = null;
+
+	
+			try {
+				PiilotaJuoma = (request.getParameter("juoma"));
+			} catch (Exception ex) {
+				System.out.println(ex);
+			}
+
+			System.out.println("ID: " + PiilotaJuoma);
+			try {
+				JDao.avaaYhteys();
+				JDao.piilotaJuoma(PiilotaJuoma);
+				JDao.suljeYhteys();
+			} catch (Exception e) {
+				throw new ServletException(e);
+
+			}
+			response.sendRedirect("kontrolleri");
+			return;
+			}
 		
 		else if (request.getParameter("id") != null
 				&& request.getParameter("action").equals("Tuo menuun")) {

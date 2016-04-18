@@ -136,6 +136,8 @@ value="${p.poisto} " /></td>
 				<thead class="thead-inverse" >
 				<th style="text-align:center">JUOMA</th>
       <th style="text-align:center">HINTA</th>
+      <th style="text-align:center">Piilotettu</th>
+       <th style="text-align:center">Muokkaus</th>
 				<c:forEach items="${juomat}" var="j" >
 				<tr>
 					<form action="adminmenu" method="post">
@@ -143,6 +145,15 @@ value="${p.poisto} " /></td>
 											</td>
 						<td style="text-align:center"><c:out value="" /> <fmt:formatNumber
 								value="${j.hinta}" type="currency" currencySymbol=""  /> &euro;</td>
+					
+					<td style="text-align:center"><c:out value="" /> <c:out
+											value="${r.poisto} " />
+								</td>
+								
+								<td style="text-align:center">
+					 <%
+									out.println("<INPUT type=\"submit\" name=\"action\" value=\"Piilota juoma\">");
+								%>
 					
 					</form>
 					
