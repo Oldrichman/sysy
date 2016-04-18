@@ -220,8 +220,8 @@ value="${p.poisto} " /></td>
 					<fieldset>
 						<br><h4>Lisää pizza:</h4>
 						 Nimi:<br>
-						<input type="text" name="nimi"><br> Hinta:<br> <input
-							type="text" name="hinta"><br>
+						<input type="text" style="cursor:text;" name="nimi"><br> Hinta:<br> <input
+							type="text" style="cursor:text;" name="hinta"><br>
 							 Täytteet:
 							 <c:forEach items="${RaakaAineet}" var="r"><br>
 							  <input type="checkbox" name="taytteet" value="${r.nimi}">
@@ -243,7 +243,7 @@ value="${p.poisto} " /></td>
 				<form action="kontrolleri" method="post">
 					<fieldset>
 						<br><h4>Lisää raaka-aine:</h4>
-						Nimi:<br> <input type="text" name="lisaaRA"> <br> <input
+						Nimi:<br> <input type="text" style="cursor:text;" name="lisaaRA"> <br> <input
 							type="submit" value="Lisää"><br> <br>
 						<c:if test="${not empty param.added}">Uuden raaka-aineen lisääminen onnistui!</c:if>
 					</fieldset>
@@ -254,8 +254,8 @@ value="${p.poisto} " /></td>
 					<form action="kontrolleri" method="post">
 					<fieldset>
 						<br><h4>Lisää juoma:</h4>
-						Nimi:<br> <input type="text" name="LJU"> <br> 
-						Hinta:<br> <input type="text" name="HJU"><br> <br>
+						Nimi:<br> <input type="text" style="cursor:text;" name="LJU"> <br> 
+						Hinta:<br> <input type="text" style="cursor:text;" name="HJU"><br> <br>
 						<input type="submit" value="Lisää"><br>
 						<c:if test="${not empty param.added}">Uuden juoman lisääminen onnistui!</c:if>
 					</fieldset>
