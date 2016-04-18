@@ -244,10 +244,8 @@ value="${p.poisto} " /></td>
 					<fieldset>
 						<br><h4>Lisää juoma:</h4>
 						Nimi:<br> <input type="text" name="LJU"> <br> 
-							Hinta:<br> <input
-							type="text" name="HJU"><br> <br>
-							<input
-							type="submit" value="Lisää"><br>
+						Hinta:<br> <input type="text" name="HJU"><br> <br>
+						<input type="submit" value="Lisää"><br>
 						<c:if test="${not empty param.added}">Uuden juoman lisääminen onnistui!</c:if>
 					</fieldset>
 					</form>
