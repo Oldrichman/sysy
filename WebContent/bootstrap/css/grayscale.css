@@ -182,6 +182,7 @@ a:hover, a:focus {
 .intro .intro-body .intro-text {
 	font-size: 13px;
 	text-transform: none;
+
 }
 
 /* input nappien muokkaus */
@@ -189,6 +190,9 @@ a:hover, a:focus {
 input, textarea{
     background-color:#666;
     color: #FFF;
+    cursor: pointer;
+  cursor: hand;
+    
 }
 ::-webkit-input-placeholder { /* WebKit browsers */
     color: #FFF;
