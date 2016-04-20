@@ -18,7 +18,7 @@ public class SalaajaTest {
 		}
 
 		try {
-			String salasana = salaaja.salaa("testi", suola, "SHA-512", 100);
+			String salasana = salaaja.salaa("admin", suola, "SHA-512", 100);
 			System.out.println(salasana);
 		} catch (NoSuchAlgorithmException e) {
 			// TODO Auto-generated catch block

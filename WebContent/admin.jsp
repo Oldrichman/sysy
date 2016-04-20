@@ -254,7 +254,7 @@ value="${p.poisto} " /></td>
 					<form action="kontrolleri" method="post">
 					<fieldset>
 						<br><h4>Lisää juoma:</h4>
-						Nimi:<br> <input type="text" style="cursor:text;" name="LJU"> <br> 
+						Nimi ja koko:<br> <input type="text" style="cursor:text;" name="LJU"> <br> 
 						Hinta:<br> <input type="text" style="cursor:text;" name="HJU"><br> <br>
 						<input type="submit" value="Lisää"><br>
 						<c:if test="${not empty param.added}">Uuden juoman lisääminen onnistui!</c:if>
