@@ -1,7 +1,11 @@
 package admin;
 
 
-
+/**
+ * 
+ * @author Joni Bärlund, SySy
+ *
+ */
 public class Juoma {
 	private int id;
 	private String juoma;

@@ -351,7 +351,34 @@ public class Kontrolleri extends HttpServlet {
 			return;
 			}
 		
-		
+		else if (request.getParameter("id") != null
+				&& request.getParameter("action").equals("Tallenna")) {
+
+			JuomaDAO TDao = new JuomaDAO();
+			int id= 0;
+			double uusihinta = 0;
+			String juoma = null;
+			try {
+				id = Integer.parseInt(request.getParameter("id"));
+				uusihinta = Double.parseDouble(request.getParameter("hinta"));
+				juoma = (request.getParameter("juoma"));
+			} catch (Exception ex) {
+				System.out.println(ex);
+			}
+
+			System.out.println("ID: " + id);
+			try {
+				TDao.avaaYhteys();
+				TDao.paivitaHinta(id,uusihinta);
+				TDao.paivitaJuoma(id, juoma);
+				TDao.suljeYhteys();
+			} catch (Exception e) {
+				throw new ServletException(e);
+
+			}
+			response.sendRedirect("kontrolleri");
+			return;
+			}
 		else {
 			TuoteDao tDao = new TuoteDao();
 			int poistettavaid = 0;

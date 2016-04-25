@@ -10,6 +10,12 @@ import java.util.ArrayList;
 
 import admin.Tuote;
 
+
+/**
+ * 
+ * @author Joni Bärlund, SySy
+ *
+ */
 public class TuoteDao {
 
 	private Connection yhteys = null;

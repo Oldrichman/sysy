@@ -10,6 +10,11 @@ import java.util.ArrayList;
 
 import admin.Juoma;
 
+/**
+ * 
+ * @author Joni Bärlund, SySy
+ *
+ */
 public class JuomaDAO {
 
 	private Connection yhteys = null;
@@ -65,7 +70,6 @@ public class JuomaDAO {
 				juoma.setId(resultset.getInt("id"));
 				juoma.setJuoma(resultset.getString("juoma"));
 				juoma.setHinta(resultset.getDouble("hinta"));
-				
 
 				juomat.add(juoma);
 			}
@@ -78,7 +82,7 @@ public class JuomaDAO {
 		}
 
 		System.out.println("HAETTIIN TIETOKANNASTA JUOMAT: "
-				+juomat.toString());
+				+ juomat.toString());
 
 		return juomat;
 	}
@@ -101,7 +105,6 @@ public class JuomaDAO {
 				juoma.setJuoma(resultset.getString("juoma"));
 				juoma.setHinta(resultset.getDouble("hinta"));
 				juoma.setPoisto(resultset.getString("poisto"));
-				
 
 				Juoma.add(juoma);
 			}
@@ -113,11 +116,12 @@ public class JuomaDAO {
 
 		}
 
-		System.out.println("HAETTIIN TIETOKANNASTA JUOMAT: "
-				+Juoma.toString());
+		System.out
+				.println("HAETTIIN TIETOKANNASTA JUOMAT: " + Juoma.toString());
 
 		return Juoma;
 	}
+
 	public void lisaaJuoma(Juoma j) {
 
 		try {
@@ -133,8 +137,6 @@ public class JuomaDAO {
 			// t�ytet��n puuttuvat tiedot
 			resultset.setString(1, j.getJuoma());
 			resultset.setDouble(2, j.getHinta());
-			
-		
 
 			// suoritetaan lause
 			resultset.executeUpdate();
@@ -148,11 +150,8 @@ public class JuomaDAO {
 
 	}
 
-	
-		
-
 	public void piilotaJuoma(int id) {
-		try {						
+		try {
 			String sql = "UPDATE Juomat SET poisto = 'piilotettu' WHERE Id = ?";
 			PreparedStatement st = yhteys.prepareStatement(sql);
 
@@ -160,24 +159,49 @@ public class JuomaDAO {
 			st.executeUpdate();
 
 		} catch (Exception e) {
-			System.out.println(e);}
+			System.out.println(e);
 		}
-	
-		public void TuoJuoma(int id) {
+	}
+
+	public void TuoJuoma(int id) {
+		try {
+
+			String sql = "UPDATE Juomat SET poisto = null WHERE id = ?";
+			PreparedStatement st = yhteys.prepareStatement(sql);
+
+			st.setInt(1, id);
+			st.executeUpdate();
+
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+	}
+
+	public void paivitaHinta(int id, double hinta) {
+		try {
+
+			String sql = "UPDATE Juomat SET hinta = ? WHERE id = ?";
+			PreparedStatement st = yhteys.prepareStatement(sql);
+			
+			st.setDouble(1,hinta);
+			st.setInt(2, id);
+			st.executeUpdate();
+
+		} catch (Exception e) {
+			System.out.println(e);
+		}}
+		public void paivitaJuoma(int id, String juoma) {
 			try {
 
-				String sql = "UPDATE Juomat SET poisto = null WHERE id = ?";
+				String sql = "UPDATE Juomat SET juoma = ? WHERE id = ?";
 				PreparedStatement st = yhteys.prepareStatement(sql);
-
-				st.setInt(1, id);
+				
+				st.setString(1,juoma);
+				st.setInt(2, id);
 				st.executeUpdate();
 
 			} catch (Exception e) {
 				System.out.println(e);
-			}	
+			}
 	}
-		
-	}
-		
-	
-	
+}

@@ -140,10 +140,11 @@
 				<tr>
 					<form action="kontrolleri" method="post">
 					<input type="hidden" value="${j.id}" name="id">
-										<td style="text-align:center"><c:out  value="${j.juoma}" />
+					<td style="text-align:center">
+										<input type ="text" name = "juoma" value="<c:out  value="${j.juoma}" />"></input>
 											</td>
-						<td style="text-align:center"><c:out value="" /> <fmt:formatNumber
-								value="${j.hinta}" type="currency" currencySymbol=""  /> &euro;</td>
+						<td style="text-align:center">
+<input type ="text" name = "hinta" value="<fmt:formatNumber value="${j.hinta}" type="currency" currencySymbol=""/>"></input> &euro; (piste erotin)</td>
 					
 					<td style="text-align:center"><c:out value="${j.poisto}" /> 
 								</td>
@@ -153,6 +154,7 @@
 									out.println("<INPUT type=\"submit\" name=\"action\" value=\"Piilota juoma\">");
 								%>
 								<%out.println("<INPUT type=\"submit\" name=\"action\" value=\"Tuo juoma\">");%>
+								<%out.println("<INPUT type=\"submit\" name=\"action\" value=\"Tallenna\">");%>
 					</td>
 					</form>
 					

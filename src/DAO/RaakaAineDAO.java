@@ -9,7 +9,11 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 import admin.RaakaAineet;
-
+/**
+ * 
+ * @author Joni Bärlund, SySy
+ *
+ */
 public class RaakaAineDAO {
 
 	private Connection yhteys = null;
