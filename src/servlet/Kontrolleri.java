@@ -110,7 +110,7 @@ public class Kontrolleri extends HttpServlet {
 			}
 			
 			Tuote tuote = new Tuote(0, Nimi, Hinta1, taytteet ,poisto);
-			DecimalFormat formaatteri = new DecimalFormat("0.00");
+			DecimalFormat formaatteri = new DecimalFormat("0,00");
 
 			System.out.println("<p>");
 			System.out.println("<b>" + tuote.getNimi() + "</b>");
@@ -358,6 +358,7 @@ public class Kontrolleri extends HttpServlet {
 			int id= 0;
 			double uusihinta = 0;
 			String juoma = null;
+			
 			try {
 				id = Integer.parseInt(request.getParameter("id"));
 				uusihinta = Double.parseDouble(request.getParameter("hinta"));
@@ -365,7 +366,7 @@ public class Kontrolleri extends HttpServlet {
 			} catch (Exception ex) {
 				System.out.println(ex);
 			}
-
+			
 			System.out.println("ID: " + id);
 			try {
 				TDao.avaaYhteys();

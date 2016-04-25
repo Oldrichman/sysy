@@ -53,6 +53,8 @@
 </head>
 <body>
 
+
+
 	<nav class="navbar navbar-inverse navbar-fixed-top">
 		<div class="container">
 			<div class="navbar-header">
@@ -104,12 +106,14 @@
 
 					<c:forEach items="${tuotteet}" var="p">
 						<tr>
+					
 			<form action="kontrolleri" method="post">
-			<td> <input type="hidden" value="${p.id}" name="id"> <a
-			href="kontrolleri?toiminto=tuotteet&nimi=<c:out value="${p.nimi}" />">
-			<c:out value="${p.nimi} " /> </a></td>
+			
+			<td> <input type="hidden" value="${p.id}" name="id"> 
+			<a href="kontrolleri?toiminto=tuotteet&nimi=<c:out value="${p.nimi}" />">
+			<c:out value="${p.nimi}" /> </a></td>
 			<td><c:out value="" /> <c:out value="${p.taytteet} " /></td>
-			<td><c:out value="" /> <fmt:formatNumber value="${p.hinta}" type="currency" currencySymbol=""  /> &euro;</td>
+			<td><c:out value="" /> <fmt:formatNumber value="${p.hinta}" type="currency" currencySymbol=""/> &euro;</td>
 			<td style="text-align:center"><c:out value="" /> <c:out
 					value="${p.poisto} " /></td>
 				<td>
@@ -141,10 +145,10 @@
 					<form action="kontrolleri" method="post">
 					<input type="hidden" value="${j.id}" name="id">
 					<td style="text-align:center">
-										<input type ="text" name = "juoma" value="<c:out  value="${j.juoma}" />"></input>
+										<input type ="text" name ="juoma" value="<c:out  value="${j.juoma}" />"></input>
 											</td>
 						<td style="text-align:center">
-<input type ="text" name = "hinta"  pattern ="[0-9]+([\.][0-9]+)?" title="- EROTA PISTEELLÄ!"value="<fmt:formatNumber value="${j.hinta}" type="currency" currencySymbol=""/>"></input> &euro; (piste erotin)</td>
+<input type ="number"  name ="hinta" step = "0.01"  value= "${j.hinta}" /></input> &euro;</td>
 					
 					<td style="text-align:center"><c:out value="${j.poisto}" /> 
 								</td>
@@ -256,7 +260,7 @@
 					<fieldset>
 						<br><h4>Lisää juoma:</h4>
 						Nimi ja koko:<br> <input type="text" style="cursor:text;" name="LJU"> <br> 
-						Hinta:<br> <input type="text" style="cursor:text;" name="HJU"><br> <br>
+						Hinta:<br> <input type="text"pattern ="[0-9 ]+([\. ][0-9 ]+)?" title="- EROTA PISTEELLÄ!"  style="cursor:text;" name="HJU"><br> <br>
 						<input type="submit" value="Lisää"><br>
 						<c:if test="${not empty param.added}">Uuden juoman lisääminen onnistui!</c:if>
 					</fieldset>
