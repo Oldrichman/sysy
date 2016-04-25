@@ -12,6 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 
 
 
+import javax.servlet.http.HttpSession;
+
 import password.Kayttaja;
 import DAO.KayttajaDao;
 import DAO.KayttajaKirjausDAO;
@@ -44,9 +46,13 @@ import DAO.KayttajaKirjausDAO;
 						KayttajaDao kDao = new KayttajaDao();
 
 						kDao.avaaYhteys();
+						
+						HttpSession session = request.getSession(false);
+						Kayttaja kayttaja = (Kayttaja) session.getAttribute("Login");
+						String email = kayttaja.getEmail();
 
 						List<Kayttaja> lista = null;
-						lista = kDao.haeTiedot("testi@sysy.fi");
+						lista = kDao.haeTiedot(email);
 						for (int i = 0; i < lista.size(); i++) {
 							wout.print(lista.get(i));
 						}
@@ -54,14 +60,12 @@ import DAO.KayttajaKirjausDAO;
 						kDao.suljeYhteys();
 
 						
-
 						// requestiin talteen
 						request.setAttribute("tiedot", lista);
 						
 						// jsp hoitaa muotoilun
 						request.getRequestDispatcher("Kayttaja.jsp").forward(request, response);
 						
-
 					}
 		
 
@@ -112,5 +116,3 @@ import DAO.KayttajaKirjausDAO;
 				
 		    }}
 	
-
-

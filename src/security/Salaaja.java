@@ -8,8 +8,8 @@ import java.security.SecureRandom;
 import javax.xml.bind.DatatypeConverter;
 
 /**
- * T‰t‰ luokkaa voi k‰ytt‰‰ apuna salasanojen yksisuuntaisessa salaamisessa.
- * Luokka tarjoaa myˆs palvelun suolan generoimiseen.
+ * T√§t√§ luokkaa voi k√§ytt√§√§ apuna salasanojen yksisuuntaisessa salaamisessa.
+ * Luokka tarjoaa my√∂s palvelun suolan generoimiseen.
  * 
  */
 public class Salaaja {
@@ -24,13 +24,13 @@ public class Salaaja {
 	/**
 	 * Salaa tekstin jollain salausalgoritmilla ja suolalla n kertaa.
 	 * 
-	 * @param salattavaTeksti tekstinp‰tk‰ (esim. salasana), joka halutaan salata (UTF-8)
+	 * @param salattavaTeksti tekstinp√§tk√§ (esim. salasana), joka halutaan salata (UTF-8)
 	 * @param suola teksti (UTF-8), jolla salausalgoritmia muutetaan uniikiksi
 	 * @param salausalgoritmi Jokin tarjolla olevista salausalgoritmeista, kuten SHA-512. Kts. Salaaja.SHA512
-	 * @param montakoKertaa Montako kertaa salausalgoritmi pyˆr‰ytet‰‰n ymp‰ri
-	 * @return salatun salasanan base64-enkoodattuna Stringin‰. 
-	 * @throws NoSuchAlgorithmException Mik‰li valittua salausalgoritmia ei lˆydy
-	 * @throws UnsupportedEncodingException Mik‰li suolaa tai salattavaa teksti‰ ei pystyt‰ k‰‰nt‰m‰n UTF-8:sta bittijonoksi.
+	 * @param montakoKertaa Montako kertaa salausalgoritmi py√∂r√§ytet√§√§n ymp√§ri
+	 * @return salatun salasanan base64-enkoodattuna Stringin√§. 
+	 * @throws NoSuchAlgorithmException Mik√§li valittua salausalgoritmia ei l√∂ydy
+	 * @throws UnsupportedEncodingException Mik√§li suolaa tai salattavaa teksti√§ ei pystyt√§ k√§√§nt√§m√§n UTF-8:sta bittijonoksi.
 	 */
 	public static String salaa(String salattavaTeksti, String suola,
 			String salausalgoritmi, int montakoKertaa)
@@ -55,8 +55,8 @@ public class Salaaja {
 	 * Generoi SHA1PRNG-algoritmilla kahdeksan tavun mittaisen suolan, joka
 	 * enkoodataan base64-algoritmilla
 	 * 
-	 * @return generoidun suolan, jonka pituus on 8 merkki‰
-	 * @throws NoSuchAlgorithmException Mik‰li SHA1PRNG-algoritmi ei ole k‰ytett‰viss‰
+	 * @return generoidun suolan, jonka pituus on 8 merkkiÔøΩ
+	 * @throws NoSuchAlgorithmException MikÔøΩli SHA1PRNG-algoritmi ei ole kÔøΩytettÔøΩvissÔøΩ
 	 */
 	public static String generoiSuola() throws NoSuchAlgorithmException {
 		SecureRandom random = SecureRandom.getInstance("SHA1PRNG");

@@ -64,7 +64,7 @@ public class JuomaDAO {
 			Statement haku = yhteys.createStatement();
 			ResultSet resultset = haku.executeQuery(sql);
 
-			// k�yd��n hakutulokset l�pi
+			// käydään hakutulokset läpi
 			while (resultset.next()) {
 				Juoma juoma = new Juoma();
 				juoma.setId(resultset.getInt("id"));
@@ -75,7 +75,7 @@ public class JuomaDAO {
 			}
 
 		} catch (Exception e) {
-			// JOTAIN VIRHETT� TAPAHTUI
+			// JOTAIN VIRHEITÄ TAPAHTUI
 			System.out.println("Tietokantahaku aiheutti virheen");
 		} finally {
 
@@ -134,7 +134,7 @@ public class JuomaDAO {
 
 			PreparedStatement resultset = yhteys.prepareStatement(sql);
 
-			// t�ytet��n puuttuvat tiedot
+			// täytetään puuttuvat tiedot
 			resultset.setString(1, j.getJuoma());
 			resultset.setDouble(2, j.getHinta());
 

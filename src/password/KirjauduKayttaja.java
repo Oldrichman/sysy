@@ -15,19 +15,7 @@ import javax.servlet.http.HttpSession;
 
 import DAO.KayttajaKirjausDAO;
 
-
-/*package password;
-
-import java.io.IOException;
-import java.util.Scanner;
-
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
-public class KirjauduAdmin {
-
-//Poistettu turhaa teksti� MH
+//Poistettu turhaa tekstiä MH
 
  /** 
   * Servlet implementation class LoginServlet 
@@ -56,7 +44,7 @@ public class KirjauduKayttaja extends HttpServlet {
 			 if (kayttaja.isValid()) {
 				 HttpSession session = request.getSession(); 
 				 session.setAttribute("Login",kayttaja);
-				 //Alustaa session p��ttym��n 15min j�lkeen OH
+				 //Alustaa session päättymään 15min jälkeen OH
 				 session.setMaxInactiveInterval(15*60);
 				 Cookie kayttajaNimi = new Cookie("email", kayttajaTunnus);
 				 kayttajaNimi.setMaxAge(15*30);

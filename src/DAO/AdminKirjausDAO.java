@@ -57,7 +57,7 @@ public class AdminKirjausDAO {
 				return admin;
 			}
 		} catch (SQLException e) {
-			// JOTAIN VIRHETTÄ TAPAHTUI
+			// JOTAIN VIRHETTï¿½ TAPAHTUI
 			try {
 				throw new Exception("Tietokantahaku aiheutti virheen", e);
 			} catch (Exception e1) {
