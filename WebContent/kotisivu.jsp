@@ -202,7 +202,7 @@
 							class="fa fa-twitter-square fa-5x"></i> </a></li>
 							<br>
 							
-							<a href="mailto:palaute@pizzeriafiori.fi">palaute@pizzeriafiori.fi</a>
+							<a href="palaute.jsp">Lähetä palautetta</a>
 
 				</ul>
 			
