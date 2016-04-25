@@ -25,11 +25,11 @@ public class KayttajaKirjausDAO {
 		try { // connect to DB
 			Connection currentCon = Konnektori.getConnection();
 			PreparedStatement usernamehaku = currentCon
-					.prepareStatement("SELECT suola, email, salasana from Asiakas where email = ?");
+					.prepareStatement("SELECT email, salasana, suola from Asiakas where email = ?");
 			usernamehaku.setString(1, kayttaja.getEmail());
 			rs = usernamehaku.executeQuery();
 			if (rs.next()) {
-				String suola = rs.getString("suola");
+				String suola = rs.getString("suola");	
 				String salasana = rs.getString("salasana");
 				Salaaja salaaja = new Salaaja();
 				String salattuTeksti = null; 
@@ -49,14 +49,14 @@ public class KayttajaKirjausDAO {
 			}
 
 			else {
-				// EI L�YTYNYT
-				// generoidaan kuitenkin tyhj� user, jotta
-				// login tarkistus kest�� aina yht� kauan
+				// EI LÖYTYNYT
+				// generoidaan kuitenkin tyhjä user, jotta
+				// login tarkistus kestää aina yhtä kauan
 				kayttaja.setValid(false);
 				return kayttaja;
 			}
 		} catch (SQLException e) {
-			// JOTAIN VIRHETT� TAPAHTUI
+			// JOTAIN VIRHEITÄ TAPAHTUI
 			try {
 				throw new Exception("Tietokantahaku aiheutti virheen", e);
 			} catch (Exception e1) {
@@ -91,13 +91,19 @@ public void lisaaKayttaja(Kayttaja k) {
 			kLisays.setString(4, k.getEmail());
 			kLisays.setString(5, k.getOsoite());
 			kLisays.setString(6, k.getPostinro());
-			kLisays.setString(7, k.getSalasana());
 			Salaaja salaaja = new Salaaja();
 			String salattuTeksti = null;
 			try {
 				String suola = Salaaja.generoiSuola();
+				salattuTeksti = suola;
+			} catch (NoSuchAlgorithmException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			String salattuSalasana = null;
+			try {
 				String suolaus = k.getSalasana();
-				salattuTeksti = Salaaja.salaa(suolaus, suola, "SHA-512", 100);
+				salattuSalasana = Salaaja.salaa(suolaus, salattuTeksti, "SHA-512", 100);
 			} catch (NoSuchAlgorithmException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -105,13 +111,14 @@ public void lisaaKayttaja(Kayttaja k) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+			kLisays.setString(7, salattuSalasana);
 			kLisays.setString(8, salattuTeksti);
 			kLisays.setString(9, k.getSuosikkiPitsa());
 			kLisays.executeUpdate();
 			
 			System.out.println("Käyttäjän lisäys onnistui!");
 		} catch (SQLException e) {
-			// JOTAIN VIRHETT� TAPAHTUI
+			// JOTAIN VIRHEITÄ TAPAHTUI
 			try {
 				throw new Exception("Tietokantahaku aiheutti virheen", e);
 			} catch (Exception e1) {

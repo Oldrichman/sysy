@@ -59,7 +59,7 @@ public class RaakaAineDAO {
 			Statement haku = yhteys.createStatement();
 			ResultSet resultset = haku.executeQuery(sql);
 
-			// käydään hakutulokset läpi
+			// kÃ¤ydÃ¤Ã¤n hakutulokset lÃ¤pi
 			while (resultset.next()) {
 				RaakaAineet raakaAine = new RaakaAineet();
 
@@ -69,7 +69,7 @@ public class RaakaAineDAO {
 			}
 
 		} catch (Exception e) {
-			// JOTAIN VIRHETTÄ TAPAHTUI
+			// JOTAIN VIRHETTï¿½ TAPAHTUI
 			System.out.println("Tietokantahaku aiheutti virheen");
 		} finally {
 
@@ -93,16 +93,16 @@ public class RaakaAineDAO {
 
 			PreparedStatement resultset = yhteys.prepareStatement(sql);
 
-			// täytetään puuttuvat tiedot
+			// tÃ¤ytetÃ¤Ã¤n puuttuvat tiedot
 
 			resultset.setString(1, RA.getNimi());
 
 			// suoritetaan lause
 			resultset.executeUpdate();
-			System.out.println("LISÄTTIIN RAAKA-AINE TIETOKANTAAN: " + RA);
+			System.out.println("LISï¿½TTIIN RAAKA-AINE TIETOKANTAAN: " + RA);
 		} catch (Exception e) {
-			// JOTAIN VIRHETTÄ TAPAHTUI
-			System.out.println("Raaka-aineen lisäämisyritys aiheutti virheen");
+			// JOTAIN VIRHETTï¿½ TAPAHTUI
+			System.out.println("Raaka-aineen lisï¿½ï¿½misyritys aiheutti virheen");
 			System.out.println(e);
 		} finally {
 		}

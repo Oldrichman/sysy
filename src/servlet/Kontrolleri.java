@@ -231,7 +231,7 @@ public class Kontrolleri extends HttpServlet {
 			RaakaAineet RA = new RaakaAineet(Nimi, Poisto);
 	
 			
-			System.out.println("T�ytteen nimi: " + Nimi);
+			System.out.println("Täytteen nimi: " + Nimi);
 	
 			RaakaAineDAO RADao = new RaakaAineDAO();
 

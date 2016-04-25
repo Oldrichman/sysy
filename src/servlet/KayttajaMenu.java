@@ -82,7 +82,7 @@ package servlet;
 				HttpServletResponse response) throws ServletException, IOException {
 			response.setContentType("text/html");
 			request.setCharacterEncoding("UTF-8");
-			// Luetaan HTML-Lomakkeelle t‰ytetyt tiedot
+			// Luetaan HTML-Lomakkeelle t√§ytetyt tiedot
 
 			if (request.getParameter("nimi") != null
 					&& request.getParameter("hinta") != null) {
@@ -99,7 +99,7 @@ package servlet;
 
 				System.out.println("<p>");
 				System.out.println("<b>" + tuote.getNimi() + "</b>");
-				System.out.println("<b> T‰ytteet: " + tuote.getTaytteet() + "</b>");
+				System.out.println("<b> T√§ytteet: " + tuote.getTaytteet() + "</b>");
 				System.out.println("<b> Piilotettu: " + tuote.getPoisto() + "</b>");
 				System.out.println("<br/>");
 				System.out.println("Hinta: " + formaatteri.format(tuote.getHinta())

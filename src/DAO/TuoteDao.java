@@ -59,7 +59,7 @@ public class TuoteDao {
 			Statement haku = yhteys.createStatement();
 			ResultSet resultset = haku.executeQuery(sql);
 
-			// käydään hakutulokset läpi
+			// kÃ¤ydÃ¤Ã¤n hakutulokset lÃ¤pi
 			while (resultset.next()) {
 				Tuote tuote = new Tuote();
 				tuote.setId(resultset.getInt("id"));
@@ -72,7 +72,7 @@ public class TuoteDao {
 			}
 
 		} catch (Exception e) {
-			// JOTAIN VIRHETTÄ TAPAHTUI
+			// JOTAIN VIRHEITÃ„ TAPAHTUI
 			System.out.println("Tietokantahaku aiheutti virheen");
 		} finally {
 
@@ -95,7 +95,7 @@ public class TuoteDao {
 			Statement haku = yhteys.createStatement();
 			ResultSet resultset = haku.executeQuery(sql);
 
-			// käydään hakutulokset läpi
+			// kÃ¤ydÃ¤Ã¤n hakutulokset lÃ¤pi
 			while (resultset.next()) {
 				Tuote tuote = new Tuote();
 				tuote.setId(resultset.getInt("id"));
@@ -107,7 +107,7 @@ public class TuoteDao {
 			}
 
 		} catch (Exception e) {
-			// JOTAIN VIRHETTÄ TAPAHTUI
+			// JOTAIN VIRHEITÃ„ TAPAHTUI
 			System.out.println("Tietokantahaku aiheutti virheen");
 		} finally {
 
@@ -131,7 +131,7 @@ public class TuoteDao {
 
 			PreparedStatement resultset = yhteys.prepareStatement(sql);
 
-			// täytetään puuttuvat tiedot
+			// tÃ¤ytetÃ¤Ã¤n puuttuvat tiedot
 			resultset.setInt(1, t.getId());
 			resultset.setString(2, t.getNimi());
 			resultset.setDouble(3, t.getHinta());
@@ -140,10 +140,10 @@ public class TuoteDao {
 
 			// suoritetaan lause
 			resultset.executeUpdate();
-			System.out.println("LISÄTTIIN TUOTE TIETOKANTAAN: " + t);
+			System.out.println("LISï¿½TTIIN TUOTE TIETOKANTAAN: " + t);
 		} catch (Exception e) {
-			// JOTAIN VIRHETTÄ TAPAHTUI
-			System.out.println("Tuotteen lisäämisyritys aiheutti virheen");
+			// JOTAIN VIRHEITÃ„ TAPAHTUI
+			System.out.println("Tuotteen lisï¿½ï¿½misyritys aiheutti virheen");
 			System.out.println(e);
 		} finally {
 		}

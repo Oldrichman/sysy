@@ -72,7 +72,7 @@ public class KayttajaDao {
 				usernamehaku.setString(1, kayttaja.getEmail());
 				rs = usernamehaku.executeQuery();
 
-				// k‰yd‰‰n hakutulokset l‰pi
+				// k√§yd√§√§n hakutulokset l√§pi
 				while (rs.next()) {
 
 					kayttaja.setEtunimi(rs.getString("etunimi"));
@@ -86,7 +86,7 @@ public class KayttajaDao {
 				}
 
 			} catch (Exception e) {
-				// JOTAIN VIRHETTƒ TAPAHTUI
+				// JOTAIN VIRHET√Ñ TAPAHTUI
 				System.out.println("Tietokantahaku aiheutti virheen");
 				System.out.println(e);
 			}
