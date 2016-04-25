@@ -144,7 +144,7 @@
 										<input type ="text" name = "juoma" value="<c:out  value="${j.juoma}" />"></input>
 											</td>
 						<td style="text-align:center">
-<input type ="text" name = "hinta" value="<fmt:formatNumber value="${j.hinta}" type="currency" currencySymbol=""/>"></input> &euro; (piste erotin)</td>
+<input type ="text" name = "hinta"  pattern ="[0-9]+([\.][0-9]+)?" title="- EROTA PISTEELLÄ!"value="<fmt:formatNumber value="${j.hinta}" type="currency" currencySymbol=""/>"></input> &euro; (piste erotin)</td>
 					
 					<td style="text-align:center"><c:out value="${j.poisto}" /> 
 								</td>
