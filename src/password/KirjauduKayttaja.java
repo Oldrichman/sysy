@@ -27,7 +27,7 @@ import javax.servlet.http.HttpServletResponse;
 
 public class KirjauduAdmin {
 
-//Poistettu turhaa tekstiä MH
+//Poistettu turhaa tekstiï¿½ MH
 
  /** 
   * Servlet implementation class LoginServlet 
@@ -41,8 +41,9 @@ public class KirjauduKayttaja extends HttpServlet {
 
 	public void doPost(HttpServletRequest request, HttpServletResponse response) 
 	throws ServletException, java.io.IOException {
+		
 		try { 
-			 
+			response.setContentType("text/html;charset=UTF-8");
 			Kayttaja kayttaja = new Kayttaja();
 			 kayttaja.setEmail(request.getParameter("email"));
 			 kayttaja.setSalasana(request.getParameter("salasana"));
@@ -55,7 +56,7 @@ public class KirjauduKayttaja extends HttpServlet {
 			 if (kayttaja.isValid()) {
 				 HttpSession session = request.getSession(); 
 				 session.setAttribute("Login",kayttaja);
-				 //Alustaa session päättymään 15min jälkeen OH
+				 //Alustaa session pï¿½ï¿½ttymï¿½ï¿½n 15min jï¿½lkeen OH
 				 session.setMaxInactiveInterval(15*60);
 				 Cookie kayttajaNimi = new Cookie("email", kayttajaTunnus);
 				 kayttajaNimi.setMaxAge(15*30);
@@ -64,7 +65,7 @@ public class KirjauduKayttaja extends HttpServlet {
 			 }else {
 				 response.setContentType("text/html;charset=UTF-8");
 				 PrintWriter out = response.getWriter();
-				 out.println("<font color=red>Sähköpostisi tai salasanasi on päin pyllyä!</font>");
+				 out.println("<font color=red>KÃ¤yttÃ¤jÃ¤tunnuksesi tai salasanasi on pÃ¤in pyllyÃ¤!</font>");
 				 RequestDispatcher rd = getServletContext().getRequestDispatcher("/kotisivu.jsp");
 				 rd.include(request, response); //error page
 			 }

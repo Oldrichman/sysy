@@ -104,23 +104,20 @@
 
 					<c:forEach items="${tuotteet}" var="p">
 						<tr>
-<form action="kontrolleri" method="post">
-<td> <input type="hidden"
-value="${p.id}" name="id"> <a
-href="kontrolleri?toiminto=tuotteet&nimi=<c:out value="${p.nimi}" />"><c:out
-value="${p.nimi} " /> </a></td>
-<td><c:out value="" /> <c:out
-value="${p.taytteet} " /></td>
-<td><c:out value="" /> <fmt:formatNumber
-value="${p.hinta}" type="currency" currencySymbol=""  /> &euro;</td>
-<td style="text-align:center"><c:out value="" /> <c:out
-value="${p.poisto} " /></td>
-<td>
+			<form action="kontrolleri" method="post">
+			<td> <input type="hidden" value="${p.id}" name="id"> <a
+			href="kontrolleri?toiminto=tuotteet&nimi=<c:out value="${p.nimi}" />">
+			<c:out value="${p.nimi} " /> </a></td>
+			<td><c:out value="" /> <c:out value="${p.taytteet} " /></td>
+			<td><c:out value="" /> <fmt:formatNumber value="${p.hinta}" type="currency" currencySymbol=""  /> &euro;</td>
+			<td style="text-align:center"><c:out value="" /> <c:out
+					value="${p.poisto} " /></td>
+				<td>
 
 								
-<%out.println("<INPUT type=\"submit\" name=\"action\" value=\"Poista\">");%>
-<%out.println("<INPUT type=\"submit\" name=\"action\" value=\"Piilota menusta\">");%>
-<%out.println("<INPUT type=\"submit\" name=\"action\" value=\"Tuo menuun\">");%>
+			<%out.println("<INPUT type=\"submit\" name=\"action\" value=\"Poista\">");%>
+			<%out.println("<INPUT type=\"submit\" name=\"action\" value=\"Piilota menusta\">");%>
+			<%out.println("<INPUT type=\"submit\" name=\"action\" value=\"Tuo menuun\">");%>
  
 								</td>
 
@@ -138,23 +135,25 @@ value="${p.poisto} " /></td>
       <th style="text-align:center">HINTA</th>
       <th style="text-align:center">Piilotettu</th>
        <th style="text-align:center">Muokkaus</th>
+				
 				<c:forEach items="${juomat}" var="j" >
 				<tr>
-					<form action="adminmenu" method="post">
+					<form action="kontrolleri" method="post">
+					<input type="hidden" value="${j.id}" name="id">
 										<td style="text-align:center"><c:out  value="${j.juoma}" />
 											</td>
 						<td style="text-align:center"><c:out value="" /> <fmt:formatNumber
 								value="${j.hinta}" type="currency" currencySymbol=""  /> &euro;</td>
 					
 					<td style="text-align:center"><c:out value="" /> <c:out
-											value="${r.poisto} " />
+											value="${j.poisto} " />
 								</td>
 								
 								<td style="text-align:center">
 					 <%
 									out.println("<INPUT type=\"submit\" name=\"action\" value=\"Piilota juoma\">");
 								%>
-					
+					</td>
 					</form>
 					
 				</tr>

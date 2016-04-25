@@ -72,6 +72,8 @@ import DAO.KayttajaKirjausDAO;
 				HttpServletResponse response) throws ServletException, IOException {
 			response.setContentType("text/html");
 
+			request.setCharacterEncoding("UTF-8");
+			
 			if (request.getParameter("email") != null){
 				
 				String etunimi = request.getParameter("etunimi");
