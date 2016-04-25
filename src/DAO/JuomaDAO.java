@@ -10,6 +10,11 @@ import java.util.ArrayList;
 
 import admin.Juoma;
 
+/**
+ * 
+ * @author Joni Bärlund, SySy
+ *
+ */
 public class JuomaDAO {
 
 	private Connection yhteys = null;
@@ -62,9 +67,9 @@ public class JuomaDAO {
 			// käydään hakutulokset läpi
 			while (resultset.next()) {
 				Juoma juoma = new Juoma();
+				juoma.setId(resultset.getInt("id"));
 				juoma.setJuoma(resultset.getString("juoma"));
 				juoma.setHinta(resultset.getDouble("hinta"));
-				
 
 				juomat.add(juoma);
 			}
@@ -77,12 +82,46 @@ public class JuomaDAO {
 		}
 
 		System.out.println("HAETTIIN TIETOKANNASTA JUOMAT: "
-				+juomat.toString());
+				+ juomat.toString());
 
 		return juomat;
 	}
 
-	
+	public ArrayList<Juoma> haekaikkiJuomat() {
+
+		ArrayList<Juoma> Juoma = new ArrayList<Juoma>();
+
+		try {
+
+			// suoritetaan haku
+			String sql = "select * from Juomat ORDER BY juoma";
+			Statement haku = yhteys.createStatement();
+			ResultSet resultset = haku.executeQuery(sql);
+
+			// k�yd��n hakutulokset l�pi
+			while (resultset.next()) {
+				Juoma juoma = new Juoma();
+				juoma.setId(resultset.getInt("id"));
+				juoma.setJuoma(resultset.getString("juoma"));
+				juoma.setHinta(resultset.getDouble("hinta"));
+				juoma.setPoisto(resultset.getString("poisto"));
+
+				Juoma.add(juoma);
+			}
+
+		} catch (Exception e) {
+			// JOTAIN VIRHETT� TAPAHTUI
+			System.out.println("Tietokantahaku aiheutti virheen");
+		} finally {
+
+		}
+
+		System.out
+				.println("HAETTIIN TIETOKANNASTA JUOMAT: " + Juoma.toString());
+
+		return Juoma;
+	}
+
 	public void lisaaJuoma(Juoma j) {
 
 		try {
@@ -98,12 +137,10 @@ public class JuomaDAO {
 			// täytetään puuttuvat tiedot
 			resultset.setString(1, j.getJuoma());
 			resultset.setDouble(2, j.getHinta());
-			
-		
 
 			// suoritetaan lause
 			resultset.executeUpdate();
-			System.out.println("LIS�TTIIN JUOMA TIETOKANTAAN: " + j);
+			System.out.println("LISÄTTIIN JUOMA TIETOKANTAAN: " + j);
 		} catch (Exception e) {
 			// JOTAIN VIRHETT� TAPAHTUI
 			System.out.println("Juoman lis��misyritys aiheutti virheen");
@@ -113,12 +150,9 @@ public class JuomaDAO {
 
 	}
 
-	
-		
-
 	public void piilotaJuoma(int id) {
-		try {						
-			String sql = "UPDATE Juomat SET poisto = 'X' WHERE Id = ?";
+		try {
+			String sql = "UPDATE Juomat SET poisto = 'piilotettu' WHERE Id = ?";
 			PreparedStatement st = yhteys.prepareStatement(sql);
 
 			st.setInt(1, id);
@@ -126,9 +160,48 @@ public class JuomaDAO {
 
 		} catch (Exception e) {
 			System.out.println(e);
-		}}
-		
+		}
 	}
-		
-	
-	
+
+	public void TuoJuoma(int id) {
+		try {
+
+			String sql = "UPDATE Juomat SET poisto = null WHERE id = ?";
+			PreparedStatement st = yhteys.prepareStatement(sql);
+
+			st.setInt(1, id);
+			st.executeUpdate();
+
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+	}
+
+	public void paivitaHinta(int id, double hinta) {
+		try {
+
+			String sql = "UPDATE Juomat SET hinta = ? WHERE id = ?";
+			PreparedStatement st = yhteys.prepareStatement(sql);
+			
+			st.setDouble(1,hinta);
+			st.setInt(2, id);
+			st.executeUpdate();
+
+		} catch (Exception e) {
+			System.out.println(e);
+		}}
+		public void paivitaJuoma(int id, String juoma) {
+			try {
+
+				String sql = "UPDATE Juomat SET juoma = ? WHERE id = ?";
+				PreparedStatement st = yhteys.prepareStatement(sql);
+				
+				st.setString(1,juoma);
+				st.setInt(2, id);
+				st.executeUpdate();
+
+			} catch (Exception e) {
+				System.out.println(e);
+			}
+	}
+}

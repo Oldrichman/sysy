@@ -15,7 +15,9 @@
 
 
 		</textarea>
-		<input type="submit" name="action" value="Tallenna">
+		<br>
+		<br>
+		<input type="submit" name="action" value="Lähetä">
 	</form>
 
 

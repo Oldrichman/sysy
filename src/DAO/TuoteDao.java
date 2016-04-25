@@ -10,6 +10,12 @@ import java.util.ArrayList;
 
 import admin.Tuote;
 
+
+/**
+ * 
+ * @author Joni Bärlund, SySy
+ *
+ */
 public class TuoteDao {
 
 	private Connection yhteys = null;
@@ -59,7 +65,7 @@ public class TuoteDao {
 			Statement haku = yhteys.createStatement();
 			ResultSet resultset = haku.executeQuery(sql);
 
-			// käydään hakutulokset läpi
+			// k�yd��n hakutulokset l�pi
 			while (resultset.next()) {
 				Tuote tuote = new Tuote();
 				tuote.setId(resultset.getInt("id"));
@@ -72,7 +78,7 @@ public class TuoteDao {
 			}
 
 		} catch (Exception e) {
-			// JOTAIN VIRHEITÄ TAPAHTUI
+			// JOTAIN VIRHETT� TAPAHTUI
 			System.out.println("Tietokantahaku aiheutti virheen");
 		} finally {
 
@@ -95,7 +101,7 @@ public class TuoteDao {
 			Statement haku = yhteys.createStatement();
 			ResultSet resultset = haku.executeQuery(sql);
 
-			// käydään hakutulokset läpi
+			// k�yd��n hakutulokset l�pi
 			while (resultset.next()) {
 				Tuote tuote = new Tuote();
 				tuote.setId(resultset.getInt("id"));
@@ -107,7 +113,7 @@ public class TuoteDao {
 			}
 
 		} catch (Exception e) {
-			// JOTAIN VIRHEITÄ TAPAHTUI
+			// JOTAIN VIRHETT� TAPAHTUI
 			System.out.println("Tietokantahaku aiheutti virheen");
 		} finally {
 
@@ -131,7 +137,7 @@ public class TuoteDao {
 
 			PreparedStatement resultset = yhteys.prepareStatement(sql);
 
-			// täytetään puuttuvat tiedot
+			// t�ytet��n puuttuvat tiedot
 			resultset.setInt(1, t.getId());
 			resultset.setString(2, t.getNimi());
 			resultset.setDouble(3, t.getHinta());
@@ -142,7 +148,7 @@ public class TuoteDao {
 			resultset.executeUpdate();
 			System.out.println("LIS�TTIIN TUOTE TIETOKANTAAN: " + t);
 		} catch (Exception e) {
-			// JOTAIN VIRHEITÄ TAPAHTUI
+			// JOTAIN VIRHETT� TAPAHTUI
 			System.out.println("Tuotteen lis��misyritys aiheutti virheen");
 			System.out.println(e);
 		} finally {
@@ -166,7 +172,7 @@ public class TuoteDao {
 		public void piilotaTuote(int id) {
 			try {
 
-				String sql = "UPDATE Tuote SET poisto = 'X' WHERE id = ?";
+				String sql = "UPDATE Tuote SET poisto = 'Piilotettu' WHERE id = ?";
 				PreparedStatement st = yhteys.prepareStatement(sql);
 
 				st.setInt(1, id);

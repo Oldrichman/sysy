@@ -9,7 +9,11 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 import admin.RaakaAineet;
-
+/**
+ * 
+ * @author Joni Bärlund, SySy
+ *
+ */
 public class RaakaAineDAO {
 
 	private Connection yhteys = null;
@@ -59,7 +63,7 @@ public class RaakaAineDAO {
 			Statement haku = yhteys.createStatement();
 			ResultSet resultset = haku.executeQuery(sql);
 
-			// käydään hakutulokset läpi
+			// k�yd��n hakutulokset l�pi
 			while (resultset.next()) {
 				RaakaAineet raakaAine = new RaakaAineet();
 
@@ -93,7 +97,7 @@ public class RaakaAineDAO {
 
 			PreparedStatement resultset = yhteys.prepareStatement(sql);
 
-			// täytetään puuttuvat tiedot
+			// t�ytet��n puuttuvat tiedot
 
 			resultset.setString(1, RA.getNimi());
 
@@ -112,7 +116,7 @@ public class RaakaAineDAO {
 	public void piilotaRaakaAine(String nimi) {
 		try {
 
-			String sql = "UPDATE Raaka_aine SET poisto = 'X' where nimi = ?";
+			String sql = "UPDATE Raaka_aine SET poisto = 'piilotettu' where nimi = ?";
 			PreparedStatement st = yhteys.prepareStatement(sql);
 
 			st.setString(1, nimi);
