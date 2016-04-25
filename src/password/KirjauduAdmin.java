@@ -15,7 +15,7 @@ import javax.servlet.http.HttpSession;
 import DAO.AdminKirjausDAO;
 import servlet.Kontrolleri;
 
- //Poistettu turhaa tekstiä MH
+ //Poistettu turhaa tekstiï¿½ MH
 
  /** 
  * Servlet implementation class LoginServlet 
@@ -43,7 +43,7 @@ public class KirjauduAdmin extends HttpServlet {
 			if (admin.isValid()) {
 				HttpSession session = request.getSession();
 				session.setAttribute("Login", admin);
-				// Alustaa session päättymään 15min jälkeen MH
+				// Alustaa session pï¿½ï¿½ttymï¿½ï¿½n 15min jï¿½lkeen MH
 				session.setMaxInactiveInterval(15 * 60);
 				Cookie adminNimi = new Cookie("kayttajatunnus", adminTunnus);
 				adminNimi.setMaxAge(15 * 30);
@@ -54,7 +54,7 @@ public class KirjauduAdmin extends HttpServlet {
 				RequestDispatcher rd = getServletContext()
 						.getRequestDispatcher("/adminkirjautuminen.jsp");
 				PrintWriter out = response.getWriter();
-				out.println("<font color=red>Käyttäjätunnuksesi tai salasanasi on päin pyllyä!</font>");
+				out.println("<font color=red>KÃ¤yttÃ¤jÃ¤tunnuksesi tai salasanasi on pÃ¤in pyllyÃ¤!</font>");
 				rd.include(request, response); // error page
 			}
 		} catch (Throwable theException) {

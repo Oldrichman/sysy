@@ -99,6 +99,7 @@ public class AdminMenu extends HttpServlet {
 			HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html");
 
+		request.setCharacterEncoding("UTF-8");
 		// Luetaan HTML-Lomakkeelle täytetyt tiedot
 
 		if (request.getParameter("nimi") != null

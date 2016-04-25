@@ -49,14 +49,14 @@ public class KayttajaKirjausDAO {
 			}
 
 			else {
-				// EI LÖYTYNYT
-				// generoidaan kuitenkin tyhjä user, jotta
-				// login tarkistus kestää aina yhtä kauan
+				// EI Lï¿½YTYNYT
+				// generoidaan kuitenkin tyhjï¿½ user, jotta
+				// login tarkistus kestï¿½ï¿½ aina yhtï¿½ kauan
 				kayttaja.setValid(false);
 				return kayttaja;
 			}
 		} catch (SQLException e) {
-			// JOTAIN VIRHETTÄ TAPAHTUI
+			// JOTAIN VIRHETTï¿½ TAPAHTUI
 			try {
 				throw new Exception("Tietokantahaku aiheutti virheen", e);
 			} catch (Exception e1) {
@@ -109,9 +109,9 @@ public void lisaaKayttaja(Kayttaja k) {
 			kLisays.setString(9, k.getSuosikkiPitsa());
 			kLisays.executeUpdate();
 			
-			System.out.println("Käyttäjän lisäys onnistui!");
+			System.out.println("KÃ¤yttÃ¤jÃ¤n lisÃ¤ys onnistui!");
 		} catch (SQLException e) {
-			// JOTAIN VIRHETTÄ TAPAHTUI
+			// JOTAIN VIRHETTï¿½ TAPAHTUI
 			try {
 				throw new Exception("Tietokantahaku aiheutti virheen", e);
 			} catch (Exception e1) {

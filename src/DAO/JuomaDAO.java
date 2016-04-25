@@ -55,11 +55,11 @@ public class JuomaDAO {
 		try {
 
 			// suoritetaan haku
-			String sql = "select * from Juomat ORDER BY juoma";
+			String sql = "select * from Juomat where poisto is null ORDER BY juoma";
 			Statement haku = yhteys.createStatement();
 			ResultSet resultset = haku.executeQuery(sql);
 
-			// käydään hakutulokset läpi
+			// kï¿½ydï¿½ï¿½n hakutulokset lï¿½pi
 			while (resultset.next()) {
 				Juoma juoma = new Juoma();
 				juoma.setJuoma(resultset.getString("juoma"));
@@ -70,7 +70,7 @@ public class JuomaDAO {
 			}
 
 		} catch (Exception e) {
-			// JOTAIN VIRHETTÄ TAPAHTUI
+			// JOTAIN VIRHETTï¿½ TAPAHTUI
 			System.out.println("Tietokantahaku aiheutti virheen");
 		} finally {
 
@@ -95,7 +95,7 @@ public class JuomaDAO {
 
 			PreparedStatement resultset = yhteys.prepareStatement(sql);
 
-			// täytetään puuttuvat tiedot
+			// tï¿½ytetï¿½ï¿½n puuttuvat tiedot
 			resultset.setString(1, j.getJuoma());
 			resultset.setDouble(2, j.getHinta());
 			
@@ -103,28 +103,32 @@ public class JuomaDAO {
 
 			// suoritetaan lause
 			resultset.executeUpdate();
-			System.out.println("LISÄTTIIN JUOMA TIETOKANTAAN: " + j);
+			System.out.println("LISï¿½TTIIN JUOMA TIETOKANTAAN: " + j);
 		} catch (Exception e) {
-			// JOTAIN VIRHETTÄ TAPAHTUI
-			System.out.println("Juoman lisäämisyritys aiheutti virheen");
+			// JOTAIN VIRHETTï¿½ TAPAHTUI
+			System.out.println("Juoman lisï¿½ï¿½misyritys aiheutti virheen");
 			System.out.println(e);
 		} finally {
 		}
 
 	}
 
-	public void piilotaJuoma(String juoma) {
-		try {
+	
+		
 
-			String sql = "UPDATE Juomat SET poisto = 'X' WHERE juoma = ?";
+	public void piilotaJuoma(int id) {
+		try {						
+			String sql = "UPDATE Juomat SET poisto = 'X' WHERE Id = ?";
 			PreparedStatement st = yhteys.prepareStatement(sql);
 
-			st.setString(1, juoma);
+			st.setInt(1, id);
 			st.executeUpdate();
 
 		} catch (Exception e) {
 			System.out.println(e);
 		}}
 		
-	
 	}
+		
+	
+	

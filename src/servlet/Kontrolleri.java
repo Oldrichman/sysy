@@ -89,7 +89,9 @@ public class Kontrolleri extends HttpServlet {
 			HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html");
 
-		// Luetaan HTML-Lomakkeelle täytetyt tiedot
+		request.setCharacterEncoding("UTF-8");
+		
+		// Luetaan HTML-Lomakkeelle tï¿½ytetyt tiedot
 
 		if (request.getParameter("nimi") != null
 				&& request.getParameter("hinta") != null) {
@@ -112,7 +114,7 @@ public class Kontrolleri extends HttpServlet {
 
 			System.out.println("<p>");
 			System.out.println("<b>" + tuote.getNimi() + "</b>");
-			System.out.println("<b> Täytteet: " + tuote.getTaytteet() + "</b>");
+			System.out.println("<b> Tï¿½ytteet: " + tuote.getTaytteet() + "</b>");
 			System.out.println("<b> Piilotettu: " + tuote.getPoisto() + "</b>");
 			System.out.println("<br/>");
 			System.out.println("Hinta: " + formaatteri.format(tuote.getHinta())
@@ -141,13 +143,15 @@ public class Kontrolleri extends HttpServlet {
 				&& request.getParameter("HJU") != null) {
 			String Juoma = request.getParameter("LJU");
 			String HintaJU = request.getParameter("HJU");
+			String poisto = request.getParameter("poisto");
+			
 			double HintaJUO = Double.parseDouble(HintaJU);
 			
 	
 			
 			System.out.println("Juoman nimi: " + Juoma);
 			System.out.println("Hinta: " + HintaJUO);
-			Juoma j = new Juoma( Juoma, HintaJUO);
+			Juoma j = new Juoma(0, Juoma, HintaJUO, poisto);
 			JuomaDAO JUDao = new JuomaDAO();
 
 			try {
@@ -183,7 +187,7 @@ public class Kontrolleri extends HttpServlet {
 			return;}
 			
 			else if (request.getParameter("nimi") != null
-					&& request.getParameter("action").equals("Tuo täyte")) {
+					&& request.getParameter("action").equals("Tuo tï¿½yte")) {
 
 				RaakaAineDAO RADao = new RaakaAineDAO();
 				String TuoNimi = (request.getParameter("nimi"));
@@ -227,7 +231,7 @@ public class Kontrolleri extends HttpServlet {
 			RaakaAineet RA = new RaakaAineet(Nimi, Poisto);
 	
 			
-			System.out.println("Täytteen nimi: " + Nimi);
+			System.out.println("Tï¿½ytteen nimi: " + Nimi);
 	
 			RaakaAineDAO RADao = new RaakaAineDAO();
 
@@ -269,15 +273,15 @@ public class Kontrolleri extends HttpServlet {
 			return;
 			}
 		  
-		else if (request.getParameter("juoma") != null
+		else if (request.getParameter("id") != null
 				&& request.getParameter("action").equals("Piilota juoma")) {
 
 			JuomaDAO JDao = new JuomaDAO();
-			String PiilotaJuoma = null;
+			int PiilotaJuoma = 0;
 
 	
 			try {
-				PiilotaJuoma = (request.getParameter("juoma"));
+				PiilotaJuoma = Integer.parseInt(request.getParameter("id"));
 			} catch (Exception ex) {
 				System.out.println(ex);
 			}
