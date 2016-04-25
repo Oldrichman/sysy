@@ -62,6 +62,7 @@ public class JuomaDAO {
 			// k�yd��n hakutulokset l�pi
 			while (resultset.next()) {
 				Juoma juoma = new Juoma();
+				juoma.setId(resultset.getInt("id"));
 				juoma.setJuoma(resultset.getString("juoma"));
 				juoma.setHinta(resultset.getDouble("hinta"));
 				
@@ -82,7 +83,41 @@ public class JuomaDAO {
 		return juomat;
 	}
 
-	
+	public ArrayList<Juoma> haekaikkiJuomat() {
+
+		ArrayList<Juoma> Juoma = new ArrayList<Juoma>();
+
+		try {
+
+			// suoritetaan haku
+			String sql = "select * from Juomat ORDER BY juoma";
+			Statement haku = yhteys.createStatement();
+			ResultSet resultset = haku.executeQuery(sql);
+
+			// k�yd��n hakutulokset l�pi
+			while (resultset.next()) {
+				Juoma juoma = new Juoma();
+				juoma.setId(resultset.getInt("id"));
+				juoma.setJuoma(resultset.getString("juoma"));
+				juoma.setHinta(resultset.getDouble("hinta"));
+				juoma.setPoisto(resultset.getString("poisto"));
+				
+
+				Juoma.add(juoma);
+			}
+
+		} catch (Exception e) {
+			// JOTAIN VIRHETT� TAPAHTUI
+			System.out.println("Tietokantahaku aiheutti virheen");
+		} finally {
+
+		}
+
+		System.out.println("HAETTIIN TIETOKANNASTA JUOMAT: "
+				+Juoma.toString());
+
+		return Juoma;
+	}
 	public void lisaaJuoma(Juoma j) {
 
 		try {
@@ -103,7 +138,7 @@ public class JuomaDAO {
 
 			// suoritetaan lause
 			resultset.executeUpdate();
-			System.out.println("LIS�TTIIN JUOMA TIETOKANTAAN: " + j);
+			System.out.println("LISÄTTIIN JUOMA TIETOKANTAAN: " + j);
 		} catch (Exception e) {
 			// JOTAIN VIRHETT� TAPAHTUI
 			System.out.println("Juoman lis��misyritys aiheutti virheen");
@@ -118,15 +153,29 @@ public class JuomaDAO {
 
 	public void piilotaJuoma(int id) {
 		try {						
-			String sql = "UPDATE Juomat SET poisto = 'X' WHERE Id = ?";
+			String sql = "UPDATE Juomat SET poisto = 'piilotettu' WHERE Id = ?";
 			PreparedStatement st = yhteys.prepareStatement(sql);
 
 			st.setInt(1, id);
 			st.executeUpdate();
 
 		} catch (Exception e) {
-			System.out.println(e);
-		}}
+			System.out.println(e);}
+		}
+	
+		public void TuoJuoma(int id) {
+			try {
+
+				String sql = "UPDATE Juomat SET poisto = null WHERE id = ?";
+				PreparedStatement st = yhteys.prepareStatement(sql);
+
+				st.setInt(1, id);
+				st.executeUpdate();
+
+			} catch (Exception e) {
+				System.out.println(e);
+			}	
+	}
 		
 	}
 		

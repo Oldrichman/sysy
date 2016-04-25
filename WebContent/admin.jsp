@@ -136,7 +136,7 @@
       <th style="text-align:center">Piilotettu</th>
        <th style="text-align:center">Muokkaus</th>
 				
-				<c:forEach items="${juomat}" var="j" >
+				<c:forEach items="${Juoma}" var="j" >
 				<tr>
 					<form action="kontrolleri" method="post">
 					<input type="hidden" value="${j.id}" name="id">
@@ -145,14 +145,14 @@
 						<td style="text-align:center"><c:out value="" /> <fmt:formatNumber
 								value="${j.hinta}" type="currency" currencySymbol=""  /> &euro;</td>
 					
-					<td style="text-align:center"><c:out value="" /> <c:out
-											value="${j.poisto} " />
+					<td style="text-align:center"><c:out value="${j.poisto}" /> 
 								</td>
 								
 								<td style="text-align:center">
 					 <%
 									out.println("<INPUT type=\"submit\" name=\"action\" value=\"Piilota juoma\">");
 								%>
+								<%out.println("<INPUT type=\"submit\" name=\"action\" value=\"Tuo juoma\">");%>
 					</td>
 					</form>
 					
