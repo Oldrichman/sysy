@@ -117,9 +117,9 @@
 	</header>
 
 	<!-- Käyttäjän tiedot -->
-	<section id="about" class="container content-section text-center">
+	<section id="about" class="container content-section text-center" style="align-self:center;">
 		<div class="row">
-			<div class="col-lg-8 col-lg-offset-2">
+			
 				<h2>Omat tiedot</h2>
 				<p>
 					
@@ -167,7 +167,7 @@
 				</p>
 			
 			</div>
-		</div>
+		
 	</section>
 
 	
