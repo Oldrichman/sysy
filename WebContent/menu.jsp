@@ -131,8 +131,8 @@
 
 	<!-- PIZZAT ALUE -->
 	<section id="about" class="container content-section text-center">
-				<h2>Pizzamme</h2>	
-					<div class="container">
+				<h2 style="font-size:300%;">Pizzamme</h2>	
+					<div class="container"> <!-- style="background:rgba(255, 255, 255, 0.20); border-radius:10px"; -->
 		<div class="starter-template">
 			
 			
@@ -140,7 +140,7 @@
 			<table class="table table-bordered">
 			<thead class="thead-inverse" >
 			
-    <tr class="big">
+    <tr class="big" style="font-size:130%;">
       <th style="text-align:center">PIZZA</th>
       <th style="text-align:center">TÄYTTEET</th>
       <th style="text-align:center">HINTA</th>
@@ -152,7 +152,7 @@
 				<tr>
 					<form action="menukontrolleri" method="post">
 										<td><input type="hidden" value="${p.id}" name="id">
-											<a>
+											<a style="color:#d9534f; font-size:150%; letter-spacing:3px; font-weight:900;">
 									<c:out value="${p.nimi} " /> </a>
 									</td><td>
 									<c:out value="${p.taytteet} " /><br>
@@ -166,8 +166,11 @@
 									<fmt:formatNumber value="${p.hinta}" type="currency" currencySymbol=""  /> &euro;</td>
 					
 													<td style="text-align:center">
+													
+													<button class="btn btn-danger" type="submit" name="lisaa" value="input">Lisää 
+													ostoskoriin</button>
 								
-									<INPUT type="submit" name="lisaa" value="Lisää ostoskoriin">
+									<!-- <INPUT type="submit" name="lisaa" value="Lisää ostoskoriin"> -->
 								</form>
 								</td>
 					
@@ -182,7 +185,7 @@
 		<table class="table table-bordered">
 			<thead class="thead-inverse" >
 			
-    <tr class="big">
+    <tr class="big" style="font-size:150%;">
       <th style="text-align:center">JUOMA</th>
       <th style="text-align:center">HINTA</th>
       
@@ -246,7 +249,7 @@
 							class="fa fa-twitter-square fa-5x"></i> </a></li>
 							<br>
 							
-							<a href="mailto:palaute@pizzeriafiori.fi">palaute@pizzeriafiori.fi</a>
+							<a href="palaute.jsp">Lähetä palautetta</a>
 
 				</ul>
 			
