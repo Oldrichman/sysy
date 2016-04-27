@@ -155,19 +155,21 @@
 											<a>
 									<c:out value="${p.nimi} " /> </a>
 									</td><td>
-									<c:out value="${p.taytteet} " /><br>
+									<c:out value="${p.taytteet} " /><td> 
+									
+									<fmt:formatNumber value="${p.hinta}" type="currency" currencySymbol=""  /> &euro;</td>
+									</form>
+									<form action = "LisaaOstoskoriin" method ="post">
+					
+													<td style="text-align:center">
+								<br>
 								<%
 									out.println("Oregano: " +"<INPUT type=\"checkbox\" name=\"action\" value=\"\">");
 								%>
 								<%
 									out.println("Valkosipuli: " + "<INPUT type=\"checkbox\" name=\"action\" value=\"\">");
-								%></td><td> 
-									
-									<fmt:formatNumber value="${p.hinta}" type="currency" currencySymbol=""  /> &euro;</td>
-					
-													<td style="text-align:center">
-								
-									<INPUT type="submit" name="lisaa" value="Lisää ostoskoriin">
+								%>
+									<INPUT type="submit" name="tilausnumero" value="Lisää ostoskoriin">
 								</form>
 								</td>
 					
