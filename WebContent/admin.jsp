@@ -90,7 +90,7 @@
 			 <h1>Admin</h1>
 
 			<nav>
-				<table class="table table-bordered" frame=void>
+				<table class="table table-bordered" frame=void style="text-align:center;">
 				<thead class="thead-inverse" >
 				
     <tr class="">
@@ -133,8 +133,8 @@
 
 				</table>
 				
-				<table class="table table-bordered" frame=void>
-				<thead class="thead-inverse" >
+				<table class="table table-bordered" frame=void style="text-align:center;">
+				<thead class="thead-inverse" style="text-align:center;" >
 				<th style="text-align:center">JUOMA</th>
       <th style="text-align:center">HINTA</th>
       <th style="text-align:center">Piilotettu</th>
@@ -173,7 +173,7 @@
 <div class="col-md-6">
 
 				<br><h4>Täytteet</h4> 
-				<table class="table table-condensed" style="width:auto">
+				<table class="table table-condensed" style="width:auto; text-align:center;">
 				<thead>
 				<th style="text-align:center">Raaka-aineet</th>
 				<th style="text-align:center">Piilotettu</th>

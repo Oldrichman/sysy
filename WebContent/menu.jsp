@@ -130,7 +130,7 @@
 	
 
 	<!-- PIZZAT ALUE -->
-	<section id="about" class="container content-section text-center">
+	<section id="about" class="container content-section text-center" style="box-shadow:  0px 155px 63px -165px rgba(245,245,245,0.9); border-radius:50px">
 				<h2 style="font-size:300%;">Pizzamme</h2>	
 					<div class="container"> <!-- style="background:rgba(255, 255, 255, 0.20); border-radius:10px"; -->
 		<div class="starter-template">
