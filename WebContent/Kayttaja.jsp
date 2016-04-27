@@ -144,12 +144,13 @@
 										<td> <c:out value="${p.etunimi}" />
 											<td><c:out
 													value="${p.sukunimi} " /> </td>
-								<td><c:out value="" /> <c:out
+								<td><c:out
 								value="${p.email} " /></td>
-						<td><c:out value="${p.osoite}" /> 
-								<td><c:out value="${p.postinro}" /> 
-								<td> <c:out value="${p.suosikkiPitsa}" />
-					
+						<td><input type="text"name="osoite" value="<c:out value="${p.osoite}" />"/>
+								<td><input type="text" name= "postinro" value="<c:out value="${p.postinro}" />"/>
+								<td><input type="text" name="suosikkipitsa" value=" <c:out value="${p.suosikkiPitsa}" />"/>
+								<td>
+					<%out.println("<INPUT type=\"submit\" name=\"action\" value=\"Tallenna tiedot\">");%>
 					</form>
 					
 				</tr>
