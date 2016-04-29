@@ -111,9 +111,9 @@
 			
 			<td> <input type="hidden" value="${p.id}" name="id"> 
 			
-			<input type ="text" width = 200px name ="nimi" value="${p.nimi} " />
+			<c:out value="${p.nimi} " />
 			</input></td>
-			<td><c:out value="" /><input type ="text" width = 200px name ="pitsa" value="${p.taytteet} " /></input></td>
+			<td><c:out value="" /><c:out value="${p.taytteet} "/></td>
 			<td><input type ="number"  name ="hinta" step = "0.01"  value= "${p.hinta}" /></input> &euro;</td>
 			<td style="text-align:center"><c:out value="" /> <c:out
 					value="${p.poisto} " /></td>
@@ -227,12 +227,14 @@
 						<br><h4>Lisää pizza:</h4>
 						 Nimi:<br>
 						<input type="text" style="cursor:text;" name="nimi"><br> Hinta:<br> 
-						<input type ="number"  name ="hinta" step = "0.01"  value= "${p.hinta}" /></input><br>
+						<input type ="number" pattern ="[0-9 ]+([\. ][0-9 ]+)?"  name ="hinta" step = "0.01"  value= "${p.hinta}" /></input><br>
+					
+						<input type="hidden" style="cursor:text;" name="poisto" value="Ei julkaistu"><br>
 							 Täytteet:
 							 <c:forEach items="${RaakaAineet}" var="r"><br>
 							  <input type="checkbox" name="taytteet" value="${r.nimi}">
-						 <c:out value="${r.nimi}" />
-						 
+						 <c:out value="${r.nimi}" /> <br>
+						
 						</c:forEach>
 						<br><br>
 					
