@@ -241,7 +241,7 @@
 						<br><h4>Lisää pizza:</h4>
 						 Nimi:<br>
 						<input type="text" style="cursor:text;" name="nimi"><br> Hinta:<br> 
-						<input type ="number" pattern ="[0-9 ]+([\. ][0-9 ]+)?"  name ="hinta" step = "0.01"  value= "${p.hinta}" /></input><br>
+						<input type ="number"  name ="hinta" step = "0.01"  value= "${p.hinta}" /></input><br>
 					
 						<input type="hidden" style="cursor:text;" name="poisto" value="Ei julkaistu"><br>
 							 Täytteet:
@@ -277,7 +277,8 @@
 					<fieldset>
 						<br><h4>Lisää juoma:</h4>
 						Nimi ja koko:<br> <input type="text" style="cursor:text;" name="LJU"> <br> 
-						Hinta:<br> <input type="text"pattern ="[0-9 ]+([\. ][0-9 ]+)?" title="- EROTA PISTEELLÄ!"  style="cursor:text;" name="HJU"><br> <br>
+						Hinta:<br> <input type="number" step = "0.01"  style="cursor:text;" name="HJU"><br> <br>
+						<input type="hidden" style="cursor:text;" name="poisto" value="Ei julkaistu"><br>
 						<input type="submit" value="Lisää"><br>
 						<c:if test="${not empty param.added}">Uuden juoman lisääminen onnistui!</c:if>
 					</fieldset>
