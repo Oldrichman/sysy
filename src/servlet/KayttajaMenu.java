@@ -2,19 +2,21 @@ package servlet;
 
 
 	import java.io.IOException;
-	import java.text.DecimalFormat;
-	import java.util.List;
+import java.text.DecimalFormat;
+import java.util.List;
 
 	import javax.servlet.ServletException;
-	import javax.servlet.annotation.WebServlet;
-	import javax.servlet.http.HttpServlet;
-	import javax.servlet.http.HttpServletRequest;
-	import javax.servlet.http.HttpServletResponse;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
+import DAO.JuomaDAO;
 	import DAO.RaakaAineDAO;
-	import DAO.TuoteDao;
-	import admin.RaakaAineet;
-	import admin.Tuote;
+import DAO.TuoteDao;
+import admin.Juoma;
+import admin.RaakaAineet;
+import admin.Tuote;
 
 	/**
 	 * Servlet implementation class MenuKontrolleri
@@ -64,15 +66,33 @@ package servlet;
 			}
 
 			RADao.suljeYhteys();
+			 // JuomaDAO haku
+		    JuomaDAO jDao = new JuomaDAO();
 
-			// requestiin talteen
-			request.setAttribute("tuotteet", lista);
-			request.setAttribute("RaakaAineet", lista1);
-			// jsp hoitaa muotoilun
-			request.getRequestDispatcher("KayttajaMenu.jsp").forward(request, response);
-			
+		 		jDao.avaaYhteys();
 
-		}
+		 		List<Juoma> lista2 = null;
+		 		lista2 = jDao.haeJuomat();
+		 		for (int i = 0; i < lista.size(); i++) {
+		 			wout.print(lista.get(i));
+		 		}
+
+		 		jDao.suljeYhteys();
+
+		 		
+
+		 		// requestiin talteen
+		 		request.setAttribute("juomat", lista2);
+				request.setAttribute("tuotteet", lista);
+					request.setAttribute("RaakaAineet", lista1);
+		 		// jsp hoitaa muotoilun
+		 		request.getRequestDispatcher("KayttajaMenu.jsp").forward(request, response);
+		 	
+		    }
+
+
+		
+
 		
 
 		/**
