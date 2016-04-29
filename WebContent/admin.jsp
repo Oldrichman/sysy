@@ -173,7 +173,7 @@
   <div class="row">
 <div class="col-md-6">
 
-				<br><h4>Täytteet</h4> 
+				<br><h4 style="text-align:auto;">Täytteet</h4> 
 				<table class="table table-condensed" style="width:auto; text-align:center;">
 				<thead>
 				<th style="text-align:center">Raaka-aineet</th>
@@ -251,7 +251,7 @@
 				<form action="kontrolleri" method="post">
 					<fieldset>
 						<br><h4>Lisää raaka-aine:</h4>
-						Nimi:<br> <input type="text" style="cursor:text;" name="lisaaRA"> <br> <input
+						Nimi:<br> <input type="text" style="cursor:text;" name="lisaaRA"> <br><br> <input
 							type="submit" value="Lisää"><br> <br>
 						<c:if test="${not empty param.added}">Uuden raaka-aineen lisääminen onnistui!</c:if>
 					</fieldset>
