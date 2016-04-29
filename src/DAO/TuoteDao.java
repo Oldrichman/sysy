@@ -133,7 +133,7 @@ public class TuoteDao {
 
 			// alustetaan sql-lause
 
-			String sql = "insert into Tuote(id, nimi, hinta, taytteet) values(?,?,?,?)";
+			String sql = "insert into Tuote(id, nimi, hinta, taytteet, poisto) values(?,?,?,?,?)";
 
 			PreparedStatement resultset = yhteys.prepareStatement(sql);
 
@@ -142,6 +142,7 @@ public class TuoteDao {
 			resultset.setString(2, t.getNimi());
 			resultset.setDouble(3, t.getHinta());
 			resultset.setString(4, t.getTaytteet());
+			resultset.setString(5, t.getPoisto());
 		
 
 			// suoritetaan lause
@@ -207,17 +208,5 @@ public class TuoteDao {
 					} catch (Exception e) {
 						System.out.println(e);
 					}}
-				public void paivitaRaakaAineet(int id, String taytteet) {
-					try {
-
-						String sql = "UPDATE Tuote SET taytteet = ? WHERE id = ?";
-						PreparedStatement st = yhteys.prepareStatement(sql);
-						
-						st.setString(1, taytteet);
-						st.setInt(2, id);
-						st.executeUpdate();
-
-					} catch (Exception e) {
-						System.out.println(e);
-					}}
+				
 	}

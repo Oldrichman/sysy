@@ -90,7 +90,9 @@
 			 <h1>Admin</h1>
 
 			<nav>
-				<table class="table table-bordered" frame=void style="text-align:center; font-size:80%">
+
+				<table class="table table-condensed" frame=void style="text-align:center; ">
+
 				<thead class="thead-inverse" >
 				
     <tr class="">
@@ -111,9 +113,9 @@
 			
 			<td> <input type="hidden" value="${p.id}" name="id"> 
 			
-			<input type ="text" width = 200px name ="nimi" value="${p.nimi} " />
+			<c:out value="${p.nimi} " />
 			</input></td>
-			<td><c:out value="" /><input type ="text" width = 200px name ="pitsa" value="${p.taytteet} " /></input></td>
+			<td><c:out value="" /><c:out value="${p.taytteet} "/></td>
 			<td><input type ="number"  name ="hinta" step = "0.01"  value= "${p.hinta}" /></input> &euro;</td>
 			<td style="text-align:center"><c:out value="" /> <c:out
 					value="${p.poisto} " /></td>
@@ -134,7 +136,8 @@
 
 				</table>
 				
-				<table class="table table-bordered" frame=void style="text-align:center; font-size:80%">
+
+				<table class="table table-condensed" frame=void style="text-align:center; width:auto;">
 				<thead class="thead-inverse" style="text-align:center;" >
 				<th style="text-align:center">Juoma</th>
       <th style="text-align:center">Hinta</th>
@@ -155,9 +158,9 @@
 								</td>
 								
 								<td style="text-align:center">
-					 <%
-									out.println("<INPUT type=\"submit\" name=\"action\" value=\"Piilota juoma\">");
-								%>
+								
+								
+								<%out.println("<INPUT type=\"submit\" name=\"action\" value=\"Piilota juoma\">");%>
 								<%out.println("<INPUT type=\"submit\" name=\"action\" value=\"Tuo juoma\">");%>
 								<%out.println("<INPUT type=\"submit\" name=\"action\" value=\"Tallenna\">");%>
 					</td>
@@ -228,11 +231,13 @@
 						 Nimi:<br>
 						<input type="text" style="cursor:text;" name="nimi"><br> Hinta:<br> 
 						<input type ="number"  name ="hinta" step = "0.01"  value= "${p.hinta}" /></input><br>
+					
+						<input type="hidden" style="cursor:text;" name="poisto" value="Ei julkaistu"><br>
 							 Täytteet:
 							 <c:forEach items="${RaakaAineet}" var="r"><br>
 							  <input type="checkbox" name="taytteet" value="${r.nimi}">
-						 <c:out value="${r.nimi}" />
-						 
+						 <c:out value="${r.nimi}" /> <br>
+						
 						</c:forEach>
 						<br><br>
 					
@@ -261,7 +266,8 @@
 					<fieldset>
 						<br><h4>Lisää juoma:</h4>
 						Nimi ja koko:<br> <input type="text" style="cursor:text;" name="LJU"> <br> 
-						Hinta:<br> <input type="text"pattern ="[0-9 ]+([\. ][0-9 ]+)?" title="- EROTA PISTEELLÄ!"  style="cursor:text;" name="HJU"><br> <br>
+						Hinta:<br> <input type="number" step = "0.01"  style="cursor:text;" name="HJU"><br> <br>
+						<input type="hidden" style="cursor:text;" name="poisto" value="Ei julkaistu"><br>
 						<input type="submit" value="Lisää"><br>
 						<c:if test="${not empty param.added}">Uuden juoman lisääminen onnistui!</c:if>
 					</fieldset>

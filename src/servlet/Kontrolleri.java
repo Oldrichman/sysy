@@ -141,6 +141,7 @@ public class Kontrolleri extends HttpServlet {
 
 		else if (request.getParameter("LJU") != null 
 				&& request.getParameter("HJU") != null) {
+			
 			String Juoma = request.getParameter("LJU");
 			String HintaJU = request.getParameter("HJU");
 			String poisto = request.getParameter("poisto");
@@ -386,13 +387,13 @@ public class Kontrolleri extends HttpServlet {
 			TuoteDao TDao = new TuoteDao();
 			int id= 0;
 			double uusihinta = 0;
-			String taytteet = null;
+			
 			
 			
 			try {
 				id = Integer.parseInt(request.getParameter("id"));
 				uusihinta = Double.parseDouble(request.getParameter("hinta"));
-				taytteet = (request.getParameter("taytteet"));
+				
 			} catch (Exception ex) {
 				System.out.println(ex);
 			}
@@ -401,7 +402,7 @@ public class Kontrolleri extends HttpServlet {
 			try {
 				TDao.avaaYhteys();
 				TDao.paivitaHinta(id,uusihinta);
-				TDao.paivitaRaakaAineet(id, taytteet);
+				
 				TDao.suljeYhteys();
 			} catch (Exception e) {
 				throw new ServletException(e);

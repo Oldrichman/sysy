@@ -130,13 +130,14 @@ public class JuomaDAO {
 
 			// alustetaan sql-lause
 
-			String sql = "insert into Juomat(juoma, hinta) values(?,?)";
+			String sql = "insert into Juomat(juoma, hinta, poisto) values(?,?,?)";
 
 			PreparedStatement resultset = yhteys.prepareStatement(sql);
 
 			// täytetään puuttuvat tiedot
 			resultset.setString(1, j.getJuoma());
 			resultset.setDouble(2, j.getHinta());
+			resultset.setString(3, j.getPoisto());
 
 			// suoritetaan lause
 			resultset.executeUpdate();
