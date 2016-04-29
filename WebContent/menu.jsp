@@ -118,6 +118,11 @@
 					<div class="col-md-8 col-md-offset-2">
 					<br><br><br>
 						<h1 class="brand-heading" style="text-transform: none; text-shadow:2px 2px 2px black; letter-spacing:-8px; font-size:130px;">Menu</h1>
+						<br><br><br><br>
+						<p class="intro-text" style="text-shadow:1px 1px 1px black;">
+							Täältä löydät Castello é Fiorin herkulliset pizzat! <br>
+							Bon Appetit!
+						</p>
 						<a href="#about" class="btn btn-circle page-scroll"> <i
 							class="fa fa-angle-double-down animated"></i>
 						</a>	

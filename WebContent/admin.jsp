@@ -250,6 +250,7 @@
 					
 						<input type="hidden" style="cursor:text;" name="poisto" value="Ei julkaistu"><br>
 							 Täytteet:
+							 <!-- tee tähän joku gridi checkbokseille -->
 							 <c:forEach items="${RaakaAineet}" var="r"><br>
 							  <input type="checkbox" name="taytteet" value="${r.nimi}">
 						 <c:out value="${r.nimi}" /> <br>
