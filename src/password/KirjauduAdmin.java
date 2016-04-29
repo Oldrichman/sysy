@@ -48,7 +48,7 @@ public class KirjauduAdmin extends HttpServlet {
 				Cookie adminNimi = new Cookie("kayttajatunnus", adminTunnus);
 				adminNimi.setMaxAge(15 * 30);
 				response.addCookie(adminNimi);
-				response.sendRedirect("AdminMenu"); // logged-in page
+				response.sendRedirect("kontrolleri"); // logged-in page
 			} else {
 				response.setContentType("text/html;charset=UTF-8");
 				RequestDispatcher rd = getServletContext()
