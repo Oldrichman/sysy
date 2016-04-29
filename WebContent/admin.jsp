@@ -94,11 +94,11 @@
 				<thead class="thead-inverse" >
 				
     <tr class="">
-      <th style="text-align:center">PIZZA</th>
-      <th style="text-align:center">TÄYTTEET</th>
-      <th style="text-align:center">HINTA</th>
-      <th style="text-align:center">PIILOTETTU</th>
-      <th style="text-align:center">MUOKKAUS</th>
+      <th style="text-align:center">Pizza</th>
+      <th style="text-align:center">Täytteet</th>
+      <th style="text-align:center">Hinta</th>
+      <th style="text-align:center">Piilotettu</th>
+      <th style="text-align:center">Muokkaus</th>
     </tr>
     
     
@@ -110,10 +110,11 @@
 			<form action="kontrolleri" method="post">
 			
 			<td> <input type="hidden" value="${p.id}" name="id"> 
-			<a href="kontrolleri?toiminto=tuotteet&nimi=<c:out value="${p.nimi}" />">
-			<c:out value="${p.nimi}" /> </a></td>
-			<td><c:out value="" /> <c:out value="${p.taytteet} " /></td>
-			<td><c:out value="" /> <fmt:formatNumber value="${p.hinta}" type="currency" currencySymbol=""/> &euro;</td>
+			
+			<input type ="text" width = 200px name ="nimi" value="${p.nimi} " />
+			</input></td>
+			<td><c:out value="" /><input type ="text" width = 200px name ="pitsa" value="${p.taytteet} " /></input></td>
+			<td><input type ="number"  name ="hinta" step = "0.01"  value= "${p.hinta}" /></input> &euro;</td>
 			<td style="text-align:center"><c:out value="" /> <c:out
 					value="${p.poisto} " /></td>
 				<td>
@@ -122,7 +123,7 @@
 			<%out.println("<INPUT type=\"submit\" name=\"action\" value=\"Poista\">");%>
 			<%out.println("<INPUT type=\"submit\" name=\"action\" value=\"Piilota menusta\">");%>
 			<%out.println("<INPUT type=\"submit\" name=\"action\" value=\"Tuo menuun\">");%>
- 
+ 			<%out.println("<INPUT type=\"submit\" name=\"action\" value=\"Tallenna muutos\">");%>
 								</td>
 
 							</form>
@@ -135,8 +136,8 @@
 				
 				<table class="table table-bordered" frame=void style="text-align:center;">
 				<thead class="thead-inverse" style="text-align:center;" >
-				<th style="text-align:center">JUOMA</th>
-      <th style="text-align:center">HINTA</th>
+				<th style="text-align:center">Juoma</th>
+      <th style="text-align:center">Hinta</th>
       <th style="text-align:center">Piilotettu</th>
        <th style="text-align:center">Muokkaus</th>
 				
@@ -225,8 +226,8 @@
 					<fieldset>
 						<br><h4>Lisää pizza:</h4>
 						 Nimi:<br>
-						<input type="text" style="cursor:text;" name="nimi"><br> Hinta:<br> <input
-							type="text" style="cursor:text;" name="hinta"><br>
+						<input type="text" style="cursor:text;" name="nimi"><br> Hinta:<br> 
+						<input type ="number"  name ="hinta" step = "0.01"  value= "${p.hinta}" /></input><br>
 							 Täytteet:
 							 <c:forEach items="${RaakaAineet}" var="r"><br>
 							  <input type="checkbox" name="taytteet" value="${r.nimi}">

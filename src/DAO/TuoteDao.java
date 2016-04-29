@@ -193,5 +193,31 @@ public class TuoteDao {
 
 				} catch (Exception e) {
 					System.out.println(e);
-				}
-	}}
+				}}
+				public void paivitaHinta(int id, double hinta) {
+					try {
+
+						String sql = "UPDATE Tuote SET hinta = ? WHERE id = ?";
+						PreparedStatement st = yhteys.prepareStatement(sql);
+						
+						st.setDouble(1,hinta);
+						st.setInt(2, id);
+						st.executeUpdate();
+
+					} catch (Exception e) {
+						System.out.println(e);
+					}}
+				public void paivitaRaakaAineet(int id, String taytteet) {
+					try {
+
+						String sql = "UPDATE Tuote SET taytteet = ? WHERE id = ?";
+						PreparedStatement st = yhteys.prepareStatement(sql);
+						
+						st.setString(1, taytteet);
+						st.setInt(2, id);
+						st.executeUpdate();
+
+					} catch (Exception e) {
+						System.out.println(e);
+					}}
+	}

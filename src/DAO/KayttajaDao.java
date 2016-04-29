@@ -99,21 +99,48 @@ public class KayttajaDao {
 		return tiedot;
 	}
 
-	public void paivitaTiedot(String osoite, String postinro,
-			String suosikkipitsa) {
+	public void paivitaOsoite(String osoite, String email) {
 		try {
 
-			String sql = "UPDATE Asiakas SET osoite = ?, postinro=?,suosikkipitsa =? WHERE email = ?";
+			String sql = "UPDATE Asiakas SET osoite = ? WHERE email = ?";
 			PreparedStatement st = yhteys.prepareStatement(sql);
 
 			st.setString(1, osoite);
-			st.setString(2, postinro);
-			st.setString(3, suosikkipitsa);
+			st.setString(2, email);
+			
 			st.executeUpdate();
 
 		} catch (Exception e) {
 			System.out.println(e);
-		}
+		}}
+		public void paivitaPostinro(String postinro, String email) {
+			try {
+
+				String sql = "UPDATE Asiakas SET postinro = ? WHERE email = ?";
+				PreparedStatement st = yhteys.prepareStatement(sql);
+
+				st.setString(1, postinro);
+				st.setString(2, email);
+				
+				st.executeUpdate();
+
+			} catch (Exception e) {
+				System.out.println(e);
+			}}
+			public void paivitaSuosikkipitsa(String suosikkipitsa, String email) {
+				try {
+
+					String sql = "UPDATE Asiakas SET suosikkipitsa = ? WHERE email = ?";
+					PreparedStatement st = yhteys.prepareStatement(sql);
+
+					st.setString(1, suosikkipitsa);
+					st.setString(2, email);
+					
+					st.executeUpdate();
+
+				} catch (Exception e) {
+					System.out.println(e);
+				}
 	}
 
 }
