@@ -79,10 +79,10 @@
 		</div>
 	</nav>
 
+
+
+<!-- Tuotteet/Pizzat  -->
 	<div class="container" style="width:auto; margin-top:70px">
-
-		
-
 
 			<fmt:formatDate pattern="H:mm" value="${kello}" />
 
@@ -130,11 +130,22 @@
 						</tr>
 					</c:forEach>
 
-</thead>
-
-				</table>
+		</thead>
+	</table>
+	</div>
+				<!-- Tuotteet/Pizzat  -->
 				
-				<table class="table table-condensed" frame=void style="text-align:center; width:auto;">
+				
+				
+				
+				<!-- Juomat  -->
+				
+<div class="container" style="width:auto; margin-top:70px">
+  <div class="row">
+<div class="col-md-8">				
+				
+				<br><h4 style="text-align:auto;">Juomat</h4>
+				<table class="table table-bordered" frame=void style="text-align:center; width:auto; font-size:80%;">
 				<thead class="thead-inverse" style="text-align:center;" >
 				<th style="text-align:center">Juoma</th>
       <th style="text-align:center">Hinta</th>
@@ -149,7 +160,7 @@
 										<input type ="text" name ="juoma" value="<c:out  value="${j.juoma}" />"></input>
 											</td>
 						<td style="text-align:center">
-<input type ="number"  name ="hinta" step = "0.01"  value= "${j.hinta}" /></input> &euro;</td>
+						<input type ="number"  name ="hinta" step = "0.01"  value= "${j.hinta}" /></input> &euro;</td>
 					
 					<td style="text-align:center"><c:out value="${j.poisto}" /> 
 								</td>
@@ -168,10 +179,11 @@
 			</thead>
 				</table>
 </div>
+<!-- Juomat  -->
 
-<div class="container">
-  <div class="row">
-<div class="col-md-6">
+
+
+<div class="col-md-4">
 
 				<br><h4 style="text-align:auto;">Täytteet</h4> 
 				<table class="table table-condensed" style="width:auto; text-align:center;">
@@ -218,8 +230,10 @@
 				
 					</nav>
 		</div>
-
-
+</div>
+</div>
+<div class="container">
+  <div class="row">
     <div class="col-md-4">
 
 				<form action="kontrolleri" method="post">
@@ -275,7 +289,7 @@
 
 	</div>
 	</div>
-	</div>
+	
 	<!-- /.container -->
 
 		<!-- Footer -->
