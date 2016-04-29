@@ -97,7 +97,7 @@ public class TuoteDao {
 		try {
 
 			// suoritetaan haku
-			String sql = "select * from Tuote where poisto is null ORDER BY nimi";
+			String sql = "select * from Tuote where poisto = 'Menussa (älä poista)' ORDER BY nimi";
 			Statement haku = yhteys.createStatement();
 			ResultSet resultset = haku.executeQuery(sql);
 
@@ -186,7 +186,7 @@ public class TuoteDao {
 			public void TuoTuote(int id) {
 				try {
 
-					String sql = "UPDATE Tuote SET poisto = null WHERE id = ?";
+					String sql = "UPDATE Tuote SET poisto = 'Menussa (älä poista)' WHERE id = ?";
 					PreparedStatement st = yhteys.prepareStatement(sql);
 
 					st.setInt(1, id);

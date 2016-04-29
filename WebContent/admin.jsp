@@ -99,6 +99,7 @@
       <th style="text-align:center">Hinta</th>
       <th style="text-align:center">Piilotettu</th>
       <th style="text-align:center">Muokkaus</th>
+      <th style="text-align:center">Poisto</th>
     </tr>
     
     
@@ -120,12 +121,13 @@
 				<td>
 
 								
-			<%out.println("<INPUT type=\"submit\" name=\"action\" value=\"Poista\">");%>
+			
 			<%out.println("<INPUT type=\"submit\" name=\"action\" value=\"Piilota menusta\">");%>
 			<%out.println("<INPUT type=\"submit\" name=\"action\" value=\"Tuo menuun\">");%>
  			<%out.println("<INPUT type=\"submit\" name=\"action\" value=\"Tallenna muutos\">");%>
-								</td>
-
+					 </td>			<td>
+			 <%out.println("<INPUT type=\"submit\" name=\"action\" value=\"Poista\">");%>
+			 </td>
 							</form>
 						</tr>
 					</c:forEach>
