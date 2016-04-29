@@ -36,7 +36,7 @@ public class PalauteKontrolleri extends HttpServlet {
 		if (action != null && action.equals("Lähetä")) {
 			String palaute = request.getParameter("palaute");
 			String palautemail = request.getParameter("palautemail");
-			String kokopalaute = palautemail + ": " + palaute ;
+			String kokopalaute = "Lähettäjä: " + palautemail + "n/ Palaute: " + palaute ;
 			System.out.println(kokopalaute);
 			//Olion perusluontitapa
 			Email email = new Email();

@@ -90,7 +90,7 @@
 			 <h1>Admin</h1>
 
 			<nav>
-				<table class="table table-bordered" frame=void style="text-align:center;">
+				<table class="table table-bordered" frame=void style="text-align:center; font-size:80%">
 				<thead class="thead-inverse" >
 				
     <tr class="">
@@ -134,7 +134,7 @@
 
 				</table>
 				
-				<table class="table table-bordered" frame=void style="text-align:center;">
+				<table class="table table-bordered" frame=void style="text-align:center; font-size:80%">
 				<thead class="thead-inverse" style="text-align:center;" >
 				<th style="text-align:center">Juoma</th>
       <th style="text-align:center">Hinta</th>
