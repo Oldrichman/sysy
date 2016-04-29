@@ -90,7 +90,9 @@
 			 <h1>Admin</h1>
 
 			<nav>
+
 				<table class="table table-condensed" frame=void style="text-align:center; ">
+
 				<thead class="thead-inverse" >
 				
     <tr class="">
@@ -142,6 +144,7 @@
 				
 				<!-- Juomat  -->
 				
+
 <div class="container" style="width:auto; margin-top:70px">
   <div class="row">
 <div class="col-md-8">				
