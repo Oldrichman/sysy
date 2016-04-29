@@ -90,7 +90,7 @@
 			 <h1>Admin</h1>
 
 			<nav>
-				<table class="table table-bordered" frame=void style="text-align:center;">
+				<table class="table table-condensed" frame=void style="text-align:center; ">
 				<thead class="thead-inverse" >
 				
     <tr class="">
@@ -134,7 +134,7 @@
 
 				</table>
 				
-				<table class="table table-bordered" frame=void style="text-align:center;">
+				<table class="table table-condensed" frame=void style="text-align:center; width:auto;">
 				<thead class="thead-inverse" style="text-align:center;" >
 				<th style="text-align:center">Juoma</th>
       <th style="text-align:center">Hinta</th>
@@ -155,9 +155,9 @@
 								</td>
 								
 								<td style="text-align:center">
-					 <%
-									out.println("<INPUT type=\"submit\" name=\"action\" value=\"Piilota juoma\">");
-								%>
+								
+								
+								<%out.println("<INPUT type=\"submit\" name=\"action\" value=\"Piilota juoma\">");%>
 								<%out.println("<INPUT type=\"submit\" name=\"action\" value=\"Tuo juoma\">");%>
 								<%out.println("<INPUT type=\"submit\" name=\"action\" value=\"Tallenna\">");%>
 					</td>
