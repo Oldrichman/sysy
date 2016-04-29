@@ -82,7 +82,7 @@
 					<li><a href="KayttajaMenu">MENU</a></li>
 					
 					<li><a href="KayttajaServlet">OMAT TIEDOT</a></li>
-								
+								<li><a href="kotisivu.jsp">KIRJAUDU ULOS</a></li>	
 							</form>
 						</div> </li>
 			
@@ -114,21 +114,17 @@
 	</header>
 
 	<!-- PIZZAT ALUE -->
-	<section id="about" class="container content-section text-center">
-
-				<h2>Pizzamme</h2>
-					
-					<div class="container">
+	<section id="about" class="container content-section text-center" style="box-shadow:  0px 155px 63px -165px rgba(245,245,245,0.9); border-radius:50px">
+				<h2 style="font-size:300%;">Pizzamme</h2>	
+					<div class="container"> <!-- style="background:rgba(255, 255, 255, 0.20); border-radius:10px"; -->
 		<div class="starter-template">
-			<br>
-			<br>
-			<br>
+			
 			
   <!-- MUOKKAA MUOTOILUA PAREMMAKSI, KÄYTÄ BOKSEJA TMS. -->
 			<table class="table table-bordered">
 			<thead class="thead-inverse" >
 			
-    <tr class="big">
+    <tr class="big" style="font-size:130%;">
       <th style="text-align:center">PIZZA</th>
       <th style="text-align:center">TÄYTTEET</th>
       <th style="text-align:center">HINTA</th>
@@ -138,15 +134,56 @@
 <thead class="thead-inverse">
 			<c:forEach items="${tuotteet}" var="p">
 				<tr>
-					<form action="KayttajaMenu" method="post">
+					<form action="menukontrolleri" method="post">
 										<td><input type="hidden" value="${p.id}" name="id">
-											<a
-											<c:out value="${p.nimi}" />"><c:out
-													value="${p.nimi} " /> </a></td>
-								<td><c:out value="" /> <c:out
-								value="${p.taytteet} " /></td>
+											<a style="color:#d9534f; font-size:150%; letter-spacing:3px; font-weight:900;">
+									<c:out value="${p.nimi} " /> </a>
+									</td><td>
+									<c:out value="${p.taytteet} " /><br>
+								<%
+									out.println("Oregano: " +"<INPUT type=\"checkbox\" name=\"action\" value=\"\">");
+								%>
+								<%
+									out.println("Valkosipuli: " + "<INPUT type=\"checkbox\" name=\"action\" value=\"\">");
+								%></td><td> 
+									
+									<fmt:formatNumber value="${p.hinta}" type="currency" currencySymbol=""  /> &euro;</td>
+					
+													<td style="text-align:center">
+													
+													<button class="btn btn-danger" type="submit" name="lisaa" value="input">Lisää 
+													ostoskoriin</button>
+								
+									<!-- <INPUT type="submit" name="lisaa" value="Lisää ostoskoriin"> -->
+								</form>
+								</td>
+					
+					
+				</tr>
+			</c:forEach>
+</thead>
+
+
+		</table>
+		
+		<table class="table table-bordered">
+			<thead class="thead-inverse" >
+			
+    <tr class="big" style="font-size:150%;">
+      <th style="text-align:center">JUOMA</th>
+      <th style="text-align:center">HINTA</th>
+      
+      </tr>
+    
+    </thead>
+<thead class="thead-inverse">
+			<c:forEach items="${juomat}" var="j">
+				<tr>
+					<form action="menukontrolleri" method="post">
+										<td><c:out  value="${j.juoma}"/>
+											</td>
 						<td><c:out value="" /> <fmt:formatNumber
-								value="${p.hinta}" type="currency" currencySymbol=""  /> &euro;</td>
+								value="${j.hinta}" type="currency" currencySymbol=""  /> &euro;</td>
 					
 					</form>
 					
@@ -163,6 +200,17 @@
 			
 			</div>
 	</section>
+	
+	<!-- Download Section -->
+	<!-- Tässä ei mitään tällä hetkellä, muotoilua varten -->
+    <section id="download" class="content-section text-center">
+        <div class="download-section">
+            <div class="container">
+                  
+                </div>
+            </div>
+        
+    </section>
 
 	<!-- KARTTA JA YHTEYSTIEDOT -->
 	<section id="yhteystiedot">

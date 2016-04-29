@@ -79,10 +79,10 @@
 		</div>
 	</nav>
 
+
+
+<!-- Tuotteet/Pizzat  -->
 	<div class="container" style="width:auto; margin-top:70px">
-
-		
-
 
 			<fmt:formatDate pattern="H:mm" value="${kello}" />
 
@@ -99,8 +99,9 @@
       <th style="text-align:center">Pizza</th>
       <th style="text-align:center">Täytteet</th>
       <th style="text-align:center">Hinta</th>
-      <th style="text-align:center">Piilotettu</th>
+      <th style="text-align:center">Tila</th>
       <th style="text-align:center">Muokkaus</th>
+      <th style="text-align:center">Poisto</th>
     </tr>
     
     
@@ -122,22 +123,34 @@
 				<td>
 
 								
-			<%out.println("<INPUT type=\"submit\" name=\"action\" value=\"Poista\">");%>
+			
 			<%out.println("<INPUT type=\"submit\" name=\"action\" value=\"Piilota menusta\">");%>
 			<%out.println("<INPUT type=\"submit\" name=\"action\" value=\"Tuo menuun\">");%>
  			<%out.println("<INPUT type=\"submit\" name=\"action\" value=\"Tallenna muutos\">");%>
-								</td>
-
+					 </td>			<td>
+			 <%out.println("<INPUT type=\"submit\" name=\"action\" value=\"Poista\">");%>
+			 </td>
 							</form>
 						</tr>
 					</c:forEach>
 
-</thead>
-
-				</table>
+		</thead>
+	</table>
+	</div>
+				<!-- Tuotteet/Pizzat  -->
+				
+				
+				
+				
+				<!-- Juomat  -->
 				
 
-				<table class="table table-condensed" frame=void style="text-align:center; width:auto;">
+<div class="container" style="width:auto; margin-top:70px">
+  <div class="row">
+<div class="col-md-8">				
+				
+				<br><h4 style="text-align:auto;">Juomat</h4>
+				<table class="table table-bordered" frame=void style="text-align:center; width:auto; font-size:80%;">
 				<thead class="thead-inverse" style="text-align:center;" >
 				<th style="text-align:center">Juoma</th>
       <th style="text-align:center">Hinta</th>
@@ -152,7 +165,7 @@
 										<input type ="text" name ="juoma" value="<c:out  value="${j.juoma}" />"></input>
 											</td>
 						<td style="text-align:center">
-<input type ="number"  name ="hinta" step = "0.01"  value= "${j.hinta}" /></input> &euro;</td>
+						<input type ="number"  name ="hinta" step = "0.01"  value= "${j.hinta}" /></input> &euro;</td>
 					
 					<td style="text-align:center"><c:out value="${j.poisto}" /> 
 								</td>
@@ -171,10 +184,11 @@
 			</thead>
 				</table>
 </div>
+<!-- Juomat  -->
 
-<div class="container">
-  <div class="row">
-<div class="col-md-6">
+
+
+<div class="col-md-4">
 
 				<br><h4 style="text-align:auto;">Täytteet</h4> 
 				<table class="table table-condensed" style="width:auto; text-align:center;">
@@ -221,8 +235,10 @@
 				
 					</nav>
 		</div>
-
-
+</div>
+</div>
+<div class="container">
+  <div class="row">
     <div class="col-md-4">
 
 				<form action="kontrolleri" method="post">
@@ -279,7 +295,7 @@
 
 	</div>
 	</div>
-	</div>
+	
 	<!-- /.container -->
 
 		<!-- Footer -->
