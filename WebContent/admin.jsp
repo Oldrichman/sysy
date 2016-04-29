@@ -151,7 +151,7 @@
 				<thead class="thead-inverse" style="text-align:center;" >
 				<th style="text-align:center">Juoma</th>
       <th style="text-align:center">Hinta</th>
-      <th style="text-align:center">Piilotettu</th>
+      <th style="text-align:center">Tila</th>
        <th style="text-align:center">Muokkaus</th>
 				
 				<c:forEach items="${Juoma}" var="j" >
