@@ -200,13 +200,13 @@
 			                        </div>
 			                        <div class="form-group">
 			                        	<label class="sr-only" for="input">Salasana</label>
-			                        	<input type="text" name="salasana" placeholder="Aseta salasana" class="form-email form-control" id="form-email">
+			                        	<input type="password" name="salasana" placeholder="Aseta salasana" class="form-email form-control" id="form-email">
 			                        </div>
 			                         <div class="form-group">
 			                        	<label class="sr-only" for="input">Salasana uudestaan</label>
-			                        	<input type="text" name="salasana" placeholder="Anna salasana uudestaan" class="form-email form-control" id="form-email">
+			                        	<input type="password" name="salasana" placeholder="Anna salasana uudestaan" class="form-email form-control" id="form-email">
 			                        </div>
-			                        <button type="submit" class="btnform">Rekisteröidy</button>
+			                        <button type="submit" value="" class="btnform">Rekisteröidy</button>
 			                    </form>
 		                    </div>
                         </div>

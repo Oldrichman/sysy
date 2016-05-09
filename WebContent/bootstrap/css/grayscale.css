@@ -412,18 +412,29 @@ scale
 }
 
 .download-section {
-	width: 100%;
 	margin-top:-100px;
-	margin-bottom:-50px;
+	margin-bottom:5px;
 	color: #fff;
-	/* background: url(bootstrap/img/downloads-bg.jpg) no-repeat center center
-		scroll; */
+	 /* background: url(bootstrap/img/downloads-bg.png) no-repeat center center
+		scroll;  */
 	background-color: #000;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	background-size: cover;
 	-o-background-size: cover;
 }
+
+#kotikuva {
+	width: 100%;
+	background: url(bootstrap/img/downloads-bg.png) no-repeat center center
+		scroll;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	background-size: cover;
+	-o-background-size: cover;
+	
+}
+
 
  .about-section {
  width:100%
