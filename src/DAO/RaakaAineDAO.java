@@ -112,11 +112,10 @@ public class RaakaAineDAO {
 		}
 
 	}
-
-	public void piilotaRaakaAine(String nimi) {
+	public void poistaRaakaAine(String nimi) {
 		try {
 
-			String sql = "UPDATE Raaka_aine SET poisto = 'piilotettu' where nimi = ?";
+			String sql = "DELETE FROM Tuote WHERE nimi = ?";
 			PreparedStatement st = yhteys.prepareStatement(sql);
 
 			st.setString(1, nimi);
@@ -124,35 +123,7 @@ public class RaakaAineDAO {
 
 		} catch (Exception e) {
 			System.out.println(e);
-		}
-	}
-		public void poistaRaakaAine(String nimi) {
-			try {
-
-				String sql = "DELETE FROM Raaka_aine where nimi = ?";
-				PreparedStatement st = yhteys.prepareStatement(sql);
-
-				st.setString(1, nimi);
-				st.executeUpdate();
-
-			} catch (Exception e) {
-				System.out.println(e);}
-			}
-			public void TuoRaakaAine(String nimi) {
-				try {
-
-					String sql = "UPDATE Raaka_aine SET poisto = null WHERE nimi = ?";
-					PreparedStatement st = yhteys.prepareStatement(sql);
-
-					st.setString(1, nimi);
-					st.executeUpdate();
-
-				} catch (Exception e) {
-					System.out.println(e);
-				}
-		
-		}
-		
+		}}
 
 }
 

@@ -159,9 +159,11 @@
 	
 	<!-- Download Section -->
 	<!-- Tässä ei mitään tällä hetkellä, muotoilua varten -->
-    <section id="download" class="content-section text-center">
-        <div class="download-section">
+    <section id="download" class="content-section text-center" >
+        <div class="download-section" >
+        <img src="bootstrap/img/downloads-bg.png" style="width:100%;">
             <div class="container">
+            
                   
                 </div>
             </div>

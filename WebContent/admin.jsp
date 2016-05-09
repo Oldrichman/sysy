@@ -194,30 +194,25 @@
 				<table class="table table-condensed" style="width:auto; text-align:center;">
 				<thead>
 				<th style="text-align:center">Raaka-aineet</th>
-				<th style="text-align:center">Piilotettu</th>
-				<th style="text-align:center">Muokkaus</th>
 				</thead>
 				<tbody>
 					<c:forEach items="${RaakaAineet}" var="r">
 						<tr>
 							<form action="kontrolleri" method="post">
 								<td style="text-align:center"><c:out value="${r.nimi}" /> <input type="hidden"
-									value="${r.nimi}" name="nimi "> <a
-									href="kontrolleri?toiminto=RA&nimi=<c:out value="${r.nimi}" />">
-									<input type="hidden"
-									value="${r.nimi}" name="pois"> <a
-									href="kontrolleri?toiminto=RA&nimi=<c:out value="${r.nimi}" />">
-										</a>
+									value="${r.nimi}" name="Rnimi "> 
+									
 								</td>
 								 
-								<td style="text-align:center"><c:out value="" /> <c:out
-											value="${r.poisto} " />
+								
 								</td>
 								
 								<td style="text-align:center">
+
 								 <%out.println("<INPUT type=\"submit\" name=\"action\"  value=\"Poista\">");%>  
 								 <%out.println("<INPUT type=\"submit\" name=\"action\" value=\"Piilota\">");%>
 								<%out.println("<INPUT type=\"submit\" name=\"action\" value=\"Tuo täyte\">");%>
+
 								</td>
 							</form>
 						</tr>
