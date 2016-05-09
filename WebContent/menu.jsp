@@ -156,19 +156,31 @@
 			<c:forEach items="${tuotteet}" var="p">
 				<tr>
 					<form action="menukontrolleri" method="post">
-										<td><input type="hidden" value="${p.id}" name="id">
+										<td><input type="hidden" value="${p.id}" name="tuoteid">
 											<a style="color:#d9534f; font-size:150%; letter-spacing:3px; font-weight:900;">
 									<c:out value="${p.nimi} " /> </a>
 									</td><td>
-									<c:out value="${p.taytteet} " /><br>
+									<c:out value="${p.taytteet} " /><td> 
+									<input type="hidden" name="hinta" value="<c:out value='${p.hinta}'/>"/>
+									<fmt:formatNumber value="${p.hinta}" type="currency" currencySymbol=""  /> &euro;</td>
+									</form>
+									<form action = "LisaaOstoskoriin" method ="post">
+									<input type="hidden" value="${p.id}" name="tuoteid">
+									<input type="hidden" name="hinta" value="<c:out value='${p.hinta}'/>"/>
+													<td style="text-align:center">
+								<br>
 								<%
 									out.println("Oregano: " +"<INPUT type=\"checkbox\" name=\"action\" value=\"\">");
 								%>
 								<%
 									out.println("Valkosipuli: " + "<INPUT type=\"checkbox\" name=\"action\" value=\"\">");
-								%></td><td> 
+								
+								%>
+									<INPUT type="submit" name="tilausnumero" value="Lisää ostoskoriin">
+
+								</td><td> 
 									
-									<fmt:formatNumber value="${p.hinta}" type="currency" currencySymbol=""  /> &euro;</td>
+									</td>
 					
 													<td style="text-align:center">
 													
@@ -176,6 +188,7 @@
 													ostoskoriin</button>
 								
 									<!-- <INPUT type="submit" name="lisaa" value="Lisää ostoskoriin"> -->
+
 								</form>
 								</td>
 					

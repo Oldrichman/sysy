@@ -206,7 +206,10 @@
 			                        	<label class="sr-only" for="input">Salasana uudestaan</label>
 			                        	<input type="password" name="salasana" placeholder="Anna salasana uudestaan" class="form-email form-control" id="form-email">
 			                        </div>
-			                        <button type="submit" value="" class="btnform">Rekisteröidy</button>
+
+			                        <button type="submit" class="btnform">Rekisteröidy</button>
+
+	
 			                    </form>
 		                    </div>
                         </div>

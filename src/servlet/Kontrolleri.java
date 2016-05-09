@@ -10,7 +10,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import DAO.AdminKirjausDAO;
 import DAO.JuomaDAO;
 import DAO.RaakaAineDAO;
 import DAO.TuoteDao;
@@ -93,6 +92,7 @@ public class Kontrolleri extends HttpServlet {
 		
 		// Luetaan HTML-Lomakkeelle t�ytetyt tiedot
 
+		Object RaakaAineDAO;
 		if (request.getParameter("nimi") != null
 				&& request.getParameter("hinta") != null) {
 			
@@ -138,6 +138,8 @@ public class Kontrolleri extends HttpServlet {
 			response.sendRedirect("kontrolleri");
 	
 		} 
+		
+		
 
 		else if (request.getParameter("LJU") != null 
 				&& request.getParameter("HJU") != null) {
@@ -165,69 +167,11 @@ public class Kontrolleri extends HttpServlet {
 			}
 			response.sendRedirect("kontrolleri");
 			return;
-		}
+			} 
 		
 		
-		else if (request.getParameter("nimi") != null
-				&& request.getParameter("action").equals("Piilota")) {
-
-			RaakaAineDAO RADao = new RaakaAineDAO();
-			String PiilotaNimi = (request.getParameter("nimi"));
-
-			System.out.println("NIMI: " + PiilotaNimi);
-
-			try {
-				RADao.avaaYhteys();
-				RADao.piilotaRaakaAine(PiilotaNimi);
-				RADao.suljeYhteys();
-			} catch (Exception e) {
-				throw new ServletException(e);
-
-			}
-			
-			response.sendRedirect("kontrolleri");
-			return;}
-			
-			else if (request.getParameter("nimi") != null
-					&& request.getParameter("action").equals("Tuo täyte")) {
-
-				RaakaAineDAO RADao = new RaakaAineDAO();
-				String TuoNimi = (request.getParameter("nimi"));
-
-				System.out.println("NIMI: " + TuoNimi);
-
-				try {
-					RADao.avaaYhteys();
-					RADao.TuoRaakaAine(TuoNimi);
-					RADao.suljeYhteys();
-				} catch (Exception e) {
-					throw new ServletException(e);
-
-				}
-				
-				response.sendRedirect("kontrolleri");
-				return;
-			
-		} else if (request.getParameter("pois") != null
-				&& request.getParameter("action").equals("Poista")) {
-
-			RaakaAineDAO RADao = new RaakaAineDAO();
-			String PoistaNimi = (request.getParameter("pois"));
-
-			System.out.println("NIMI: " + PoistaNimi);
-
-			try {
-				RADao.avaaYhteys();
-				RADao.poistaRaakaAine(PoistaNimi);
-				RADao.suljeYhteys();
-			} catch (Exception e) {
-				throw new ServletException(e);
-
-			}
-			response.sendRedirect("kontrolleri");
-			return;
-
-		} else if (request.getParameter("lisaaRA") != null) {
+		
+			else if (request.getParameter("lisaaRA") != null) {
 			String Nimi = request.getParameter("lisaaRA");
 			String Poisto = request.getParameter("poisto");
 			RaakaAineet RA = new RaakaAineet(Nimi, Poisto);
@@ -248,6 +192,7 @@ public class Kontrolleri extends HttpServlet {
 			response.sendRedirect("kontrolleri");
 			return;
 		}
+		
 
 		else if (request.getParameter("id") != null
 				&& request.getParameter("action").equals("Piilota menusta")) {
@@ -326,6 +271,8 @@ public class Kontrolleri extends HttpServlet {
 			response.sendRedirect("kontrolleri");
 			return;
 			}
+		
+		
 		else if (request.getParameter("id") != null
 				&& request.getParameter("action").equals("Tuo juoma")) {
 
@@ -376,11 +323,15 @@ public class Kontrolleri extends HttpServlet {
 				TDao.suljeYhteys();
 			} catch (Exception e) {
 				throw new ServletException(e);
-
+			
 			}
 			response.sendRedirect("kontrolleri");
 			return;
-			}
+			
+		}
+		
+		
+	
 		else if (request.getParameter("id") != null
 				&& request.getParameter("action").equals("Tallenna muutos")) {
 
@@ -410,9 +361,11 @@ public class Kontrolleri extends HttpServlet {
 			}
 			response.sendRedirect("kontrolleri");
 			return;
-			}
+			}	
 		
-		else {
+		
+	
+				else {
 			TuoteDao tDao = new TuoteDao();
 			int poistettavaid = 0;
 			try {
@@ -430,9 +383,12 @@ public class Kontrolleri extends HttpServlet {
 			} catch (Exception e) {
 				throw new ServletException(e);
 			}
+			
+			
 			response.sendRedirect("kontrolleri");
 			return;
 		}
+		
 		
 		
 	}

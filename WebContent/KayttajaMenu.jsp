@@ -186,7 +186,31 @@
 								value="${j.hinta}" type="currency" currencySymbol=""  /> &euro;</td>
 					
 					</form>
+								<form action = "LisaaOstoskoriin" method ="post">
 					
+													<td style="text-align:center">
+								<br>
+								<%
+									out.println("Oregano: " +"<INPUT type=\"checkbox\" name=\"action\" value=\"\">");
+								%>
+								<%
+									out.println("Valkosipuli: " + "<INPUT type=\"checkbox\" name=\"action\" value=\"\">");
+								
+								%>
+									<INPUT type="submit" name="tilausnumero" value="Lisää ostoskoriin">
+								</td><td> 
+									
+									<fmt:formatNumber value="${p.hinta}" type="currency" currencySymbol=""  /> &euro;</td>
+					
+													<td style="text-align:center">
+													
+								<!-- 				<button class="btn btn-danger" type="submit" name="lisaa" value="input">Lisää 
+													ostoskoriin</button>
+								
+									<!-- <INPUT type="submit" name="lisaa" value="Lisää ostoskoriin"> -->
+
+								</form>
+								</td>
 				</tr>
 			</c:forEach>
 </thead>
