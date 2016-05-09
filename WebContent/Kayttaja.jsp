@@ -162,8 +162,7 @@
 
 
 		</table>
-					 <a
-						href="http://startbootstrap.com/template-overviews/grayscale/">Muokkaa tietoja.</a>
+				
 				</p>
 			
 			</div>

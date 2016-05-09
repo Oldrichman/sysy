@@ -118,12 +118,16 @@ import DAO.KayttajaKirjausDAO;
 
 				KayttajaDao TDao = new KayttajaDao();
 				String osoite = null;
+				String email = null;
 				String postinro = null;
 				String suosikkipitsa = null;
+			
 				try {
 					osoite = (request.getParameter("osoite"));
+					email = (request.getParameter("email"));
 					postinro = (request.getParameter("postinro"));
 					suosikkipitsa = (request.getParameter("suosikkipitsa"));
+					
 				} catch (Exception ex) {
 					System.out.println(ex);
 				}
@@ -131,7 +135,9 @@ import DAO.KayttajaKirjausDAO;
 				System.out.println("osoite: " + osoite );
 				try {
 					TDao.avaaYhteys();
-					TDao.paivitaTiedot(osoite,  postinro, suosikkipitsa);
+					TDao.paivitaOsoite(osoite, email);
+					TDao.paivitaPostinro(postinro, email);
+					TDao.paivitaSuosikkipitsa(suosikkipitsa, email);
 					TDao.suljeYhteys();
 				} catch (Exception e) {
 					throw new ServletException(e);

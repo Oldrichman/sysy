@@ -60,7 +60,7 @@ public class JuomaDAO {
 		try {
 
 			// suoritetaan haku
-			String sql = "select * from Juomat where poisto is null ORDER BY juoma";
+			String sql = "select * from Juomat where poisto = 'Menussa' ORDER BY juoma";
 			Statement haku = yhteys.createStatement();
 			ResultSet resultset = haku.executeQuery(sql);
 
@@ -130,13 +130,14 @@ public class JuomaDAO {
 
 			// alustetaan sql-lause
 
-			String sql = "insert into Juomat(juoma, hinta) values(?,?)";
+			String sql = "insert into Juomat(juoma, hinta, poisto) values(?,?,?)";
 
 			PreparedStatement resultset = yhteys.prepareStatement(sql);
 
 			// täytetään puuttuvat tiedot
 			resultset.setString(1, j.getJuoma());
 			resultset.setDouble(2, j.getHinta());
+			resultset.setString(3, j.getPoisto());
 
 			// suoritetaan lause
 			resultset.executeUpdate();
@@ -152,7 +153,7 @@ public class JuomaDAO {
 
 	public void piilotaJuoma(int id) {
 		try {
-			String sql = "UPDATE Juomat SET poisto = 'piilotettu' WHERE Id = ?";
+			String sql = "UPDATE Juomat SET poisto = 'Piilotettu' WHERE Id = ?";
 			PreparedStatement st = yhteys.prepareStatement(sql);
 
 			st.setInt(1, id);
@@ -166,7 +167,7 @@ public class JuomaDAO {
 	public void TuoJuoma(int id) {
 		try {
 
-			String sql = "UPDATE Juomat SET poisto = null WHERE id = ?";
+			String sql = "UPDATE Juomat SET poisto = 'Menussa' WHERE id = ?";
 			PreparedStatement st = yhteys.prepareStatement(sql);
 
 			st.setInt(1, id);
