@@ -10,6 +10,12 @@ import java.util.ArrayList;
 
 import admin.Tuote;
 
+
+/**
+ * 
+ * @author Joni BÃ¤rlund, SySy
+ *
+ */
 public class TuoteDao {
 
 	private Connection yhteys = null;
@@ -59,7 +65,7 @@ public class TuoteDao {
 			Statement haku = yhteys.createStatement();
 			ResultSet resultset = haku.executeQuery(sql);
 
-			// käydään hakutulokset läpi
+			// kï¿½ydï¿½ï¿½n hakutulokset lï¿½pi
 			while (resultset.next()) {
 				Tuote tuote = new Tuote();
 				tuote.setId(resultset.getInt("id"));
@@ -72,7 +78,7 @@ public class TuoteDao {
 			}
 
 		} catch (Exception e) {
-			// JOTAIN VIRHETTÄ TAPAHTUI
+			// JOTAIN VIRHETTï¿½ TAPAHTUI
 			System.out.println("Tietokantahaku aiheutti virheen");
 		} finally {
 
@@ -91,11 +97,11 @@ public class TuoteDao {
 		try {
 
 			// suoritetaan haku
-			String sql = "select * from Tuote where poisto is null ORDER BY nimi";
+			String sql = "select * from Tuote where poisto = 'Menussa (Ã¤lÃ¤ poista)' ORDER BY nimi";
 			Statement haku = yhteys.createStatement();
 			ResultSet resultset = haku.executeQuery(sql);
 
-			// käydään hakutulokset läpi
+			// kï¿½ydï¿½ï¿½n hakutulokset lï¿½pi
 			while (resultset.next()) {
 				Tuote tuote = new Tuote();
 				tuote.setId(resultset.getInt("id"));
@@ -107,7 +113,7 @@ public class TuoteDao {
 			}
 
 		} catch (Exception e) {
-			// JOTAIN VIRHETTÄ TAPAHTUI
+			// JOTAIN VIRHETTï¿½ TAPAHTUI
 			System.out.println("Tietokantahaku aiheutti virheen");
 		} finally {
 
@@ -131,7 +137,7 @@ public class TuoteDao {
 
 			PreparedStatement resultset = yhteys.prepareStatement(sql);
 
-			// täytetään puuttuvat tiedot
+			// tï¿½ytetï¿½ï¿½n puuttuvat tiedot
 			resultset.setInt(1, t.getId());
 			resultset.setString(2, t.getNimi());
 			resultset.setDouble(3, t.getHinta());
@@ -140,10 +146,10 @@ public class TuoteDao {
 
 			// suoritetaan lause
 			resultset.executeUpdate();
-			System.out.println("LISÄTTIIN TUOTE TIETOKANTAAN: " + t);
+			System.out.println("LISï¿½TTIIN TUOTE TIETOKANTAAN: " + t);
 		} catch (Exception e) {
-			// JOTAIN VIRHETTÄ TAPAHTUI
-			System.out.println("Tuotteen lisäämisyritys aiheutti virheen");
+			// JOTAIN VIRHETTï¿½ TAPAHTUI
+			System.out.println("Tuotteen lisï¿½ï¿½misyritys aiheutti virheen");
 			System.out.println(e);
 		} finally {
 		}
@@ -166,7 +172,7 @@ public class TuoteDao {
 		public void piilotaTuote(int id) {
 			try {
 
-				String sql = "UPDATE Tuote SET poisto = 'X' WHERE id = ?";
+				String sql = "UPDATE Tuote SET poisto = 'Piilotettu' WHERE id = ?";
 				PreparedStatement st = yhteys.prepareStatement(sql);
 
 				st.setInt(1, id);

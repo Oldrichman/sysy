@@ -7,8 +7,8 @@ import java.sql.SQLException;
 public class Konnektori {
 	static Connection con;
 	static String url;
-	// T‰m‰ on yleinen konnektori Protoon MH
-	// T‰n avulla ei tarvii Daossa aina avata erikseen yhteytt‰ MH
+	// T√§m√§ on yleinen konnektori Protoon MH
+	// T√§n avulla ei tarvii Daossa aina avata erikseen yhteytt√§ MH
 
 	public static Connection getConnection() {
 		try {

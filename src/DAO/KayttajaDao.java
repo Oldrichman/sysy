@@ -60,37 +60,36 @@ public class KayttajaDao {
 		try {
 
 			// suoritetaan haku
-					
+
 			Kayttaja kayttaja = new Kayttaja();
 			kayttaja.setEmail(email);
 			// connect to DB
-				Connection currentCon = Konnektori.getConnection();
-				PreparedStatement usernamehaku = currentCon
-						.prepareStatement("SELECT * from Asiakas where email = ?");
-				System.out.println(usernamehaku.toString());
-				System.out.println(kayttaja.getEmail());
-				usernamehaku.setString(1, kayttaja.getEmail());
-				rs = usernamehaku.executeQuery();
+			Connection currentCon = Konnektori.getConnection();
+			PreparedStatement usernamehaku = currentCon
+					.prepareStatement("SELECT * from Asiakas where email = ?");
+			System.out.println(usernamehaku.toString());
+			System.out.println(kayttaja.getEmail());
+			usernamehaku.setString(1, kayttaja.getEmail());
+			rs = usernamehaku.executeQuery();
 
-				// k‰yd‰‰n hakutulokset l‰pi
-				while (rs.next()) {
+			// k√§yd√§√§n hakutulokset l√§pi
+			while (rs.next()) {
 
-					kayttaja.setEtunimi(rs.getString("etunimi"));
-					kayttaja.setSukunimi(rs.getString("sukunimi"));
-					kayttaja.setEmail(rs.getString("email"));
-					kayttaja.setOsoite(rs.getString("osoite"));
-					kayttaja.setPostinro(rs.getString("postinro"));
-					kayttaja.setSalasana(rs.getString("salasana"));
-					kayttaja.setSuosikkiPitsa(rs.getString("suosikkiPitsa"));
-					tiedot.add(kayttaja);
-				}
-
-			} catch (Exception e) {
-				// JOTAIN VIRHETTƒ TAPAHTUI
-				System.out.println("Tietokantahaku aiheutti virheen");
-				System.out.println(e);
+				kayttaja.setEtunimi(rs.getString("etunimi"));
+				kayttaja.setSukunimi(rs.getString("sukunimi"));
+				kayttaja.setEmail(rs.getString("email"));
+				kayttaja.setOsoite(rs.getString("osoite"));
+				kayttaja.setPostinro(rs.getString("postinro"));
+				kayttaja.setSalasana(rs.getString("salasana"));
+				kayttaja.setSuosikkiPitsa(rs.getString("suosikkiPitsa"));
+				tiedot.add(kayttaja);
 			}
-		 finally {
+
+		} catch (Exception e) {
+			// JOTAIN VIRHET√Ñ TAPAHTUI
+			System.out.println("Tietokantahaku aiheutti virheen");
+			System.out.println(e);
+		} finally {
 
 		}
 
@@ -98,6 +97,23 @@ public class KayttajaDao {
 				+ tiedot.toString());
 
 		return tiedot;
-
 	}
+
+	public void paivitaTiedot(String osoite, String postinro,
+			String suosikkipitsa) {
+		try {
+
+			String sql = "UPDATE Asiakas SET osoite = ?, postinro=?,suosikkipitsa =? WHERE email = ?";
+			PreparedStatement st = yhteys.prepareStatement(sql);
+
+			st.setString(1, osoite);
+			st.setString(2, postinro);
+			st.setString(3, suosikkipitsa);
+			st.executeUpdate();
+
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+	}
+
 }

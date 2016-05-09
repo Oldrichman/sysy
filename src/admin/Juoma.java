@@ -1,7 +1,11 @@
 package admin;
 
 
-
+/**
+ * 
+ * @author Joni Bärlund, SySy
+ *
+ */
 public class Juoma {
 	private int id;
 	private String juoma;
@@ -9,16 +13,19 @@ public class Juoma {
 	private String poisto;
 	
 	public Juoma(){
+		id = 0;
 		juoma = null;
 		hinta = 0;
 		poisto = null;
+		
 	}
 	
 	public Juoma (int id, String juoma, double hinta,String poisto){
+		this.id= id;
 		this.juoma= juoma;
 		this.hinta= hinta;
 		this.poisto= poisto;
-		this.id= id;
+		
 	}
 
 	public String getJuoma() {

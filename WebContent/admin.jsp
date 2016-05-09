@@ -53,6 +53,8 @@
 </head>
 <body>
 
+
+
 	<nav class="navbar navbar-inverse navbar-fixed-top">
 		<div class="container">
 			<div class="navbar-header">
@@ -88,7 +90,7 @@
 			 <h1>Admin</h1>
 
 			<nav>
-				<table class="table table-bordered" frame=void>
+				<table class="table table-bordered" frame=void style="text-align:center;">
 				<thead class="thead-inverse" >
 				
     <tr class="">
@@ -104,12 +106,14 @@
 
 					<c:forEach items="${tuotteet}" var="p">
 						<tr>
+					
 			<form action="kontrolleri" method="post">
-			<td> <input type="hidden" value="${p.id}" name="id"> <a
-			href="kontrolleri?toiminto=tuotteet&nimi=<c:out value="${p.nimi}" />">
-			<c:out value="${p.nimi} " /> </a></td>
+			
+			<td> <input type="hidden" value="${p.id}" name="id"> 
+			<a href="kontrolleri?toiminto=tuotteet&nimi=<c:out value="${p.nimi}" />">
+			<c:out value="${p.nimi}" /> </a></td>
 			<td><c:out value="" /> <c:out value="${p.taytteet} " /></td>
-			<td><c:out value="" /> <fmt:formatNumber value="${p.hinta}" type="currency" currencySymbol=""  /> &euro;</td>
+			<td><c:out value="" /> <fmt:formatNumber value="${p.hinta}" type="currency" currencySymbol=""/> &euro;</td>
 			<td style="text-align:center"><c:out value="" /> <c:out
 					value="${p.poisto} " /></td>
 				<td>
@@ -129,30 +133,32 @@
 
 				</table>
 				
-				<table class="table table-bordered" frame=void>
-				<thead class="thead-inverse" >
+				<table class="table table-bordered" frame=void style="text-align:center;">
+				<thead class="thead-inverse" style="text-align:center;" >
 				<th style="text-align:center">JUOMA</th>
       <th style="text-align:center">HINTA</th>
       <th style="text-align:center">Piilotettu</th>
        <th style="text-align:center">Muokkaus</th>
 				
-				<c:forEach items="${juomat}" var="j" >
+				<c:forEach items="${Juoma}" var="j" >
 				<tr>
 					<form action="kontrolleri" method="post">
 					<input type="hidden" value="${j.id}" name="id">
-										<td style="text-align:center"><c:out  value="${j.juoma}" />
+					<td style="text-align:center">
+										<input type ="text" name ="juoma" value="<c:out  value="${j.juoma}" />"></input>
 											</td>
-						<td style="text-align:center"><c:out value="" /> <fmt:formatNumber
-								value="${j.hinta}" type="currency" currencySymbol=""  /> &euro;</td>
+						<td style="text-align:center">
+<input type ="number"  name ="hinta" step = "0.01"  value= "${j.hinta}" /></input> &euro;</td>
 					
-					<td style="text-align:center"><c:out value="" /> <c:out
-											value="${j.poisto} " />
+					<td style="text-align:center"><c:out value="${j.poisto}" /> 
 								</td>
 								
 								<td style="text-align:center">
 					 <%
 									out.println("<INPUT type=\"submit\" name=\"action\" value=\"Piilota juoma\">");
 								%>
+								<%out.println("<INPUT type=\"submit\" name=\"action\" value=\"Tuo juoma\">");%>
+								<%out.println("<INPUT type=\"submit\" name=\"action\" value=\"Tallenna\">");%>
 					</td>
 					</form>
 					
@@ -167,7 +173,7 @@
 <div class="col-md-6">
 
 				<br><h4>Täytteet</h4> 
-				<table class="table table-condensed" style="width:auto">
+				<table class="table table-condensed" style="width:auto; text-align:center;">
 				<thead>
 				<th style="text-align:center">Raaka-aineet</th>
 				<th style="text-align:center">Piilotettu</th>
@@ -254,7 +260,7 @@
 					<fieldset>
 						<br><h4>Lisää juoma:</h4>
 						Nimi ja koko:<br> <input type="text" style="cursor:text;" name="LJU"> <br> 
-						Hinta:<br> <input type="text" style="cursor:text;" name="HJU"><br> <br>
+						Hinta:<br> <input type="text"pattern ="[0-9 ]+([\. ][0-9 ]+)?" title="- EROTA PISTEELLÄ!"  style="cursor:text;" name="HJU"><br> <br>
 						<input type="submit" value="Lisää"><br>
 						<c:if test="${not empty param.added}">Uuden juoman lisääminen onnistui!</c:if>
 					</fieldset>

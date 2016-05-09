@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import avustaja.Email;
+
 /**
  * Servlet implementation class PalauteKontrolleri
  */
@@ -28,13 +30,16 @@ public class PalauteKontrolleri extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("Kim hei!");
+		System.out.println("Palautetta lähetetty!");
 		String action = request.getParameter("action");
 		
-		if (action != null && action.equals("Tallenna")) {
+		if (action != null && action.equals("Lähetä")) {
 			String palaute = request.getParameter("palaute");
 			System.out.println(palaute);
-			
+			//Olion perusluontitapa
+			Email email = new Email();
+			//metodin kutsu
+			email.lahetaSahkoposti("88juslin@gmail.com", "88juslin!", "kim.friman2@myy.haaga-helia.fi", "Palaute", palaute);
 		}
 	RequestDispatcher disp =
 		 request.getRequestDispatcher("KiitosPalautteesta.jsp");

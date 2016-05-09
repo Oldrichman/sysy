@@ -72,7 +72,7 @@ public class AdminMenu extends HttpServlet {
 	 		jDao.avaaYhteys();
 
 	 		List<Juoma> lista2 = null;
-	 		lista2 = jDao.haeJuomat();
+	 		lista2 = jDao.haekaikkiJuomat();
 	 		for (int i = 0; i < lista.size(); i++) {
 	 			wout.print(lista.get(i));
 	 		}
@@ -82,7 +82,7 @@ public class AdminMenu extends HttpServlet {
 	 		
 
 	 		// requestiin talteen
-	 		request.setAttribute("juomat", lista2);
+	 		request.setAttribute("Juoma", lista2);
 		request.setAttribute("tuotteet", lista);
 		request.setAttribute("RaakaAineet", lista1);
 		// jsp hoitaa muotoilun
@@ -100,7 +100,7 @@ public class AdminMenu extends HttpServlet {
 		response.setContentType("text/html");
 
 		request.setCharacterEncoding("UTF-8");
-		// Luetaan HTML-Lomakkeelle täytetyt tiedot
+		// Luetaan HTML-Lomakkeelle tï¿½ytetyt tiedot
 
 		if (request.getParameter("nimi") != null
 				&& request.getParameter("hinta") != null) {
@@ -117,7 +117,7 @@ public class AdminMenu extends HttpServlet {
 
 			System.out.println("<p>");
 			System.out.println("<b>" + tuote.getNimi() + "</b>");
-			System.out.println("<b> Täytteet: " + tuote.getTaytteet() + "</b>");
+			System.out.println("<b> Tï¿½ytteet: " + tuote.getTaytteet() + "</b>");
 			System.out.println("<b> Piilotettu: " + tuote.getPoisto() + "</b>");
 			System.out.println("<br/>");
 			System.out.println("Hinta: " + formaatteri.format(tuote.getHinta())

@@ -15,7 +15,7 @@ import javax.servlet.http.HttpSession;
 import DAO.AdminKirjausDAO;
 import servlet.Kontrolleri;
 
- //Poistettu turhaa teksti� MH
+ //Poistettu turhaa tekstiä MH
 
  /** 
  * Servlet implementation class LoginServlet 
@@ -43,7 +43,7 @@ public class KirjauduAdmin extends HttpServlet {
 			if (admin.isValid()) {
 				HttpSession session = request.getSession();
 				session.setAttribute("Login", admin);
-				// Alustaa session p��ttym��n 15min j�lkeen MH
+				// Alustaa session päättymään 15min jälkeen MH
 				session.setMaxInactiveInterval(15 * 60);
 				Cookie adminNimi = new Cookie("kayttajatunnus", adminTunnus);
 				adminNimi.setMaxAge(15 * 30);

@@ -136,7 +136,7 @@
 	</header>
 
 	<!-- About Section -->
-	<section id="about" class="container content-section text-center">
+	<section id="about" class="container content-section text-center" style="box-shadow:  0px 155px 63px -165px rgba(245,245,245,0.9); border-radius:500px">
 		<div class="row">
 			<div class="col-lg-8 col-lg-offset-2">
 				<h2>Tietoa meistä</h2>
@@ -202,7 +202,7 @@
 							class="fa fa-twitter-square fa-5x"></i> </a></li>
 							<br>
 							
-							<a href="mailto:palaute@pizzeriafiori.fi">palaute@pizzeriafiori.fi</a>
+							<a href="palaute.jsp">Lähetä palautetta</a>
 
 				</ul>
 			

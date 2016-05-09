@@ -130,9 +130,9 @@
 	
 
 	<!-- PIZZAT ALUE -->
-	<section id="about" class="container content-section text-center">
-				<h2>Pizzamme</h2>	
-					<div class="container">
+	<section id="about" class="container content-section text-center" style="box-shadow:  0px 155px 63px -165px rgba(245,245,245,0.9); border-radius:50px">
+				<h2 style="font-size:300%;">Pizzamme</h2>	
+					<div class="container"> <!-- style="background:rgba(255, 255, 255, 0.20); border-radius:10px"; -->
 		<div class="starter-template">
 			
 			
@@ -140,7 +140,7 @@
 			<table class="table table-bordered">
 			<thead class="thead-inverse" >
 			
-    <tr class="big">
+    <tr class="big" style="font-size:130%;">
       <th style="text-align:center">PIZZA</th>
       <th style="text-align:center">TÄYTTEET</th>
       <th style="text-align:center">HINTA</th>
@@ -151,16 +151,17 @@
 			<c:forEach items="${tuotteet}" var="p">
 				<tr>
 					<form action="menukontrolleri" method="post">
-										<td><input type="hidden" value="${p.id}" name="id">
-											<a>
+										<td><input type="hidden" value="${p.id}" name="tuoteid">
+											<a style="color:#d9534f; font-size:150%; letter-spacing:3px; font-weight:900;">
 									<c:out value="${p.nimi} " /> </a>
 									</td><td>
 									<c:out value="${p.taytteet} " /><td> 
-									
+									<input type="hidden" name="hinta" value="<c:out value='${p.hinta}'/>"/>
 									<fmt:formatNumber value="${p.hinta}" type="currency" currencySymbol=""  /> &euro;</td>
 									</form>
 									<form action = "LisaaOstoskoriin" method ="post">
-					
+									<input type="hidden" value="${p.id}" name="tuoteid">
+									<input type="hidden" name="hinta" value="<c:out value='${p.hinta}'/>"/>
 													<td style="text-align:center">
 								<br>
 								<%
@@ -168,8 +169,21 @@
 								%>
 								<%
 									out.println("Valkosipuli: " + "<INPUT type=\"checkbox\" name=\"action\" value=\"\">");
+								
 								%>
 									<INPUT type="submit" name="tilausnumero" value="Lisää ostoskoriin">
+
+								</td><td> 
+									
+									</td>
+					
+													<td style="text-align:center">
+													
+													<button class="btn btn-danger" type="submit" name="lisaa" value="input">Lisää 
+													ostoskoriin</button>
+								
+									<!-- <INPUT type="submit" name="lisaa" value="Lisää ostoskoriin"> -->
+
 								</form>
 								</td>
 					
@@ -184,7 +198,7 @@
 		<table class="table table-bordered">
 			<thead class="thead-inverse" >
 			
-    <tr class="big">
+    <tr class="big" style="font-size:150%;">
       <th style="text-align:center">JUOMA</th>
       <th style="text-align:center">HINTA</th>
       
@@ -248,7 +262,7 @@
 							class="fa fa-twitter-square fa-5x"></i> </a></li>
 							<br>
 							
-							<a href="mailto:palaute@pizzeriafiori.fi">palaute@pizzeriafiori.fi</a>
+							<a href="palaute.jsp">Lähetä palautetta</a>
 
 				</ul>
 			

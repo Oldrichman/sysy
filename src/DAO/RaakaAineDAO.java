@@ -9,7 +9,11 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 import admin.RaakaAineet;
-
+/**
+ * 
+ * @author Joni BÃ¤rlund, SySy
+ *
+ */
 public class RaakaAineDAO {
 
 	private Connection yhteys = null;
@@ -59,7 +63,7 @@ public class RaakaAineDAO {
 			Statement haku = yhteys.createStatement();
 			ResultSet resultset = haku.executeQuery(sql);
 
-			// käydään hakutulokset läpi
+			// kï¿½ydï¿½ï¿½n hakutulokset lï¿½pi
 			while (resultset.next()) {
 				RaakaAineet raakaAine = new RaakaAineet();
 
@@ -69,7 +73,7 @@ public class RaakaAineDAO {
 			}
 
 		} catch (Exception e) {
-			// JOTAIN VIRHETTÄ TAPAHTUI
+			// JOTAIN VIRHETTï¿½ TAPAHTUI
 			System.out.println("Tietokantahaku aiheutti virheen");
 		} finally {
 
@@ -93,16 +97,16 @@ public class RaakaAineDAO {
 
 			PreparedStatement resultset = yhteys.prepareStatement(sql);
 
-			// täytetään puuttuvat tiedot
+			// tï¿½ytetï¿½ï¿½n puuttuvat tiedot
 
 			resultset.setString(1, RA.getNimi());
 
 			// suoritetaan lause
 			resultset.executeUpdate();
-			System.out.println("LISÄTTIIN RAAKA-AINE TIETOKANTAAN: " + RA);
+			System.out.println("LISï¿½TTIIN RAAKA-AINE TIETOKANTAAN: " + RA);
 		} catch (Exception e) {
-			// JOTAIN VIRHETTÄ TAPAHTUI
-			System.out.println("Raaka-aineen lisäämisyritys aiheutti virheen");
+			// JOTAIN VIRHETTï¿½ TAPAHTUI
+			System.out.println("Raaka-aineen lisï¿½ï¿½misyritys aiheutti virheen");
 			System.out.println(e);
 		} finally {
 		}
@@ -112,7 +116,7 @@ public class RaakaAineDAO {
 	public void piilotaRaakaAine(String nimi) {
 		try {
 
-			String sql = "UPDATE Raaka_aine SET poisto = 'X' where nimi = ?";
+			String sql = "UPDATE Raaka_aine SET poisto = 'piilotettu' where nimi = ?";
 			PreparedStatement st = yhteys.prepareStatement(sql);
 
 			st.setString(1, nimi);

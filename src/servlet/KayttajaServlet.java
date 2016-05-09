@@ -12,7 +12,10 @@ import javax.servlet.http.HttpServletResponse;
 
 
 
+import javax.servlet.http.HttpSession;
+
 import password.Kayttaja;
+import DAO.JuomaDAO;
 import DAO.KayttajaDao;
 import DAO.KayttajaKirjausDAO;
 
@@ -44,9 +47,13 @@ import DAO.KayttajaKirjausDAO;
 						KayttajaDao kDao = new KayttajaDao();
 
 						kDao.avaaYhteys();
+						
+						HttpSession session = request.getSession(false);
+						Kayttaja kayttaja = (Kayttaja) session.getAttribute("Login");
+						String email = kayttaja.getEmail();
 
 						List<Kayttaja> lista = null;
-						lista = kDao.haeTiedot("testi@sysy.fi");
+						lista = kDao.haeTiedot(email);
 						for (int i = 0; i < lista.size(); i++) {
 							wout.print(lista.get(i));
 						}
@@ -54,14 +61,12 @@ import DAO.KayttajaKirjausDAO;
 						kDao.suljeYhteys();
 
 						
-
 						// requestiin talteen
 						request.setAttribute("tiedot", lista);
 						
 						// jsp hoitaa muotoilun
 						request.getRequestDispatcher("Kayttaja.jsp").forward(request, response);
 						
-
 					}
 		
 
@@ -108,9 +113,33 @@ import DAO.KayttajaKirjausDAO;
 					}
 					response.sendRedirect("KayttajaServlet");
 				}
+			else if (request.getParameter("email") != null
+					&& request.getParameter("action").equals("Tallenna tiedot")) {
 
+				KayttajaDao TDao = new KayttajaDao();
+				String osoite = null;
+				String postinro = null;
+				String suosikkipitsa = null;
+				try {
+					osoite = (request.getParameter("osoite"));
+					postinro = (request.getParameter("postinro"));
+					suosikkipitsa = (request.getParameter("suosikkipitsa"));
+				} catch (Exception ex) {
+					System.out.println(ex);
+				}
+				
+				System.out.println("osoite: " + osoite );
+				try {
+					TDao.avaaYhteys();
+					TDao.paivitaTiedot(osoite,  postinro, suosikkipitsa);
+					TDao.suljeYhteys();
+				} catch (Exception e) {
+					throw new ServletException(e);
+
+				}
+				response.sendRedirect("KayttajaServlet");
+				return;
+				}
 				
 		    }}
 	
-
-
