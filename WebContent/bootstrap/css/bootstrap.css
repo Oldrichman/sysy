@@ -117,6 +117,9 @@ textarea {
   font: inherit;
   color: inherit;
 }
+
+
+
 button {
   overflow: visible;
 }
@@ -172,6 +175,16 @@ fieldset {
   margin: 0 2px;
   border: 1px solid #c0c0c0;
 }
+
+fieldset.group  { 
+  margin: 0; 
+  padding: 0; 
+  margin-bottom: 1.25em; 
+  padding: .125em; 
+  border: 1px transparent solid;
+  border-color: white;
+} 
+
 legend {
   padding: 0;
   border: 0;
@@ -2492,12 +2505,7 @@ table th[class*="col-"] {
     border-bottom: 0;
   }
 }
-fieldset {
-  min-width: 0;
-  padding: 0;
-  margin: 0;
-  border: 0;
-}
+
 legend {
   display: block;
   width: 100%;
