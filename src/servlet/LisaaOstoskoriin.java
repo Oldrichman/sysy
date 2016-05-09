@@ -83,43 +83,51 @@ public class LisaaOstoskoriin extends HttpServlet {
 			} else {
 				maara2 = 1;
 			}
-			double kokonaissumma = 0;
+			
+			String tuoteID = "";
 			HttpSession sessio = request.getSession(false);
-			if(sessio == null) {
-				sessio = request.getSession(true);
-				kokonaissumma = Double.parseDouble(request.getParameter("hinta"));
-				sessio.setAttribute("kokonaissumma", kokonaissumma);
-			} else if(sessio.getAttribute("hinta") != null){
-				double summa = Double.parseDouble((String)sessio.getAttribute("hinta")); 
+			
+			if(sessio.getAttribute("kokonaissumma") != null ) {
+				double summa = (double) sessio.getAttribute("kokonaissumma"); 
 				sessio.setAttribute("kokonaissumma", summa + Double.parseDouble(request.getParameter("hinta")));
 				
-			}
-			
+				
+			} else {
 
-			String tuoteID = request.getParameter("tuoteid");
-			System.out.println(tuoteID);
-			int tuoteID2 = Integer.parseInt(tuoteID);
+				sessio = request.getSession(true);
+				tuoteID = request.getParameter("tuoteid");
+				System.out.println(tuoteID);
+				int tuoteID2 = Integer.parseInt(tuoteID);
+				TilausDAO tDao = new TilausDAO();
+				Tuote pizza = new Tuote();
+				pizza = tDao.haeTuote(tuoteID2);
+				sessio.setAttribute("kokonaissumma", pizza.getHinta());
+
+
+			}
+
+
 			String toimitustapa = request.getParameter("toimitustapa");
 
-			Tilaus tilaus = new Tilaus(0, asiakastunnus, maara2, kokonaissumma,
-					tuoteID2, toimitustapa);
+//			Tilaus tilaus = new Tilaus(0, asiakastunnus, maara2, kokonaissumma,
+//					tuoteID2, toimitustapa);
+			
+			Tilaus tamaTilaus = new Tilaus();
 
 			System.out.println("<p>");
-			System.out.println("<b>" + tilaus.getAsiakastunnus() + "</b>");
-			System.out.println("<b> Sukunimi: " + tilaus.getMaara() + "</b>");
-			System.out.println("<b> Email: " + tilaus.getKokonaissumma()
+			System.out.println("<b>" + tamaTilaus.getAsiakastunnus() + "</b>");
+			System.out.println("<b> Määrä: " + tamaTilaus.getMaara() + "</b>");
+			System.out.println("<b> Kokonaissumma: " + sessio.getAttribute("kokonaissumma")
 					+ "</b>");
 			System.out.println("<br/>");
-			System.out.println(": " + tilaus.getTuoteID());
-			System.out.println(": " + tilaus.getToimitustapa());
+			System.out.println(": " + tamaTilaus.getTuoteID());
+			System.out.println(": " + tamaTilaus.getToimitustapa());
 
-			Tilaus t = new Tilaus(0, asiakastunnus, maara2, kokonaissumma,
-					tuoteID2, toimitustapa);
-			TilausDAO tiDao = new TilausDAO();
+
 
 			try {
 
-				tiDao.lisaaTuote(t);
+			
 
 			} catch (Exception e) {
 				throw new ServletException(e);
