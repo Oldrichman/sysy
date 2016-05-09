@@ -208,11 +208,8 @@
 								</td>
 								
 								<td style="text-align:center">
-
-								 <%out.println("<INPUT type=\"submit\" name=\"action\"  value=\"Poista\">");%>  
-								 <%out.println("<INPUT type=\"submit\" name=\"action\" value=\"Piilota\">");%>
-								<%out.println("<INPUT type=\"submit\" name=\"action\" value=\"Tuo täyte\">");%>
-
+								
+								
 								</td>
 							</form>
 						</tr>
@@ -230,31 +227,29 @@
 </div>
 <div class="container">
   <div class="row">
-    <div class="col-md-3">
+    <div class="col-md-4">
 
 				<form action="kontrolleri" method="post">
-					<fieldset class="group" style="float:left">
+					<fieldset>
 						<br><h4>Lisää pizza:</h4>
 						 Nimi:<br>
 						<input type="text" style="cursor:text;" name="nimi"><br> Hinta:<br> 
 						<input type ="number"  name ="hinta" step = "0.01"  value= "${p.hinta}" /></input><br>
+					
 						<input type="hidden" style="cursor:text;" name="poisto" value="Ei julkaistu"><br>
-							 Täytteet: 
-							 <br>
-							 <label class="group" style="">
-							 
-							 <c:forEach  items="${RaakaAineet}" var="r"><br>
-							  <input type="checkbox" name="taytteet" style="padding: 15px" value="${r.nimi}">
-							   
+							 Täytteet:
+							 <!-- tee tähän joku gridi checkbokseille -->
+							 <c:forEach items="${RaakaAineet}" var="r"><br>
+							  <input type="checkbox" name="taytteet" value="${r.nimi}">
 						 <c:out value="${r.nimi}" /> <br>
 						
 						</c:forEach>
 						<br><br>
-					</label>
+					
 						<input  type="submit" value="Lisää"><br>
 						<c:if test="${not empty param.added}">Uuden pizzan lisääminen onnistui!</c:if>
-					
-</fieldset>
+					</fieldset>
+
 				</form>
 
 </div>

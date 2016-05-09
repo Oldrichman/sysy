@@ -167,16 +167,18 @@
 									<form action = "LisaaOstoskoriin" method ="post">
 									<input type="hidden" value="${p.id}" name="tuoteid">
 									<input type="hidden" name="hinta" value="<c:out value='${p.hinta}'/>"/>
-													<td style="text-align:center">
-								<br>
-								<%
+													<td style="text-align:right">
+													
+													<%
 									out.println("Oregano: " +"<INPUT type=\"checkbox\" name=\"action\" value=\"\">");
 								%>
 								<%
 									out.println("Valkosipuli: " + "<INPUT type=\"checkbox\" name=\"action\" value=\"\">");
 								
 								%>
-									<INPUT type="submit" name="tilausnumero" value="Lisää ostoskoriin">
+								
+								
+<!-- 									<INPUT type="submit" name="tilausnumero" value="Lisää ostoskoriin"> -->
 
 								</td><td> 
 									
@@ -184,7 +186,7 @@
 					
 													<td style="text-align:center">
 													
-													<button class="btn btn-danger" type="submit" name="lisaa" value="input">Lisää 
+													<button class="btn btn-danger" type="submit" name="tilausnumero" value="Lisää ostoskoriin">Lisää 
 													ostoskoriin</button>
 								
 									<!-- <INPUT type="submit" name="lisaa" value="Lisää ostoskoriin"> -->
