@@ -71,7 +71,7 @@
 				<ul class="nav navbar-nav">
 					<li><a href="kontrolleri">Tuotehallinta</a></li>
 					
-					<li><a href="AdminMenu">Pizzat</a></li>
+					<!-- <li><a href="AdminMenu">Pizzat</a></li> -->
 					<li><a href="kotisivu.jsp">Kotisivu</a></li>
 				</ul>
 			</div>
@@ -117,18 +117,22 @@
 			<c:out value="${p.nimi} " />
 			</input></td>
 			<td><c:out value="" /><c:out value="${p.taytteet} "/></td>
-			<td><input type ="number"  name ="hinta" step = "0.01"  value= "${p.hinta}" /></input> &euro;</td>
+			<td><input type ="number" class="form-control-admin" style="padding:-10px;"  name ="hinta" step = "0.01"  value= "${p.hinta}" /></input> &euro;</td>
 			<td style="text-align:center"><c:out value="" /> <c:out
 					value="${p.poisto} " /></td>
 				<td>
 
 								
-			
-			<%out.println("<INPUT type=\"submit\" name=\"action\" value=\"Piilota menusta\">");%>
-			<%out.println("<INPUT type=\"submit\" name=\"action\" value=\"Tuo menuun\">");%>
- 			<%out.println("<INPUT type=\"submit\" name=\"action\" value=\"Tallenna muutos\">");%>
+			<!-- Tehty buttonit adminiin,alkuperäiset koodinpätkät säilytetty, jotta näkee miten homma toimii skripletistä buttoniin -->
+			<%-- <%out.println("<INPUT type=\"submit\" name=\"action\" value=\"Piilota menusta\">");%> --%>
+			<button class="btn btn-danger" type="submit" name="action" value="Piilota menusta" style="padding:3px; margin:1px" title="Piilottaa tuotteen menusta">Piilota menusta</button>
+			<%-- <%out.println("<INPUT type=\"submit\" name=\"action\" value=\"Tuo menuun\">");%> --%>
+			<button class="btn btn-danger" type="submit" name="action" value="Tuo menuun" style="padding:3px; margin:1px" title="Tuo piilotetun tuotteen takaisin menuun">Tuo menuun</button>
+ 			<%-- <%out.println("<INPUT type=\"submit\" name=\"action\" value=\"Tallenna muutos\">");%> --%>
+ 			<button class="btn btn-danger" type="submit" name="action" value="Tallenna muutos" style="padding:3px; margin:1px" title="Tallenna tekemäsi muutos kantaan!">Tallenna muutos</button>
 					 </td>			<td>
-			 <%out.println("<INPUT type=\"submit\" name=\"action\" value=\"Poista\">");%>
+			<%--  <%out.println("<INPUT type=\"submit\" name=\"action\" value=\"Poista\">");%> --%>
+			 <button class="btn btn-danger" type="submit" name="action" value="Poista" style="padding:3px; margin:1px" title="Poistaa tuotteen kokonaan tietokannasta">Poista</button>
 			 </td>
 							</form>
 						</tr>
@@ -145,11 +149,11 @@
 				<!-- Juomat  -->
 				
 
-<div class="container" style="width:auto; margin-top:70px">
+<div class="container" style="width:auto; margin-top:60px;">
   <div class="row">
-<div class="col-md-8">				
+<div class="col-md-6">				
 				
-				<br><h4 style="text-align:auto;">Juomat</h4>
+				<br><h4 style="text-align:center;">Juomat</h4>
 				<table class="table table-bordered" frame=void style="text-align:center; width:auto; font-size:80%;">
 				<thead class="thead-inverse" style="text-align:center;" >
 				<th style="text-align:center">Juoma</th>
@@ -162,20 +166,23 @@
 					<form action="kontrolleri" method="post">
 					<input type="hidden" value="${j.id}" name="id">
 					<td style="text-align:center">
-										<input type ="text" name ="juoma" value="<c:out  value="${j.juoma}" />"></input>
+										<input type ="text" name ="juoma" class="form-control-admin" value="<c:out  value="${j.juoma}" />"></input>
 											</td>
 						<td style="text-align:center">
-						<input type ="number"  name ="hinta" step = "0.01"  value= "${j.hinta}" /></input> &euro;</td>
+						<input type ="number"  name ="hinta" step = "0.01" class="form-control-admin" value= "${j.hinta}" /></input> &euro;</td>
 					
 					<td style="text-align:center"><c:out value="${j.poisto}" /> 
 								</td>
 								
 								<td style="text-align:center">
 								
-								
-								<%out.println("<INPUT type=\"submit\" name=\"action\" value=\"Piilota juoma\">");%>
-								<%out.println("<INPUT type=\"submit\" name=\"action\" value=\"Tuo juoma\">");%>
-								<%out.println("<INPUT type=\"submit\" name=\"action\" value=\"Tallenna\">");%>
+<!-- 								Buttonit lisätty ja formit siistimmiksi bootstrapilla adminiin -->
+								<%-- <%out.println("<INPUT type=\"submit\" name=\"action\" value=\"Piilota juoma\">");%> --%>
+								<button class="btn btn-danger" type="submit" name="action" value="Piilota juoma" style="padding:3px; margin:1px" title="Piilottaa juoman menusta">Piilota juoma</button>
+								<%-- <%out.println("<INPUT type=\"submit\" name=\"action\" value=\"Tuo juoma\">");%> --%>
+								<button class="btn btn-danger" type="submit" name="action" value="Tuo juoma" style="padding:3px; margin:1px" title="Tuo piilotetun juoman takaisin menuun">Tuo juoma</button>
+								<%-- <%out.println("<INPUT type=\"submit\" name=\"action\" value=\"Tallenna\">");%> --%>
+								<button class="btn btn-danger" type="submit" name="action" value="Tallenna" style="padding:3px; margin:1px" title="Tallenna tekemäsi muutokset tietokantaan!">Tallenna</button>
 					</td>
 					</form>
 					
@@ -188,14 +195,144 @@
 
 
 
-<div class="col-md-4">
+<%-- <div class="col-xs-4">
 
-				<br><h4 style="text-align:auto;">Täytteet</h4> 
-				<table class="table table-condensed" style="width:auto; text-align:center;">
+				<br><h4 style="text-align:auto; margin-left:15px;">Täytteet</h4> 
+				<table class="table table-condensed" style="width:auto; text-align:center; border:none; border-style:none;">
 				<thead>
-				<th style="text-align:center">Raaka-aineet</th>
+				<th style="text-align:center; border:none;">Raaka-aineet</th>
 				</thead>
 				<tbody>
+				
+					<c:forEach items="${RaakaAineet}" var="r" begin="0" end="20">
+						<tr>
+							<form action="kontrolleri" method="post">
+								<td style="text-align:center"><c:out value="${r.nimi}" /> <input type="hidden"
+									value="${r.nimi}" name="Rnimi "> 
+									
+								</td>
+								 
+								
+								</td>
+								
+								<td style="text-align:center">
+								
+								
+								</td>
+							</form>
+						</tr>
+					</c:forEach>
+					</tbody>
+
+
+
+				</table>
+				<br> <br> <br>
+				
+					</nav>
+		</div>
+</div>
+</div> --%>
+<div class="container">
+  <div class="row">
+    <div class="col-md-5" style="padding:20px; margin-left:-170px">
+
+				<form action="kontrolleri" method="post">
+					<fieldset>
+						<h4>Lisää pizza:</h4>
+						 Nimi:<br>
+						<input type="text" style="cursor:text;" name="nimi" class="form-control-admin"><br> Hinta:<br> 
+						<input type ="number"  name ="hinta" step = "0.01" class="form-control-admin" value= "${p.hinta}" /></input><br>
+					
+						<input type="hidden" style="cursor:text;" name="poisto" value="Ei julkaistu"><br>
+							 Täytteet:
+							 <!-- tee tähän joku gridi checkbokseille -->
+							 
+							 <table class="table" style="border:solid 1px;">
+							 <th>
+							 <c:forEach items="${RaakaAineet}" var="r" begin="0" end="5"><br>
+							  <input type="checkbox" name="taytteet" value="${r.nimi}">
+						 <c:out value="${r.nimi}" /> <br>
+						 </c:forEach>
+						 </th>
+						 
+						 <th>
+						  <c:forEach items="${RaakaAineet}" var="r" begin="6" end="11"><br>
+							  <input type="checkbox" name="taytteet" value="${r.nimi}">
+						 <c:out value="${r.nimi}" /> <br>
+						</c:forEach>
+						</th>
+						
+						<th>
+						 <c:forEach items="${RaakaAineet}" var="r" begin="12" end="17"><br>
+							  <input type="checkbox" name="taytteet" value="${r.nimi}">
+						 <c:out value="${r.nimi}" /> <br>
+						</c:forEach>
+						</th>
+						
+						<th>
+						 <c:forEach items="${RaakaAineet}" var="r" begin="18" end="23"><br>
+							  <input type="checkbox" name="taytteet" value="${r.nimi}">
+						 <c:out value="${r.nimi}" /> <br>
+						</c:forEach>
+						</th>
+						
+						<th>
+						 <c:forEach items="${RaakaAineet}" var="r" begin="23" end="28"><br>
+							  <input type="checkbox" name="taytteet" value="${r.nimi}">
+						 <c:out value="${r.nimi}" /> <br>
+						</c:forEach>
+						</th>
+						
+						</table>
+						
+					
+					<button class="btn btn-danger" type="submit" name="action" value="Lisää" style="padding:10px; margin:1px" title="Muista valita kaikki raaka-aineet, nimeä ja hinnoittele Pizza!">Lisää pizza</button>
+						<!-- <input  type="submit" value="Lisää"> -->
+						<c:if test="${not empty param.added}">Uuden pizzan lisääminen onnistui!</c:if>
+					</fieldset>
+
+				</form>
+
+</div>
+
+ <div class="col-md-2" style="margin-left:-20px;">
+ 
+				<form action="kontrolleri" method="post">
+					<fieldset>
+						<br><h4>Lisää raaka-aine:</h4>
+						Nimi:<br> <input type="text" style="cursor:text;" class="form-control-admin" name="lisaaRA"> <br><br>
+						<button class="btn btn-danger" type="submit" name="action" value="Lisää" style="padding:6px; margin:1px" title="Lisää uuden raaka-aineen tietokantaan">Lisää raaka-aine</button> 
+						<!-- <input type="submit" value="Lisää"><br> <br> -->
+						<c:if test="${not empty param.added}">Uuden raaka-aineen lisääminen onnistui!</c:if>
+					</fieldset>
+					</form>
+					
+					
+					
+					<form action="kontrolleri" method="post">
+					<fieldset>
+						<br><h4>Lisää juoma:</h4>
+						Nimi ja koko:<br> <input type="text" class="form-control-admin" style="cursor:text;" name="LJU"> <br> 
+						Hinta:<br> <input type="number" class="form-control-admin" step = "0.01"  style="cursor:text;" name="HJU"><br>
+						<input type="hidden" style="cursor:text;" name="poisto" value="Ei julkaistu"><br>
+						<button class="btn btn-danger" type="submit" name="action" value="Lisää" style="padding:6px; margin:1px" title="Lisää uuden juoman tietokantaan">Lisää juoma</button> 
+						<!-- <input type="submit" value="Lisää"><br> -->
+						<c:if test="${not empty param.added}">Uuden juoman lisääminen onnistui!</c:if>
+					</fieldset>
+					</form>
+					
+			</div>
+			
+			<div class="col-xs-1" style="margin-left:-10px;">
+				<br>
+				<h4 style="text-align:auto; margin-left:5px;">Täytteet</h4> 
+				<table class="table table-condensed" style="width:auto; text-align:center; border:none; border-style:none;">
+				<thead>
+				<th style="text-align:center; border:none;">Raaka-aineet</th>
+				</thead>
+				<tbody>
+				
 					<c:forEach items="${RaakaAineet}" var="r">
 						<tr>
 							<form action="kontrolleri" method="post">
@@ -225,64 +362,12 @@
 		</div>
 </div>
 </div>
-<div class="container">
-  <div class="row">
-    <div class="col-md-4">
-
-				<form action="kontrolleri" method="post">
-					<fieldset>
-						<br><h4>Lisää pizza:</h4>
-						 Nimi:<br>
-						<input type="text" style="cursor:text;" name="nimi"><br> Hinta:<br> 
-						<input type ="number"  name ="hinta" step = "0.01"  value= "${p.hinta}" /></input><br>
-					
-						<input type="hidden" style="cursor:text;" name="poisto" value="Ei julkaistu"><br>
-							 Täytteet:
-							 <!-- tee tähän joku gridi checkbokseille -->
-							 <c:forEach items="${RaakaAineet}" var="r"><br>
-							  <input type="checkbox" name="taytteet" value="${r.nimi}">
-						 <c:out value="${r.nimi}" /> <br>
-						
-						</c:forEach>
-						<br><br>
-					
-						<input  type="submit" value="Lisää"><br>
-						<c:if test="${not empty param.added}">Uuden pizzan lisääminen onnistui!</c:if>
-					</fieldset>
-
-				</form>
-
-</div>
-
- <div class="col-md-2">
- 
-				<form action="kontrolleri" method="post">
-					<fieldset>
-						<br><h4>Lisää raaka-aine:</h4>
-						Nimi:<br> <input type="text" style="cursor:text;" name="lisaaRA"> <br><br> <input
-							type="submit" value="Lisää"><br> <br>
-						<c:if test="${not empty param.added}">Uuden raaka-aineen lisääminen onnistui!</c:if>
-					</fieldset>
-					</form>
-					
-					
-					
-					<form action="kontrolleri" method="post">
-					<fieldset>
-						<br><h4>Lisää juoma:</h4>
-						Nimi ja koko:<br> <input type="text" style="cursor:text;" name="LJU"> <br> 
-						Hinta:<br> <input type="number" step = "0.01"  style="cursor:text;" name="HJU"><br> <br>
-						<input type="hidden" style="cursor:text;" name="poisto" value="Ei julkaistu"><br>
-						<input type="submit" value="Lisää"><br>
-						<c:if test="${not empty param.added}">Uuden juoman lisääminen onnistui!</c:if>
-					</fieldset>
-					</form>
-					
-			</div>
 			
 		
 
 	</div>
+	
+	
 	</div>
 	
 	<!-- /.container -->
