@@ -25,7 +25,8 @@ public class Tuote {
 		this.taytteet = taytteet;
 		this.poisto= poisto;
 	}
-
+	
+	
 	public int getId() {
 		return id;
 	}

@@ -73,7 +73,7 @@ public class TilausDAO {
 			Connection currentCon = Konnektori.getConnection();
 
 			PreparedStatement tLisays = currentCon
-					.prepareStatement("insert into Tuotteentilaus(asiakasID, tilausnumero, tuotemaara, kokonaishinta) values(?,?,?,?)");
+					.prepareStatement("insert into Tilaus(asiakasID, tilausnumero, tuotemaara, kokonaishinta) values(?,?,?,?)");
 
 			if ("tuotemaara" != null)
 				/*
@@ -131,7 +131,7 @@ public class TilausDAO {
 	
 	public Tuote haeTuote(int id){
 		Connection currentCon = Konnektori.getConnection();
-		Tuote pizza = new Tuote();
+		Tuote tuote = new Tuote();		
 		try {
 			
 			String sql = "SELECT * FROM Tuote WHERE id = ?";
@@ -145,12 +145,14 @@ public class TilausDAO {
 				double hinta = rs.getDouble("hinta");
 				String nimi = rs.getString("nimi");
 				
-				pizza.setHinta(hinta);
-				pizza.setNimi(nimi);
+				tuote.setHinta(hinta);
+				tuote.setNimi(nimi);
+				
 			}
 		} catch (Exception e) {
 			System.out.println(e);
 		}
-		return pizza;
+		
+		return tuote;
 	}
 }

@@ -3,6 +3,7 @@ package servlet;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.text.DecimalFormat;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -48,9 +49,12 @@ public class LisaaOstoskoriin extends HttpServlet {
 
 		// KayttajaDao haku
 		TilausDAO tDao = new TilausDAO();
-
-		List<Tilaus> lista = null;
-		lista = tDao.haeTiedot();
+		
+		HttpSession sessio = request.getSession(false);
+		
+		
+		List<Tuote> lista = null;
+		lista = (List<Tuote>) sessio.getAttribute("kori");
 		for (int i = 0; i < lista.size(); i++) {
 			wout.print(lista.get(i));
 		}
@@ -59,8 +63,7 @@ public class LisaaOstoskoriin extends HttpServlet {
 		request.setAttribute("tilaus", lista);
 
 		// jsp hoitaa muotoilun
-		request.getRequestDispatcher("Ostoskori.jsp")
-				.forward(request, response);
+		request.getRequestDispatcher("Ostoskori.jsp").forward(request, response);
 
 	}
 
@@ -71,9 +74,12 @@ public class LisaaOstoskoriin extends HttpServlet {
 	protected void doPost(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html");
-
+		TilausDAO tDao = new TilausDAO();
 		request.setCharacterEncoding("UTF-8");
-
+	/*	if (request.getParameter("tilausnumero").equals("Lisää ostoskoriin")){
+			String tuoteid = request.getParameter("tuoteid");
+			String hinta = request.getParameter("hinta");
+		}*/
 		if (request.getParameter("tilausnumero") != null) {
 			int maara2 = 0;
 			String asiakastunnus = request.getParameter("asiakastunnus");
@@ -87,8 +93,11 @@ public class LisaaOstoskoriin extends HttpServlet {
 			String tuoteID = "";
 			HttpSession sessio = request.getSession(false);
 			
-			if(sessio.getAttribute("kokonaissumma") != null ) {
-				double summa = (double) sessio.getAttribute("kokonaissumma"); 
+			String koksum = String.valueOf(sessio.getAttribute("kokonaissumma")); 
+			
+			
+			if(koksum != null && !koksum.isEmpty() && koksum != "null" ) {
+				double summa = Double.parseDouble(koksum);
 				sessio.setAttribute("kokonaissumma", summa + Double.parseDouble(request.getParameter("hinta")));
 				
 				
@@ -97,16 +106,34 @@ public class LisaaOstoskoriin extends HttpServlet {
 				sessio = request.getSession(true);
 				tuoteID = request.getParameter("tuoteid");
 				System.out.println(tuoteID);
-				int tuoteID2 = Integer.parseInt(tuoteID);
-				TilausDAO tDao = new TilausDAO();
-				Tuote pizza = new Tuote();
+				int tuoteID2 = Integer.parseInt(tuoteID);				
+				Tuote pizza = new Tuote();				
 				pizza = tDao.haeTuote(tuoteID2);
 				sessio.setAttribute("kokonaissumma", pizza.getHinta());
 
 
 			}
+			
+			List<Tuote>kori = (List<Tuote>) sessio.getAttribute("kori");
+			
+			if(kori == null){
+				kori = new ArrayList<Tuote>();
+				sessio.setAttribute("kori", kori);
+			}
+			
+			
+			
 
-
+			tuoteID = request.getParameter("tuoteid");			
+			int tuoteId = 0;
+			
+			if(tuoteID != null && !tuoteID.isEmpty()){
+			tuoteId = Integer.parseInt(tuoteID);
+			System.out.println("Tuoteid on " + tuoteId);			
+			kori.add(tDao.haeTuote(tuoteId));
+			sessio.setAttribute("kori", kori);
+			}
+			
 			String toimitustapa = request.getParameter("toimitustapa");
 
 //			Tilaus tilaus = new Tilaus(0, asiakastunnus, maara2, kokonaissumma,
@@ -126,7 +153,7 @@ public class LisaaOstoskoriin extends HttpServlet {
 
 
 			try {
-
+				
 			
 
 			} catch (Exception e) {
