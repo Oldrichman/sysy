@@ -222,8 +222,8 @@
 								value="${j.hinta}" type="currency" currencySymbol=""  /> &euro;</td>
 								<td style="text-align:center">
 								
-								<button class="btn btn-danger" type="submit" name="tilausnumero" value="Lisää ostoskoriin" style="padding:7px; margin:-5px">Lisää 
-													ostoskoriin</button>
+								<!-- <button class="btn btn-danger" type="submit" name="tilausnumero" value="Lisää ostoskoriin" style="padding:7px; margin:-5px">Lisää 
+													ostoskoriin</button> -->
 					
 					</form>
 					</td>
