@@ -58,7 +58,7 @@
 					data-target=".navbar-main-collapse">
 					<i class="fa fa-bars"></i>
 				</button>
-				<a class="navbar-brand page-scroll" href="#page-top"
+				<a class="navbar-brand page-scroll" href="kotisivu.jsp"
 					style="font-family: 'Stalemate', cursive;">
 					<span class="light" style="font-size:35px;"><small>Castello é Fiori&ensp;</small></span><i class="fa fa-cutlery"></i>
 
@@ -144,11 +144,13 @@
 											<a style="color:#d9534f; font-size:150%; letter-spacing:3px; font-weight:900;">
 									<c:out value="${p.nimi}" />
 									<td>
+									<%-- Alkuperäinen hinta --%>
+									<%-- <input type="hidden" name="hinta" value="<c:out value='${p.hinta}'/>"/>
+									<fmt:formatNumber value="${p.hinta}" type="currency" currencySymbol=""  /> &euro; --%>
 
+									<%-- poisto nappulan hinta--%>
 									<input type="hidden" name="hinta" value="<c:out value='${p.hinta}'/>"/>
-									<fmt:formatNumber value="${p.hinta}" type="currency" currencySymbol=""  /> &euro;
-
-									<input type="hidden" name="hinta" value="<c:out value='${p.hinta}'/>"/>
+									<fmt:formatNumber value="${p.hinta}"  type="currency" currencySymbol=""  /> &euro;
 									<input type="hidden" value="${index}" name="poisto">
 									<button class="btn btn-danger" type="submit" name="Poista" value="Tallenna muutos" style="padding:3px; margin:1px">Poista</button>
 
