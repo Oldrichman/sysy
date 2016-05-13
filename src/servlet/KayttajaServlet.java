@@ -2,8 +2,10 @@ package servlet;
 
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.List;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -111,7 +113,11 @@ import DAO.KayttajaKirjausDAO;
 						throw new ServletException(e);
 						
 					}
-					response.sendRedirect("KayttajaServlet");
+					response.setContentType("text/html;charset=UTF-8");
+					 PrintWriter out = response.getWriter();
+					 out.println("<font color=red>Rekisteröinti onnistui!</font>");
+					 RequestDispatcher rd = getServletContext().getRequestDispatcher("/kotisivu.jsp");
+					 rd.include(request, response); //error page
 				}
 			else if (request.getParameter("email") != null
 					&& request.getParameter("action").equals("Tallenna tiedot")) {

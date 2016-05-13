@@ -88,7 +88,7 @@ public class Kontrolleri extends HttpServlet {
 			HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html");
 
-		request.setCharacterEncoding("UTF-8");
+		response.setCharacterEncoding("UTF-8");
 		
 		// Luetaan HTML-Lomakkeelle t�ytetyt tiedot
 
