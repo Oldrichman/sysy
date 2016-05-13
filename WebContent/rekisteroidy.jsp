@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+u<%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
@@ -185,7 +185,7 @@
                             
                            <!--  Post methodit tänne, että käyttäjä saa salasanan jne. -->
                             <div class="form-bottom">
-			                    <form role="form" action="KayttajaServlet" method="post" class="registration-form">
+			                    <form role="form" action="KayttajaServlet" method="get" class="registration-form">
 			                    	<div class="form-group">
 			                    		<label class="sr-only" for="form-first-name">Etunimi</label>
 			                        	<input type="text" name="etunimi" placeholder="Etunimi" class="form-first-name form-control" id="form-first-name">
@@ -207,7 +207,7 @@
 			                        	<input type="password" name="salasana" placeholder="Anna salasana uudestaan" class="form-email form-control" id="form-email">
 			                        </div>
 
-			                        <button type="submit" class="btnform">Rekisteröidy</button>
+			                        <button type="submit" class="btnform" value="">Rekisteröidy</button>
 
 	
 			                    </form>

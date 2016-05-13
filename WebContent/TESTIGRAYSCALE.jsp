@@ -75,6 +75,35 @@
 					<li><a class="page-scroll" href="#yhteystiedot">YHTEYSTIEDOT</a></li>
 					<li><a href="MenuKontrolleri">MENU</a></li>
 					<li><a href="">REKISTERÖIDY</a></li>
+					
+					<li class="dropdown"><a class="dropdown-toggle"
+						data-toggle="dropdown" href="">Ostoskori</a>
+						<div class="dropdown-menu" style="padding: 50px;">
+							<table class="table">
+							<thead class="thead-inverse">
+			<c:forEach items="${tilaus}" var="p">
+				<tr>
+					<form action="LisaaOstoskoriin" method="post">
+							<td><input type="hidden" value="${p.id}" name="tilausnumero">
+											<a style="color:#d9534f; font-size:10%; letter-spacing:3px; font-weight:900;">
+									
+									<c:out value="${p.nimi}" />
+									<td>
+									<c:out value="${p.hinta}" />
+									<td>	
+									<c:out value="${sessionScope.kokonaissumma}" /> </a>
+									</td>
+
+	
+								</form>
+								
+					
+				</tr>
+			</c:forEach>
+			</thead>
+			</table>
+							
+						</div> </li>
 
 					<li class="dropdown"><a class="dropdown-toggle"
 						data-toggle="dropdown" href="">KIRJAUDU</a>
