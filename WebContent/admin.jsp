@@ -242,7 +242,7 @@
 						<h4>Lisää pizza:</h4>
 						 Nimi:<br>
 						<input type="text" style="cursor:text;" name="nimi" class="form-control-admin"><br> Hinta:<br> 
-						<input type ="number"  name ="hinta" step = "0.01" class="form-control-admin" value= "${p.hinta}" /></input><br>
+						<input type ="number" style="cursor:text;" name ="hinta" step = "0.01" class="form-control-admin" value= "${p.hinta}" /></input><br>
 					
 						<input type="hidden" style="cursor:text;" name="poisto" value="Ei julkaistu"><br>
 							 Täytteet:
