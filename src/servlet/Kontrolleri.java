@@ -4,11 +4,13 @@ import java.io.IOException;
 import java.text.DecimalFormat;
 import java.util.List;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import DAO.JuomaDAO;
 import DAO.RaakaAineDAO;
@@ -32,6 +34,20 @@ public class Kontrolleri extends HttpServlet {
 			HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html");
 		java.io.PrintWriter wout = response.getWriter();
+		
+		String action = request.getParameter("action");
+		
+		if (action != null && action.equals("kirjaudu-ulos")) {
+				
+				
+				HttpSession session = request.getSession(false);
+				if (session != null) {
+					session.removeAttribute("Login");
+					session.invalidate();
+					response.sendRedirect(request.getContextPath() + "/");
+				}
+			}
+		else {
 
 		// TuoteDao haku
 		TuoteDao tDao = new TuoteDao();
@@ -83,12 +99,13 @@ public class Kontrolleri extends HttpServlet {
 		request.getRequestDispatcher("admin.jsp").forward(request, response);
 		}
 	//}
+	}
 
 	protected void doPost(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html");
 
-		response.setCharacterEncoding("UTF-8");
+		
 		
 		// Luetaan HTML-Lomakkeelle t�ytetyt tiedot
 
@@ -138,6 +155,9 @@ public class Kontrolleri extends HttpServlet {
 			response.sendRedirect("kontrolleri");
 	
 		} 
+			response.setCharacterEncoding("UTF-8");
+		
+
 		
 		
 
