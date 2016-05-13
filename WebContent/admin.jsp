@@ -301,6 +301,7 @@
  
 				<form action="kontrolleri" method="post">
 					<fieldset>
+					
 						<br><h4>Lisää raaka-aine:</h4>
 						Nimi:<br> <input type="text" style="cursor:text;" class="form-control-admin" name="lisaaRA"> <br><br>
 						<button class="btn btn-danger" type="submit" name="action" value="Lisää" style="padding:6px; margin:1px" title="Lisää uuden raaka-aineen tietokantaan">Lisää raaka-aine</button> 
@@ -313,6 +314,7 @@
 					
 					<form action="kontrolleri" method="post">
 					<fieldset>
+				
 						<br><h4>Lisää juoma:</h4>
 						Nimi ja koko:<br> <input type="text" class="form-control-admin" style="cursor:text;" name="LJU"> <br> 
 						Hinta:<br> <input type="number" class="form-control-admin" step = "0.01"  style="cursor:text;" name="HJU"><br>
