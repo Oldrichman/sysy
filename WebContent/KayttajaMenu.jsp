@@ -83,45 +83,45 @@
 					
 					<li><a href="KayttajaServlet">OMAT TIEDOT</a></li>
 								<li><a href="kotisivu.jsp">KIRJAUDU ULOS</a></li>
-								<!-- OSTOSKORINAVISSA -->
+								<!-- OSTOSKORINAVISSA K.F.-->
 						<li class="dropdown"><a class="dropdown-toggle"
 						data-toggle="dropdown" href=""><i class="fa fa-shopping-cart fa-lg"></i></a>
-						<div class="dropdown-menu" style="padding: 50px; background-color:black; opacity:0.9; border-radius:15px">
+						<div class="dropdown-menu" style="padding: 10px; background-color:black; opacity:0.9; border-radius:15px">
 						<br>
 						
-						<h2>Ostoskori</h2>
-	<table class="table table-bordered">
+						<h4>OSTOSKORI</h4>
+	<table class="table table-condensed">
 		<thead class="thead-inverse" >
 			
-    	<tr class="big"  style="font-size:50%;">
+    	<tr class="big" style="font-size:80%;">
      	 <th style="text-align:center">Pizza</th>
       		<th style="text-align:center">Hinta</th>
-     	 <th style="text-align:center">Kokonaissumma</th>
    		 </tr>
     
     
 		</thead>
 <thead class="thead-inverse">
 			<c:set var="index" value="${0}" />
-			<c:forEach items="${tilaus}" var="p">
+			<c:if test="${not empty sessionScope.kori }">
+			<c:forEach items="${sessionScope.kori}" var="p">
 				<tr>
 					<form action="LisaaOstoskoriin" method="post" style="color:white;">
-							<td><input type="hidden" value="${p.id}" name="tilausnumero">
-											<a style="color:#d9534f; font-size:50%; letter-spacing:3px;">
+							<td style="color:#d9534f; font-size:110%; letter-spacing:3px;"><input type="hidden" value="${p.id}" name="tilausnumero">
 									<c:out value="${p.nimi}" />
-									</td>
+									<td>
+									
+									
+									<%-- Alkuperäinen hinta --%>
+									<%-- <input type="hidden" name="hinta" value="<c:out value='${p.hinta}'/>"/>
+									<fmt:formatNumber value="${p.hinta}" type="currency" currencySymbol=""  /> &euro; --%>
 
+									<%-- poisto nappulan hinta--%>
 									<input type="hidden" name="hinta" value="<c:out value='${p.hinta}'/>"/>
-									<fmt:formatNumber value="${p.hinta}" type="currency" currencySymbol=""  /> &euro;
-
-									<c:out value="${p.hinta}" />
+									<fmt:formatNumber value="${p.hinta}"  type="currency" currencySymbol=""  /> &euro;
 									<input type="hidden" value="${index}" name="poisto">
-									<button type="submit" value="Poista" name="Poista">Poista</button>
+									
 
 									<td>	
-									<input type="hidden" name="hinta" value="<c:out value='${sessionScope.kokonaissumma}'/>"/>
-									<fmt:formatNumber value="${sessionScope.kokonaissumma}" type="currency" currencySymbol=""  /> &euro;
-									</a>
 									</td>
 
 									<c:set var="index" value="${index + 1}" />
@@ -129,6 +129,11 @@
 								</form>
 				</tr>
 			</c:forEach>
+			<td>
+					<label>Kokonaissumma</label><input type="hidden" name="hinta" value="<c:out value='${sessionScope.kokonaissumma}'/>"/>
+									<fmt:formatNumber value="${sessionScope.kokonaissumma}" type="currency" currencySymbol=""  /> &euro;
+									</td>
+			</c:if>
 			</thead>
 
 </table>
@@ -136,7 +141,7 @@
 										
 						
 			 </li>
-	<!-- OSTOSKORINAVISSALOPPUU! -->	
+	<!-- OSTOSKORINAVISSALOPPUU! K.F.-->
 							</form>
 						</div> </li>
 						
