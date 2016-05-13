@@ -123,20 +123,7 @@
 						<!-- <a href="#about" class="btn btn-circle page-scroll"> 
 						<i class="fa fa-angle-double-down animated"></i>
 						</a> -->
-					</div>
-				</div>
-			</div>
-		</div>
-	</header>
-
-	<!-- About Section -->
-<section id="about" class="container content-section text-center" style="box-shadow:  0px 155px 63px -165px rgba(245,245,245,0.9); border-radius:500px">
-		<div class="row">
-			<div class="col-lg-8 col-lg-offset-2">
-		
-
-			
-<h2>Ostoskori</h2>
+						<h2>Ostoskori</h2>
 	<table class="table table-bordered">
 		<thead class="thead-inverse" >
 			
@@ -161,9 +148,9 @@
 									<input type="hidden" name="hinta" value="<c:out value='${p.hinta}'/>"/>
 									<fmt:formatNumber value="${p.hinta}" type="currency" currencySymbol=""  /> &euro;
 
-									<c:out value="${p.hinta}" />
+									<input type="hidden" name="hinta" value="<c:out value='${p.hinta}'/>"/>
 									<input type="hidden" value="${index}" name="poisto">
-									<button type="submit" value="Poista" name="Poista">Poista</button>
+									<button class="btn btn-danger" type="submit" name="Poista" value="Tallenna muutos" style="padding:3px; margin:1px">Poista</button>
 
 									<td>	
 									<input type="hidden" name="hinta" value="<c:out value='${sessionScope.kokonaissumma}'/>"/>
@@ -179,16 +166,14 @@
 			</thead>
 
 </table>
-</div>
-</div>
-</section>		
-	
-	<section id="contact" class="container content-section text-center">
-		
-			
-		
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
 
-			
+
+	<section id="contact" class="container content-section text-center">
 		
 	</section>
 
