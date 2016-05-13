@@ -121,10 +121,11 @@ import DAO.KayttajaKirjausDAO;
 				}
 			else if (request.getParameter("email") != null
 					&& request.getParameter("action").equals("Tallenna tiedot")) {
-
+				HttpSession session = request.getSession(false);
 				KayttajaDao TDao = new KayttajaDao();
+				Kayttaja kayttaja = (Kayttaja) session.getAttribute("Login");
+				String email = kayttaja.getEmail();
 				String osoite = null;
-				String email = null;
 				String postinro = null;
 				String suosikkipitsa = null;
 			
@@ -141,9 +142,9 @@ import DAO.KayttajaKirjausDAO;
 				System.out.println("osoite: " + osoite );
 				try {
 					TDao.avaaYhteys();
-					TDao.paivitaOsoite(osoite, email);
-					TDao.paivitaPostinro(postinro, email);
-					TDao.paivitaSuosikkipitsa(suosikkipitsa, email);
+					TDao.paivitaOsoite(email,osoite);
+					TDao.paivitaPostinro(email,postinro);
+					TDao.paivitaSuosikkipitsa(email,suosikkipitsa);
 					TDao.suljeYhteys();
 				} catch (Exception e) {
 					throw new ServletException(e);
