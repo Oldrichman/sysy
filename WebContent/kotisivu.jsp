@@ -103,7 +103,35 @@
 									style="background-color:transparent; margin-top: 4px; font-size: 12px;" data-toggle="tooltip" title="Saat tunnukset rekisteröitymällä">Rekisteröidy
 									</a>
 						</div> </li>
+						
+						<!-- OSTOSKORINAVISSA -->
+						<li class="dropdown"><a class="dropdown-toggle"
+						data-toggle="dropdown" href="">OSTOSKORI</a>
+						<div class="dropdown-menu" style="padding: 100px;">
+						<br>
+				<label>jotain		
+			<c:forEach items="${tilaus}" var="p">
+				<tr>
+				
+					<form action="LisaaOstoskoriin" method="post" style="font-color:black;">
+							<td><input type="hidden" value="${p.id}" name="tilausnumero">		
+									<c:out value="${p.nimi}" />
+									<td>
+									<c:out value="${p.hinta}" />
+									<td>	
+									<c:out value="${sessionScope.kokonaissumma}" /> </a>
+									</td>
+
 	
+								</form>
+								
+				</tr>
+			</c:forEach>
+			</label>	
+			
+							
+						</div> </li>
+	<!-- OSTOSKORINAVISSALOPPUU! -->
 
 					
 				</ul>

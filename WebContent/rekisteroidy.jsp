@@ -207,7 +207,7 @@
 			                        	<input type="password" name="salasana" placeholder="Anna salasana uudestaan" class="form-email form-control" id="form-email">
 			                        </div>
 
-			                        <button type="submit" class="btnform">Rekisteröidy</button>
+			                        <button type="submit" class="btnform" value="">Rekisteröidy</button>
 
 	
 			                    </form>

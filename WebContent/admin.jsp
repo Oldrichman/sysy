@@ -82,7 +82,7 @@
 
 
 <!-- Tuotteet/Pizzat  -->
-	<div class="container" style="width:auto; margin-top:70px">
+	<div class="container-fluid" style="width:auto; margin-top:70px">
 
 			<fmt:formatDate pattern="H:mm" value="${kello}" />
 
@@ -149,8 +149,8 @@
 				<!-- Juomat  -->
 				
 
-<div class="container" style="width:auto; margin-top:60px;">
-  <div class="row">
+<div class="container-fluid" style="width:auto; margin-top:60px;">
+  <div class="row-fluid">
 <div class="col-md-6">				
 				
 				<br><h4 style="text-align:center;">Juomat</h4>
@@ -233,9 +233,9 @@
 		</div>
 </div>
 </div> --%>
-<div class="container">
-  <div class="row">
-    <div class="col-md-5" style="padding:20px; margin-left:-170px">
+<div class="container-fluid" style="align-self;">
+  <div class="row-fluid">
+    <div class="col-md-5" style="padding:px; margin-left:-10px">
 
 				<form action="kontrolleri" method="post">
 					<fieldset>
@@ -296,7 +296,8 @@
 
 </div>
 
- <div class="col-md-2" style="margin-left:-20px;">
+<div class="container-fluid" style="margin-left:left;">
+ <div class="col-md-4">
  
 				<form action="kontrolleri" method="post">
 					<fieldset>
@@ -324,7 +325,7 @@
 					
 			</div>
 			
-			<div class="col-xs-1" style="margin-left:-10px;">
+			<div class="col-md-2">
 				<br>
 				<h4 style="text-align:auto; margin-left:5px;">Täytteet</h4> 
 				<table class="table table-condensed" style="width:auto; text-align:center; border:none; border-style:none;">
@@ -345,7 +346,7 @@
 								</td>
 								
 								<td style="text-align:center">
-								
+							
 								
 								</td>
 							</form>
@@ -356,6 +357,7 @@
 
 
 				</table>
+				</div>
 				<br> <br> <br>
 				
 					</nav>
