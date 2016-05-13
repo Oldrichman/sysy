@@ -135,33 +135,42 @@
     
     
 		</thead>
-<thead class="thead-inverse">
+<tbody class="thead-inverse">
+
 			<c:set var="index" value="${0}" />
+			<form action="LisaaOstoskoriin" method="post">
+			
+			
+			
 			<c:forEach items="${tilaus}" var="p">
 				<tr>
-					<form action="LisaaOstoskoriin" method="post">
-							<td><input type="hidden" value="${p.id}" name="tilausnumero">
-											<a style="color:#d9534f; font-size:150%; letter-spacing:3px; font-weight:900;">
+							<td style="color:#d9534f; font-size:150%; letter-spacing:3px; font-weight:900;"><input type="hidden" value="${p.id}" name="tilausnumero">
+									
 									<c:out value="${p.nimi}" />
-									<td>
+									</td>
 									<%-- Alkuperäinen hinta --%>
 									<%-- <input type="hidden" name="hinta" value="<c:out value='${p.hinta}'/>"/>
 									<fmt:formatNumber value="${p.hinta}" type="currency" currencySymbol=""  /> &euro; --%>
-
+									<td>
 									<%-- poisto nappulan hinta--%>
 									<input type="hidden" name="hinta" value="<c:out value='${p.hinta}'/>"/>
 									<fmt:formatNumber value="${p.hinta}"  type="currency" currencySymbol=""  /> &euro;
 									<input type="hidden" value="${index}" name="poisto">
 									<button class="btn btn-danger" type="submit" name="Poista" value="Tallenna muutos" style="padding:3px; margin:1px">Poista</button>
-
+									</td>
 									<td>
-									<input type="hidden" name="hinta" value="<c:out value='${sessionScope.kokonaissumma}'/>"/>
-									<fmt:formatNumber value="${sessionScope.kokonaissumma}" type="currency" currencySymbol=""  /> &euro;
-									</a>
 									</td>
 
 									<c:set var="index" value="${index + 1}" />
-									
+
+				</tr>
+			</c:forEach>
+			<tr><td></td><td></td><td>
+												<input type="hidden" name="hinta" value="<c:out value='${sessionScope.kokonaissumma}'/>"/>
+									<fmt:formatNumber value="${sessionScope.kokonaissumma}" type="currency" currencySymbol=""  /> &euro;
+			</td></tr>
+			<br><tr><td>
+			
 									<label>Etunimi:</label>
 									<input type="text" name="etunimi">
 									<label>Sukunimi:</label>
@@ -170,14 +179,12 @@
 									<input type="tel" name="puh">
 									<label>Toimitusosoite:</label>
 									<input type="text" name="toimitusosoite">
-
-								</form>
-				</tr>
-			</c:forEach>
-			</thead>
+									</tr></td>
+			</form>
+			</tbody>
 
 </table>
-<<<<<<< HEAD
+
 							<a href="MenuKontrolleri">Jatka ostoksia</a>
 </div>
 </div>
@@ -187,13 +194,13 @@
 		
 			
 		
-=======
+
 					</div>
 				</div>
 			</div>
 		</div>
 	</header>
->>>>>>> 627169ebf0a192269297e53b24625084895f768e
+
 
 
 	<section id="contact" class="container content-section text-center">

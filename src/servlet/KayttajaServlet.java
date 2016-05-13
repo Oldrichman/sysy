@@ -59,7 +59,7 @@ import DAO.KayttajaKirjausDAO;
 									"no-cache, no-store, must-revalidate");
 							response.setDateHeader("Expires", -1);
 						
-						Kayttaja kayttaja = (Kayttaja) session.getAttribute("Login");
+							try { Kayttaja kayttaja = (Kayttaja) session.getAttribute("Login");
 						String email = kayttaja.getEmail();
 
 						List<Kayttaja> lista = null;
@@ -77,7 +77,10 @@ import DAO.KayttajaKirjausDAO;
 						// jsp hoitaa muotoilun
 						request.getRequestDispatcher("Kayttaja.jsp").forward(request, response);
 						
-						}
+						} catch (Exception e) {
+							throw new ServletException(e);
+							
+						}}
 						else {
 							response.sendRedirect(request.getContextPath() + "/");
 						}

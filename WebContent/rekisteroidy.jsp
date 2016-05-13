@@ -121,6 +121,60 @@
 									style="background-color:transparent; margin-top: 4px; font-size: 12px;" data-toggle="tooltip" title="Saat tunnukset rekisteröitymällä">Rekisteröidy
 									</a>
 						</div> </li>
+						<!-- OSTOSKORINAVISSA -->
+						<li class="dropdown"><a class="dropdown-toggle"
+						data-toggle="dropdown" href=""><i class="fa fa-shopping-cart fa-lg"></i></a>
+						<div class="dropdown-menu" style="padding: 50px; background-color:black; opacity:0.9; border-radius:15px">
+						<br>
+						
+						<h2>Ostoskori</h2>
+	<table class="table table-bordered">
+		<thead class="thead-inverse" >
+			
+    	<tr class="big"  style="font-size:50%;">
+     	 <th style="text-align:center">Pizza</th>
+      		<th style="text-align:center">Hinta</th>
+     	 <th style="text-align:center">Kokonaissumma</th>
+   		 </tr>
+    
+    
+		</thead>
+<thead class="thead-inverse">
+			<c:set var="index" value="${0}" />
+			<c:forEach items="${tilaus}" var="p">
+				<tr>
+					<form action="LisaaOstoskoriin" method="post" style="color:white;">
+							<td><input type="hidden" value="${p.id}" name="tilausnumero">
+											<a style="color:#d9534f; font-size:50%; letter-spacing:3px;">
+									<c:out value="${p.nimi}" />
+									</td>
+
+									<input type="hidden" name="hinta" value="<c:out value='${p.hinta}'/>"/>
+									<fmt:formatNumber value="${p.hinta}" type="currency" currencySymbol=""  /> &euro;
+
+									<c:out value="${p.hinta}" />
+									<input type="hidden" value="${index}" name="poisto">
+									<button type="submit" value="Poista" name="Poista">Poista</button>
+
+									<td>	
+									<input type="hidden" name="hinta" value="<c:out value='${sessionScope.kokonaissumma}'/>"/>
+									<fmt:formatNumber value="${sessionScope.kokonaissumma}" type="currency" currencySymbol=""  /> &euro;
+									</a>
+									</td>
+
+									<c:set var="index" value="${index + 1}" />
+
+								</form>
+				</tr>
+			</c:forEach>
+			</thead>
+
+</table>
+<a href="LisaaOstoskoriin">MENE OSTOSKORIIN</a>		
+										
+						
+			 </li>
+	<!-- OSTOSKORINAVISSALOPPUU! -->
 
 					
 				</ul>
@@ -185,26 +239,26 @@
                             
                            <!--  Post methodit tänne, että käyttäjä saa salasanan jne. -->
                             <div class="form-bottom">
-			                    <form role="form" action="KayttajaServlet" method="get" class="registration-form">
+			                    <form role="form" action="KayttajaServlet" method="post" class="registration-form">
 			                    	<div class="form-group">
 			                    		<label class="sr-only" for="form-first-name">Etunimi</label>
-			                        	<input type="text" name="etunimi" placeholder="Etunimi" class="form-first-name form-control" id="form-first-name">
+			                        	<input type="text" style="cursor:text;" name="etunimi" placeholder="Etunimi" class="form-first-name form-control" id="form-first-name">
 			                        </div>
 			                        <div class="form-group">
 			                        	<label class="sr-only" for="form-last-name">Sukunimi</label>
-			                        	<input type="text" name="sukunimi" placeholder="Sukunimi" class="form-last-name form-control" id="form-last-name">
+			                        	<input type="text" style="cursor:text;" name="sukunimi" placeholder="Sukunimi" class="form-last-name form-control" id="form-last-name">
 			                        </div>
 			                        <div class="form-group">
 			                        	<label class="sr-only" for="inputEmail">Sähköposti</label>
-			                        	<input type="text" name="email" placeholder="Sähköposti" class="form-email form-control" id="form-email">
+			                        	<input type="text" style="cursor:text;" name="email" placeholder="Sähköposti" class="form-email form-control" id="form-email">
 			                        </div>
 			                        <div class="form-group">
 			                        	<label class="sr-only" for="input">Salasana</label>
-			                        	<input type="password" name="salasana" placeholder="Aseta salasana" class="form-email form-control" id="form-email">
+			                        	<input type="password" style="cursor:text;" name="salasana" placeholder="Aseta salasana" class="form-email form-control" id="form-email">
 			                        </div>
 			                         <div class="form-group">
 			                        	<label class="sr-only" for="input">Salasana uudestaan</label>
-			                        	<input type="password" name="salasana" placeholder="Anna salasana uudestaan" class="form-email form-control" id="form-email">
+			                        	<input type="password" style="cursor:text;" name="salasana" placeholder="Anna salasana uudestaan" class="form-email form-control" id="form-email">
 			                        </div>
 
 			                        <button type="submit" class="btnform" value="">Rekisteröidy</button>

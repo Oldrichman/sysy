@@ -161,7 +161,7 @@ public class Kontrolleri extends HttpServlet {
 		
 		
 
-		else if (request.getParameter("LJU") != null 
+		 if (request.getParameter("LJU") != null 
 				&& request.getParameter("HJU") != null) {
 			
 			String Juoma = request.getParameter("LJU");

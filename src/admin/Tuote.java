@@ -67,6 +67,12 @@ public class Tuote {
 		this.taytteet = string;
 	}
 
+	@Override
+	public String toString() {
+		return "Tuote [id=" + id + ", nimi=" + nimi + ", taytteet=" + taytteet
+				+ ", hinta=" + hinta + ", poisto=" + poisto + "]";
+	}
+
 	
 	
 }

@@ -2,7 +2,7 @@ CREATE TABLE Asiakas(
 Id INT NOT NULL AUTO_INCREMENT,
 etunimi VARCHAR(20),
 sukunimi VARCHAR(30),
-email VARCHAR(30) NOT NULL,
+email VARCHAR(60) NOT NULL,
 osoite VARCHAR(30),
 postinro VARCHAR(5),
 salasana VARCHAR(300) NOT NULL,

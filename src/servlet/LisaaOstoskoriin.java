@@ -92,7 +92,7 @@ public class LisaaOstoskoriin extends HttpServlet {
 			}
 			
 			String tuoteID = "";
-			HttpSession sessio = request.getSession(false);
+			HttpSession sessio = request.getSession(true);
 			
 			//String koksum = String.valueOf(sessio.getAttribute("kokonaissumma")); 
 			
@@ -119,12 +119,13 @@ public class LisaaOstoskoriin extends HttpServlet {
 
 			}*/
 			
-			List<Tuote>kori = (List<Tuote>) sessio.getAttribute("kori");
+			List<Tuote> kori = new ArrayList<Tuote>();
 			
-			if(kori == null){
-				kori = new ArrayList<Tuote>();
-				sessio.setAttribute("kori", kori);
+			if (sessio.getAttribute("kori") != null) {
+			kori = (List<Tuote>) sessio.getAttribute("kori");
 			}
+			
+			sessio.setAttribute("kori", kori);
 			
 			
 			
@@ -145,15 +146,6 @@ public class LisaaOstoskoriin extends HttpServlet {
 //					tuoteID2, toimitustapa);
 			
 			Tilaus tamaTilaus = new Tilaus();
-
-			System.out.println("<p>");
-			System.out.println("<b>" + tamaTilaus.getAsiakastunnus() + "</b>");
-			System.out.println("<b> Määrä: " + tamaTilaus.getMaara() + "</b>");
-			System.out.println("<b> Kokonaissumma: " + sessio.getAttribute("kokonaissumma")
-					+ "</b>");
-			System.out.println("<br/>");
-			System.out.println(": " + tamaTilaus.getTuoteID());
-			System.out.println(": " + tamaTilaus.getToimitustapa());
 
 			int poistop = 0;
 			
