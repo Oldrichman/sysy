@@ -77,7 +77,7 @@
 					<li><a href="KayttajaMenu">MENU</a></li>
 					
 					<li><a href="KayttajaServlet">OMAT TIEDOT</a></li>
-						<li><a href="kotisivu.jsp">KIRJAUDU ULOS</a></li>		
+						<li><a href="kontrolleri?action=kirjaudu-ulos">KIRJAUDU ULOS</a></li>		
 							</form>
 						</div> </li>
 
