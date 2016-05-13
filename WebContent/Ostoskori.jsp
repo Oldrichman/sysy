@@ -157,25 +157,22 @@
 											<a style="color:#d9534f; font-size:150%; letter-spacing:3px; font-weight:900;">
 									<c:out value="${p.nimi}" />
 									<td>
-<<<<<<< HEAD
+
 									<input type="hidden" name="hinta" value="<c:out value='${p.hinta}'/>"/>
 									<fmt:formatNumber value="${p.hinta}" type="currency" currencySymbol=""  /> &euro;
-=======
+
 									<c:out value="${p.hinta}" />
 									<input type="hidden" value="${index}" name="poisto">
 									<button type="submit" value="Poista" name="Poista">Poista</button>
->>>>>>> 10e522d4d98e61bda432fa78b92dfd6438da6af9
+
 									<td>	
 									<input type="hidden" name="hinta" value="<c:out value='${sessionScope.kokonaissumma}'/>"/>
 									<fmt:formatNumber value="${sessionScope.kokonaissumma}" type="currency" currencySymbol=""  /> &euro;
 									</a>
 									</td>
-<<<<<<< HEAD
-=======
-									
-								
+
 									<c:set var="index" value="${index + 1}" />
->>>>>>> 10e522d4d98e61bda432fa78b92dfd6438da6af9
+
 								</form>
 				</tr>
 			</c:forEach>
