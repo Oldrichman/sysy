@@ -29,6 +29,7 @@
     
     </thead>
 <thead class="thead-inverse">
+			<c:set var="index" value="${0}" />
 			<c:forEach items="${tilaus}" var="p">
 				<tr>
 					<form action="LisaaOstoskoriin" method="post">
@@ -38,11 +39,14 @@
 									<c:out value="${p.nimi}" />
 									<td>
 									<c:out value="${p.hinta}" />
+									<input type="hidden" value="${index}" name="poisto">
+									<button type="submit" value="Poista" name="Poista">Poista</button>
 									<td>	
 									<c:out value="${sessionScope.kokonaissumma}" /> </a>
 									</td>
-
-	
+									
+								
+									<c:set var="index" value="${index + 1}" />
 								</form>
 								
 					

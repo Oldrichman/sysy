@@ -74,6 +74,7 @@ public class LisaaOstoskoriin extends HttpServlet {
 	protected void doPost(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html");
+		String poisto = request.getParameter("poisto");
 		TilausDAO tDao = new TilausDAO();
 		request.setCharacterEncoding("UTF-8");
 	/*	if (request.getParameter("tilausnumero").equals("Lisää ostoskoriin")){
@@ -93,12 +94,16 @@ public class LisaaOstoskoriin extends HttpServlet {
 			String tuoteID = "";
 			HttpSession sessio = request.getSession(false);
 			
-			String koksum = String.valueOf(sessio.getAttribute("kokonaissumma")); 
+			//String koksum = String.valueOf(sessio.getAttribute("kokonaissumma")); 
 			
 			
-			if(koksum != null && !koksum.isEmpty() && koksum != "null" ) {
+			
+			
+			/*if(koksum != null && !koksum.isEmpty() && koksum != "null" ) {
 				double summa = Double.parseDouble(koksum);
-				sessio.setAttribute("kokonaissumma", summa + Double.parseDouble(request.getParameter("hinta")));
+			 
+				
+				//sessio.setAttribute("kokonaissumma", summa + Double.parseDouble(request.getParameter("hinta")));
 				
 				
 			} else {
@@ -112,7 +117,7 @@ public class LisaaOstoskoriin extends HttpServlet {
 				sessio.setAttribute("kokonaissumma", pizza.getHinta());
 
 
-			}
+			}*/
 			
 			List<Tuote>kori = (List<Tuote>) sessio.getAttribute("kori");
 			
@@ -150,8 +155,23 @@ public class LisaaOstoskoriin extends HttpServlet {
 			System.out.println(": " + tamaTilaus.getTuoteID());
 			System.out.println(": " + tamaTilaus.getToimitustapa());
 
-
-
+			int poistop = 0;
+			
+			if(poisto != null && !poisto.isEmpty()){
+				poistop = Integer.parseInt(poisto);
+				kori.remove(poistop);
+				sessio.setAttribute("kori", kori);
+			}
+			
+			double yht = 0f;
+			
+			for (int i = 0; i < kori.size(); i++) {
+				yht += kori.get(i).getHinta();
+			}
+			
+			if(yht != 0){
+			sessio.setAttribute("kokonaissumma", yht);}
+			
 			try {
 				
 			
