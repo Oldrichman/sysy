@@ -51,6 +51,14 @@ import DAO.KayttajaKirjausDAO;
 						kDao.avaaYhteys();
 						
 						HttpSession session = request.getSession(false);
+						
+						if (session.getAttribute("Login") != null) {
+							
+							response.setHeader("Pragma", "No-cache");
+							response.setHeader("Cache-Control",
+									"no-cache, no-store, must-revalidate");
+							response.setDateHeader("Expires", -1);
+						
 						Kayttaja kayttaja = (Kayttaja) session.getAttribute("Login");
 						String email = kayttaja.getEmail();
 
@@ -69,6 +77,10 @@ import DAO.KayttajaKirjausDAO;
 						// jsp hoitaa muotoilun
 						request.getRequestDispatcher("Kayttaja.jsp").forward(request, response);
 						
+						}
+						else {
+							response.sendRedirect(request.getContextPath() + "/");
+						}
 					}
 		
 
@@ -79,7 +91,8 @@ import DAO.KayttajaKirjausDAO;
 				HttpServletResponse response) throws ServletException, IOException {
 			response.setContentType("text/html");
 
-			request.setCharacterEncoding("UTF-8");
+			
+			response.setCharacterEncoding("UTF-8");
 			
 			if (request.getParameter("email") != null){
 				
@@ -119,19 +132,22 @@ import DAO.KayttajaKirjausDAO;
 					 RequestDispatcher rd = getServletContext().getRequestDispatcher("/kotisivu.jsp");
 					 rd.include(request, response); //error page
 				}
-			else if (request.getParameter("email") != null
-					&& request.getParameter("action").equals("Tallenna tiedot")) {
-				HttpSession session = request.getSession(false);
+			else if (request.getParameter("action").equals("Tallenna tiedot")) {
+
 				KayttajaDao TDao = new KayttajaDao();
-				Kayttaja kayttaja = (Kayttaja) session.getAttribute("Login");
-				String email = kayttaja.getEmail();
 				String osoite = null;
 				String postinro = null;
 				String suosikkipitsa = null;
+				
+				HttpSession session = request.getSession(false);
+				Kayttaja kayttaja = (Kayttaja) session.getAttribute("Login");
+				
+				System.out.println(kayttaja.toString());
+				
+				String email = kayttaja.getEmail();
 			
 				try {
 					osoite = (request.getParameter("osoite"));
-					email = (request.getParameter("email"));
 					postinro = (request.getParameter("postinro"));
 					suosikkipitsa = (request.getParameter("suosikkipitsa"));
 					
@@ -140,11 +156,13 @@ import DAO.KayttajaKirjausDAO;
 				}
 				
 				System.out.println("osoite: " + osoite );
+				System.out.println("postinro " + postinro);
+				System.out.println("suosikkipizza " + suosikkipitsa);
 				try {
 					TDao.avaaYhteys();
-					TDao.paivitaOsoite(email,osoite);
-					TDao.paivitaPostinro(email,postinro);
-					TDao.paivitaSuosikkipitsa(email,suosikkipitsa);
+					TDao.paivitaOsoite(osoite, email);
+					TDao.paivitaPostinro(postinro, email);
+					TDao.paivitaSuosikkipitsa(suosikkipitsa, email);
 					TDao.suljeYhteys();
 				} catch (Exception e) {
 					throw new ServletException(e);
