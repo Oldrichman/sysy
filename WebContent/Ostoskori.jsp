@@ -123,7 +123,17 @@
 						<!-- <a href="#about" class="btn btn-circle page-scroll"> 
 						<i class="fa fa-angle-double-down animated"></i>
 						</a> -->
-						<h2>Ostoskori</h2>
+
+							</div>
+						</div>
+					</div>
+				</div>
+	</header>
+
+
+
+	<section id="contact" class="container content-section text-center" style="margin-top:-17cm">
+								<h1>Ostoskori</h1>
 	<table class="table table-bordered">
 		<thead class="thead-inverse" >
 			
@@ -179,6 +189,10 @@
 									<input type="tel" name="puh">
 									<label>Toimitusosoite:</label>
 									<input type="text" name="toimitusosoite">
+									<br><br>
+									
+									
+									<button class="btn btn-danger" type="submit" name="Tilaa" value="" style="padding:3px; margin:1px; font-size:160%">Tilaa</button>
 									</tr></td>
 			</form>
 			</tbody>
@@ -186,26 +200,11 @@
 </table>
 
 							<a href="MenuKontrolleri">Jatka ostoksia</a>
-</div>
-</div>
-</section>		
-	
-	<section id="contact" class="container content-section text-center">
-		
-			
-		
-
-					</div>
-				</div>
-			</div>
-		</div>
-	</header>
-
-
-
-	<section id="contact" class="container content-section text-center">
-		
+							<br>
+							<br>
 	</section>
+
+
 
 <!-- Map Section -->
 	<section id="yhteystiedot">
