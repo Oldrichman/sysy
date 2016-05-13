@@ -185,7 +185,7 @@
                             
                            <!--  Post methodit tänne, että käyttäjä saa salasanan jne. -->
                             <div class="form-bottom">
-			                    <form role="form" action="KayttajaServlet" method="get" class="registration-form">
+			                    <form role="form" action="KayttajaServlet" method="post" class="registration-form">
 			                    	<div class="form-group">
 			                    		<label class="sr-only" for="form-first-name">Etunimi</label>
 			                        	<input type="text" name="etunimi" placeholder="Etunimi" class="form-first-name form-control" id="form-first-name">
