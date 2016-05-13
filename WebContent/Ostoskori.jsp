@@ -165,13 +165,22 @@
 									<input type="hidden" value="${index}" name="poisto">
 									<button type="submit" value="Poista" name="Poista">Poista</button>
 
-									<td>	
+									<td>
 									<input type="hidden" name="hinta" value="<c:out value='${sessionScope.kokonaissumma}'/>"/>
 									<fmt:formatNumber value="${sessionScope.kokonaissumma}" type="currency" currencySymbol=""  /> &euro;
 									</a>
 									</td>
 
 									<c:set var="index" value="${index + 1}" />
+									
+									<label>Etunimi:</label>
+									<input type="text" name="etunimi">
+									<label>Sukunimi:</label>
+									<input type="text" name="sukunimi">
+									<label>Puhelinnumero:</label>
+									<input type="tel" name="puh">
+									<label>Toimitusosoite:</label>
+									<input type="text" name="toimitusosoite">
 
 								</form>
 				</tr>
@@ -179,6 +188,7 @@
 			</thead>
 
 </table>
+							<a href="MenuKontrolleri">Jatka ostoksia</a>
 </div>
 </div>
 </section>		
